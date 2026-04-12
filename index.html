@@ -1,59 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Bhaarat Capital — Loans, Insurance & Mutual Funds | Noida, UP</title>
-<meta name="description" content="Bhaarat Capital offers Home Loans, Personal Loans, Car Loans, Health Insurance, Life Insurance, and Mutual Funds in Noida. Fast approvals, lowest rates, expert guidance."/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bhaarat Capital — Loans, Insurance & Mutual Funds | Noida NCR</title>
+<meta name="description" content="Bhaarat Capital — Home Loans, Personal Loans, Car Loans, Health Insurance, Life Insurance and Mutual Funds in Noida. Lowest rates, fastest approvals."/>
+<script src="shared.js"></script>
 <style>
-:root{
-  --or:#F97316;--or2:#EA580C;--or3:#FED7AA;--sf:#F59E0B;
-  --wh:#fff;--bg:#FAFAF8;--lbg:#FFF7ED;--dk:#1C1917;--dk2:#292524;
-  --gy:#78716C;--lgr:#F5F5F4;--bd:#E7E5E4;
-  --sh:0 4px 24px rgba(249,115,22,.10);--shl:0 8px 40px rgba(0,0,0,.12);
-  --r:16px;--rs:10px;--fd:'Playfair Display',serif;--fb:'DM Sans',sans-serif;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--bg);color:var(--dk);overflow-x:hidden;line-height:1.65}
-a{text-decoration:none;color:inherit}ul{list-style:none}
-#nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);transition:box-shadow .3s}
-#nav.sc{box-shadow:var(--shl)}
-.ni{max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:1.2rem;padding:.75rem 2rem}
-.logo{font-family:var(--fd);font-size:1.5rem;font-weight:900;flex-shrink:0;color:var(--dk)}
-.lb{background:var(--or);color:#fff;padding:2px 6px;border-radius:5px;margin-right:1px}
-.la{color:var(--or)}
-.nl{display:flex;gap:1.2rem;flex:1;justify-content:center}
-.nl a{font-size:.82rem;font-weight:500;color:var(--gy);transition:color .2s;position:relative;white-space:nowrap}
-.nl a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:2px;background:var(--or);transform:scaleX(0);transition:transform .2s;border-radius:2px}
-.nl a:hover{color:var(--or)}.nl a:hover::after{transform:scaleX(1)}
-.nc{background:var(--or);color:#fff;padding:.5rem 1.1rem;border-radius:50px;font-size:.82rem;font-weight:600;white-space:nowrap;flex-shrink:0;transition:background .2s}
-.nc:hover{background:var(--or2)}
-.hb{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--dk);flex-shrink:0}
-.mm{display:none;flex-direction:column;background:#fff;border-top:1px solid var(--bd);padding:1rem 2rem;gap:.2rem}
-.mm a{padding:.55rem 0;font-weight:500;color:var(--gy);border-bottom:1px solid var(--bd);font-size:.9rem}
-.mm.op{display:flex}
-.tbar{background:var(--dk);padding:.55rem 0;overflow:hidden}
-.ttrack{display:flex;gap:2rem;white-space:nowrap;width:max-content;animation:mq 22s linear infinite}
-.ttrack span{color:#a8a29e;font-size:.8rem;font-weight:500}
-.ttrack b{color:var(--or);font-weight:700}
-.hero{min-height:100vh;background:linear-gradient(135deg,#fff7ed 0%,#fff 45%,#fef3c7 100%);display:flex;align-items:center;padding:7rem 2rem 4rem;position:relative;overflow:hidden}
+/* HERO */
+.hero{min-height:92vh;background:linear-gradient(135deg,#fff7ed 0%,#fff 45%,#fef3c7 100%);display:flex;align-items:center;padding:3rem 2rem 4rem;position:relative;overflow:hidden}
 .hbg{position:absolute;inset:0;background:radial-gradient(ellipse at 15% 30%,rgba(249,115,22,.07) 0%,transparent 55%),radial-gradient(ellipse at 85% 70%,rgba(245,158,11,.06) 0%,transparent 55%);pointer-events:none}
 .hinner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
-.hbadge{display:inline-flex;align-items:center;gap:.5rem;background:var(--or3);color:var(--or2);padding:.32rem 1rem;border-radius:50px;font-size:.8rem;font-weight:700;margin-bottom:1.3rem;letter-spacing:.02em}
+.hbadge{display:inline-flex;align-items:center;gap:.5rem;background:var(--or3);color:var(--or2);padding:.32rem 1rem;border-radius:50px;font-size:.8rem;font-weight:700;margin-bottom:1.3rem}
 .htitle{font-family:var(--fd);font-size:clamp(2.6rem,5vw,4rem);font-weight:900;line-height:1.08;color:var(--dk);margin-bottom:1.1rem}
 .hacc{color:var(--or)}
 .hsub{font-size:1.05rem;color:var(--gy);margin-bottom:.8rem;max-width:500px;line-height:1.7}
 .hfeat{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.8rem}
 .hftag{background:var(--lgr);color:var(--gy);padding:.25rem .75rem;border-radius:50px;font-size:.78rem;font-weight:500;border:1px solid var(--bd)}
 .hbtns{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:2.2rem}
-.bp{background:var(--or);color:#fff;padding:.85rem 1.8rem;border-radius:50px;font-weight:700;font-size:.95rem;transition:all .2s;display:inline-block;box-shadow:0 4px 18px rgba(249,115,22,.35)}
-.bp:hover{background:var(--or2);transform:translateY(-2px)}
-.bs{background:#fff;color:var(--or);padding:.85rem 1.8rem;border-radius:50px;font-weight:700;font-size:.95rem;border:2px solid var(--or);transition:all .2s;display:inline-block}
-.bs:hover{background:var(--or);color:#fff;transform:translateY(-2px)}
-.hstats{display:flex;align-items:center;gap:1.5rem;padding:1.3rem;background:#fff;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh);width:fit-content}
+.hstats{display:flex;align-items:center;gap:1.5rem;padding:1.3rem;background:#fff;border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh);width:fit-content;flex-wrap:wrap}
 .stn{display:block;font-family:var(--fd);font-size:1.9rem;font-weight:900;color:var(--or);line-height:1}
 .stl{font-size:.75rem;color:var(--gy);margin-top:.15rem;display:block}
 .std{width:1px;height:40px;background:var(--bd)}
@@ -64,64 +28,24 @@ a{text-decoration:none;color:inherit}ul{list-style:none}
 .hc2{top:38%;right:0;animation:float 3.2s ease-in-out infinite 1.1s}
 .hc3{bottom:12%;left:8%;animation:float 3.2s ease-in-out infinite 2.2s}
 .hci{font-size:1.9rem}.hct strong{display:block;font-size:.88rem}.hct span{font-size:.76rem;color:var(--gy)}
+/* MARQUEE */
 .mqstrip{background:var(--or);padding:.7rem 0;overflow:hidden}
 .mqtrack{display:flex;gap:2rem;white-space:nowrap;width:max-content;animation:mq 28s linear infinite}
 .mqtrack span{color:#fff;font-weight:600;font-size:.86rem}
 .mqtrack span.dot{opacity:.5;font-size:.55rem}
-.sec{padding:5rem 2rem}
-.con{max-width:1300px;margin:0 auto}
-.stag{display:inline-block;background:var(--or3);color:var(--or2);padding:.28rem .9rem;border-radius:50px;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.8rem}
-.stitle{font-family:var(--fd);font-size:clamp(1.9rem,4vw,2.9rem);font-weight:900;line-height:1.12;color:var(--dk);margin-bottom:.85rem}
-.sacc{color:var(--or)}
-.ssub{font-size:1rem;color:var(--gy);max-width:630px;line-height:1.75}
-.tc{text-align:center}.tc .ssub{margin:0 auto 2.5rem}
-.loan-sec{background:#fff}
-.loan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
-.lcard{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:1.7rem;transition:all .3s}
-.lcard:hover{transform:translateY(-5px);box-shadow:var(--shl);border-color:var(--or3)}
-.lcard.hot{background:var(--dk);border-color:var(--or);color:#fff}
-.lci{font-size:2.2rem;margin-bottom:.9rem}
-.lcard h3{font-family:var(--fd);font-size:1.3rem;margin-bottom:.45rem}
-.lcard p{font-size:.87rem;color:var(--gy);margin-bottom:1.1rem;line-height:1.65}
-.lcard.hot p{color:#a8a29e}
-.lmeta{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.3rem}
-.lmeta li{font-size:.83rem;display:flex;align-items:center;gap:.5rem;padding:.3rem 0;border-bottom:1px solid rgba(0,0,0,.05)}
-.lcard.hot .lmeta li{border-color:rgba(255,255,255,.08)}
-.ltag{background:var(--or3);color:var(--or2);padding:.12rem .55rem;border-radius:50px;font-size:.73rem;font-weight:600;white-space:nowrap;margin-left:auto;flex-shrink:0}
-.lcard.hot .ltag{background:rgba(249,115,22,.2);color:var(--or3)}
-.lbtn{display:inline-flex;align-items:center;gap:.4rem;background:var(--or);color:#fff;padding:.6rem 1.3rem;border-radius:50px;font-weight:600;font-size:.85rem;transition:all .2s}
-.lbtn:hover{background:var(--or2);gap:.7rem}
-.ins-sec{background:linear-gradient(135deg,var(--lbg),#fff8f0)}
-.ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
-.icard{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.7rem;transition:all .3s}
-.icard:hover{transform:translateY(-5px);box-shadow:var(--shl);border-color:var(--or3)}
-.icard.feat{background:var(--or);color:#fff;border-color:var(--or)}
-.ici{font-size:2.2rem;margin-bottom:.9rem}
-.icard h3{font-family:var(--fd);font-size:1.25rem;margin-bottom:.45rem}
-.icard p{font-size:.87rem;color:var(--gy);margin-bottom:1rem;line-height:1.65}
-.icard.feat p{color:rgba(255,255,255,.85)}
-.ibullet{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1.2rem}
-.ibullet li{font-size:.83rem;padding:.28rem 0;border-bottom:1px solid rgba(0,0,0,.05);display:flex;align-items:flex-start;gap:.45rem;line-height:1.5}
-.icard.feat .ibullet li{border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.9)}
-.ibtn{display:inline-flex;align-items:center;gap:.4rem;background:var(--lbg);color:var(--or2);padding:.58rem 1.2rem;border-radius:50px;font-weight:600;font-size:.85rem;transition:all .2s;border:1px solid var(--or3)}
-.ibtn:hover{background:var(--or);color:#fff;border-color:var(--or);gap:.7rem}
-.icard.feat .ibtn{background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.3)}
-.icard.feat .ibtn:hover{background:rgba(255,255,255,.3)}
-.elig-sec{background:#fff}
-.elig-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;margin-top:2.5rem}
-.esteps{display:flex;flex-direction:column;gap:1rem}
-.estep{display:flex;gap:1.1rem;align-items:flex-start;padding:1.2rem;background:var(--bg);border-radius:var(--r);border:1px solid var(--bd);transition:all .2s}
-.estep:hover{border-color:var(--or3);box-shadow:var(--sh)}
-.enum{width:40px;height:40px;border-radius:50%;background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
-.estep h4{font-weight:700;margin-bottom:.25rem;font-size:.92rem}
-.estep p{font-size:.83rem;color:var(--gy);line-height:1.6}
-.edoc{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:1.8rem}
-.edoc h3{font-family:var(--fd);font-size:1.35rem;margin-bottom:1.2rem;padding-bottom:.9rem;border-bottom:2px solid var(--or3)}
-.doclist{display:flex;flex-direction:column;gap:.6rem}
-.docitem{display:flex;align-items:flex-start;gap:.75rem;font-size:.87rem;padding:.55rem 0;border-bottom:1px solid var(--bd);line-height:1.5}
-.dicon{color:var(--or);font-size:1rem;flex-shrink:0;margin-top:.1rem}
-.einfo{margin-top:1.3rem;background:var(--or3);padding:1.1rem;border-radius:var(--rs);border-left:4px solid var(--or)}
-.einfo p{font-size:.83rem;color:var(--or2);line-height:1.6}
+/* SERVICES PREVIEW */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.svc-card{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:2rem;transition:all .3s;text-align:center}
+.svc-card:hover{transform:translateY(-5px);box-shadow:var(--shl);border-color:var(--or3)}
+.svc-card.hot{background:var(--dk);color:#fff;border-color:var(--or)}
+.sci{font-size:2.5rem;margin-bottom:1rem}
+.svc-card h3{font-family:var(--fd);font-size:1.3rem;margin-bottom:.5rem}
+.svc-card p{font-size:.87rem;color:var(--gy);margin-bottom:1.3rem;line-height:1.65}
+.svc-card.hot p{color:#a8a29e}
+.svc-tags{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-bottom:1.3rem}
+.svt{background:var(--or3);color:var(--or2);padding:.2rem .65rem;border-radius:50px;font-size:.75rem;font-weight:600}
+.svc-card.hot .svt{background:rgba(249,115,22,.2);color:var(--or3)}
+/* WHY SECTION */
 .why-sec{background:var(--dk)}
 .why-sec .stag{background:rgba(249,115,22,.2);color:var(--or3)}
 .why-sec .stitle{color:#fff}
@@ -129,45 +53,20 @@ a{text-decoration:none;color:inherit}ul{list-style:none}
 .wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;margin-top:2.5rem}
 .wcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:1.6rem;transition:all .3s;text-align:center}
 .wcard:hover{background:rgba(249,115,22,.1);border-color:var(--or);transform:translateY(-4px)}
-.wicon{width:58px;height:58px;border-radius:var(--rs);background:rgba(249,115,22,.15);display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 1.1rem}
-.wcard h4{color:#fff;font-size:.95rem;font-weight:700;margin-bottom:.45rem}
-.wcard p{color:#a8a29e;font-size:.83rem;line-height:1.65}
-.lf-sec{background:linear-gradient(135deg,#fff7ed,#fff)}
-.fwrap{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
-.fwrap.rev{direction:rtl}.fwrap.rev>*{direction:ltr}
-.fleft p{color:var(--gy);font-size:.9rem;margin-bottom:1.3rem;line-height:1.7}
-.fperks{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.4rem}
-.fperk{font-size:.88rem;font-weight:500;color:var(--dk);display:flex;align-items:center;gap:.45rem}
-.frates{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:1.2rem}
-.frates h5{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gy);margin-bottom:.75rem}
-.rrow{display:flex;justify-content:space-between;padding:.38rem 0;border-bottom:1px solid var(--bd);font-size:.83rem}
-.rrow:last-child{border:none}
-.rrow strong{color:var(--or)}
-.cform{background:#fff;padding:2.2rem;border-radius:var(--r);box-shadow:var(--shl);border:1px solid var(--bd)}
-.cform h3{font-family:var(--fd);font-size:1.45rem;margin-bottom:.25rem}
-.cform .fsub{font-size:.82rem;color:var(--gy);margin-bottom:1.3rem;padding-bottom:1.1rem;border-bottom:2px solid var(--or3)}
-.frow2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.fg{margin-bottom:.9rem}
-.fg label{display:block;font-size:.8rem;font-weight:600;color:var(--dk);margin-bottom:.35rem}
-.fg input,.fg select,.fg textarea{width:100%;padding:.72rem .9rem;border:1.5px solid var(--bd);border-radius:var(--rs);font-family:var(--fb);font-size:.88rem;color:var(--dk);background:var(--bg);transition:all .2s;outline:none}
-.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--or);box-shadow:0 0 0 3px rgba(249,115,22,.1);background:#fff}
-.sbtn{width:100%;padding:.95rem;background:var(--or);color:#fff;border:none;border-radius:50px;font-family:var(--fb);font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;margin-top:.25rem;box-shadow:0 4px 16px rgba(249,115,22,.3)}
-.sbtn:hover{background:var(--or2);transform:translateY(-2px)}
-.sbtn:disabled{background:var(--gy);cursor:not-allowed;transform:none;box-shadow:none}
-.sbtn.grn{background:#16A34A;box-shadow:0 4px 16px rgba(22,163,74,.3)}
-.sbtn.grn:hover{background:#15803D}
-.smsg{padding:.85rem 1rem;border-radius:var(--rs);margin-top:.7rem;font-weight:500;font-size:.87rem;display:none}
-.smsg.ok{background:#f0fdf4;color:#15803D;border:1px solid #bbf7d0}
-.smsg.err{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
-.fdis{font-size:.73rem;color:var(--gy);margin-top:.7rem;text-align:center;line-height:1.5}
-.rates-sec{background:var(--lbg)}
-.rtab{width:100%;border-collapse:collapse;margin-top:2rem;background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
-.rtab th{background:var(--dk);color:#fff;padding:.9rem 1.1rem;text-align:left;font-size:.82rem;font-weight:600;letter-spacing:.03em}
-.rtab td{padding:.85rem 1.1rem;font-size:.85rem;border-bottom:1px solid var(--bd);vertical-align:top;line-height:1.6}
-.rtab tr:last-child td{border-bottom:none}
-.rtab tr:hover td{background:var(--lbg)}
-.rtag{background:var(--or3);color:var(--or2);padding:.18rem .65rem;border-radius:50px;font-size:.73rem;font-weight:600;white-space:nowrap;display:inline-block}
-.testi-sec{background:#fff}
+.wicon{width:56px;height:56px;border-radius:var(--rs);background:rgba(249,115,22,.15);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 1rem}
+.wcard h4{color:#fff;font-size:.92rem;font-weight:700;margin-bottom:.4rem}
+.wcard p{color:#a8a29e;font-size:.82rem;line-height:1.65}
+/* BLOG PREVIEW */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.bcard{background:#fff;border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;transition:all .3s}
+.bcard:hover{transform:translateY(-4px);box-shadow:var(--shl)}
+.bcard-body{padding:1.5rem}
+.bcat{display:inline-block;background:var(--or3);color:var(--or2);padding:.2rem .7rem;border-radius:50px;font-size:.73rem;font-weight:700;margin-bottom:.7rem}
+.bcard h3{font-family:var(--fd);font-size:1.15rem;margin-bottom:.6rem;line-height:1.35}
+.bcard p{font-size:.85rem;color:var(--gy);line-height:1.65;margin-bottom:1rem}
+.bcard-footer{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--gy)}
+.bread{color:var(--or);font-weight:600;font-size:.82rem}
+/* TESTIMONIALS */
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
 .tcard{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:1.8rem;transition:all .3s}
 .tcard:hover{transform:translateY(-4px);box-shadow:var(--shl)}
@@ -176,149 +75,42 @@ a{text-decoration:none;color:inherit}ul{list-style:none}
 .tcard.feat .tqmark{color:rgba(255,255,255,.3)}
 .tcard p{font-size:.9rem;color:var(--gy);line-height:1.75;margin-bottom:1.4rem;font-style:italic}
 .tcard.feat p{color:rgba(255,255,255,.9)}
-.tstars{font-size:.95rem;margin-bottom:.65rem;letter-spacing:.1em}
+.tstars{font-size:.95rem;margin-bottom:.65rem}
 .tauth{display:flex;align-items:center;gap:.85rem}
 .tav{width:44px;height:44px;border-radius:50%;background:var(--or3);color:var(--or);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0}
 .tcard.feat .tav{background:rgba(255,255,255,.2);color:#fff}
 .tauth strong{display:block;font-size:.88rem}
 .tauth small{font-size:.76rem;color:var(--gy)}
 .tcard.feat small{color:rgba(255,255,255,.6)}
-.faq-sec{background:var(--lbg)}
-.faq-wrap{max-width:800px;margin:2.5rem auto 0}
-.fitem{background:#fff;border:1px solid var(--bd);border-radius:var(--rs);margin-bottom:.7rem;overflow:hidden;transition:all .2s}
-.fitem.open{border-color:var(--or);box-shadow:var(--sh)}
-.fq{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.4rem;cursor:pointer;font-weight:600;font-size:.92rem;gap:1rem;user-select:none}
-.fq:hover{color:var(--or)}
-.farr{width:26px;height:26px;border-radius:50%;background:var(--or3);color:var(--or);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;transition:transform .3s}
-.fitem.open .farr{transform:rotate(45deg);background:var(--or);color:#fff}
-.fa{padding:0 1.4rem;max-height:0;overflow:hidden;transition:all .3s;font-size:.87rem;color:var(--gy);line-height:1.75}
-.fitem.open .fa{padding:0 1.4rem 1.1rem;max-height:500px}
-.about-sec{background:var(--dk)}
-.about-sec .stag{background:rgba(249,115,22,.2);color:var(--or3)}
-.about-sec .stitle{color:#fff}
-.agrid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;margin-top:2.5rem}
-.aleft p{color:#a8a29e;font-size:.9rem;line-height:1.8;margin-bottom:.9rem}
-.acontact{display:flex;flex-direction:column;gap:.75rem;margin-top:1.6rem}
-.aci{display:flex;align-items:flex-start;gap:.75rem;font-size:.86rem;color:#a8a29e}
-.aci a{color:var(--or)}.acii{font-size:1rem;flex-shrink:0;margin-top:.1rem}
-.aright{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
-.acard{padding:1.8rem;border-radius:var(--r);text-align:center;border:1px solid rgba(255,255,255,.08);transition:all .3s;background:rgba(255,255,255,.04)}
-.acard:hover{transform:translateY(-4px);border-color:var(--or)}
-.acard.ac2{background:var(--or);border-color:var(--or)}
-.acn{font-family:var(--fd);font-size:2.4rem;font-weight:900;color:var(--or);margin-bottom:.25rem}
-.acard.ac2 .acn{color:#fff}
-.acl{font-size:.82rem;color:#a8a29e;font-weight:500}
-.acard.ac2 .acl{color:rgba(255,255,255,.8)}
-.part-sec{background:#fff;padding:3.5rem 2rem}
+/* CTA BANNER */
+.cta-banner{background:var(--or);padding:4rem 2rem;text-align:center}
+.cta-banner h2{font-family:var(--fd);font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;margin-bottom:.8rem}
+.cta-banner p{color:rgba(255,255,255,.85);font-size:1rem;margin-bottom:2rem;max-width:550px;margin-left:auto;margin-right:auto}
+.cta-wbtn{background:#fff;color:var(--or);padding:.9rem 2rem;border-radius:50px;font-weight:700;font-size:1rem;display:inline-block;transition:all .2s;margin:0 .5rem}
+.cta-wbtn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.cta-wbtn.inv{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.cta-wbtn.inv:hover{background:rgba(255,255,255,.1)}
+/* PARTNER TAGS */
 .pgrid{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:1.8rem}
-.ptag{background:var(--bg);border:1px solid var(--bd);border-radius:var(--rs);padding:.6rem 1.2rem;font-size:.85rem;font-weight:600;color:var(--gy);transition:all .2s}
+.ptag{background:var(--bg);border:1px solid var(--bd);border-radius:var(--rs);padding:.55rem 1.1rem;font-size:.83rem;font-weight:600;color:var(--gy);transition:all .2s}
 .ptag:hover{border-color:var(--or);color:var(--or);background:var(--lbg)}
-.contact-sec{background:var(--lbg)}
-.cgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem;margin-top:2.5rem}
-.ccard{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:1.8rem;transition:all .3s;display:flex;flex-direction:column;gap:.45rem}
-.ccard:hover{border-color:var(--or);box-shadow:var(--shl);transform:translateY(-3px)}
-.ccard.wa:hover{border-color:#25D366;box-shadow:0 8px 40px rgba(37,211,102,.15)}
-.cicon{font-size:2.3rem;margin-bottom:.4rem}
-.ccard h4{font-size:1.05rem;font-weight:700}
-.ccard p{font-size:.88rem;color:var(--gy)}
-.ccard a{color:var(--or);font-weight:600;font-size:.92rem}
-.ccard.wa a{color:#25D366}
-.cbottom{background:var(--dk);border-radius:var(--r);padding:2.2rem;margin-top:1.8rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.cbottom h3{font-family:var(--fd);font-size:1.6rem;color:#fff;line-height:1.2}
-.cbottom p{color:#a8a29e;font-size:.88rem;margin-top:.4rem}
-.footer{background:#0c0a09;padding:3.5rem 2rem 2rem}
-.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;max-width:1300px;margin:0 auto}
-.fbrand .logo{color:#fff;margin-bottom:.9rem}
-.fbrand p{font-size:.86rem;color:#a8a29e;line-height:1.75;margin-bottom:1.1rem}
-.fsoc{display:flex;gap:.7rem;flex-wrap:wrap}
-.fsoc a{padding:.32rem .85rem;border-radius:50px;border:1px solid rgba(255,255,255,.1);font-size:.8rem;font-weight:500;color:#fff;transition:all .2s}
-.fsoc a:hover{background:var(--or);border-color:var(--or)}
-.fcol h5{font-size:.8rem;font-weight:700;color:#fff;margin-bottom:.9rem;text-transform:uppercase;letter-spacing:.06em}
-.fcol a{display:block;font-size:.83rem;color:#a8a29e;margin-bottom:.45rem;transition:color .2s}
-.fcol a:hover{color:var(--or)}
-.fbot{max-width:1300px;margin:2rem auto 0;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;font-size:.8rem;color:#78716c;flex-wrap:wrap;gap:.5rem}
-.fbot a{color:var(--gy);transition:color .2s}.fbot a:hover{color:var(--or)}
-.waf{position:fixed;bottom:1.8rem;right:1.8rem;z-index:998;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:all .3s;animation:pgr 2.5s ease-in-out infinite}
-.waf:hover{transform:scale(1.12);background:#128C7E}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:.3}50%{transform:scale(1.1);opacity:.18}}
-@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes pgr{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45)}50%{box-shadow:0 4px 40px rgba(37,211,102,.75)}}
-.anim{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
-.anim.vis{opacity:1;transform:translateY(0)}
-@media(max-width:1024px){
-.hinner{grid-template-columns:1fr}.hrgt{display:none}
-.loan-grid,.ins-grid,.tgrid{grid-template-columns:1fr 1fr}
-.wgrid{grid-template-columns:1fr 1fr}
-.elig-grid{grid-template-columns:1fr}
-.agrid{grid-template-columns:1fr}
-.fgrid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:768px){
-.nl{display:none}.nc{display:none}.hb{display:block}
-.loan-grid,.ins-grid,.tgrid,.wgrid,.cgrid,.fwrap{grid-template-columns:1fr}
-.fwrap.rev{direction:ltr}
-.frow2{grid-template-columns:1fr}
-.aright{grid-template-columns:1fr 1fr}
-.cbottom{flex-direction:column}
-.sec{padding:3.5rem 1.5rem}
-.fgrid{grid-template-columns:1fr 1fr}
-.rtab{font-size:.78rem}
-.rtab th,.rtab td{padding:.65rem .8rem}
-.cgrid{grid-template-columns:1fr}
-}
-@media(max-width:480px){.fgrid{grid-template-columns:1fr}.aright{grid-template-columns:1fr}}
+@media(max-width:1024px){.hinner{grid-template-columns:1fr}.hrgt{display:none}.svc-grid,.tgrid{grid-template-columns:1fr 1fr}.wgrid{grid-template-columns:1fr 1fr}.blog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.svc-grid,.tgrid,.wgrid,.blog-grid{grid-template-columns:1fr}.hstats{justify-content:center}}
 </style>
 </head>
 <body>
-<nav id="nav">
-  <div class="ni">
-    <div class="logo"><span class="lb">B</span>haarat<span class="la">Capital</span></div>
-    <ul class="nl">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#loans">Loans</a></li>
-      <li><a href="#insurance">Insurance</a></li>
-      <li><a href="#eligibility">Eligibility</a></li>
-      <li><a href="#rates">Rates</a></li>
-      <li><a href="#apply">Apply Now</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#about">About Us</a></li>
-    </ul>
-    <a href="tel:+917982810014" class="nc">📞 +91 79828 10014</a>
-    <button class="hb" id="hb">☰</button>
-  </div>
-  <div class="mm" id="mm">
-    <a href="#home">Home</a><a href="#loans">Loans</a><a href="#insurance">Insurance</a>
-    <a href="#eligibility">Eligibility</a><a href="#rates">Rates</a>
-    <a href="#apply">Apply Now</a><a href="#faq">FAQ</a><a href="#about">About Us</a>
-    <a href="tel:+917982810014" style="color:var(--or);font-weight:700">📞 +91 79828 10014</a>
-  </div>
-</nav>
-<div class="tbar" style="margin-top:61px">
-  <div class="ttrack">
-    <span>🏆 <b>RBI Registered Partner</b></span><span> | </span>
-    <span>✅ <b>500+</b> Happy Clients</span><span> | </span>
-    <span>💰 <b>₹50 Crore+</b> Loans Disbursed</span><span> | </span>
-    <span>🏦 <b>20+ Banks</b> Network</span><span> | </span>
-    <span>⚡ <b>24-Hour</b> Approval Process</span><span> | </span>
-    <span>🛡️ <b>15+ Insurance</b> Partners</span><span> | </span>
-    <span>📍 Noida · Bisrakh · Greater Noida · NCR</span><span> | </span>
-    <span>🏆 <b>RBI Registered Partner</b></span><span> | </span>
-    <span>✅ <b>500+</b> Happy Clients</span><span> | </span>
-    <span>💰 <b>₹50 Crore+</b> Loans Disbursed</span><span> | </span>
-    <span>🏦 <b>20+ Banks</b> Network</span><span> | </span>
-    <span>⚡ <b>24-Hour</b> Approval Process</span><span> | </span>
-    <span>🛡️ <b>15+ Insurance</b> Partners</span><span> | </span>
-    <span>📍 Noida · Bisrakh · Greater Noida · NCR</span><span> | </span>
-  </div>
-</div>
-<section id="home" class="hero">
+<script>injectCSS(); injectNav("Home");</script>
+
+<!-- HERO -->
+<section class="hero">
   <div class="hbg"></div>
   <div class="hinner con">
-    <div class="hleft">
+    <div>
       <div class="hbadge">🇮🇳 Trusted Financial Partner — Noida NCR</div>
       <h1 class="htitle">Empowering Your Dreams,<br/><span class="hacc">Securing Your Future</span></h1>
-      <p class="hsub">India's trusted financial services company offering Home Loans, Personal Loans, Car Loans, Health Insurance, Life Insurance, and Mutual Fund investments — all under one roof, with the best rates and fastest approvals.</p>
+      <p class="hsub">India's trusted financial services company — Home Loans, Personal Loans, Car Loans, Health Insurance, Life Insurance, and Mutual Fund investments, all under one roof.</p>
       <div class="hfeat">
         <span class="hftag">✓ Lowest Interest Rates</span>
         <span class="hftag">✓ Minimal Documentation</span>
@@ -328,17 +120,17 @@ a{text-decoration:none;color:inherit}ul{list-style:none}
         <span class="hftag">✓ 20+ Bank Partners</span>
       </div>
       <div class="hbtns">
-        <a href="#apply" class="bp">Apply for Loan — Free</a>
-        <a href="#insurance" class="bs">Get Insurance Quote</a>
+        <a href="contact.html#loan-form" class="bp">Apply for Loan — Free</a>
+        <a href="services.html" class="bs">Explore Services</a>
       </div>
       <div class="hstats">
-        <div class="stat"><span class="stn">500+</span><span class="stl">Happy Clients</span></div>
+        <div><span class="stn">500+</span><span class="stl">Happy Clients</span></div>
         <div class="std"></div>
-        <div class="stat"><span class="stn">₹50Cr+</span><span class="stl">Loans Disbursed</span></div>
+        <div><span class="stn">₹50Cr+</span><span class="stl">Loans Disbursed</span></div>
         <div class="std"></div>
-        <div class="stat"><span class="stn">20+</span><span class="stl">Bank Partners</span></div>
+        <div><span class="stn">20+</span><span class="stl">Bank Partners</span></div>
         <div class="std"></div>
-        <div class="stat"><span class="stn">5+</span><span class="stl">Years Exp.</span></div>
+        <div><span class="stn">5+</span><span class="stl">Years Exp.</span></div>
       </div>
     </div>
     <div class="hrgt">
@@ -349,374 +141,141 @@ a{text-decoration:none;color:inherit}ul{list-style:none}
     </div>
   </div>
 </section>
+
+<!-- MARQUEE -->
 <div class="mqstrip">
   <div class="mqtrack">
-    <span>Home Loan</span><span class="dot">●</span><span>Personal Loan</span><span class="dot">●</span><span>Car Loan</span><span class="dot">●</span><span>Business Loan</span><span class="dot">●</span><span>Gold Loan</span><span class="dot">●</span><span>Loan Against Property</span><span class="dot">●</span><span>Health Insurance</span><span class="dot">●</span><span>Life Insurance</span><span class="dot">●</span><span>Motor Insurance</span><span class="dot">●</span><span>Term Plan</span><span class="dot">●</span><span>Corporate Insurance</span><span class="dot">●</span><span>Mutual Funds</span><span class="dot">●</span><span>SIP Investment</span><span class="dot">●</span><span>Retirement Planning</span><span class="dot">●</span>
-    <span>Home Loan</span><span class="dot">●</span><span>Personal Loan</span><span class="dot">●</span><span>Car Loan</span><span class="dot">●</span><span>Business Loan</span><span class="dot">●</span><span>Gold Loan</span><span class="dot">●</span><span>Loan Against Property</span><span class="dot">●</span><span>Health Insurance</span><span class="dot">●</span><span>Life Insurance</span><span class="dot">●</span><span>Motor Insurance</span><span class="dot">●</span><span>Term Plan</span><span class="dot">●</span><span>Corporate Insurance</span><span class="dot">●</span><span>Mutual Funds</span><span class="dot">●</span><span>SIP Investment</span><span class="dot">●</span><span>Retirement Planning</span><span class="dot">●</span>
+    <span>Home Loan</span><span class="dot">●</span><span>Personal Loan</span><span class="dot">●</span><span>Car Loan</span><span class="dot">●</span><span>Business Loan</span><span class="dot">●</span><span>Gold Loan</span><span class="dot">●</span><span>Health Insurance</span><span class="dot">●</span><span>Life Insurance</span><span class="dot">●</span><span>Motor Insurance</span><span class="dot">●</span><span>Term Plan</span><span class="dot">●</span><span>Mutual Funds</span><span class="dot">●</span><span>SIP Investment</span><span class="dot">●</span><span>Corporate Insurance</span><span class="dot">●</span>
+    <span>Home Loan</span><span class="dot">●</span><span>Personal Loan</span><span class="dot">●</span><span>Car Loan</span><span class="dot">●</span><span>Business Loan</span><span class="dot">●</span><span>Gold Loan</span><span class="dot">●</span><span>Health Insurance</span><span class="dot">●</span><span>Life Insurance</span><span class="dot">●</span><span>Motor Insurance</span><span class="dot">●</span><span>Term Plan</span><span class="dot">●</span><span>Mutual Funds</span><span class="dot">●</span><span>SIP Investment</span><span class="dot">●</span><span>Corporate Insurance</span><span class="dot">●</span>
   </div>
 </div>
-<section id="loans" class="sec loan-sec">
-  <div class="con">
-    <div class="tc"><span class="stag">Loan Products</span>
-    <h2 class="stitle">Loans: Funding Your Dreams, <span class="sacc">Your Way</span></h2>
-    <p class="ssub">Comprehensive range of loan products tailored to your lifestyle and financial goals. We compare rates from 20+ leading banks and NBFCs to get you the absolute best deal.</p></div>
-    <div class="loan-grid">
-      <div class="lcard anim"><div class="lci">🏠</div><h3>Home Loan</h3><p>Turn your dream of owning a home into reality. We work with 20+ banks to secure the lowest interest rate available in the market, with flexible tenures up to 30 years.</p>
-      <ul class="lmeta"><li>💰 Interest Rate<span class="ltag">From 8.40% p.a.</span></li><li>📅 Loan Tenure<span class="ltag">Up to 30 Years</span></li><li>💵 Loan Amount<span class="ltag">₹5 Lakh – ₹10 Crore</span></li><li>⚡ Processing<span class="ltag">3–7 Working Days</span></li><li>📋 LTV Ratio<span class="ltag">Up to 90%</span></li></ul>
-      <a href="#apply" class="lbtn">Apply Now →</a></div>
-      <div class="lcard hot anim"><div class="lci">👤</div><h3>Personal Loan</h3><p>Instant funds for emergencies, weddings, travel, or home renovation. No collateral required, minimal documentation, and same-day disbursal for eligible applicants.</p>
-      <ul class="lmeta"><li>💰 Interest Rate<span class="ltag">From 10.50% p.a.</span></li><li>📅 Loan Tenure<span class="ltag">12 – 60 Months</span></li><li>💵 Loan Amount<span class="ltag">₹50,000 – ₹40 Lakh</span></li><li>⚡ Processing<span class="ltag">Same Day – 48 Hours</span></li><li>📋 Collateral<span class="ltag">Not Required</span></li></ul>
-      <a href="#apply" class="lbtn">Apply Now →</a></div>
-      <div class="lcard anim"><div class="lci">🏢</div><h3>Loan Against Property</h3><p>Unlock the value of your residential or commercial property. Get substantial funds at attractive rates while continuing to use your asset. Ideal for business expansion.</p>
-      <ul class="lmeta"><li>💰 Interest Rate<span class="ltag">From 9.00% p.a.</span></li><li>📅 Loan Tenure<span class="ltag">Up to 15 Years</span></li><li>💵 Loan Amount<span class="ltag">Up to 70% of Value</span></li><li>⚡ Processing<span class="ltag">7–10 Working Days</span></li><li>📋 Property Type<span class="ltag">Residential / Commercial</span></li></ul>
-      <a href="#apply" class="lbtn">Apply Now →</a></div>
-      <div class="lcard anim"><div class="lci">🚗</div><h3>Car Loan</h3><p>Drive your dream car with hassle-free financing. New cars, used cars, and luxury vehicles — competitive rates and flexible EMI options that fit your budget perfectly.</p>
-      <ul class="lmeta"><li>💰 Interest Rate<span class="ltag">From 7.90% p.a.</span></li><li>📅 Loan Tenure<span class="ltag">12 – 84 Months</span></li><li>💵 Loan Amount<span class="ltag">Up to 100% Ex-Showroom</span></li><li>⚡ Processing<span class="ltag">24 – 48 Hours</span></li><li>🚘 Vehicle Type<span class="ltag">New / Used / Luxury</span></li></ul>
-      <a href="#apply" class="lbtn">Apply Now →</a></div>
-      <div class="lcard anim"><div class="lci">💼</div><h3>Business Loan</h3><p>Fuel your business growth with customized financing. Whether starting a new venture, expanding operations, or managing working capital — we have the right product for you.</p>
-      <ul class="lmeta"><li>💰 Interest Rate<span class="ltag">From 12% p.a.</span></li><li>📅 Loan Tenure<span class="ltag">12 – 60 Months</span></li><li>💵 Loan Amount<span class="ltag">₹1 Lakh – ₹2 Crore</span></li><li>⚡ Processing<span class="ltag">3–5 Working Days</span></li><li>📋 Collateral<span class="ltag">Secured / Unsecured</span></li></ul>
-      <a href="#apply" class="lbtn">Apply Now →</a></div>
-      <div class="lcard anim"><div class="lci">🥇</div><h3>Gold Loan</h3><p>Instant liquidity against your gold ornaments or coins. Minimal documentation, secure storage, and fastest disbursal in the market — as quick as 30 minutes.</p>
-      <ul class="lmeta"><li>💰 Interest Rate<span class="ltag">From 9.50% p.a.</span></li><li>📅 Loan Tenure<span class="ltag">3 – 24 Months</span></li><li>💵 Loan Amount<span class="ltag">Up to 75% of Gold Value</span></li><li>⚡ Processing<span class="ltag">30 Minutes – 2 Hours</span></li><li>📋 Gold Purity<span class="ltag">18 – 24 Karat</span></li></ul>
-      <a href="#apply" class="lbtn">Apply Now →</a></div>
-    </div>
-  </div>
-</section>
-<section id="insurance" class="sec ins-sec">
-  <div class="con">
-    <div class="tc"><span class="stag">Insurance Products</span>
-    <h2 class="stitle">Insurance: Protection That <span class="sacc">Evolves With You</span></h2>
-    <p class="ssub">Comprehensive insurance plans from 15+ top insurers. Our certified advisors help you choose the right coverage — not the most expensive one. Free comparison and expert guidance included.</p></div>
-    <div class="ins-grid">
-      <div class="icard anim"><div class="ici">❤️</div><h3>Health Insurance</h3><p>Cashless hospitalization at 10,000+ hospitals, critical illness cover, pre & post hospitalization expenses. Protect your family's health and finances simultaneously.</p>
-      <ul class="ibullet"><li>✅ Cashless at 10,000+ hospitals</li><li>✅ 30+ critical illnesses covered</li><li>✅ No-claim bonus up to 100%</li><li>✅ Pre & post hospitalization</li><li>✅ Free annual health check-ups</li><li>✅ Day-care procedures covered</li></ul>
-      <a href="#ins-form" class="ibtn">Get Free Quote →</a></div>
-      <div class="icard feat anim"><div class="ici">🌿</div><h3>Life Insurance</h3><p>Secure your family's financial future with term plans, ULIPs, and savings-linked insurance products. Life cover combined with investment returns for maximum benefit.</p>
-      <ul class="ibullet"><li>✅ Pure term plans from ₹500/month</li><li>✅ Sum assured up to ₹5 Crore</li><li>✅ Accidental death benefit rider</li><li>✅ Critical illness rider available</li><li>✅ Tax benefit under Section 80C</li><li>✅ Online policy management</li></ul>
-      <a href="#ins-form" class="ibtn">Get Free Quote →</a></div>
-      <div class="icard anim"><div class="ici">🚘</div><h3>Motor Insurance</h3><p>Comprehensive vehicle protection against accidents, theft, and natural calamities. Cashless repairs at 4,000+ garages with 24x7 roadside assistance nationwide.</p>
-      <ul class="ibullet"><li>✅ Comprehensive & third-party plans</li><li>✅ Cashless claims at 4,000+ garages</li><li>✅ Zero depreciation add-on cover</li><li>✅ Engine protection cover</li><li>✅ 24x7 roadside assistance</li><li>✅ Return to invoice cover</li></ul>
-      <a href="#ins-form" class="ibtn">Get Free Quote →</a></div>
-      <div class="icard anim"><div class="ici">🏗️</div><h3>Corporate Insurance</h3><p>Complete business protection — Fire, Marine, Group Health, Workers' Compensation, CAR, EAR, and Liability insurance tailored for businesses of all sizes.</p>
-      <ul class="ibullet"><li>✅ Group Health Insurance</li><li>✅ Fire & Marine Insurance</li><li>✅ Workers' Compensation (WC)</li><li>✅ Contractors' All Risk (CAR)</li><li>✅ Erection All Risk (EAR)</li><li>✅ Professional Liability cover</li></ul>
-      <a href="#ins-form" class="ibtn">Get Free Quote →</a></div>
-      <div class="icard anim"><div class="ici">🏠</div><h3>Property Insurance</h3><p>Protect your home, office, or business premises from fire, theft, natural disasters, and accidental damage. Covers both structure and contents comprehensively.</p>
-      <ul class="ibullet"><li>✅ Structure & contents covered</li><li>✅ Fire, flood & earthquake cover</li><li>✅ Theft & burglary protection</li><li>✅ Rent loss coverage available</li><li>✅ Public liability add-on</li><li>✅ Residential & commercial both</li></ul>
-      <a href="#ins-form" class="ibtn">Get Free Quote →</a></div>
-      <div class="icard anim"><div class="ici">📊</div><h3>Term Plan + Mutual Fund</h3><p>The smartest financial combination — life cover plus wealth creation. Invest in curated Term Plan + Mutual Fund packages for long-term prosperity and security.</p>
-      <ul class="ibullet"><li>✅ Life cover + investment returns</li><li>✅ SIP starting from ₹500/month</li><li>✅ Expected returns 12–18% p.a.</li><li>✅ Tax benefits 80C & 10(10D)</li><li>✅ Flexible investment tenure</li><li>✅ Expert portfolio management</li></ul>
-      <a href="#ins-form" class="ibtn">Get Free Quote →</a></div>
-    </div>
-  </div>
-</section>
-<section id="eligibility" class="sec elig-sec">
-  <div class="con">
-    <div class="tc"><span class="stag">Eligibility & Documents</span>
-    <h2 class="stitle">Simple Criteria, <span class="sacc">Fast Approvals</span></h2>
-    <p class="ssub">Our eligibility process is designed to be simple and transparent. Meet these basic criteria and you're on your way to quick approval. We guide you through every step.</p></div>
-    <div class="elig-grid">
-      <div><h3 style="font-family:var(--fd);font-size:1.45rem;margin-bottom:1.3rem">How to Apply — <span class="sacc">4 Easy Steps</span></h3>
-      <div class="esteps">
-        <div class="estep anim"><div class="enum">1</div><div><h4>Fill the Application Form</h4><p>Complete our simple online form below or visit our Bisrakh, Noida office. Takes less than 5 minutes. Provide your basic personal and financial details.</p></div></div>
-        <div class="estep anim"><div class="enum">2</div><div><h4>Document Verification</h4><p>Our expert contacts you within 24 hours to collect required documents. Free doorstep document pickup available across Noida, Greater Noida, and NCR region.</p></div></div>
-        <div class="estep anim"><div class="enum">3</div><div><h4>Loan Processing & Approval</h4><p>We process your application with 20+ banks simultaneously to find the best offer. We negotiate on your behalf for the lowest possible interest rate available.</p></div></div>
-        <div class="estep anim"><div class="enum">4</div><div><h4>Disbursal to Your Account</h4><p>Funds credited directly to your bank account. Personal loans in 24 hours, home loans in 7–10 days. Insurance policies issued digitally within minutes.</p></div></div>
-      </div></div>
-      <div class="edoc anim">
-        <h3>Documents Required</h3>
-        <div class="doclist">
-          <div class="docitem"><span class="dicon">📄</span><div><strong>Identity Proof</strong><br/><span style="color:var(--gy);font-size:.82rem">Aadhaar Card / PAN Card / Passport / Voter ID / Driving Licence</span></div></div>
-          <div class="docitem"><span class="dicon">🏠</span><div><strong>Address Proof</strong><br/><span style="color:var(--gy);font-size:.82rem">Aadhaar Card / Utility Bill / Rent Agreement / Passport</span></div></div>
-          <div class="docitem"><span class="dicon">💼</span><div><strong>Income Proof (Salaried)</strong><br/><span style="color:var(--gy);font-size:.82rem">Last 3 months salary slips, 6 months bank statement, Form 16</span></div></div>
-          <div class="docitem"><span class="dicon">📊</span><div><strong>Income Proof (Self-Employed)</strong><br/><span style="color:var(--gy);font-size:.82rem">ITR for last 2 years, CA-certified P&L, balance sheet, GST returns</span></div></div>
-          <div class="docitem"><span class="dicon">📸</span><div><strong>Photographs</strong><br/><span style="color:var(--gy);font-size:.82rem">2 recent passport-size colour photographs</span></div></div>
-          <div class="docitem"><span class="dicon">🏗️</span><div><strong>Property Documents (if applicable)</strong><br/><span style="color:var(--gy);font-size:.82rem">Sale deed, property tax receipts, NOC from builder / society</span></div></div>
-        </div>
-        <div class="einfo"><p>💡 <strong>Pro Tip:</strong> Keep digital copies ready on your phone. Our team guides you at no extra charge. We also offer a free CIBIL score check with every consultation!</p></div>
+
+<!-- SERVICES PREVIEW -->
+<section class="sec" style="background:#fff">
+  <div class="con tc">
+    <span class="stag">Our Services</span>
+    <h2 class="stitle">Complete Financial <span class="sacc">Solutions</span></h2>
+    <p class="ssub">From loans to insurance to investments — everything you need for a secure financial future, all under one trusted roof.</p>
+    <div class="svc-grid">
+      <div class="svc-card anim">
+        <div class="sci">🏦</div>
+        <h3>Loans</h3>
+        <p>Tailored loan products to fit your lifestyle. We compare 20+ banks to get you the absolute lowest rate.</p>
+        <div class="svc-tags"><span class="svt">Home Loan</span><span class="svt">Personal Loan</span><span class="svt">Car Loan</span><span class="svt">Business Loan</span><span class="svt">Gold Loan</span></div>
+        <a href="services.html#loans" class="bp" style="font-size:.88rem;padding:.7rem 1.5rem">Explore Loans →</a>
+      </div>
+      <div class="svc-card hot anim">
+        <div class="sci">🛡️</div>
+        <h3>Insurance</h3>
+        <p>Protection that evolves with you. Plans from 15+ top insurers at the most affordable premiums.</p>
+        <div class="svc-tags"><span class="svt">Health</span><span class="svt">Life</span><span class="svt">Motor</span><span class="svt">Corporate</span><span class="svt">Property</span></div>
+        <a href="services.html#insurance" class="bp" style="font-size:.88rem;padding:.7rem 1.5rem">Explore Insurance →</a>
+      </div>
+      <div class="svc-card anim">
+        <div class="sci">📈</div>
+        <h3>Mutual Funds</h3>
+        <p>Grow your wealth smartly. Expert-curated mutual fund options with SIP starting at just ₹500/month.</p>
+        <div class="svc-tags"><span class="svt">SIP</span><span class="svt">Term Plan + MF</span><span class="svt">Retirement Planning</span></div>
+        <a href="services.html#mf" class="bp" style="font-size:.88rem;padding:.7rem 1.5rem">Explore MF →</a>
       </div>
     </div>
   </div>
 </section>
+
+<!-- WHY US -->
 <section class="sec why-sec">
-  <div class="con">
-    <div class="tc"><span class="stag">Why Choose Bhaarat Capital</span>
+  <div class="con tc">
+    <span class="stag">Why Choose Us</span>
     <h2 class="stitle" style="color:#fff">Your Financial Growth, <span class="sacc">Our Commitment</span></h2>
-    <p class="ssub">We don't just provide loans and insurance — we build lifelong financial partnerships. From your first loan to retirement planning, we guide you with care, clarity, and complete confidence.</p></div>
+    <p class="ssub">We build lifelong financial partnerships — not just transactions.</p>
     <div class="wgrid">
-      <div class="wcard anim"><div class="wicon">⚡</div><h4>Fastest Processing</h4><p>Personal loan approval in 24 hours. Home loan in 7–10 days. We work with multiple lenders simultaneously to speed up your approval and disbursal.</p></div>
-      <div class="wcard anim"><div class="wicon">💰</div><h4>Lowest Rates Guaranteed</h4><p>We compare rates from 20+ banks and NBFCs. Our negotiation expertise regularly saves clients lakhs of rupees over the loan tenure. Best rate, always.</p></div>
-      <div class="wcard anim"><div class="wicon">🔍</div><h4>100% Transparent</h4><p>No hidden charges. No misleading promises. Every fee and term is clearly explained upfront. What we quote is exactly what you pay — nothing more, nothing less.</p></div>
-      <div class="wcard anim"><div class="wicon">🎯</div><h4>Personalised Solutions</h4><p>Every client is unique. We analyze your specific situation and recommend a customized financial plan that fits your exact needs, income, and long-term goals.</p></div>
-      <div class="wcard anim"><div class="wicon">🤝</div><h4>End-to-End Support</h4><p>From application to final disbursement, our dedicated relationship managers handle everything. We follow up with banks on your behalf at every step.</p></div>
-      <div class="wcard anim"><div class="wicon">🏆</div><h4>Trusted by 500+ Clients</h4><p>500+ satisfied clients across Noida, Greater Noida, Delhi, and NCR have trusted Bhaarat Capital. Our 98% client satisfaction rate speaks for itself.</p></div>
-      <div class="wcard anim"><div class="wicon">🏦</div><h4>20+ Bank Network</h4><p>Strong relationships with SBI, HDFC, ICICI, Axis, Kotak, PNB, BOB, and 13+ other banks and NBFCs give you access to the widest range of products.</p></div>
-      <div class="wcard anim"><div class="wicon">📱</div><h4>Free Doorstep Service</h4><p>We come to you. Doorstep document pickup, in-person consultations, and post-disbursal support across the entire Noida-NCR region at absolutely no cost.</p></div>
+      <div class="wcard anim"><div class="wicon">⚡</div><h4>Fastest Processing</h4><p>Personal loan in 24 hrs. Home loan in 7–10 days. We work with multiple lenders simultaneously.</p></div>
+      <div class="wcard anim"><div class="wicon">💰</div><h4>Lowest Rates</h4><p>Compare rates from 20+ banks. Our experts negotiate to get you the best deal available.</p></div>
+      <div class="wcard anim"><div class="wicon">🔍</div><h4>100% Transparent</h4><p>No hidden charges. Every fee explained upfront. What we quote is exactly what you pay.</p></div>
+      <div class="wcard anim"><div class="wicon">🎯</div><h4>Personalised</h4><p>Every client is unique. Customized plans based on your exact income, goals, and needs.</p></div>
+      <div class="wcard anim"><div class="wicon">🤝</div><h4>End-to-End</h4><p>From application to disbursal, we handle everything on your behalf.</p></div>
+      <div class="wcard anim"><div class="wicon">🏆</div><h4>500+ Happy Clients</h4><p>Trusted by hundreds across Noida, Delhi & NCR. 98% client satisfaction rate.</p></div>
+      <div class="wcard anim"><div class="wicon">🏦</div><h4>20+ Bank Network</h4><p>SBI, HDFC, ICICI, Axis, Kotak and 15+ more. Widest range of products.</p></div>
+      <div class="wcard anim"><div class="wicon">📱</div><h4>Free Doorstep</h4><p>Document pickup, consultations, and support at your home — all free of charge.</p></div>
     </div>
   </div>
 </section>
-<section id="rates" class="sec rates-sec">
+
+<!-- LATEST BLOG -->
+<section class="sec" style="background:var(--lbg)">
   <div class="con">
-    <div class="tc"><span class="stag">Interest Rates</span>
-    <h2 class="stitle">Current Rates & <span class="sacc">Charges</span></h2>
-    <p class="ssub">Indicative interest rates as of 2025. Actual rates depend on your credit profile, income, and lender. We always work to get you the lowest rate possible from our 20+ bank network.</p></div>
-    <div style="overflow-x:auto">
-    <table class="rtab">
-      <thead><tr><th>Loan / Product Type</th><th>Interest Rate (p.a.)</th><th>Loan Tenure</th><th>Max Loan Amount</th><th>Processing Fee</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Home Loan</strong><br/><small style="color:var(--gy)">SBI / HDFC / ICICI / Axis / Kotak</small></td><td><strong>8.40% – 9.50%</strong></td><td>Up to 30 years</td><td>₹10 Crore</td><td>0.5% – 1%</td><td><span class="rtag">✅ Available</span></td></tr>
-        <tr><td><strong>Personal Loan</strong><br/><small style="color:var(--gy)">Salaried / Self-Employed</small></td><td><strong>10.50% – 18%</strong></td><td>12 – 60 months</td><td>₹40 Lakh</td><td>1% – 3%</td><td><span class="rtag">✅ Available</span></td></tr>
-        <tr><td><strong>Car Loan</strong><br/><small style="color:var(--gy)">New / Used / Luxury Vehicles</small></td><td><strong>7.90% – 12%</strong></td><td>12 – 84 months</td><td>100% Ex-showroom</td><td>0.5% – 1%</td><td><span class="rtag">✅ Available</span></td></tr>
-        <tr><td><strong>Loan Against Property</strong><br/><small style="color:var(--gy)">Residential / Commercial</small></td><td><strong>9.00% – 13%</strong></td><td>Up to 15 years</td><td>70% of property value</td><td>0.5% – 1.5%</td><td><span class="rtag">✅ Available</span></td></tr>
-        <tr><td><strong>Business Loan</strong><br/><small style="color:var(--gy)">MSME / Self-Employed / Startups</small></td><td><strong>12% – 24%</strong></td><td>12 – 60 months</td><td>₹2 Crore</td><td>1% – 3%</td><td><span class="rtag">✅ Available</span></td></tr>
-        <tr><td><strong>Gold Loan</strong><br/><small style="color:var(--gy)">18–24 Karat Gold Ornaments</small></td><td><strong>9.50% – 16%</strong></td><td>3 – 24 months</td><td>75% of gold value</td><td>Minimal / Nil</td><td><span class="rtag">✅ Available</span></td></tr>
-        <tr><td><strong>Health Insurance</strong><br/><small style="color:var(--gy)">Individual / Family Floater Plans</small></td><td>–</td><td>1 / 2 / 3 years</td><td>Sum insured up to ₹1 Crore</td><td>Premium varies</td><td><span class="rtag">✅ Available</span></td></tr>
-        <tr><td><strong>Term Life Insurance</strong><br/><small style="color:var(--gy)">Pure Term / ULIP / Savings Plan</small></td><td>–</td><td>10 – 40 years</td><td>Sum assured up to ₹5 Crore</td><td>Premium varies</td><td><span class="rtag">✅ Available</span></td></tr>
-      </tbody>
-    </table></div>
-    <p style="text-align:center;margin-top:1rem;font-size:.78rem;color:var(--gy)">* Rates are indicative and subject to change based on RBI policy and lender guidelines. Final rates depend on applicant profile and credit score. Contact us for a personalised quote — completely free.</p>
-  </div>
-</section>
-<section id="apply" class="sec lf-sec">
-  <div class="con">
-    <div class="fwrap">
-      <div class="fleft">
-        <span class="stag">Apply for Loan</span>
-        <h2 class="stitle">Get Your Loan <span class="sacc">Approved Fast</span></h2>
-        <p>Fill your details and our expert loan advisor will contact you within 24 hours with the best loan offer tailored for your financial profile. Completely free consultation — no charges, no obligation whatsoever.</p>
-        <div class="fperks">
-          <div class="fperk">✅ Free CIBIL Score Check Included</div>
-          <div class="fperk">✅ Comparison from 20+ Banks & NBFCs</div>
-          <div class="fperk">✅ Lowest Interest Rate Guaranteed</div>
-          <div class="fperk">✅ Doorstep Document Pickup Service</div>
-          <div class="fperk">✅ Zero Hidden Charges — Ever</div>
-          <div class="fperk">✅ Dedicated Personal Relationship Manager</div>
-        </div>
-        <div class="frates">
-          <h5>Quick Rate Reference</h5>
-          <div class="rrow"><span>Home Loan</span><strong>from 8.40% p.a.</strong></div>
-          <div class="rrow"><span>Personal Loan</span><strong>from 10.50% p.a.</strong></div>
-          <div class="rrow"><span>Car Loan</span><strong>from 7.90% p.a.</strong></div>
-          <div class="rrow"><span>Business Loan</span><strong>from 12% p.a.</strong></div>
-          <div class="rrow"><span>Gold Loan</span><strong>from 9.50% p.a.</strong></div>
-        </div>
-      </div>
-      <div>
-        <form id="loanForm" class="cform">
-          <h3>Loan Application Form</h3>
-          <p class="fsub">Free consultation • No obligation • Expert guidance</p>
-          <div class="frow2">
-            <div class="fg"><label>Full Name *</label><input type="text" id="ln" placeholder="Your full name" required/></div>
-            <div class="fg"><label>Phone Number *</label><input type="tel" id="lp" placeholder="+91 XXXXX XXXXX" required/></div>
-          </div>
-          <div class="fg"><label>Email Address</label><input type="email" id="le" placeholder="yourname@email.com"/></div>
-          <div class="frow2">
-            <div class="fg"><label>Loan Type *</label><select id="lt" required><option value="">Select Loan Type</option><option>Home Loan</option><option>Personal Loan</option><option>Car Loan</option><option>Business Loan</option><option>Loan Against Property</option><option>Gold Loan</option><option>Education Loan</option></select></div>
-            <div class="fg"><label>Required Amount</label><input type="text" id="la" placeholder="e.g. ₹25 Lakhs"/></div>
-          </div>
-          <div class="frow2">
-            <div class="fg"><label>Employment Type</label><select id="lej"><option value="">Select</option><option>Salaried</option><option>Self-Employed / Business</option><option>Professional (CA/Doctor/Lawyer)</option><option>Retired</option></select></div>
-            <div class="fg"><label>Monthly Income</label><input type="text" id="li" placeholder="e.g. ₹75,000"/></div>
-          </div>
-          <div class="fg"><label>City / Location</label><input type="text" id="lc" placeholder="e.g. Noida, Greater Noida, Delhi"/></div>
-          <div class="fg"><label>Additional Message / Requirements</label><textarea id="lm" rows="3" placeholder="Any specific requirements, property details, or questions..."></textarea></div>
-          <button type="submit" class="sbtn" id="lsb">Submit Application — Get Free Quote →</button>
-          <div class="fdis">🔒 Your information is 100% secure and will never be shared with third parties without consent.</div>
-          <div id="ls" class="smsg ok"></div>
-          <div id="le2" class="smsg err"></div>
-        </form>
-      </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:.5rem;flex-wrap:wrap;gap:1rem">
+      <div><span class="stag">Latest Articles</span><h2 class="stitle">Financial Tips & <span class="sacc">Insights</span></h2></div>
+      <a href="blog.html" class="bs" style="padding:.65rem 1.4rem;font-size:.88rem">View All Articles →</a>
+    </div>
+    <div class="blog-grid" id="blogPreview">
+      <div class="bcard anim"><div class="bcard-body"><span class="bcat">Loading...</span><h3>Fetching latest articles...</h3></div></div>
     </div>
   </div>
 </section>
-<section id="ins-form" class="sec" style="background:linear-gradient(135deg,#f0fdf4,#fff)">
-  <div class="con">
-    <div class="fwrap rev">
-      <div>
-        <form id="insForm" class="cform">
-          <h3>Insurance Inquiry Form</h3>
-          <p class="fsub">Get best quotes from 15+ top insurers • Free comparison</p>
-          <div class="frow2">
-            <div class="fg"><label>Full Name *</label><input type="text" id="in2" placeholder="Your full name" required/></div>
-            <div class="fg"><label>Phone Number *</label><input type="tel" id="ip" placeholder="+91 XXXXX XXXXX" required/></div>
-          </div>
-          <div class="fg"><label>Email Address</label><input type="email" id="ie" placeholder="yourname@email.com"/></div>
-          <div class="frow2">
-            <div class="fg"><label>Insurance Type *</label><select id="it" required><option value="">Select Insurance Type</option><option>Health Insurance — Individual</option><option>Health Insurance — Family Floater</option><option>Life Insurance — Term Plan</option><option>Life Insurance — ULIP / Savings</option><option>Motor Insurance — Car</option><option>Motor Insurance — Two Wheeler</option><option>Corporate / Group Health</option><option>Property Insurance</option><option>Travel Insurance</option><option>Term Plan + Mutual Fund</option></select></div>
-            <div class="fg"><label>Age</label><input type="number" id="ia" placeholder="Your age" min="18" max="75"/></div>
-          </div>
-          <div class="frow2">
-            <div class="fg"><label>Family Members</label><input type="number" id="ifam" placeholder="e.g. 4" min="1"/></div>
-            <div class="fg"><label>Annual Budget</label><input type="text" id="ib" placeholder="e.g. ₹15,000/year"/></div>
-          </div>
-          <div class="fg"><label>Message / Specific Requirements</label><textarea id="im" rows="3" placeholder="Describe your requirements, existing coverage, or health history..."></textarea></div>
-          <button type="submit" class="sbtn grn" id="isb">Get Free Insurance Quote →</button>
-          <div class="fdis">🔒 We compare quotes from LIC, Star Health, HDFC ERGO, Bajaj Allianz, ICICI Lombard & more.</div>
-          <div id="is" class="smsg ok"></div>
-          <div id="ie3" class="smsg err"></div>
-        </form>
-      </div>
-      <div class="fleft">
-        <span class="stag">Insurance</span>
-        <h2 class="stitle">Protect What <span class="sacc">Matters Most</span></h2>
-        <p>We compare plans from 15+ top insurance companies to get you the best coverage at the lowest premium. Our certified insurance advisors help you choose the right plan — never the most expensive one.</p>
-        <div class="fperks" style="margin-bottom:1.3rem">
-          <div class="fperk">✅ Cashless Claims at 10,000+ Hospitals</div>
-          <div class="fperk">✅ Critical Illness Coverage up to ₹1 Crore</div>
-          <div class="fperk">✅ Family Floater Plans Available</div>
-          <div class="fperk">✅ Complete Claim Support & Assistance</div>
-          <div class="fperk">✅ Policy Renewal Reminders Provided</div>
-          <div class="fperk">✅ Easy Porting of Existing Insurance</div>
-        </div>
-        <div class="frates">
-          <h5>Our Insurance Partners</h5>
-          <div class="rrow"><span>Health</span><strong>Star Health, HDFC ERGO, Niva Bupa</strong></div>
-          <div class="rrow"><span>Life</span><strong>LIC, ICICI Prudential, Max Life</strong></div>
-          <div class="rrow"><span>Motor</span><strong>Bajaj Allianz, ICICI Lombard, Tata AIG</strong></div>
-          <div class="rrow"><span>Corporate</span><strong>New India, United India, Oriental</strong></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="sec testi-sec">
+
+<!-- TESTIMONIALS -->
+<section class="sec" style="background:#fff">
   <div class="con tc">
     <span class="stag">Success Stories</span>
-    <h2 class="stitle">What Our Clients <span class="sacc">Say About Us</span></h2>
-    <p class="ssub">Real stories from real clients who trusted Bhaarat Capital with their most important financial decisions. We are proud of every loan sanctioned and every family protected.</p>
+    <h2 class="stitle">What Our Clients <span class="sacc">Say</span></h2>
+    <p class="ssub">Real stories from real clients who trusted Bhaarat Capital.</p>
     <div class="tgrid">
-      <div class="tcard anim"><div class="tstars">⭐⭐⭐⭐⭐</div><div class="tqmark">"</div><p>Bhaarat Capital got my home loan approved at 8.45% when my own bank was quoting 8.90%. Over 20 years, that small difference saves me over ₹3.8 lakh! The whole process took just 8 days from application to disbursal. Absolutely outstanding service.</p><div class="tauth"><div class="tav">R</div><div><strong>Rahil Sharma</strong><br/><small>Business Owner, Noida — Home Loan ₹65 Lakhs</small></div></div></div>
-      <div class="tcard feat anim"><div class="tstars">⭐⭐⭐⭐⭐</div><div class="tqmark" style="color:rgba(255,255,255,.3)">"</div><p>Two other agents had failed to get my business loan approved. Bhaarat Capital's team understood my business cash flows deeply, approached the right lender, and got ₹35 Lakh approved in just 5 working days. I cannot recommend them highly enough!</p><div class="tauth"><div class="tav">A</div><div><strong>Amit Gupta</strong><br/><small>Entrepreneur, Noida — Business Loan ₹35 Lakhs</small></div></div></div>
-      <div class="tcard anim"><div class="tstars">⭐⭐⭐⭐⭐</div><div class="tqmark">"</div><p>Their insurance advice was exceptional. They analyzed my family's needs and found a ₹10 Lakh family floater with critical illness rider at just ₹14,000 annually — saving me ₹18,000 compared to what I was about to buy elsewhere! Free consultation changed everything.</p><div class="tauth"><div class="tav">P</div><div><strong>Priya Malhotra</strong><br/><small>Teacher, Noida — Family Health Insurance Plan</small></div></div></div>
+      <div class="tcard anim"><div class="tstars">⭐⭐⭐⭐⭐</div><div class="tqmark">"</div><p>Bhaarat Capital got my home loan at 8.45% when my own bank quoted 8.90%. That small difference saves me ₹3.8 Lakh over 20 years! Whole process in just 8 days.</p><div class="tauth"><div class="tav">R</div><div><strong>Rahil Sharma</strong><br/><small>Home Loan ₹65L — Noida</small></div></div></div>
+      <div class="tcard feat anim"><div class="tstars">⭐⭐⭐⭐⭐</div><div class="tqmark" style="color:rgba(255,255,255,.3)">"</div><p>Two agents failed before. Bhaarat Capital understood my business, approached the right lender, and got ₹35 Lakh business loan approved in 5 days. Extraordinary service!</p><div class="tauth"><div class="tav">A</div><div><strong>Amit Gupta</strong><br/><small>Business Loan ₹35L — Noida</small></div></div></div>
+      <div class="tcard anim"><div class="tstars">⭐⭐⭐⭐⭐</div><div class="tqmark">"</div><p>Their insurance advice found me a ₹10L family cover at ₹14,000/year — saving ₹18,000 vs what I was about to buy. Free consultation literally changed everything!</p><div class="tauth"><div class="tav">P</div><div><strong>Priya Malhotra</strong><br/><small>Family Health Insurance — Noida</small></div></div></div>
     </div>
   </div>
 </section>
-<section id="faq" class="sec faq-sec">
-  <div class="con">
-    <div class="tc"><span class="stag">Frequently Asked Questions</span>
-    <h2 class="stitle">Got Questions? <span class="sacc">We Have Answers</span></h2>
-    <p class="ssub">Everything you need to know about loans, insurance, and our services. Can't find your answer here? Call us directly — we're always happy to help.</p></div>
-    <div class="faq-wrap">
-      <div class="fitem"><div class="fq">What services does Bhaarat Capital offer?<span class="farr">+</span></div><div class="fa">Bhaarat Capital is a one-stop financial services company based in Bisrakh, Noida. We offer Home Loans, Personal Loans, Car Loans, Business Loans, Gold Loans, Loan Against Property, Health Insurance, Life Insurance, Motor Insurance, Corporate Insurance, Property Insurance, and Mutual Fund investments. We work with 20+ banks and 15+ insurance companies to find you the best products at the best rates — all for free.</div></div>
-      <div class="fitem"><div class="fq">How quickly can I get my loan approved and disbursed?<span class="farr">+</span></div><div class="fa">Timelines vary by loan type: Personal Loans can be approved and disbursed within 24–48 hours for eligible salaried applicants. Car Loans take 24–48 hours. Home Loans take 7–10 working days including property verification. Business Loans take 3–7 days depending on documentation. Gold Loans can be processed in as little as 30 minutes. We work with multiple lenders simultaneously to maximise speed without compromising on rate.</div></div>
-      <div class="fitem"><div class="fq">What CIBIL score is needed to get a loan?<span class="farr">+</span></div><div class="fa">A CIBIL score of 750+ gives you access to the best interest rates and highest loan amounts. Scores between 650–749 are still eligible for most products but may carry slightly higher rates. We also work with lenders who consider applicants with lower scores — especially for gold loans and secured loans. We offer a completely free CIBIL check as part of every consultation. Even with a low score, speak to us first.</div></div>
-      <div class="fitem"><div class="fq">Do you charge any fees for your services?<span class="farr">+</span></div><div class="fa">No. Our initial consultation, eligibility check, rate comparison, and advisory services are completely free of charge. We do not charge any upfront fees. Our income comes from banks and insurance companies after successful product issuance. The only fees you ever pay are standard bank processing fees — which we always disclose clearly upfront, with no surprises.</div></div>
-      <div class="fitem"><div class="fq">My loan application was rejected by my bank. Can you still help?<span class="farr">+</span></div><div class="fa">Absolutely! Rejection by one bank does not mean you cannot get a loan. Different banks have different credit policies, income criteria, and risk appetite. We analyze the exact reason for rejection, suggest improvements to your application, and approach the most suitable lender from our network of 20+ banks. Many of our most successful cases started as rejections elsewhere. Call us — we will find a solution.</div></div>
-      <div class="fitem"><div class="fq">How do I choose the right health insurance plan for my family?<span class="farr">+</span></div><div class="fa">Key factors: sum insured (minimum ₹5 Lakh for family of 4), number of network hospitals, claim settlement ratio (aim for 95%+), waiting period for pre-existing conditions, sub-limits on room rent, and co-payment clauses. Our advisors conduct a personalized needs analysis — considering your age, family size, health conditions, and budget — and recommend the genuinely best plan, not the most expensive one. This service is completely free.</div></div>
-      <div class="fitem"><div class="fq">Do you offer doorstep service for document collection?<span class="farr">+</span></div><div class="fa">Yes, absolutely! We offer free doorstep document pickup across Noida, Greater Noida, Bisrakh, Dadri, Jewar, Delhi, Ghaziabad, and the broader NCR region. Fill our application form or call us — our relationship manager will visit at a time convenient for you. We also review your documents beforehand to ensure everything is in perfect order before submission, avoiding delays.</div></div>
-      <div class="fitem"><div class="fq">How does the insurance claim process work?<span class="farr">+</span></div><div class="fa">We assist clients through the entire claim process at no extra charge, even after policy purchase. For health insurance: cashless claims — just show your card at the network hospital TPA desk. Reimbursement claims — submit original bills within 15–30 days. For life insurance: we help families gather and submit all documents. For motor insurance: we coordinate with surveyors and follow up until settlement. Our support never ends.</div></div>
-    </div>
-  </div>
-</section>
-<section class="sec part-sec">
+
+<!-- PARTNERS -->
+<section class="sec" style="background:var(--bg);padding:3rem 2rem">
   <div class="con tc">
     <span class="stag">Our Partners</span>
-    <h2 class="stitle" style="font-size:clamp(1.5rem,3vw,2rem)">Trusted by India's Leading Banks & <span class="sacc">Insurance Companies</span></h2>
-    <p class="ssub" style="margin:0 auto 2rem">Our partnerships with India's top financial institutions ensure you always get the most competitive rates and best products.</p>
+    <h2 class="stitle" style="font-size:clamp(1.5rem,3vw,2rem)">Trusted by India's Leading <span class="sacc">Banks & Insurers</span></h2>
     <div class="pgrid">
-      <div class="ptag">SBI Bank</div><div class="ptag">HDFC Bank</div><div class="ptag">ICICI Bank</div><div class="ptag">Axis Bank</div><div class="ptag">Kotak Mahindra</div><div class="ptag">Punjab National Bank</div><div class="ptag">Bank of Baroda</div><div class="ptag">Union Bank</div><div class="ptag">Canara Bank</div><div class="ptag">Bajaj Finance</div><div class="ptag">Tata Capital</div><div class="ptag">L&T Finance</div><div class="ptag">LIC India</div><div class="ptag">Star Health</div><div class="ptag">HDFC ERGO</div><div class="ptag">ICICI Lombard</div><div class="ptag">Bajaj Allianz</div><div class="ptag">Niva Bupa</div><div class="ptag">Max Life</div><div class="ptag">ICICI Prudential</div><div class="ptag">Tata AIG</div>
+      <div class="ptag">SBI Bank</div><div class="ptag">HDFC Bank</div><div class="ptag">ICICI Bank</div><div class="ptag">Axis Bank</div><div class="ptag">Kotak Mahindra</div><div class="ptag">Punjab National Bank</div><div class="ptag">Bank of Baroda</div><div class="ptag">Bajaj Finance</div><div class="ptag">Tata Capital</div><div class="ptag">LIC India</div><div class="ptag">Star Health</div><div class="ptag">HDFC ERGO</div><div class="ptag">ICICI Lombard</div><div class="ptag">Bajaj Allianz</div><div class="ptag">Niva Bupa</div><div class="ptag">Max Life</div><div class="ptag">Tata AIG</div>
     </div>
   </div>
 </section>
-<section id="about" class="sec about-sec">
-  <div class="con">
-    <span class="stag">About Bhaarat Capital</span>
-    <div class="agrid">
-      <div class="aleft">
-        <h2 class="stitle">Multiple Companies, <span class="sacc">One Best Choice</span></h2>
-        <p>Bhaarat Capital is a premier financial services company headquartered in Bisrakh, Noida, Uttar Pradesh. Founded with a vision to make quality financial services accessible to every Indian family and business, we have grown to become one of the most trusted financial advisory firms in the NCR region.</p>
-        <p>Our team of experienced financial advisors, certified insurance agents, and loan specialists work together to provide holistic financial solutions. We believe in building long-term relationships based on trust, transparency, and genuine care for our clients' financial well-being.</p>
-        <p>Whether you are a first-time homebuyer, a growing business, or a family looking to protect their future — Bhaarat Capital has a solution designed specifically for you. We are committed to making your financial journey simple, affordable, and completely stress-free.</p>
-        <div class="acontact">
-          <div class="aci"><span class="acii">📍</span><div>Gyanendra Jeevan Complex, Office No. 40, First Floor, Behind Stellar Jeevan, Bisrakh, Noida, Uttar Pradesh — 201306</div></div>
-          <div class="aci"><span class="acii">📞</span><div><a href="tel:+917982810014">+91 79828 10014</a></div></div>
-          <div class="aci"><span class="acii">✉️</span><div><a href="mailto:support@bhaaratcapital.com">support@bhaaratcapital.com</a></div></div>
-          <div class="aci"><span class="acii">⏰</span><div>Monday – Saturday: 9:00 AM – 7:00 PM</div></div>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <h2>Ready to Start Your Financial Journey?</h2>
+  <p>Free consultation, zero obligation. Our experts are available 6 days a week.</p>
+  <a href="contact.html#loan-form" class="cta-wbtn">Apply for Loan →</a>
+  <a href="https://wa.me/917982810014" target="_blank" class="cta-wbtn inv">💬 WhatsApp Us</a>
+</div>
+
+<script>
+// Load blog preview
+async function loadBlogPreview() {
+  try {
+    const posts = await sbFetch("blog_posts", "?published=eq.true&order=created_at.desc&limit=3");
+    const el = document.getElementById("blogPreview");
+    if (!posts || posts.length === 0) {
+      el.innerHTML = '<p style="color:var(--gy);grid-column:1/-1;text-align:center;padding:2rem">No articles yet. <a href="admin.html" style="color:var(--or)">Add some from Admin Panel →</a></p>';
+      return;
+    }
+    el.innerHTML = posts.map(p => `
+      <div class="bcard anim">
+        <div class="bcard-body">
+          <span class="bcat">${p.category || 'Finance'}</span>
+          <h3>${p.title}</h3>
+          <p>${(p.excerpt || p.content || '').substring(0, 120)}...</p>
+          <div class="bcard-footer">
+            <span>${new Date(p.created_at).toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'})}</span>
+            <a href="blog-post.html?slug=${p.slug}" class="bread">Read More →</a>
+          </div>
         </div>
       </div>
-      <div class="aright">
-        <div class="acard anim"><div class="acn">500+</div><div class="acl">Happy Clients</div></div>
-        <div class="acard ac2 anim"><div class="acn">₹50Cr+</div><div class="acl">Loans Disbursed</div></div>
-        <div class="acard ac2 anim"><div class="acn">20+</div><div class="acl">Bank Partners</div></div>
-        <div class="acard anim"><div class="acn">15+</div><div class="acl">Insurance Partners</div></div>
-        <div class="acard anim"><div class="acn">5+</div><div class="acl">Years Experience</div></div>
-        <div class="acard ac2 anim"><div class="acn">98%</div><div class="acl">Client Satisfaction</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="contact" class="sec contact-sec">
-  <div class="con">
-    <div class="tc"><span class="stag">Get In Touch</span>
-    <h2 class="stitle">Let's Start Your <span class="sacc">Financial Journey</span></h2>
-    <p class="ssub">Ready to take the first step? Our experts are available 6 days a week to answer all questions and guide you toward the best financial solution for your needs.</p></div>
-    <div class="cgrid">
-      <div class="ccard"><div class="cicon">📞</div><h4>Call Us Directly</h4><p>Speak to a financial expert right now. No waiting, no IVR — a real person answers every call.</p><a href="tel:+917982810014">+91 79828 10014</a><small style="color:var(--gy);font-size:.8rem">Mon–Sat, 9:00 AM – 7:00 PM</small></div>
-      <div class="ccard wa"><div class="cicon">💬</div><h4>WhatsApp Us</h4><p>Send documents, get quotes, track applications — instant support on WhatsApp, usually within 30 minutes.</p><a href="https://wa.me/917982810014?text=Hello%20Bhaarat%20Capital!%20I%20want%20to%20enquire%20about%20financial%20services." target="_blank">Chat on WhatsApp →</a><small style="color:var(--gy);font-size:.8rem">Quick response guaranteed</small></div>
-    </div>
-    <div class="cbottom">
-      <div><h3>Bhaarat Capital — Multiple Companies, One Best Choice</h3><p>Join 500+ clients who have trusted us with their most important financial decisions. Free consultation, zero obligation.</p></div>
-      <a href="#apply" class="bp" style="flex-shrink:0;white-space:nowrap">Apply for Loan — Free →</a>
-    </div>
-  </div>
-</section>
-<footer class="footer">
-  <div class="fgrid">
-    <div class="fbrand">
-      <div class="logo"><span class="lb">B</span>haarat<span class="la">Capital</span></div>
-      <p>Empowering Your Dreams, Securing Your Future. Your trusted financial partner in Noida & NCR for Loans, Insurance, and Mutual Fund investments.</p>
-      <div class="fsoc">
-        <a href="https://wa.me/917982810014" target="_blank">WhatsApp</a>
-        <a href="mailto:support@bhaaratcapital.com">Email</a>
-        <a href="tel:+917982810014">Call Us</a>
-      </div>
-    </div>
-    <div class="fcol"><h5>Loan Products</h5><a href="#loans">Home Loan</a><a href="#loans">Personal Loan</a><a href="#loans">Car Loan</a><a href="#loans">Business Loan</a><a href="#loans">Loan Against Property</a><a href="#loans">Gold Loan</a></div>
-    <div class="fcol"><h5>Insurance</h5><a href="#insurance">Health Insurance</a><a href="#insurance">Life Insurance</a><a href="#insurance">Motor Insurance</a><a href="#insurance">Corporate Insurance</a><a href="#insurance">Property Insurance</a><a href="#insurance">Term Plan + MF</a></div>
-    <div class="fcol"><h5>Quick Links</h5><a href="#eligibility">Eligibility Criteria</a><a href="#rates">Interest Rates</a><a href="#apply">Apply for Loan</a><a href="#ins-form">Insurance Quote</a><a href="#faq">FAQs</a><a href="#about">About Us</a><a href="#contact">Contact Us</a></div>
-  </div>
-  <div class="fbot">
-    <span>© 2025 Bhaarat Capital. All Rights Reserved. | Gyanendra Jeevan Complex, Bisrakh, Noida UP-201306</span>
-    <span>Made with ❤️ in India 🇮🇳 | <a href="mailto:support@bhaaratcapital.com">support@bhaaratcapital.com</a></span>
-  </div>
-</footer>
-<a href="https://wa.me/917982810014?text=Hello%20Bhaarat%20Capital!%20I%20want%20to%20know%20more%20about%20your%20services." target="_blank" class="waf" title="Chat on WhatsApp">💬</a>
-<script>
-const SB_URL="https://cktssfxebzpngvjkunur.supabase.co";
-const SB_KEY="sb_publishable_ybbP2rzlRrMnZrkEHJ14cw_uFXnN05D";
-window.addEventListener("scroll",()=>document.getElementById("nav").classList.toggle("sc",window.scrollY>60));
-document.getElementById("hb").addEventListener("click",()=>document.getElementById("mm").classList.toggle("op"));
-document.querySelectorAll(".mm a").forEach(a=>a.addEventListener("click",()=>document.getElementById("mm").classList.remove("op")));
-async function dbIns(table,data){
-  const r=await fetch(`${SB_URL}/rest/v1/${table}`,{method:"POST",headers:{"Content-Type":"application/json","apikey":SB_KEY,"Authorization":"Bearer "+SB_KEY,"Prefer":"return=minimal"},body:JSON.stringify(data)});
-  if(!r.ok)throw new Error(await r.text());
+    `).join("");
+    document.querySelectorAll("#blogPreview .anim").forEach(el => {
+      setTimeout(() => el.classList.add("vis"), 100);
+    });
+  } catch(e) { console.log(e); }
 }
-document.getElementById("loanForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  const btn=document.getElementById("lsb"),suc=document.getElementById("ls"),err=document.getElementById("le2");
-  btn.disabled=true;btn.textContent="Submitting...";suc.style.display="none";err.style.display="none";
-  const data={name:document.getElementById("ln").value,phone:document.getElementById("lp").value,email:document.getElementById("le").value,loan_type:document.getElementById("lt").value,amount:document.getElementById("la").value,message:`Employment:${document.getElementById("lej").value}|Income:${document.getElementById("li").value}|City:${document.getElementById("lc").value}|Note:${document.getElementById("lm").value}`};
-  try{
-    await dbIns("loan_applications",data);
-    suc.textContent="🎉 Application submitted! Our loan advisor will call you within 24 hours with the best offer tailored for you.";suc.style.display="block";e.target.reset();
-    btn.textContent="Submit Application — Get Free Quote →";btn.disabled=false;
-    setTimeout(()=>window.open(`https://wa.me/917982810014?text=${encodeURIComponent(`New Loan Application!\n\nName: ${data.name}\nPhone: ${data.phone}\nLoan: ${data.loan_type}\nAmount: ${data.amount}\n\nPlease call back within 24 hours.`)}`,"_blank"),1500);
-  }catch(ex){err.textContent="❌ Something went wrong. Please call us at +91 79828 10014";err.style.display="block";btn.textContent="Submit Application — Get Free Quote →";btn.disabled=false;}
-});
-document.getElementById("insForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  const btn=document.getElementById("isb"),suc=document.getElementById("is"),err=document.getElementById("ie3");
-  btn.disabled=true;btn.textContent="Submitting...";suc.style.display="none";err.style.display="none";
-  const data={name:document.getElementById("in2").value,phone:document.getElementById("ip").value,email:document.getElementById("ie").value,insurance_type:document.getElementById("it").value,message:`Age:${document.getElementById("ia").value}|Family:${document.getElementById("ifam").value}|Budget:${document.getElementById("ib").value}|Note:${document.getElementById("im").value}`};
-  try{
-    await dbIns("insurance_inquiries",data);
-    suc.textContent="🎉 Inquiry received! Our insurance specialist will call you shortly with personalised quotes from top insurers.";suc.style.display="block";e.target.reset();
-    btn.textContent="Get Free Insurance Quote →";btn.disabled=false;
-    setTimeout(()=>window.open(`https://wa.me/917982810014?text=${encodeURIComponent(`New Insurance Inquiry!\n\nName: ${data.name}\nPhone: ${data.phone}\nType: ${data.insurance_type}\n\nPlease provide quotes ASAP.`)}`,"_blank"),1500);
-  }catch(ex){err.textContent="❌ Something went wrong. Please call us at +91 79828 10014";err.style.display="block";btn.textContent="Get Free Insurance Quote →";btn.disabled=false;}
-});
-document.querySelectorAll(".fitem").forEach(item=>{item.querySelector(".fq").addEventListener("click",()=>{const o=item.classList.contains("open");document.querySelectorAll(".fitem").forEach(i=>i.classList.remove("open"));if(!o)item.classList.add("open");});});
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("vis")});},{threshold:0.08});
-document.querySelectorAll(".anim").forEach(el=>obs.observe(el));
+loadBlogPreview();
 </script>
 </body>
 </html>
