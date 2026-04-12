@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply Now - Bhaaratcapital</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #ffe0b2);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #ff6600;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e65c00;
+}
+
+.success {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Apply Now</h2>
+
+    <form id="applyForm">
+
+        <label>Full Name</label>
+        <input type="text" required>
+
+        <label>Mobile Number</label>
+        <input type="tel" required>
+
+        <label>Select Service</label>
+        <select id="service" onchange="updateOptions()" required>
+            <option value="">-- Select --</option>
+            <option value="loan">Loan</option>
+            <option value="insurance">Insurance</option>
+        </select>
+
+        <label>Select Type</label>
+        <select id="type" required>
+            <option value="">-- Select First --</option>
+        </select>
+
+        <label>City</label>
+        <input type="text" required>
+
+        <button type="submit">Submit Application</button>
+
+        <div class="success" id="successMsg">
+            ✅ Application Submitted Successfully!
+        </div>
+
+    </form>
+</div>
+
+<script>
+function updateOptions() {
+    let service = document.getElementById("service").value;
+    let type = document.getElementById("type");
+
+    type.innerHTML = "";
+
+    if(service === "loan") {
+        type.innerHTML = `
+            <option>Home Loan</option>
+            <option>Personal Loan</option>
+            <option>Car Loan</option>
+            <option>Business Loan</option>
+        `;
+    } 
+    else if(service === "insurance") {
+        type.innerHTML = `
+            <option>Health Insurance</option>
+            <option>Motor Insurance</option>
+            <option>Life Insurance</option>
+            <option>Term Insurance</option>
+        `;
+    } 
+    else {
+        type.innerHTML = `<option>Select First</option>`;
+    }
+}
+
+document.getElementById("applyForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    document.getElementById("successMsg").style.display = "block";
+    this.reset();
+});
+</script>
+
+</body>
+</html>
