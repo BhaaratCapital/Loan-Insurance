@@ -3,141 +3,561 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apply Now - Bhaaratcapital</title>
-
+<title>Apply Now — Bhaarat Capital</title>
+<meta name="description" content="Apply for Loans & Insurance with Bhaarat Capital. Quick approval, expert guidance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #f8f9fa, #ffe0b2);
-    margin: 0;
-    padding: 0;
+
+/* ---- Page Hero (dark themed) ---- */
+.page-hero {
+  min-height: 40vh;
+  background: linear-gradient(160deg, #0A0A0F 0%, #1A0A00 60%, #0A0A0F 100%) !important;
+  display: flex;
+  align-items: center;
+  padding: 9rem 2rem 4rem !important;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  border-bottom: none !important;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(249,115,22,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249,115,22,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal), var(--orange), var(--gold), var(--teal));
+}
+.page-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.page-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(29,184,117,.1);
+  color: #4ADE80;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  border: 1px solid rgba(29,184,117,.25);
+}
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #F8FAFC !important;
+  margin-bottom: 1rem;
+  line-height: 1.08;
+}
+.heading-gradient {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--orange), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.page-hero p {
+  color: rgba(248,250,252,.65) !important;
+  font-size: 1.05rem;
+  max-width: 540px;
+  line-height: 1.8;
 }
 
-.container {
-    max-width: 500px;
-    margin: 50px auto;
-    background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+/* ---- Form Section ---- */
+.form-section {
+  background: linear-gradient(160deg, #0A0A0F 0%, #12121A 100%);
+  min-height: 60vh;
+  padding: 5rem 2rem 7rem;
+  position: relative;
+}
+.form-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(249,115,22,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249,115,22,.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
 }
 
-h2 {
-    text-align: center;
-    color: #ff6600;
+.apply-form-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(249,115,22,.2);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 24px 80px rgba(0,0,0,.5);
+}
+.apply-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--orange), var(--gold));
+  border-radius: 24px 24px 0 0;
 }
 
-label {
-    font-weight: bold;
-    margin-top: 10px;
-    display: block;
+.form-header { text-align: center; margin-bottom: 2.2rem; }
+.form-header .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(29,184,117,.1);
+  color: #4ADE80;
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(29,184,117,.2);
+}
+.form-header h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: #F8FAFC;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+.form-header p { color: rgba(248,250,252,.5); font-size: 0.88rem; }
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.2rem;
+}
+.field-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(248,250,252,.65);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.field-group input,
+.field-group select {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  color: #F8FAFC;
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.25s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.field-group input::placeholder { color: rgba(248,250,252,.3); }
+.field-group input:focus,
+.field-group select:focus {
+  border-color: var(--orange);
+  background: rgba(249,115,22,.06);
+  box-shadow: 0 0 0 3px rgba(249,115,22,.12);
+}
+.field-group select option { background: #1E293B; color: #F8FAFC; }
+
+/* Custom select arrow */
+.select-wrap { position: relative; }
+.select-wrap::after {
+  content: '▾';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(248,250,252,.4);
+  pointer-events: none;
+  font-size: 0.9rem;
 }
 
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+/* Two column layout for some fields */
+.fields-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
-button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    background: #ff6600;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
+.submit-btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--orange), #FF8C42);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 0.8rem;
+  box-shadow: 0 6px 28px rgba(249,115,22,.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(249,115,22,.5);
 }
 
-button:hover {
-    background: #e65c00;
+.success-msg {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(29,184,117,.1);
+  border: 1px solid rgba(29,184,117,.25);
+  border-radius: 14px;
+  margin-top: 1.5rem;
+}
+.success-msg .check { font-size: 2.5rem; margin-bottom: 0.6rem; }
+.success-msg h3 { color: #4ADE80; font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.4rem; }
+.success-msg p { color: rgba(248,250,252,.6); font-size: 0.88rem; }
+
+/* Info strip */
+.info-strip {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(248,250,252,.5);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+.info-item span { color: var(--teal); font-size: 1rem; }
+
+/* ---- Footer (dark themed) ---- */
+.footer {
+  background: linear-gradient(160deg, #0A0A0F 0%, #12121A 100%);
+  padding: 5rem 2rem 0;
+  position: relative;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal), var(--orange), var(--gold), var(--teal));
 }
 
-.success {
-    text-align: center;
-    color: green;
-    font-weight: bold;
-    margin-top: 20px;
-    display: none;
+@media (max-width: 640px) {
+  .apply-form-card { padding: 2rem 1.5rem; }
+  .fields-row { grid-template-columns: 1fr; }
+  .info-strip { gap: 1rem; }
 }
 </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h2>Apply Now</h2>
+<!-- ===== NAVBAR (Same as Homepage) ===== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="logo (1).png" alt="Bhaarat Capital" class="nav-logo-img">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="loans.html">Loans</a></li>
+      <li><a href="insurance.html">Insurance</a></li>
+      <li><a href="eligibility.html">Eligibility</a></li>
+      <li><a href="rates.html">Rates</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta active-cta">📞 +91 79828 10014</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="loans.html">Loans</a>
+    <a href="insurance.html">Insurance</a>
+    <a href="eligibility.html">Eligibility</a>
+    <a href="rates.html">Rates</a>
+    <a href="about.html">About Us</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html" style="color:var(--orange);font-weight:700;">📞 +91 79828 10014</a>
+  </div>
+</nav>
 
-    <form id="applyForm">
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">🚀 Apply Now</div>
+    <h1>Get Started <span class="heading-gradient">Today</span></h1>
+    <p>Fill in your details below and our expert team will reach out to you within 30 minutes. Loans & Insurance — all in one place.</p>
+  </div>
+</section>
 
+<!-- ===== APPLICATION FORM ===== -->
+<section class="form-section">
+  <div class="apply-form-card anim">
+    <div class="form-header">
+      <div class="badge">✦ Free Consultation</div>
+      <h2>Apply Now</h2>
+      <p>Quick form · Expert callback · Zero charges</p>
+    </div>
+
+    <form id="applyForm" autocomplete="off">
+
+      <!-- Full Name -->
+      <div class="field-group">
         <label>Full Name</label>
-        <input type="text" required>
+        <input type="text" id="fullName" placeholder="Enter your full name" required>
+      </div>
 
-        <label>Mobile Number</label>
-        <input type="tel" required>
+      <!-- PAN Number -->
+      <div class="field-group">
+        <label>PAN Number</label>
+        <input type="text" id="panNumber" placeholder="e.g. ABCDE1234F" maxlength="10" style="text-transform:uppercase;" required>
+      </div>
 
-        <label>Select Service</label>
-        <select id="service" onchange="updateOptions()" required>
-            <option value="">-- Select --</option>
+      <!-- Phone & City -->
+      <div class="fields-row">
+        <div class="field-group">
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" maxlength="13" required>
+        </div>
+        <div class="field-group">
+          <label>City</label>
+          <input type="text" id="city" placeholder="Your city" required>
+        </div>
+      </div>
+
+      <!-- Employment Type -->
+      <div class="field-group">
+        <label>Employment Type</label>
+        <div class="select-wrap">
+          <select id="employment" required>
+            <option value="">— Select —</option>
+            <option value="salaried">Salaried</option>
+            <option value="self-employed">Self Employed</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Service Type -->
+      <div class="field-group">
+        <label>I Need</label>
+        <div class="select-wrap">
+          <select id="service" onchange="updateTypes()" required>
+            <option value="">— Select Service —</option>
             <option value="loan">Loan</option>
             <option value="insurance">Insurance</option>
-        </select>
-
-        <label>Select Type</label>
-        <select id="type" required>
-            <option value="">-- Select First --</option>
-        </select>
-
-        <label>City</label>
-        <input type="text" required>
-
-        <button type="submit">Submit Application</button>
-
-        <div class="success" id="successMsg">
-            ✅ Application Submitted Successfully!
+          </select>
         </div>
+      </div>
 
+      <!-- Type of Loan / Insurance -->
+      <div class="field-group">
+        <label id="typeLabel">Type</label>
+        <div class="select-wrap">
+          <select id="serviceType" required>
+            <option value="">— Select service first —</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">
+        Submit Application ✦
+      </button>
     </form>
-</div>
 
+    <!-- Success Message -->
+    <div class="success-msg" id="successMsg">
+      <div class="check">✅</div>
+      <h3>Application Submitted!</h3>
+      <p>Our expert will call you within 30 minutes. Thank you for choosing Bhaarat Capital.</p>
+    </div>
+  </div>
+
+  <!-- Info Strip -->
+  <div class="info-strip">
+    <div class="info-item"><span>🔒</span> 100% Secure & Confidential</div>
+    <div class="info-item"><span>⚡</span> Callback within 30 minutes</div>
+    <div class="info-item"><span>🎯</span> Zero consultation charges</div>
+    <div class="info-item"><span>📞</span> Mon–Sun: 9AM–9PM</div>
+  </div>
+</section>
+
+<!-- ===== FOOTER (Same as Homepage) ===== -->
+<footer class="footer">
+  <div class="footer-grid" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3.5rem;border-bottom:1px solid rgba(255,255,255,.06);">
+    <div class="footer-brand">
+      <a href="index.html"><img src="logo (1).png" alt="Bhaarat Capital" style="height:42px;margin-bottom:1rem;display:block;"></a>
+      <p>Bhaarat Capital — Trusted financial partner in Noida NCR. Banks Partner.</p>
+      <p style="margin-top:.7rem;font-size:.82rem;color:rgba(248,250,252,.4);">📍 Bisrakh, Noida, UP &nbsp;|&nbsp; 🕘 Mon–Sun: 9AM–9PM</p>
+      <div class="social-links" style="margin-top:1.1rem;">
+        <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 Instagram</a>
+        <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">▶ YouTube</a>
+        <a href="https://wa.me/917982810014" target="_blank">💬 WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Loans</h5>
+      <a href="loans.html#home-loan">Home Loan</a>
+      <a href="loans.html#personal-loan">Personal Loan</a>
+      <a href="loans.html#car-loan">Car Loan</a>
+      <a href="loans.html#business-loan">Business Loan</a>
+      <a href="loans.html#lap">Loan Against Property</a>
+    </div>
+    <div class="footer-col">
+      <h5>Insurance</h5>
+      <a href="insurance.html#health">Health Insurance</a>
+      <a href="insurance.html#motor">Motor Insurance</a>
+      <a href="insurance.html#corporate">Corporate Insurance</a>
+      <a href="insurance.html#term">Term Plan</a>
+      <a href="insurance.html#travel">Travel Insurance</a>
+      <h5 style="margin-top:1.3rem;">Company</h5>
+      <a href="about.html">About Us</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <a href="tel:+917982810014">📞 +91 79828 10014</a>
+      <a href="https://wa.me/917982810014" target="_blank">💬 WhatsApp</a>
+      <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 @bhaarat_capital</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Bhaarat Capital. All rights reserved. Banks Partner.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="terms.html" style="color:#78716c;font-size:.82rem;">Terms</a>
+      <a href="privacy.html" style="color:#78716c;font-size:.82rem;">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank">💬</a>
+
+<script src="script.js"></script>
 <script>
-function updateOptions() {
-    let service = document.getElementById("service").value;
-    let type = document.getElementById("type");
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
 
-    type.innerHTML = "";
+// Hamburger menu
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
 
-    if(service === "loan") {
-        type.innerHTML = `
-            <option>Home Loan</option>
-            <option>Personal Loan</option>
-            <option>Car Loan</option>
-            <option>Business Loan</option>
-        `;
-    } 
-    else if(service === "insurance") {
-        type.innerHTML = `
-            <option>Health Insurance</option>
-            <option>Motor Insurance</option>
-            <option>Life Insurance</option>
-            <option>Term Insurance</option>
-        `;
-    } 
-    else {
-        type.innerHTML = `<option>Select First</option>`;
-    }
+// Scroll animations
+const ao = new IntersectionObserver((e) => {
+  e.forEach(x => {
+    if (x.isIntersecting) { x.target.classList.add('vis'); ao.unobserve(x.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.anim').forEach(el => ao.observe(el));
+
+// PAN auto uppercase
+document.getElementById('panNumber').addEventListener('input', function() {
+  this.value = this.value.toUpperCase();
+});
+
+// Phone number validation — only digits
+document.getElementById('phone').addEventListener('input', function() {
+  this.value = this.value.replace(/[^0-9+]/g, '');
+});
+
+// Update service type options based on selected service
+function updateTypes() {
+  const service = document.getElementById('service').value;
+  const typeSelect = document.getElementById('serviceType');
+  const typeLabel = document.getElementById('typeLabel');
+
+  typeSelect.innerHTML = '';
+
+  if (service === 'loan') {
+    typeLabel.textContent = 'Type of Loan';
+    const loanOptions = [
+      'Home Loan',
+      'Personal Loan',
+      'Car Loan',
+      'Business Loan',
+      'Loan Against Property',
+      'Education Loan',
+    ];
+    loanOptions.forEach(opt => {
+      const o = document.createElement('option');
+      o.value = opt;
+      o.textContent = opt;
+      typeSelect.appendChild(o);
+    });
+  } else if (service === 'insurance') {
+    typeLabel.textContent = 'Type of Insurance';
+    const insOptions = [
+      'Health Insurance',
+      'Motor Insurance',
+      'Term Plan / Life Insurance',
+      'Corporate Insurance',
+      'Travel Insurance',
+    ];
+    insOptions.forEach(opt => {
+      const o = document.createElement('option');
+      o.value = opt;
+      o.textContent = opt;
+      typeSelect.appendChild(o);
+    });
+  } else {
+    typeLabel.textContent = 'Type';
+    const placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.textContent = '— Select service first —';
+    typeSelect.appendChild(placeholder);
+  }
 }
 
-document.getElementById("applyForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    document.getElementById("successMsg").style.display = "block";
-    this.reset();
+// Form submission
+document.getElementById('applyForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const btn = this.querySelector('.submit-btn');
+  btn.textContent = 'Submitting…';
+  btn.disabled = true;
+
+  // Simulate API call delay
+  setTimeout(() => {
+    this.style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }, 900);
 });
 </script>
-
 </body>
 </html>
