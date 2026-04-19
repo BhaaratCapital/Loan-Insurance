@@ -4,13 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Bhaarat Capital — Smart Loans. Secure Life. | Noida NCR</title>
-<meta name="description" content="Bhaarat Capital — Home Loans from 7.25%, Health Insurance from ₹5 Lac, Motor Insurance, Personal Loans, Car Loans in Noida NCR. Banks Partner."/>
+<meta name="description" content="Bhaarat Capital — Home Loans from 7.25%, Health Insurance from &#8377;5 Lac, Motor Insurance, Personal Loans, Car Loans in Noida NCR. Banks Partner."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css"/>
-
 <style>
-/* ===== PREMIUM DARK THEME OVERRIDES ===== */
 :root {
   --bg-deep: #0A0A0F;
   --bg-card: #13131A;
@@ -28,180 +26,44 @@
   --text-muted: #8B8FA8;
   --text-bright: #F1F1F8;
 }
-
 body { background: var(--bg-deep); color: var(--text-bright); }
-
-/* ===== NAVBAR ===== */
-#navbar {
-  background: rgba(10,10,15,0.92);
-  border-bottom: 1px solid var(--border-glow);
-  backdrop-filter: blur(20px);
-}
+#navbar { background: rgba(10,10,15,0.92); border-bottom: 1px solid var(--border-glow); backdrop-filter: blur(20px); }
 #navbar.scrolled { background: rgba(10,10,15,0.98); }
-
-.nav-logo-img { height: 52px; width: auto; display: block; filter: drop-shadow(0 0 12px rgba(249,115,22,0.4)); }
+.nav-logo-img { height: 72px; width: auto; display: block; filter: drop-shadow(0 0 12px rgba(249,115,22,0.4)); }
 .nav-links a { color: #C5C8D8; font-size: 0.88rem; letter-spacing: 0.01em; }
 .nav-links a:hover, .nav-links a.active { color: var(--gold); background: var(--gold-glow); }
-.nav-cta {
-  background: linear-gradient(135deg, var(--orange), var(--gold));
-  border: none;
-  color: #fff !important;
-  font-size: 0.83rem;
-  padding: 0.6rem 1.2rem;
-  box-shadow: 0 4px 20px rgba(249,115,22,0.35);
-}
+.nav-cta { background: linear-gradient(135deg, var(--orange), var(--gold)); border: none; color: #fff !important; font-size: 0.83rem; padding: 0.6rem 1.2rem; box-shadow: 0 4px 20px rgba(249,115,22,0.35); }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(249,115,22,0.5); background: linear-gradient(135deg, #ea6c0a, #d97706); }
-
-/* call popup */
-.call-popup {
-  display: none;
-  position: fixed;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--bg-card);
-  border: 1px solid var(--border-glow);
-  border-radius: 20px;
-  padding: 2.2rem 2.5rem;
-  z-index: 9999;
-  text-align: center;
-  box-shadow: 0 20px 80px rgba(0,0,0,0.6), 0 0 40px rgba(249,115,22,0.15);
-  min-width: 280px;
-}
+.call-popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 20px; padding: 2.2rem 2.5rem; z-index: 9999; text-align: center; box-shadow: 0 20px 80px rgba(0,0,0,0.6), 0 0 40px rgba(249,115,22,0.15); min-width: 280px; }
 .call-popup h3 { color: #fff; font-size: 1.1rem; margin-bottom: 0.3rem; }
 .call-popup p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.4rem; }
-.call-popup a.call-btn {
-  display: block;
-  background: linear-gradient(135deg, var(--orange), var(--gold));
-  color: #fff; font-weight: 700; padding: 0.85rem 2rem;
-  border-radius: 50px; font-size: 1rem; margin-bottom: 0.7rem;
-  text-decoration: none;
-  box-shadow: 0 4px 20px rgba(249,115,22,0.4);
-  transition: all 0.2s;
-}
+.call-popup a.call-btn { display: block; background: linear-gradient(135deg, var(--orange), var(--gold)); color: #fff; font-weight: 700; padding: 0.85rem 2rem; border-radius: 50px; font-size: 1rem; margin-bottom: 0.7rem; text-decoration: none; box-shadow: 0 4px 20px rgba(249,115,22,0.4); transition: all 0.2s; }
 .call-popup a.call-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(249,115,22,0.55); }
-.call-close {
-  position: absolute; top: 12px; right: 16px;
-  cursor: pointer; color: var(--text-muted); font-size: 1.3rem;
-  background: none; border: none; transition: color 0.2s;
-}
+.call-close { position: absolute; top: 12px; right: 16px; cursor: pointer; color: var(--text-muted); font-size: 1.3rem; background: none; border: none; transition: color 0.2s; }
 .call-close:hover { color: var(--orange); }
-.popup-overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,0.7); z-index: 9998;
-  backdrop-filter: blur(4px);
-}
-
-/* ===== HERO ===== */
-.hero {
-  min-height: 100vh;
-  background: radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 55%),
-              radial-gradient(ellipse at 80% 30%, rgba(20,184,166,0.06) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 90%, rgba(245,158,11,0.05) 0%, transparent 50%),
-              var(--bg-deep);
-  padding: 7rem 2rem 5rem;
-  position: relative; overflow: hidden;
-  display: flex; align-items: center;
-}
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F97316' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.hero-inner {
-  max-width: 1200px; margin: 0 auto; width: 100%;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: center;
-}
-
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  background: var(--gold-glow);
-  border: 1px solid rgba(245,158,11,0.3);
-  color: var(--gold-light);
-  padding: 0.4rem 1.1rem; border-radius: 50px;
-  font-size: 0.8rem; font-weight: 700; margin-bottom: 1.5rem;
-  letter-spacing: 0.04em;
-}
+.popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 9998; backdrop-filter: blur(4px); }
+.hero { min-height: 100vh; background: radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 55%), radial-gradient(ellipse at 80% 30%, rgba(20,184,166,0.06) 0%, transparent 50%), radial-gradient(ellipse at 50% 90%, rgba(245,158,11,0.05) 0%, transparent 50%), var(--bg-deep); padding: 7rem 2rem 5rem; position: relative; overflow: hidden; display: flex; align-items: center; }
+.hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold-glow); border: 1px solid rgba(245,158,11,0.3); color: var(--gold-light); padding: 0.4rem 1.1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: 0.04em; }
 .badge-dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; animation: blink 2s infinite; box-shadow: 0 0 6px #22c55e; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
-
-.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.5vw, 4.2rem);
-  font-weight: 900; line-height: 1.06;
-  color: #fff; margin-bottom: 1.1rem;
-  animation: fadeInUp 0.7s ease both;
-  letter-spacing: -0.01em;
-}
-.hero-accent {
-  background: linear-gradient(135deg, var(--orange), var(--gold));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-sub {
-  font-size: 1.03rem; color: #9CA3AF;
-  max-width: 490px; line-height: 1.8;
-  margin-bottom: 1.8rem;
-  animation: fadeInUp 0.8s 0.1s ease both;
-}
-.hero-hours {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
-  color: #86efac; border-radius: 50px; padding: 0.35rem 1rem;
-  font-size: 0.8rem; font-weight: 600; margin-bottom: 2rem;
-  animation: fadeInUp 1s 0.3s ease both;
-}
-.hero-btns {
-  display: flex; gap: 1rem; flex-wrap: wrap;
-  margin-bottom: 2.6rem;
-  animation: fadeInUp 0.9s 0.2s ease both;
-}
-.btn-primary {
-  background: linear-gradient(135deg, var(--orange), var(--gold));
-  color: #fff; border: none;
-  box-shadow: 0 4px 24px rgba(249,115,22,0.4);
-}
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 36px rgba(249,115,22,0.55);
-  background: linear-gradient(135deg, #ea6c0a, #d97706);
-}
-.btn-secondary {
-  color: #E5E7EB; border: 1.5px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.04);
-}
-.btn-secondary:hover {
-  border-color: var(--gold); color: var(--gold);
-  background: var(--gold-glow);
-}
-
-.hero-stats {
-  display: flex; align-items: center; gap: 1.5rem;
-  padding: 1.3rem 1.7rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-glow);
-  border-radius: 16px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,158,11,0.05);
-  width: fit-content; flex-wrap: wrap;
-  animation: fadeInUp 1s 0.4s ease both;
-}
+.hero-title { font-family: var(--font-display); font-size: clamp(2.8rem, 5.5vw, 4.2rem); font-weight: 900; line-height: 1.06; color: #fff; margin-bottom: 1.1rem; animation: fadeInUp 0.7s ease both; letter-spacing: -0.01em; }
+.hero-accent { background: linear-gradient(135deg, var(--orange), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-sub { font-size: 1.03rem; color: #9CA3AF; max-width: 490px; line-height: 1.8; margin-bottom: 1.8rem; animation: fadeInUp 0.8s 0.1s ease both; }
+.hero-hours { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25); color: #86efac; border-radius: 50px; padding: 0.35rem 1rem; font-size: 0.8rem; font-weight: 600; margin-bottom: 2rem; animation: fadeInUp 1s 0.3s ease both; }
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.6rem; animation: fadeInUp 0.9s 0.2s ease both; }
+.btn-primary { background: linear-gradient(135deg, var(--orange), var(--gold)); color: #fff; border: none; box-shadow: 0 4px 24px rgba(249,115,22,0.4); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 36px rgba(249,115,22,0.55); background: linear-gradient(135deg, #ea6c0a, #d97706); }
+.btn-secondary { color: #E5E7EB; border: 1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); }
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-glow); }
+.hero-stats { display: flex; align-items: center; gap: 1.5rem; padding: 1.3rem 1.7rem; background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,158,11,0.05); width: fit-content; flex-wrap: wrap; animation: fadeInUp 1s 0.4s ease both; }
 .stat-num { display: block; font-family: var(--font-display); font-size: 1.9rem; font-weight: 900; background: linear-gradient(135deg, var(--orange), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
 .stat-label { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.15rem; display: block; }
 .stat-div { width: 1px; height: 38px; background: rgba(255,255,255,0.08); }
-
-/* Hero Visual */
 .hero-visual { position: relative; min-height: 460px; display: flex; align-items: center; justify-content: center; }
 .hero-orb { width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(249,115,22,0.15), rgba(245,158,11,0.08), transparent); animation: pulse 4s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{transform:scale(1);opacity:.5} 50%{transform:scale(1.08);opacity:.8} }
-.hero-card {
-  position: absolute; background: var(--bg-card);
-  border-radius: 16px; padding: 1rem 1.4rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
-  display: flex; align-items: center; gap: 0.9rem;
-  border-left: 3px solid var(--orange); min-width: 200px;
-  cursor: pointer; transition: all 0.3s;
-  text-decoration: none;
-}
+.hero-card { position: absolute; background: var(--bg-card); border-radius: 16px; padding: 1rem 1.4rem; box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06); display: flex; align-items: center; gap: 0.9rem; border-left: 3px solid var(--orange); min-width: 200px; cursor: pointer; transition: all 0.3s; text-decoration: none; }
 .hero-card:hover { transform: scale(1.05) translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 20px rgba(249,115,22,0.2); border-left-color: var(--gold); }
 .hc-f1 { top: 2%; left: 0; animation: float 3.2s ease-in-out infinite; border-left-color: var(--orange); }
 .hc-f2 { top: 33%; right: -5%; animation: float 3.2s ease-in-out infinite 0.8s; border-left-color: var(--teal); }
@@ -212,27 +74,17 @@ body { background: var(--bg-deep); color: var(--text-bright); }
 .hc-icon { font-size: 1.9rem; flex-shrink: 0; }
 .hc-text strong { display: block; font-size: 0.88rem; font-weight: 700; color: #F1F1F8; }
 .hc-text span { font-size: 0.76rem; color: var(--text-muted); }
-
-/* ===== MARQUEE ===== */
 .marquee-strip { background: var(--bg-card); border-top: 1px solid rgba(249,115,22,0.2); border-bottom: 1px solid rgba(249,115,22,0.2); padding: 0.8rem 0; overflow: hidden; }
 .marquee-track { display: flex; gap: 2rem; white-space: nowrap; width: max-content; animation: marquee 28s linear infinite; align-items: center; }
 .marquee-track span { color: #C5C8D8; font-weight: 600; font-size: 0.88rem; }
 .marquee-track span.dot { opacity: 0.4; font-size: 0.5rem; color: var(--gold); }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-/* ===== SERVICES ===== */
 .services-section { background: var(--bg-deep); }
 .section-tag { background: var(--gold-glow); color: var(--gold-light); border: 1px solid rgba(245,158,11,0.25); }
 .section-title { color: #F1F1F8; }
 .section-sub { color: var(--text-muted); }
 .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.8rem; }
-.svc-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: 20px; padding: 2.2rem 1.8rem;
-  transition: all 0.3s; text-align: center; cursor: pointer;
-  position: relative; overflow: hidden;
-}
+.svc-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 2.2rem 1.8rem; transition: all 0.3s; text-align: center; cursor: pointer; position: relative; overflow: hidden; }
 .svc-card::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 0%, rgba(249,115,22,0.06) 0%, transparent 70%); opacity:0; transition: opacity 0.3s; }
 .svc-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,158,11,0.2); border-color: rgba(245,158,11,0.3); }
 .svc-card:hover::before { opacity: 1; }
@@ -243,25 +95,16 @@ body { background: var(--bg-deep); color: var(--text-bright); }
 .svc-card p { font-size: 0.87rem; color: var(--text-muted); margin-bottom: 1.3rem; line-height: 1.7; }
 .svc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 1.3rem; }
 .svt { background: var(--gold-glow); color: var(--gold-light); padding: 0.22rem 0.7rem; border-radius: 50px; font-size: 0.73rem; font-weight: 700; border: 1px solid rgba(245,158,11,0.15); }
-
-/* ===== WHY US ===== */
 .why-section { background: var(--bg-card); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
 .why-section .section-title { color: #F1F1F8; }
 .why-section .section-sub { color: var(--text-muted); }
 .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; margin-top: 2.8rem; }
-.why-card {
-  background: var(--bg-deep);
-  border: 1px solid var(--border-subtle);
-  border-radius: 16px; padding: 1.8rem;
-  transition: all 0.3s; text-align: center;
-}
+.why-card { background: var(--bg-deep); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 1.8rem; transition: all 0.3s; text-align: center; }
 .why-card:hover { background: var(--bg-card2); border-color: rgba(245,158,11,0.25); transform: translateY(-5px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
 .why-icon { width: 58px; height: 58px; border-radius: 12px; background: var(--gold-glow); border: 1px solid rgba(245,158,11,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 1.1rem; transition: all 0.3s; }
 .why-card:hover .why-icon { background: rgba(249,115,22,0.18); transform: scale(1.1); }
 .why-card h4 { color: #E5E7EB; font-size: 0.93rem; font-weight: 700; margin-bottom: 0.45rem; }
 .why-card p { color: var(--text-muted); font-size: 0.82rem; line-height: 1.65; }
-
-/* ===== PARTNERS ===== */
 .partners-section { background: var(--bg-deep); padding: 4rem 2rem; border-top: 1px solid var(--border-subtle); }
 .partners-header { text-align: center; margin-bottom: 2.5rem; }
 .partner-category { margin-bottom: 2.2rem; }
@@ -276,8 +119,6 @@ body { background: var(--bg-deep); color: var(--text-bright); }
 @keyframes slide { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .partner-chip { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 10px 18px; font-size: 0.82rem; font-weight: 600; white-space: nowrap; color: #9CA3AF; transition: all 0.25s; flex-shrink: 0; }
 .partner-chip:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-glow); }
-
-/* ===== RATES TABLE ===== */
 .rates-section { background: var(--bg-card); }
 .rates-table { width:100%; border-collapse:collapse; margin-top:2.5rem; border-radius:16px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.4); }
 .rates-table thead tr { background: linear-gradient(135deg, #1A1A24, #0F1520); border-bottom: 2px solid rgba(245,158,11,0.3); }
@@ -289,8 +130,6 @@ body { background: var(--bg-deep); color: var(--text-bright); }
 .rates-table td:first-child { font-weight:700; color:#F1F1F8; }
 .rate-val { background: linear-gradient(135deg, var(--orange), var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:700; font-size:0.96rem; }
 .avail-badge { display:inline-block; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25); color:#86efac; border-radius:50px; padding:3px 12px; font-size:0.74rem; font-weight:700; }
-
-/* ===== STEPS ===== */
 .eligibility-section { background: var(--bg-deep); }
 .steps-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:1.4rem; margin-top:2.8rem; }
 .step-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius:20px; padding:2rem 1.5rem; text-align:center; transition:all 0.3s; }
@@ -298,8 +137,6 @@ body { background: var(--bg-deep); color: var(--text-bright); }
 .step-num { width:48px; height:48px; border-radius:50%; background: linear-gradient(135deg, var(--orange), var(--gold)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:1.1rem; margin:0 auto 1.2rem; box-shadow:0 4px 18px rgba(249,115,22,0.4); font-family:var(--font-display); }
 .step-card h4 { font-size:0.97rem; font-weight:700; margin-bottom:0.5rem; color:#F1F1F8; }
 .step-card p { font-size:0.82rem; color:var(--text-muted); line-height:1.68; }
-
-/* ===== TESTIMONIALS ===== */
 .testi-section { background: var(--bg-card); }
 .testi-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; margin-top:2.8rem; text-align:left; }
 .testi-card { background: var(--bg-deep); border: 1px solid var(--border-subtle); border-radius:20px; padding:2rem; transition:all 0.3s; }
@@ -313,15 +150,7 @@ body { background: var(--bg-deep); color: var(--text-bright); }
 .testi-av { width:44px; height:44px; border-radius:50%; background: linear-gradient(135deg, var(--orange), var(--gold)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:1rem; flex-shrink:0; }
 .testi-author strong { font-size:0.88rem; display:block; color:#E5E7EB; }
 .testi-author small { font-size:0.76rem; color:var(--text-muted); }
-
-/* ===== CTA BANNER ===== */
-.cta-banner {
-  background: linear-gradient(135deg, var(--bg-card), #1A0F05);
-  padding: 5rem 2rem; text-align:center;
-  border-top: 1px solid rgba(249,115,22,0.2);
-  border-bottom: 1px solid rgba(249,115,22,0.2);
-  position: relative; overflow: hidden;
-}
+.cta-banner { background: linear-gradient(135deg, var(--bg-card), #1A0F05); padding: 5rem 2rem; text-align:center; border-top: 1px solid rgba(249,115,22,0.2); border-bottom: 1px solid rgba(249,115,22,0.2); position: relative; overflow: hidden; }
 .cta-banner::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 50%, rgba(249,115,22,0.08) 0%, transparent 65%); pointer-events:none; }
 .cta-banner h2 { font-family:var(--font-display); font-size:clamp(1.8rem, 4vw, 2.8rem); color:#fff; margin-bottom:0.8rem; position:relative; }
 .cta-banner p { color:#9CA3AF; font-size:1rem; margin-bottom:2.2rem; position:relative; }
@@ -330,8 +159,6 @@ body { background: var(--bg-deep); color: var(--text-bright); }
 .cta-btn.wh:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(249,115,22,0.6); }
 .cta-btn.tr { background:transparent; color:#E5E7EB; border:1.5px solid rgba(255,255,255,0.2); }
 .cta-btn.tr:hover { background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.4); transform:translateY(-2px); }
-
-/* ===== FOOTER ===== */
 .footer { background: #060608; padding: 4rem 2rem 0; border-top: 1px solid rgba(245,158,11,0.2); }
 .footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; padding-bottom:3rem; }
 .footer-brand p { font-size:0.87rem; color:var(--text-muted); line-height:1.7; margin-top:0.5rem; }
@@ -343,21 +170,13 @@ body { background: var(--bg-deep); color: var(--text-bright); }
 .social-links a:hover { background: var(--gold-glow); color:var(--gold) !important; border-color:rgba(245,158,11,0.3); transform:translateY(-2px) !important; }
 .footer-bottom { border-top:1px solid var(--border-subtle); padding:1.3rem 0; max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
 .footer-bottom p { font-size:0.82rem; color:#4B5563; }
-
-/* ===== WHATSAPP FLOAT ===== */
 .whatsapp-float { position:fixed; bottom:2rem; right:2rem; z-index:999; width:58px; height:58px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; font-size:1.7rem; box-shadow:0 4px 20px rgba(37,211,102,.45); transition:all 0.3s; animation:pulse-green 2.5s ease-in-out infinite; text-decoration:none; }
 .whatsapp-float:hover { transform:scale(1.12); }
 @keyframes pulse-green { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)} 50%{box-shadow:0 4px 40px rgba(37,211,102,.7)} }
-
-/* ===== ANIMATIONS ===== */
 @keyframes fadeInUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 .anim { opacity:0; transform:translateY(24px); transition:opacity .55s ease, transform .55s ease; }
 .anim.vis { opacity:1; transform:translateY(0); }
-
-/* ===== HEADING GRADIENT ===== */
 .heading-gradient { display:inline-block; background: linear-gradient(135deg, var(--teal), var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-
-/* ===== RESPONSIVE ===== */
 @media(max-width:1024px) {
   .hero-inner { grid-template-columns:1fr; }
   .hero-visual { display:none; }
@@ -388,27 +207,20 @@ body { background: var(--bg-deep); color: var(--text-bright); }
 </style>
 </head>
 <body>
-
-<!-- CALL POPUP OVERLAY -->
 <div class="popup-overlay" id="popupOverlay" onclick="closeCallPopup()"></div>
 <div class="call-popup" id="callPopup">
-  <button class="call-close" onclick="closeCallPopup()">✕</button>
-  <div style="font-size:2.2rem;margin-bottom:0.5rem;">📞</div>
+  <button class="call-close" onclick="closeCallPopup()">&#x2715;</button>
+  <div style="font-size:2.2rem;margin-bottom:0.5rem;">&#128222;</div>
   <h3>Bhaarat Capital</h3>
-  <p>Ayush Bansal — Financial Advisor<br><span style="color:var(--gold);font-weight:700;">Mon–Sun: 9 AM – 9 PM</span></p>
-  <a href="tel:+917982810014" class="call-btn">📞 Call +91 79828 10014</a>
-  <a href="https://wa.me/917982810014" target="_blank" style="display:block;color:#86efac;font-size:0.88rem;font-weight:600;">💬 WhatsApp Instead</a>
+  <p>Ayush Bansal &#8212; Financial Advisor<br><span style="color:var(--gold);font-weight:700;">Mon&#8211;Sun: 9 AM &#8211; 9 PM</span></p>
+  <a href="tel:+917982810014" class="call-btn">&#128222; Call +91 79828 10014</a>
+  <a href="https://wa.me/917982810014" target="_blank" style="display:block;color:#86efac;font-size:0.88rem;font-weight:600;">&#128172; WhatsApp Instead</a>
 </div>
-
-<!-- NAVBAR -->
 <nav id="navbar">
   <div class="nav-inner">
-   <a href="index.html" class="logo" style="display:flex; align-items:center; text-decoration:none;">
-  <img src="logo.png" 
-       alt="Bhaarat Capital" 
-       class="nav-logo-img"
-       style="height: 52px; width: auto; object-fit: contain;">
-</a>
+    <a href="index.html" class="logo" style="display:flex; align-items:center; text-decoration:none;">
+      <img src="logo.png" alt="Bhaarat Capital" class="nav-logo-img" style="height: 72px; width: auto; object-fit: contain;">
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="loans.html">Loans</a></li>
@@ -417,8 +229,8 @@ body { background: var(--bg-deep); color: var(--text-bright); }
       <li><a href="our-story.html">Our Story</a></li>
       <li><a href="about.html">About Us</a></li>
     </ul>
-    <a href="contact.html" class="nav-cta btn-primary" style="border-radius:50px;padding:.6rem 1.4rem;font-size:.85rem;">Apply Now →</a>
-    <button class="hamburger" id="hamburger" aria-label="Menu" style="color:#fff;background:none;border:none;font-size:1.4rem;cursor:pointer;">☰</button>
+    <a href="contact.html" class="nav-cta btn-primary" style="border-radius:50px;padding:.6rem 1.4rem;font-size:.85rem;">Apply Now &#8594;</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" style="color:#fff;background:none;border:none;font-size:1.4rem;cursor:pointer;">&#9776;</button>
   </div>
   <div class="mobile-menu" id="mobileMenu" style="background:#0A0A0F;border-top:1px solid rgba(245,158,11,0.15);padding:1rem 1.5rem 1.5rem;display:none;flex-direction:column;gap:.2rem;">
     <a href="index.html" style="padding:.65rem 1rem;border-radius:8px;color:#C5C8D8;font-weight:500;font-size:.95rem;display:block;">Home</a>
@@ -427,168 +239,95 @@ body { background: var(--bg-deep); color: var(--text-bright); }
     <a href="rates.html" style="padding:.65rem 1rem;border-radius:8px;color:#C5C8D8;font-weight:500;font-size:.95rem;display:block;">Rates</a>
     <a href="our-story.html" style="padding:.65rem 1rem;border-radius:8px;color:#C5C8D8;font-weight:500;font-size:.95rem;display:block;">Our Story</a>
     <a href="about.html" style="padding:.65rem 1rem;border-radius:8px;color:#C5C8D8;font-weight:500;font-size:.95rem;display:block;">About Us</a>
-    <a href="contact.html" style="padding:.65rem 1rem;border-radius:8px;color:var(--gold);font-weight:700;font-size:.95rem;display:block;">📞 +91 79828 10014</a>
+    <a href="contact.html" style="padding:.65rem 1rem;border-radius:8px;color:var(--gold);font-weight:700;font-size:.95rem;display:block;">&#128222; +91 79828 10014</a>
   </div>
 </nav>
-
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-badge">
-        <div class="badge-dot"></div>
-        🇮🇳 Trusted Financial Partner — Noida NCR
-      </div>
-      <h1 class="hero-title">
-        Smart Loans.<br/>
-        <span class="hero-accent">Secure Life.</span>
-      </h1>
-      <p class="hero-sub">
-        India's trusted financial partner — Home Loans, Personal Loans, Car Loans, Health Insurance, Motor Insurance, Corporate, Property &amp; Term Plans. We compare 20+ banks to get you the best deal.
-      </p>
-      <div class="hero-hours">
-        <div class="badge-dot"></div>
-        Open: Monday – Sunday &nbsp;|&nbsp; 9:00 AM – 9:00 PM
-      </div>
+      <div class="hero-badge"><div class="badge-dot"></div>&#127470;&#127475; Trusted Financial Partner &#8212; Noida NCR</div>
+      <h1 class="hero-title">Smart Loans.<br/><span class="hero-accent">Secure Life.</span></h1>
+      <p class="hero-sub">India's trusted financial partner &#8212; Home Loans, Personal Loans, Car Loans, Health Insurance, Motor Insurance, Corporate, Property &amp; Term Plans. We compare 20+ banks to get you the best deal.</p>
+      <div class="hero-hours"><div class="badge-dot"></div>Open: Monday &#8211; Sunday &nbsp;|&nbsp; 9:00 AM &#8211; 9:00 PM</div>
       <div class="hero-btns">
-        <a href="contact.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;">Apply Now — It's Free</a>
-        <a href="loans.html" class="btn-secondary" style="display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;">Explore Loans →</a>
+        <a href="contact.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;">Apply Now &#8212; It's Free</a>
+        <a href="loans.html" class="btn-secondary" style="display:inline-flex;align-items:center;gap:.4rem;padding:.85rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;">Explore Loans &#8594;</a>
       </div>
       <div class="hero-stats">
         <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Happy Clients</span></div>
         <div class="stat-div"></div>
-        <div class="stat"><span class="stat-num">₹50Cr+</span><span class="stat-label">Loans Disbursed</span></div>
+        <div class="stat"><span class="stat-num">&#8377;50Cr+</span><span class="stat-label">Loans Disbursed</span></div>
         <div class="stat-div"></div>
         <div class="stat"><span class="stat-num">20+</span><span class="stat-label">Bank Partners</span></div>
         <div class="stat-div"></div>
         <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Insurance Partners</span></div>
       </div>
     </div>
-
-    <!-- Floating Cards -->
     <div class="hero-visual">
       <div class="hero-orb"></div>
-      <a href="loans.html#home-loan" class="hero-card hc-f1">
-        <div class="hc-icon">🏠</div>
-        <div class="hc-text"><strong>Home Loan</strong><span>From 7.25% p.a.</span></div>
-      </a>
-      <a href="insurance.html#health" class="hero-card hc-f2" style="border-left-color:#14B8A6;">
-        <div class="hc-icon">❤️</div>
-        <div class="hc-text"><strong>Health Insurance</strong><span>₹5 Lac – ₹5 Crore Cover</span></div>
-      </a>
-      <a href="insurance.html#motor" class="hero-card hc-f3" style="border-left-color:#F59E0B;">
-        <div class="hc-icon">🚗</div>
-        <div class="hc-text"><strong>Motor Insurance</strong><span>OD + 3rd Party Property</span></div>
-      </a>
-      <a href="insurance.html#corporate" class="hero-card hc-f4" style="border-left-color:#8B5CF6;">
-        <div class="hc-icon">🏢</div>
-        <div class="hc-text"><strong>Corporate Insurance</strong><span>Fire, Marine, GMC &amp; More</span></div>
-      </a>
-      <a href="insurance.html#term" class="hero-card hc-f5" style="border-left-color:#EC4899;">
-        <div class="hc-icon">📋</div>
-        <div class="hc-text"><strong>Term Plan</strong><span>Starting ₹500/Month</span></div>
-      </a>
+      <a href="loans.html#home-loan" class="hero-card hc-f1"><div class="hc-icon">&#127968;</div><div class="hc-text"><strong>Home Loan</strong><span>From 7.25% p.a.</span></div></a>
+      <a href="insurance.html#health" class="hero-card hc-f2" style="border-left-color:#14B8A6;"><div class="hc-icon">&#10084;&#65039;</div><div class="hc-text"><strong>Health Insurance</strong><span>&#8377;5 Lac &#8211; &#8377;5 Crore Cover</span></div></a>
+      <a href="insurance.html#motor" class="hero-card hc-f3" style="border-left-color:#F59E0B;"><div class="hc-icon">&#128663;</div><div class="hc-text"><strong>Motor Insurance</strong><span>OD + 3rd Party Property</span></div></a>
+      <a href="insurance.html#corporate" class="hero-card hc-f4" style="border-left-color:#8B5CF6;"><div class="hc-icon">&#127970;</div><div class="hc-text"><strong>Corporate Insurance</strong><span>Fire, Marine, GMC &amp; More</span></div></a>
+      <a href="insurance.html#term" class="hero-card hc-f5" style="border-left-color:#EC4899;"><div class="hc-icon">&#128203;</div><div class="hc-text"><strong>Term Plan</strong><span>Starting &#8377;500/Month</span></div></a>
     </div>
   </div>
 </section>
-
-<!-- MARQUEE -->
 <div class="marquee-strip">
   <div class="marquee-track">
-    <span>🏠 Home Loan from 7.25%</span><span class="dot">●</span>
-    <span>⚡ Personal Loan from 9.99%</span><span class="dot">●</span>
-    <span>🚗 Car Loan — 90% Finance</span><span class="dot">●</span>
-    <span>🏢 Loan Against Property @ 10%</span><span class="dot">●</span>
-    <span>❤️ Health Insurance ₹5 Lac – ₹5 Cr</span><span class="dot">●</span>
-    <span>🛡️ Motor Insurance — OD + 3rd Party</span><span class="dot">●</span>
-    <span>🏗️ Corporate Insurance — Fire, Marine, GMC</span><span class="dot">●</span>
-    <span>📋 Term Plan — From ₹500/Month</span><span class="dot">●</span>
-    <span>✅ 20+ Bank Partners</span><span class="dot">●</span>
-    <span>📍 Noida · Bisrakh · Greater Noida · NCR</span><span class="dot">●</span>
-    <span>🕘 Mon–Sun: 9 AM – 9 PM</span><span class="dot">●</span>
-    <span>🏠 Home Loan from 7.25%</span><span class="dot">●</span>
-    <span>⚡ Personal Loan from 9.99%</span><span class="dot">●</span>
-    <span>🚗 Car Loan — 90% Finance</span><span class="dot">●</span>
-    <span>🏢 Loan Against Property @ 10%</span><span class="dot">●</span>
-    <span>❤️ Health Insurance ₹5 Lac – ₹5 Cr</span><span class="dot">●</span>
-    <span>🛡️ Motor Insurance — OD + 3rd Party</span><span class="dot">●</span>
-    <span>🏗️ Corporate Insurance — Fire, Marine, GMC</span><span class="dot">●</span>
-    <span>📋 Term Plan — From ₹500/Month</span><span class="dot">●</span>
-    <span>✅ 20+ Bank Partners</span><span class="dot">●</span>
-    <span>📍 Noida · Bisrakh · Greater Noida · NCR</span><span class="dot">●</span>
-    <span>🕘 Mon–Sun: 9 AM – 9 PM</span><span class="dot">●</span>
+    <span>&#127968; Home Loan from 7.25%</span><span class="dot">&#9679;</span>
+    <span>&#9889; Personal Loan from 9.99%</span><span class="dot">&#9679;</span>
+    <span>&#128663; Car Loan &#8212; 90% Finance</span><span class="dot">&#9679;</span>
+    <span>&#127962; Loan Against Property @ 10%</span><span class="dot">&#9679;</span>
+    <span>&#10084;&#65039; Health Insurance &#8377;5 Lac &#8211; &#8377;5 Cr</span><span class="dot">&#9679;</span>
+    <span>&#128737;&#65039; Motor Insurance &#8212; OD + 3rd Party</span><span class="dot">&#9679;</span>
+    <span>&#127959;&#65039; Corporate Insurance &#8212; Fire, Marine, GMC</span><span class="dot">&#9679;</span>
+    <span>&#128203; Term Plan &#8212; From &#8377;500/Month</span><span class="dot">&#9679;</span>
+    <span>&#9989; 20+ Bank Partners</span><span class="dot">&#9679;</span>
+    <span>&#128205; Noida &middot; Bisrakh &middot; Greater Noida &middot; NCR</span><span class="dot">&#9679;</span>
+    <span>&#128345; Mon&#8211;Sun: 9 AM &#8211; 9 PM</span><span class="dot">&#9679;</span>
+    <span>&#127968; Home Loan from 7.25%</span><span class="dot">&#9679;</span>
+    <span>&#9889; Personal Loan from 9.99%</span><span class="dot">&#9679;</span>
+    <span>&#128663; Car Loan &#8212; 90% Finance</span><span class="dot">&#9679;</span>
+    <span>&#127962; Loan Against Property @ 10%</span><span class="dot">&#9679;</span>
+    <span>&#10084;&#65039; Health Insurance &#8377;5 Lac &#8211; &#8377;5 Cr</span><span class="dot">&#9679;</span>
+    <span>&#128737;&#65039; Motor Insurance &#8212; OD + 3rd Party</span><span class="dot">&#9679;</span>
+    <span>&#127959;&#65039; Corporate Insurance &#8212; Fire, Marine, GMC</span><span class="dot">&#9679;</span>
+    <span>&#128203; Term Plan &#8212; From &#8377;500/Month</span><span class="dot">&#9679;</span>
+    <span>&#9989; 20+ Bank Partners</span><span class="dot">&#9679;</span>
+    <span>&#128205; Noida &middot; Bisrakh &middot; Greater Noida &middot; NCR</span><span class="dot">&#9679;</span>
+    <span>&#128345; Mon&#8211;Sun: 9 AM &#8211; 9 PM</span><span class="dot">&#9679;</span>
   </div>
 </div>
-
-<!-- SERVICES -->
 <section class="services-section section">
   <div class="container tc">
     <span class="section-tag">Our Services</span>
     <h2 class="section-title">Complete Financial <span class="heading-gradient">Solutions</span></h2>
-    <p class="section-sub">From Loans to Insurance — everything under one roof. We compare 20+ banks to get you the best deal tailored to your needs.</p>
+    <p class="section-sub">From Loans to Insurance &#8212; everything under one roof. We compare 20+ banks to get you the best deal tailored to your needs.</p>
     <div class="svc-grid">
-      <div class="svc-card anim">
-        <span class="svc-icon">🏦</span>
-        <h3>Loans</h3>
-        <p>From Home Loans to Personal Loans — tailored products designed for your needs. Approval in 7–10 days.</p>
-        <div class="svc-tags">
-          <span class="svt">Home Loan</span>
-          <span class="svt">Personal Loan</span>
-          <span class="svt">Car Loan</span>
-          <span class="svt">Business Loan</span>
-          <span class="svt">LAP</span>
-        </div>
-        <a href="loans.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.5rem;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;">Explore Loans →</a>
-      </div>
-      <div class="svc-card featured anim">
-        <span class="svc-icon">🛡️</span>
-        <h3>Insurance</h3>
-        <p>Health, Motor, Corporate Insurance &amp; Term Plans — with 15+ top insurers. Expert advice, completely free.</p>
-        <div class="svc-tags">
-          <span class="svt">Health Insurance</span>
-          <span class="svt">Motor Insurance</span>
-          <span class="svt">Corporate</span>
-          <span class="svt">Term Plan</span>
-          <span class="svt">Life Insurance</span>
-        </div>
-        <a href="insurance.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.5rem;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;">Explore Insurance →</a>
-      </div>
-      <div class="svc-card anim">
-        <span class="svc-icon">📋</span>
-        <h3>Term Plan</h3>
-        <p>Secure your family's future with pure term plans starting from ₹500/month. Sum assured up to ₹50 Crore.</p>
-        <div class="svc-tags">
-          <span class="svt">Pure Term</span>
-          <span class="svt">ULIP</span>
-          <span class="svt">Savings Plan</span>
-          <span class="svt">Pension Plan</span>
-        </div>
-        <a href="insurance.html#term" class="btn-primary" style="display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.5rem;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;">View Plans →</a>
-      </div>
+      <div class="svc-card anim"><span class="svc-icon">&#127970;</span><h3>Loans</h3><p>From Home Loans to Personal Loans &#8212; tailored products designed for your needs. Approval in 7&#8211;10 days.</p><div class="svc-tags"><span class="svt">Home Loan</span><span class="svt">Personal Loan</span><span class="svt">Car Loan</span><span class="svt">Business Loan</span><span class="svt">LAP</span></div><a href="loans.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.5rem;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;">Explore Loans &#8594;</a></div>
+      <div class="svc-card featured anim"><span class="svc-icon">&#128737;&#65039;</span><h3>Insurance</h3><p>Health, Motor, Corporate Insurance &amp; Term Plans &#8212; with 15+ top insurers. Expert advice, completely free.</p><div class="svc-tags"><span class="svt">Health Insurance</span><span class="svt">Motor Insurance</span><span class="svt">Corporate</span><span class="svt">Term Plan</span><span class="svt">Life Insurance</span></div><a href="insurance.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.5rem;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;">Explore Insurance &#8594;</a></div>
+      <div class="svc-card anim"><span class="svc-icon">&#128203;</span><h3>Term Plan</h3><p>Secure your family's future with pure term plans starting from &#8377;500/month. Sum assured up to &#8377;50 Crore.</p><div class="svc-tags"><span class="svt">Pure Term</span><span class="svt">ULIP</span><span class="svt">Savings Plan</span><span class="svt">Pension Plan</span></div><a href="insurance.html#term" class="btn-primary" style="display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.5rem;border-radius:50px;font-weight:700;font-size:.88rem;text-decoration:none;">View Plans &#8594;</a></div>
     </div>
   </div>
 </section>
-
-<!-- WHY CHOOSE US -->
 <section class="why-section section">
   <div class="container tc">
     <span class="section-tag">Why Bhaarat Capital</span>
     <h2 class="section-title">Your Financial Growth, <span class="heading-gradient">Our Commitment</span></h2>
-    <p class="section-sub">We are not just a loan provider — we are your financial partner throughout your entire journey.</p>
+    <p class="section-sub">We are not just a loan provider &#8212; we are your financial partner throughout your entire journey.</p>
     <div class="why-grid">
-      <div class="why-card anim"><div class="why-icon">⚡</div><h4>Fastest Processing</h4><p>Personal loan in 24 hours. Home loan in 7–10 working days. Multiple lenders applied simultaneously.</p></div>
-      <div class="why-card anim"><div class="why-icon">💰</div><h4>Lowest Rates</h4><p>We compare 20+ banks &amp; NBFCs. Smart negotiation saves you lakhs over your loan tenure.</p></div>
-      <div class="why-card anim"><div class="why-icon">🔍</div><h4>100% Transparent</h4><p>No hidden charges. No misleading promises. What we quote is exactly what you pay.</p></div>
-      <div class="why-card anim"><div class="why-icon">🎯</div><h4>Personalised Solutions</h4><p>Every client is unique. We build customised plans based on your income, goals, and profile.</p></div>
-      <div class="why-card anim"><div class="why-icon">🤝</div><h4>End-to-End Support</h4><p>From application to disbursement — we handle everything on your behalf.</p></div>
-      <div class="why-card anim"><div class="why-icon">🏆</div><h4>500+ Happy Clients</h4><p>Trusted by thousands across Noida, Delhi &amp; NCR. 98% client satisfaction rate.</p></div>
-      <div class="why-card anim"><div class="why-icon">🏦</div><h4>20+ Bank Network</h4><p>SBI, HDFC, ICICI, Axis, Kotak and 15+ more — the widest range of products for you.</p></div>
-      <div class="why-card anim"><div class="why-icon">📱</div><h4>Free Doorstep Service</h4><p>Document pickup, consultation, support — all at your doorstep, completely free.</p></div>
+      <div class="why-card anim"><div class="why-icon">&#9889;</div><h4>Fastest Processing</h4><p>Personal loan in 24 hours. Home loan in 7&#8211;10 working days. Multiple lenders applied simultaneously.</p></div>
+      <div class="why-card anim"><div class="why-icon">&#128176;</div><h4>Lowest Rates</h4><p>We compare 20+ banks &amp; NBFCs. Smart negotiation saves you lakhs over your loan tenure.</p></div>
+      <div class="why-card anim"><div class="why-icon">&#128269;</div><h4>100% Transparent</h4><p>No hidden charges. No misleading promises. What we quote is exactly what you pay.</p></div>
+      <div class="why-card anim"><div class="why-icon">&#127919;</div><h4>Personalised Solutions</h4><p>Every client is unique. We build customised plans based on your income, goals, and profile.</p></div>
+      <div class="why-card anim"><div class="why-icon">&#129309;</div><h4>End-to-End Support</h4><p>From application to disbursement &#8212; we handle everything on your behalf.</p></div>
+      <div class="why-card anim"><div class="why-icon">&#127942;</div><h4>500+ Happy Clients</h4><p>Trusted by thousands across Noida, Delhi &amp; NCR. 98% client satisfaction rate.</p></div>
+      <div class="why-card anim"><div class="why-icon">&#127970;</div><h4>20+ Bank Network</h4><p>SBI, HDFC, ICICI, Axis, Kotak and 15+ more &#8212; the widest range of products for you.</p></div>
+      <div class="why-card anim"><div class="why-icon">&#128241;</div><h4>Free Doorstep Service</h4><p>Document pickup, consultation, support &#8212; all at your doorstep, completely free.</p></div>
     </div>
   </div>
 </section>
-
-<!-- PARTNER BANKS -->
 <section class="partners-section">
   <div class="container">
     <div class="partners-header">
@@ -596,54 +335,42 @@ body { background: var(--bg-deep); color: var(--text-bright); }
       <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Partnered with India's <span class="heading-gradient">Top Banks &amp; Insurers</span></h2>
     </div>
     <div class="partner-category anim">
-      <div class="partner-cat-label">🏦 Housing Finance Companies</div>
-      <div class="slider-wrap">
-        <div class="slider-track">
-          <div class="partner-chip">Hero Housing Finance</div><div class="partner-chip">ICICI Home Finance</div><div class="partner-chip">Tata Capital Housing Finance</div><div class="partner-chip">Piramal Capital &amp; Housing</div><div class="partner-chip">Aditya Birla Capital</div><div class="partner-chip">Tru Home Finance</div><div class="partner-chip">Aadhar Housing Finance</div><div class="partner-chip">LIC Housing Finance</div><div class="partner-chip">Can Fin Homes</div><div class="partner-chip">Samman Capital</div><div class="partner-chip">Bajaj Housing Finance</div><div class="partner-chip">AU Small Finance</div>
-          <div class="partner-chip">Hero Housing Finance</div><div class="partner-chip">ICICI Home Finance</div><div class="partner-chip">Tata Capital Housing Finance</div><div class="partner-chip">Piramal Capital &amp; Housing</div><div class="partner-chip">Aditya Birla Capital</div><div class="partner-chip">Tru Home Finance</div><div class="partner-chip">Aadhar Housing Finance</div><div class="partner-chip">LIC Housing Finance</div><div class="partner-chip">Can Fin Homes</div><div class="partner-chip">Samman Capital</div><div class="partner-chip">Bajaj Housing Finance</div><div class="partner-chip">AU Small Finance</div>
-        </div>
-      </div>
+      <div class="partner-cat-label">&#127970; Housing Finance Companies</div>
+      <div class="slider-wrap"><div class="slider-track">
+        <div class="partner-chip">Hero Housing Finance</div><div class="partner-chip">ICICI Home Finance</div><div class="partner-chip">Tata Capital Housing Finance</div><div class="partner-chip">Piramal Capital &amp; Housing</div><div class="partner-chip">Aditya Birla Capital</div><div class="partner-chip">Tru Home Finance</div><div class="partner-chip">Aadhar Housing Finance</div><div class="partner-chip">LIC Housing Finance</div><div class="partner-chip">Can Fin Homes</div><div class="partner-chip">Samman Capital</div><div class="partner-chip">Bajaj Housing Finance</div><div class="partner-chip">AU Small Finance</div>
+        <div class="partner-chip">Hero Housing Finance</div><div class="partner-chip">ICICI Home Finance</div><div class="partner-chip">Tata Capital Housing Finance</div><div class="partner-chip">Piramal Capital &amp; Housing</div><div class="partner-chip">Aditya Birla Capital</div><div class="partner-chip">Tru Home Finance</div><div class="partner-chip">Aadhar Housing Finance</div><div class="partner-chip">LIC Housing Finance</div><div class="partner-chip">Can Fin Homes</div><div class="partner-chip">Samman Capital</div><div class="partner-chip">Bajaj Housing Finance</div><div class="partner-chip">AU Small Finance</div>
+      </div></div>
     </div>
     <div class="partner-category anim">
-      <div class="partner-cat-label">🏛️ Banks</div>
-      <div class="slider-wrap">
-        <div class="slider-track rev">
-          <div class="partner-chip">State Bank of India (SBI)</div><div class="partner-chip">IndusInd Bank</div><div class="partner-chip">IDBI Bank</div><div class="partner-chip">ICICI Bank</div><div class="partner-chip">HDFC Bank</div><div class="partner-chip">Axis Bank</div><div class="partner-chip">Bank of Baroda</div><div class="partner-chip">Kotak Mahindra Bank</div>
-          <div class="partner-chip">State Bank of India (SBI)</div><div class="partner-chip">IndusInd Bank</div><div class="partner-chip">IDBI Bank</div><div class="partner-chip">ICICI Bank</div><div class="partner-chip">HDFC Bank</div><div class="partner-chip">Axis Bank</div><div class="partner-chip">Bank of Baroda</div><div class="partner-chip">Kotak Mahindra Bank</div>
-        </div>
-      </div>
+      <div class="partner-cat-label">&#127963;&#65039; Banks</div>
+      <div class="slider-wrap"><div class="slider-track rev">
+        <div class="partner-chip">State Bank of India (SBI)</div><div class="partner-chip">IndusInd Bank</div><div class="partner-chip">IDBI Bank</div><div class="partner-chip">ICICI Bank</div><div class="partner-chip">HDFC Bank</div><div class="partner-chip">Axis Bank</div><div class="partner-chip">Bank of Baroda</div><div class="partner-chip">Kotak Mahindra Bank</div>
+        <div class="partner-chip">State Bank of India (SBI)</div><div class="partner-chip">IndusInd Bank</div><div class="partner-chip">IDBI Bank</div><div class="partner-chip">ICICI Bank</div><div class="partner-chip">HDFC Bank</div><div class="partner-chip">Axis Bank</div><div class="partner-chip">Bank of Baroda</div><div class="partner-chip">Kotak Mahindra Bank</div>
+      </div></div>
     </div>
     <div class="partner-category anim">
-      <div class="partner-cat-label">🛡️ General Insurance</div>
-      <div class="slider-wrap">
-        <div class="slider-track">
-          <div class="partner-chip">ICICI Lombard General Insurance</div><div class="partner-chip">Tata AIG General Insurance</div><div class="partner-chip">Go Digit General Insurance</div><div class="partner-chip">HDFC ERGO General Insurance</div>
-          <div class="partner-chip">ICICI Lombard General Insurance</div><div class="partner-chip">Tata AIG General Insurance</div><div class="partner-chip">Go Digit General Insurance</div><div class="partner-chip">HDFC ERGO General Insurance</div>
-        </div>
-      </div>
+      <div class="partner-cat-label">&#128737;&#65039; General Insurance</div>
+      <div class="slider-wrap"><div class="slider-track">
+        <div class="partner-chip">ICICI Lombard General Insurance</div><div class="partner-chip">Tata AIG General Insurance</div><div class="partner-chip">Go Digit General Insurance</div><div class="partner-chip">HDFC ERGO General Insurance</div>
+        <div class="partner-chip">ICICI Lombard General Insurance</div><div class="partner-chip">Tata AIG General Insurance</div><div class="partner-chip">Go Digit General Insurance</div><div class="partner-chip">HDFC ERGO General Insurance</div>
+      </div></div>
     </div>
     <div class="partner-category anim">
-      <div class="partner-cat-label">💚 Health Insurance</div>
-      <div class="slider-wrap">
-        <div class="slider-track rev">
-          <div class="partner-chip">Care Health Insurance</div><div class="partner-chip">Niva Bupa Health Insurance</div><div class="partner-chip">Star Health Insurance</div><div class="partner-chip">Aditya Birla Health</div>
-          <div class="partner-chip">Care Health Insurance</div><div class="partner-chip">Niva Bupa Health Insurance</div><div class="partner-chip">Star Health Insurance</div><div class="partner-chip">Aditya Birla Health</div>
-        </div>
-      </div>
+      <div class="partner-cat-label">&#128154; Health Insurance</div>
+      <div class="slider-wrap"><div class="slider-track rev">
+        <div class="partner-chip">Care Health Insurance</div><div class="partner-chip">Niva Bupa Health Insurance</div><div class="partner-chip">Star Health Insurance</div><div class="partner-chip">Aditya Birla Health</div>
+        <div class="partner-chip">Care Health Insurance</div><div class="partner-chip">Niva Bupa Health Insurance</div><div class="partner-chip">Star Health Insurance</div><div class="partner-chip">Aditya Birla Health</div>
+      </div></div>
     </div>
     <div class="partner-category anim">
-      <div class="partner-cat-label">🌿 Life &amp; Term Insurance</div>
-      <div class="slider-wrap">
-        <div class="slider-track">
-          <div class="partner-chip">ICICI Prudential Life Insurance</div><div class="partner-chip">Max Life Insurance</div><div class="partner-chip">HDFC Life Insurance</div><div class="partner-chip">Tata AIA Life Insurance</div><div class="partner-chip">LIC of India</div>
-          <div class="partner-chip">ICICI Prudential Life Insurance</div><div class="partner-chip">Max Life Insurance</div><div class="partner-chip">HDFC Life Insurance</div><div class="partner-chip">Tata AIA Life Insurance</div><div class="partner-chip">LIC of India</div>
-        </div>
-      </div>
+      <div class="partner-cat-label">&#127807; Life &amp; Term Insurance</div>
+      <div class="slider-wrap"><div class="slider-track">
+        <div class="partner-chip">ICICI Prudential Life Insurance</div><div class="partner-chip">Max Life Insurance</div><div class="partner-chip">HDFC Life Insurance</div><div class="partner-chip">Tata AIA Life Insurance</div><div class="partner-chip">LIC of India</div>
+        <div class="partner-chip">ICICI Prudential Life Insurance</div><div class="partner-chip">Max Life Insurance</div><div class="partner-chip">HDFC Life Insurance</div><div class="partner-chip">Tata AIA Life Insurance</div><div class="partner-chip">LIC of India</div>
+      </div></div>
     </div>
   </div>
 </section>
-
-<!-- RATES TABLE -->
 <section class="rates-section section">
   <div class="container">
     <div class="tc">
@@ -652,27 +379,21 @@ body { background: var(--bg-deep); color: var(--text-bright); }
       <p class="section-sub">Indicative rates as of 2025. Actual rates depend on your credit profile. We always work to get you the lowest possible rate.</p>
     </div>
     <table class="rates-table anim">
-      <thead>
-        <tr>
-          <th>Loan / Product</th><th>Interest Rate (p.a.)</th><th>Tenure</th><th>Max Amount</th><th>Working Days</th><th>Status</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Loan / Product</th><th>Interest Rate (p.a.)</th><th>Tenure</th><th>Max Amount</th><th>Working Days</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>🏠 Home Loan<br><small style="font-weight:400;color:var(--text-muted);">SBI / HDFC / ICICI / Axis</small></td><td class="rate-val">From 7.25%</td><td>Up to 30 yrs</td><td>₹10 Crore</td><td>7–10 Days</td><td><span class="avail-badge">✅ Available</span></td></tr>
-        <tr><td>⚡ Personal Loan<br><small style="font-weight:400;color:var(--text-muted);">Salaried / Self-Employed</small></td><td class="rate-val">From 9.99%</td><td>12–60 months</td><td>₹40 Lakh</td><td>24 Hours</td><td><span class="avail-badge">✅ Available</span></td></tr>
-        <tr><td>🚗 Car Loan<br><small style="font-weight:400;color:var(--text-muted);">New / Used / Luxury</small></td><td class="rate-val">From 7.9%</td><td>12–84 months</td><td>90% of Value</td><td>7–10 Days</td><td><span class="avail-badge">✅ Available</span></td></tr>
-        <tr><td>🏢 Loan Against Property<br><small style="font-weight:400;color:var(--text-muted);">Residential / Commercial</small></td><td class="rate-val">From 10%</td><td>Up to 15 yrs</td><td>70% of Value</td><td>7–10 Days</td><td><span class="avail-badge">✅ Available</span></td></tr>
-        <tr><td>💼 Business Loan<br><small style="font-weight:400;color:var(--text-muted);">MSME / Startups</small></td><td class="rate-val">From 12%</td><td>12–60 months</td><td>₹2 Crore</td><td>7–10 Days</td><td><span class="avail-badge">✅ Available</span></td></tr>
-        <tr><td>❤️ Health Insurance<br><small style="font-weight:400;color:var(--text-muted);">Individual / Family Floater</small></td><td class="rate-val">—</td><td>1 / 2 / 3 yrs</td><td>₹5 Lac – ₹5 Crore</td><td>Same Day</td><td><span class="avail-badge">✅ Available</span></td></tr>
-        <tr><td>🚗 Motor Insurance<br><small style="font-weight:400;color:var(--text-muted);">OD + 3rd Party Property</small></td><td class="rate-val">—</td><td>Annual</td><td>Comprehensive</td><td>Same Day</td><td><span class="avail-badge">✅ Available</span></td></tr>
-        <tr><td>📋 Term Plan<br><small style="font-weight:400;color:var(--text-muted);">From ₹500/Month</small></td><td class="rate-val">—</td><td>10–40 yrs</td><td>₹25 Lac – ₹50 Crore</td><td>7–10 Days</td><td><span class="avail-badge">✅ Available</span></td></tr>
+        <tr><td>&#127968; Home Loan<br><small style="font-weight:400;color:var(--text-muted);">SBI / HDFC / ICICI / Axis</small></td><td class="rate-val">From 7.25%</td><td>Up to 30 yrs</td><td>&#8377;10 Crore</td><td>7&#8211;10 Days</td><td><span class="avail-badge">&#9989; Available</span></td></tr>
+        <tr><td>&#9889; Personal Loan<br><small style="font-weight:400;color:var(--text-muted);">Salaried / Self-Employed</small></td><td class="rate-val">From 9.99%</td><td>12&#8211;60 months</td><td>&#8377;40 Lakh</td><td>24 Hours</td><td><span class="avail-badge">&#9989; Available</span></td></tr>
+        <tr><td>&#128663; Car Loan<br><small style="font-weight:400;color:var(--text-muted);">New / Used / Luxury</small></td><td class="rate-val">From 7.9%</td><td>12&#8211;84 months</td><td>90% of Value</td><td>7&#8211;10 Days</td><td><span class="avail-badge">&#9989; Available</span></td></tr>
+        <tr><td>&#127962; Loan Against Property<br><small style="font-weight:400;color:var(--text-muted);">Residential / Commercial</small></td><td class="rate-val">From 10%</td><td>Up to 15 yrs</td><td>70% of Value</td><td>7&#8211;10 Days</td><td><span class="avail-badge">&#9989; Available</span></td></tr>
+        <tr><td>&#128188; Business Loan<br><small style="font-weight:400;color:var(--text-muted);">MSME / Startups</small></td><td class="rate-val">From 12%</td><td>12&#8211;60 months</td><td>&#8377;2 Crore</td><td>7&#8211;10 Days</td><td><span class="avail-badge">&#9989; Available</span></td></tr>
+        <tr><td>&#10084;&#65039; Health Insurance<br><small style="font-weight:400;color:var(--text-muted);">Individual / Family Floater</small></td><td class="rate-val">&#8212;</td><td>1 / 2 / 3 yrs</td><td>&#8377;5 Lac &#8211; &#8377;5 Crore</td><td>Same Day</td><td><span class="avail-badge">&#9989; Available</span></td></tr>
+        <tr><td>&#128663; Motor Insurance<br><small style="font-weight:400;color:var(--text-muted);">OD + 3rd Party Property</small></td><td class="rate-val">&#8212;</td><td>Annual</td><td>Comprehensive</td><td>Same Day</td><td><span class="avail-badge">&#9989; Available</span></td></tr>
+        <tr><td>&#128203; Term Plan<br><small style="font-weight:400;color:var(--text-muted);">From &#8377;500/Month</small></td><td class="rate-val">&#8212;</td><td>10&#8211;40 yrs</td><td>&#8377;25 Lac &#8211; &#8377;50 Crore</td><td>7&#8211;10 Days</td><td><span class="avail-badge">&#9989; Available</span></td></tr>
       </tbody>
     </table>
-    <p style="color:var(--text-muted);font-size:.8rem;margin-top:.9rem;">*Rates are indicative. Contact us for a personalised quote — completely free of charge.</p>
+    <p style="color:var(--text-muted);font-size:.8rem;margin-top:.9rem;">*Rates are indicative. Contact us for a personalised quote &#8212; completely free of charge.</p>
   </div>
 </section>
-
-<!-- HOW TO APPLY -->
 <section class="eligibility-section section">
   <div class="container tc">
     <span class="section-tag">Simple Process</span>
@@ -680,64 +401,42 @@ body { background: var(--bg-deep); color: var(--text-bright); }
     <p class="section-sub">We make the process so simple that you have nothing to worry about.</p>
     <div class="steps-grid">
       <div class="step-card anim"><div class="step-num">1</div><h4>Fill the Form</h4><p>Fill out our online form or visit our Bisrakh, Noida office. It takes just 5 minutes.</p></div>
-      <div class="step-card anim"><div class="step-num">2</div><h4>Document Pickup</h4><p>Our expert will contact you within 24 hours. Free doorstep document pickup — Noida, Greater Noida &amp; NCR.</p></div>
+      <div class="step-card anim"><div class="step-num">2</div><h4>Document Pickup</h4><p>Our expert will contact you within 24 hours. Free doorstep document pickup &#8212; Noida, Greater Noida &amp; NCR.</p></div>
       <div class="step-card anim"><div class="step-num">3</div><h4>Bank Processing</h4><p>We submit your application to the best-fit lender. We apply to multiple banks simultaneously for faster approval.</p></div>
-      <div class="step-card anim"><div class="step-num">4</div><h4>Loan Disbursed 🎉</h4><p>Funds are transferred directly to your account. We stay with you throughout the entire journey.</p></div>
+      <div class="step-card anim"><div class="step-num">4</div><h4>Loan Disbursed &#127881;</h4><p>Funds are transferred directly to your account. We stay with you throughout the entire journey.</p></div>
     </div>
   </div>
 </section>
-
-<!-- TESTIMONIALS -->
 <section class="testi-section section">
   <div class="container tc">
     <span class="section-tag">Success Stories</span>
     <h2 class="section-title">Our Clients' <span class="heading-gradient">Experience</span></h2>
     <p class="section-sub">Real stories from real clients who trusted Bhaarat Capital.</p>
     <div class="testi-grid">
-      <div class="testi-card anim">
-        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <div class="testi-quote">"</div>
-        <p>Bhaarat Capital got me a home loan at 8.45% when my own bank was quoting 8.90%. That's a saving of ₹3.8 Lakh over 20 years! The entire process was completed in just 8 days.</p>
-        <div class="testi-author"><div class="testi-av">R</div><div><strong>Rahul Sharma</strong><small>Home Loan ₹65L — Noida</small></div></div>
-      </div>
-      <div class="testi-card feat anim">
-        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <div class="testi-quote">"</div>
-        <p>Two other agents had already failed me. Bhaarat Capital understood my business, chose the right lender, and got my ₹35 Lakh business loan approved in just 5 days!</p>
-        <div class="testi-author"><div class="testi-av">A</div><div><strong>Amit Gupta</strong><small>Business Loan ₹35L — Noida</small></div></div>
-      </div>
-      <div class="testi-card anim">
-        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <div class="testi-quote">"</div>
-        <p>Their insurance advice got me a ₹10 Lakh family cover for just ₹14,000 per year — saving ₹18,000 compared to what I was about to buy. The free consultation changed everything!</p>
-        <div class="testi-author"><div class="testi-av">P</div><div><strong>Priya Malhotra</strong><small>Family Health Insurance — Noida</small></div></div>
-      </div>
+      <div class="testi-card anim"><div class="testi-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div><div class="testi-quote">"</div><p>Bhaarat Capital got me a home loan at 8.45% when my own bank was quoting 8.90%. That's a saving of &#8377;3.8 Lakh over 20 years! The entire process was completed in just 8 days.</p><div class="testi-author"><div class="testi-av">R</div><div><strong>Rahul Sharma</strong><small>Home Loan &#8377;65L &#8212; Noida</small></div></div></div>
+      <div class="testi-card feat anim"><div class="testi-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div><div class="testi-quote">"</div><p>Two other agents had already failed me. Bhaarat Capital understood my business, chose the right lender, and got my &#8377;35 Lakh business loan approved in just 5 days!</p><div class="testi-author"><div class="testi-av">A</div><div><strong>Amit Gupta</strong><small>Business Loan &#8377;35L &#8212; Noida</small></div></div></div>
+      <div class="testi-card anim"><div class="testi-stars">&#11088;&#11088;&#11088;&#11088;&#11088;</div><div class="testi-quote">"</div><p>Their insurance advice got me a &#8377;10 Lakh family cover for just &#8377;14,000 per year &#8212; saving &#8377;18,000 compared to what I was about to buy. The free consultation changed everything!</p><div class="testi-author"><div class="testi-av">P</div><div><strong>Priya Malhotra</strong><small>Family Health Insurance &#8212; Noida</small></div></div></div>
     </div>
   </div>
 </section>
-
-<!-- CTA BANNER -->
 <div class="cta-banner">
   <h2>Ready to Start Your Financial Journey?</h2>
-  <p>Free consultation, zero obligation. Mon–Sun 9 AM – 9 PM. Our experts are always available for you.</p>
-  <a href="contact.html" class="cta-btn wh">Apply for Loan →</a>
-  <a href="https://wa.me/917982810014" target="_blank" class="cta-btn tr">💬 WhatsApp Us</a>
+  <p>Free consultation, zero obligation. Mon&#8211;Sun 9 AM &#8211; 9 PM. Our experts are always available for you.</p>
+  <a href="contact.html" class="cta-btn wh">Apply for Loan &#8594;</a>
+  <a href="https://wa.me/917982810014" target="_blank" class="cta-btn tr">&#128172; WhatsApp Us</a>
 </div>
-
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html">
-       <img src="logo.png" 
-     alt="Bhaarat Capital" 
-     style="height: 48px; width: auto; object-fit: contain; margin-bottom: 1rem; display: block; filter: drop-shadow(0 0 10px rgba(249,115,22,0.3));">
-      <p>Bhaarat Capital — Trusted financial partner in Noida NCR. Home Loans, Personal Loans, Car Loans, Health Insurance, Motor Insurance, Corporate Insurance, and Term Plans. Banks Partner.</p>
-      <p style="margin-top:.7rem;font-size:.82rem;color:#4B5563;">📍 Bisrakh, Noida, UP &nbsp;|&nbsp; 🕘 Mon–Sun: 9AM–9PM</p>
+        <img src="logo.png" alt="Bhaarat Capital" style="height: 68px; width: auto; object-fit: contain; margin-bottom: 1rem; display: block; filter: drop-shadow(0 0 10px rgba(249,115,22,0.3));">
+      </a>
+      <p>Bhaarat Capital &#8212; Trusted financial partner in Noida NCR. Home Loans, Personal Loans, Car Loans, Health Insurance, Motor Insurance, Corporate Insurance, and Term Plans. Banks Partner.</p>
+      <p style="margin-top:.7rem;font-size:.82rem;color:#4B5563;">&#128205; Bisrakh, Noida, UP &nbsp;|&nbsp; &#128345; Mon&#8211;Sun: 9AM&#8211;9PM</p>
       <div class="social-links">
-        <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 Instagram</a>
-        <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">▶ YouTube</a>
-        <a href="https://wa.me/917982810014" target="_blank">💬 WhatsApp</a>
+        <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">&#128247; Instagram</a>
+        <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">&#9654; YouTube</a>
+        <a href="https://wa.me/917982810014" target="_blank">&#128172; WhatsApp</a>
       </div>
     </div>
     <div class="footer-col">
@@ -766,15 +465,15 @@ body { background: var(--bg-deep); color: var(--text-bright); }
       <a href="privacy.html">Privacy Policy</a>
       <a href="disclaimer.html">Disclaimer</a>
       <h5 style="margin-top:1.5rem;">Contact</h5>
-      <a href="#" onclick="openCallPopup();return false;">📞 +91 79828 10014</a>
-      <a href="https://wa.me/917982810014" target="_blank">💬 WhatsApp</a>
-      <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 @bhaarat_capital</a>
-      <a href="https://www.linkedin.com/company/bhaaratcapital/" target="_blank"> @LinkdIen</a>
-      <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">▶ YouTube Channel</a>
+      <a href="#" onclick="openCallPopup();return false;">&#128222; +91 79828 10014</a>
+      <a href="https://wa.me/917982810014" target="_blank">&#128172; WhatsApp</a>
+      <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">&#128247; @bhaarat_capital</a>
+      <a href="https://www.linkedin.com/company/bhaaratcapital/" target="_blank"> @LinkedIn</a>
+      <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">&#9654; YouTube Channel</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Bhaarat Capital. All rights reserved. Banks Partner.</p>
+    <p>&#169; 2025 Bhaarat Capital. All rights reserved. Banks Partner.</p>
     <div style="display:flex;gap:1.5rem;">
       <a href="terms.html" style="color:#4B5563;font-size:.82rem;">Terms</a>
       <a href="privacy.html" style="color:#4B5563;font-size:.82rem;">Privacy</a>
@@ -782,30 +481,20 @@ body { background: var(--bg-deep); color: var(--text-bright); }
     </div>
   </div>
 </footer>
-
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
-
+<a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">&#128172;</a>
 <script src="script.js"></script>
 <script>
-// Hamburger menu
 document.getElementById('hamburger').addEventListener('click', function() {
   var m = document.getElementById('mobileMenu');
   m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
 });
-
-// Scroll animation
 const animObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); animObserver.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.anim').forEach(el => animObserver.observe(el));
-
-// Navbar scroll
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
-
-// Call popup
 function openCallPopup() {
   document.getElementById('callPopup').style.display = 'block';
   document.getElementById('popupOverlay').style.display = 'block';
@@ -816,12 +505,9 @@ function closeCallPopup() {
   document.getElementById('popupOverlay').style.display = 'none';
   document.body.style.overflow = '';
 }
-
-// Phone number in navbar triggers call popup
-document.querySelector('.nav-cta') && document.querySelectorAll('a[href="tel\\:+917982810014"], a[href*="79828"]').forEach(el => {
+document.querySelector('.nav-cta') && document.querySelectorAll('a[href="tel\:+917982810014"], a[href*="79828"]').forEach(el => {
   el.addEventListener('click', function(e) { e.preventDefault(); openCallPopup(); });
 });
-// Trigger popup on phone number click anywhere on page
 document.addEventListener('click', function(e) {
   if(e.target && e.target.textContent && e.target.textContent.includes('79828 10014') && !e.target.href?.includes('wa.me')) {
     e.preventDefault(); openCallPopup();
