@@ -1,352 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Apply Now — Bhaarat Capital</title>
-<meta name="description" content="Apply for Loans & Insurance with Bhaarat Capital. Quick approval, expert guidance.">
+<meta name="description" content="Apply for Loans & Insurance with Bhaarat Capital. Quick approval, expert guidance."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 <style>
+:root {
+  --bg-deep: #0A0A0F;
+  --bg-card: #13131A;
+  --bg-card2: #1A1A24;
+  --gold: #F59E0B;
+  --gold-light: #FDE68A;
+  --gold-glow: rgba(245,158,11,0.18);
+  --orange: #F97316;
+  --teal: #14B8A6;
+  --green: #22c55e;
+  --border-glow: rgba(245,158,11,0.15);
+  --border-subtle: rgba(255,255,255,0.07);
+  --text-muted: #8B8FA8;
+  --text-bright: #F1F1F8;
+  --font: 'DM Sans', sans-serif;
+  --font-display: 'Playfair Display', serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg-deep); color: var(--text-bright); font-family: var(--font); }
 
-/* ---- Page Hero (dark themed) ---- */
+/* --- NAVBAR (dark) --- */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,10,15,0.92);
+  border-bottom: 1px solid var(--border-glow);
+  backdrop-filter: blur(20px);
+  transition: background 0.3s;
+}
+#navbar.scrolled { background: rgba(10,10,15,0.98); }
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; gap: 1.5rem; height: 72px;
+}
+.nav-logo-img { height: 90px; width: auto; display: block; filter: drop-shadow(0 0 12px rgba(249,115,22,0.4)); }
+.nav-links { display: flex; list-style: none; gap: 0.3rem; margin: 0; padding: 0; flex: 1; }
+.nav-links a {
+  color: #C5C8D8; font-size: 0.88rem; text-decoration: none;
+  padding: 0.45rem 0.85rem; border-radius: 8px; transition: all 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold); background: var(--gold-glow); }
+.nav-cta {
+  background: linear-gradient(135deg, var(--green), #16a34a); border: none;
+  color: #fff !important; font-size: 0.83rem; padding: 0.6rem 1.2rem;
+  border-radius: 50px; box-shadow: 0 4px 20px rgba(34,197,94,0.35);
+  text-decoration: none; font-weight: 700; white-space: nowrap; transition: all 0.2s;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(34,197,94,0.5); }
+.hamburger { display: none; color: #fff; background: none; border: none; font-size: 1.4rem; cursor: pointer; }
+.mobile-menu {
+  background: #0A0A0F; border-top: 1px solid rgba(34,197,94,0.15);
+  padding: 1rem 1.5rem 1.5rem; display: none; flex-direction: column; gap: 0.2rem;
+}
+.mobile-menu a { padding: 0.65rem 1rem; border-radius: 8px; color: #C5C8D8; font-weight: 500; font-size: 0.95rem; display: block; text-decoration: none; }
+@media(max-width:768px){ .nav-links{display:none;} .hamburger{display:block;} }
+
+/* --- HERO --- */
 .page-hero {
-  min-height: 40vh;
-  background: linear-gradient(160deg, #0A0A0F 0%, #1A0A00 60%, #0A0A0F 100%) !important;
-  display: flex;
-  align-items: center;
-  padding: 9rem 2rem 4rem !important;
-  position: relative;
-  overflow: hidden;
-  text-align: left;
-  border-bottom: none !important;
+  min-height: 42vh;
+  background: linear-gradient(160deg, #0A0A0F 0%, #1A0A00 60%, #0A0A0F 100%);
+  display: flex; align-items: center;
+  padding: 9rem 2rem 4rem;
+  position: relative; overflow: hidden;
 }
 .page-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(249,115,22,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(249,115,22,.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
+  content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(249,115,22,.04) 1px,transparent 1px), linear-gradient(90deg,rgba(249,115,22,.04) 1px,transparent 1px);
+  background-size: 60px 60px; pointer-events:none;
 }
 .page-hero::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
   background: linear-gradient(90deg, var(--teal), var(--orange), var(--gold), var(--teal));
 }
-.page-hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  position: relative;
-  z-index: 1;
-}
+.page-hero-inner { max-width:1200px; margin:0 auto; width:100%; position:relative; z-index:1; }
 .page-hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: rgba(29,184,117,.1);
-  color: #4ADE80;
-  padding: 0.35rem 1rem;
-  border-radius: 50px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 1.2rem;
-  border: 1px solid rgba(29,184,117,.25);
+  display:inline-flex; align-items:center; gap:.4rem;
+  background:rgba(29,184,117,.1); color:#4ADE80;
+  padding:.35rem 1rem; border-radius:50px; font-size:.78rem; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase; margin-bottom:1.2rem;
+  border:1px solid rgba(29,184,117,.25);
 }
-.page-hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  font-weight: 900;
-  color: #F8FAFC !important;
-  margin-bottom: 1rem;
-  line-height: 1.08;
-}
-.heading-gradient {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--orange), var(--gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.page-hero p {
-  color: rgba(248,250,252,.65) !important;
-  font-size: 1.05rem;
-  max-width: 540px;
-  line-height: 1.8;
-}
+.page-hero h1 { font-family: var(--font-display); font-size: clamp(2.4rem,5vw,4rem); font-weight:900; color:#F8FAFC; margin-bottom:1rem; line-height:1.08; }
+.heading-gradient { display:inline-block; background:linear-gradient(135deg,var(--orange),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.page-hero p { color:rgba(248,250,252,.65); font-size:1.05rem; max-width:540px; line-height:1.8; }
 
-/* ---- Form Section ---- */
-.form-section {
-  background: linear-gradient(160deg, #0A0A0F 0%, #12121A 100%);
-  min-height: 60vh;
-  padding: 5rem 2rem 7rem;
-  position: relative;
-}
+/* --- FORM SECTION --- */
+.form-section { background: linear-gradient(160deg,#0A0A0F 0%,#12121A 100%); padding:5rem 2rem 7rem; position:relative; }
 .form-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(249,115,22,.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(249,115,22,.02) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
+  content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(249,115,22,.02) 1px,transparent 1px), linear-gradient(90deg,rgba(249,115,22,.02) 1px,transparent 1px);
+  background-size:60px 60px; pointer-events:none;
 }
-
 .apply-form-card {
-  max-width: 640px;
-  margin: 0 auto;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(249,115,22,.2);
-  border-radius: 24px;
-  padding: 3rem 2.5rem;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0 24px 80px rgba(0,0,0,.5);
+  max-width:640px; margin:0 auto;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(249,115,22,.2);
+  border-radius:24px; padding:3rem 2.5rem;
+  position:relative; z-index:1;
+  box-shadow:0 24px 80px rgba(0,0,0,.5);
 }
 .apply-form-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--teal), var(--orange), var(--gold));
-  border-radius: 24px 24px 0 0;
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg,var(--teal),var(--orange),var(--gold));
+  border-radius:24px 24px 0 0;
 }
-
-.form-header { text-align: center; margin-bottom: 2.2rem; }
+.form-header { text-align:center; margin-bottom:2.2rem; }
 .form-header .badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: rgba(29,184,117,.1);
-  color: #4ADE80;
-  padding: 0.3rem 0.9rem;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(29,184,117,.2);
+  display:inline-flex; align-items:center; gap:.4rem;
+  background:rgba(29,184,117,.1); color:#4ADE80;
+  padding:.3rem .9rem; border-radius:50px; font-size:.75rem; font-weight:700;
+  letter-spacing:.05em; margin-bottom:1rem; border:1px solid rgba(29,184,117,.2);
 }
-.form-header h2 {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 900;
-  color: #F8FAFC;
-  margin-bottom: 0.5rem;
-  line-height: 1.1;
+.form-header h2 { font-family:var(--font-display); font-size:2rem; font-weight:900; color:#F8FAFC; margin-bottom:.5rem; line-height:1.1; }
+.form-header p { color:rgba(248,250,252,.5); font-size:.88rem; }
+.field-group { display:flex; flex-direction:column; gap:.45rem; margin-bottom:1.2rem; }
+.field-group label { font-size:.78rem; font-weight:700; color:rgba(248,250,252,.65); letter-spacing:.05em; text-transform:uppercase; }
+.field-group input, .field-group select {
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+  border-radius:12px; padding:.9rem 1.1rem; color:#F8FAFC;
+  font-size:.9rem; font-family:var(--font); transition:all .25s; outline:none; width:100%;
+  appearance:none; -webkit-appearance:none;
 }
-.form-header p { color: rgba(248,250,252,.5); font-size: 0.88rem; }
-
-.field-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  margin-bottom: 1.2rem;
+.field-group input::placeholder { color:rgba(248,250,252,.3); }
+.field-group input:focus, .field-group select:focus {
+  border-color:var(--orange); background:rgba(249,115,22,.06);
+  box-shadow:0 0 0 3px rgba(249,115,22,.12);
 }
-.field-group label {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: rgba(248,250,252,.65);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.field-group input,
-.field-group select {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 12px;
-  padding: 0.9rem 1.1rem;
-  color: #F8FAFC;
-  font-size: 0.9rem;
-  font-family: 'DM Sans', sans-serif;
-  transition: all 0.25s;
-  outline: none;
-  width: 100%;
-  box-sizing: border-box;
-  appearance: none;
-  -webkit-appearance: none;
-}
-.field-group input::placeholder { color: rgba(248,250,252,.3); }
-.field-group input:focus,
-.field-group select:focus {
-  border-color: var(--orange);
-  background: rgba(249,115,22,.06);
-  box-shadow: 0 0 0 3px rgba(249,115,22,.12);
-}
-.field-group select option { background: #1E293B; color: #F8FAFC; }
-
-/* Custom select arrow */
-.select-wrap { position: relative; }
-.select-wrap::after {
-  content: '▾';
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(248,250,252,.4);
-  pointer-events: none;
-  font-size: 0.9rem;
-}
-
-/* Two column layout for some fields */
-.fields-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
+.field-group select option { background:#1E293B; color:#F8FAFC; }
+.select-wrap { position:relative; }
+.select-wrap::after { content:'▾'; position:absolute; right:1rem; top:50%; transform:translateY(-50%); color:rgba(248,250,252,.4); pointer-events:none; font-size:.9rem; }
+.fields-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
 .submit-btn {
-  width: 100%;
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, var(--orange), #FF8C42);
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 1rem;
-  font-family: 'DM Sans', sans-serif;
-  cursor: pointer;
-  transition: all 0.3s;
-  margin-top: 0.8rem;
-  box-shadow: 0 6px 28px rgba(249,115,22,.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  width:100%; padding:1rem 2rem;
+  background:linear-gradient(135deg,var(--orange),#FF8C42);
+  color:#fff; border:none; border-radius:50px; font-weight:700; font-size:1rem;
+  font-family:var(--font); cursor:pointer; transition:all .3s; margin-top:.8rem;
+  box-shadow:0 6px 28px rgba(249,115,22,.35);
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
 }
-.submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 36px rgba(249,115,22,.5);
-}
-
+.submit-btn:hover { transform:translateY(-3px); box-shadow:0 12px 36px rgba(249,115,22,.5); }
+.submit-btn:disabled { opacity:.6; cursor:default; transform:none; }
 .success-msg {
-  display: none;
-  text-align: center;
-  padding: 2rem;
-  background: rgba(29,184,117,.1);
-  border: 1px solid rgba(29,184,117,.25);
-  border-radius: 14px;
-  margin-top: 1.5rem;
+  display:none; text-align:center; padding:2.5rem 2rem;
+  background:rgba(29,184,117,.1); border:1px solid rgba(29,184,117,.25);
+  border-radius:14px;
 }
-.success-msg .check { font-size: 2.5rem; margin-bottom: 0.6rem; }
-.success-msg h3 { color: #4ADE80; font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.4rem; }
-.success-msg p { color: rgba(248,250,252,.6); font-size: 0.88rem; }
-
-/* Info strip */
+.success-msg .check { font-size:2.5rem; margin-bottom:.6rem; }
+.success-msg h3 { color:#4ADE80; font-family:var(--font-display); font-size:1.3rem; margin-bottom:.4rem; }
+.success-msg p { color:rgba(248,250,252,.6); font-size:.88rem; }
 .info-strip {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 2.5rem;
-  position: relative;
-  z-index: 1;
+  display:flex; justify-content:center; gap:2rem; flex-wrap:wrap;
+  margin-top:2.5rem; position:relative; z-index:1;
 }
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(248,250,252,.5);
-  font-size: 0.82rem;
-  font-weight: 500;
-}
-.info-item span { color: var(--teal); font-size: 1rem; }
+.info-item { display:flex; align-items:center; gap:.5rem; color:rgba(248,250,252,.5); font-size:.82rem; font-weight:500; }
+.info-item span { color:var(--teal); font-size:1rem; }
 
-/* ---- Footer (dark themed) ---- */
-.footer {
-  background: linear-gradient(160deg, #0A0A0F 0%, #12121A 100%);
-  padding: 5rem 2rem 0;
-  position: relative;
-}
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--teal), var(--orange), var(--gold), var(--teal));
-}
-
-@media (max-width: 640px) {
-  .apply-form-card { padding: 2rem 1.5rem; }
-  .fields-row { grid-template-columns: 1fr; }
-  .info-strip { gap: 1rem; }
-}
+/* --- FOOTER --- */
+.footer { background:linear-gradient(160deg,#0A0A0F 0%,#12121A 100%); padding:5rem 2rem 0; position:relative; }
+.footer::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--teal),var(--orange),var(--gold),var(--teal)); }
+.footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; padding-bottom:3.5rem; border-bottom:1px solid rgba(255,255,255,.06); }
+.footer-brand p { font-size:.87rem; color:var(--text-muted); line-height:1.7; margin-top:.5rem; }
+.footer-col h5 { font-size:.88rem; font-weight:700; color:#E5E7EB; margin-bottom:1rem; padding-bottom:.5rem; border-bottom:1px solid rgba(34,197,94,.3); display:block; letter-spacing:.05em; text-transform:uppercase; }
+.footer-col a { display:block; font-size:.86rem; color:var(--text-muted); margin-bottom:.5rem; transition:all .2s; text-decoration:none; }
+.footer-col a:hover { color:var(--green); transform:translateX(4px); }
+.social-links { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem; }
+.social-links a { background:rgba(34,197,94,.1); color:#86efac !important; padding:.4rem .9rem; border-radius:8px; font-size:.79rem; font-weight:600; border:1px solid rgba(34,197,94,.25); }
+.footer-bottom { border-top:1px solid var(--border-subtle); padding:1.3rem 0; max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+.footer-bottom p { font-size:.82rem; color:#4B5563; }
+.whatsapp-float { position:fixed; bottom:2rem; right:2rem; z-index:999; width:58px; height:58px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; font-size:1.7rem; box-shadow:0 4px 20px rgba(37,211,102,.45); transition:all .3s; text-decoration:none; }
+@media(max-width:640px){ .apply-form-card{padding:2rem 1.5rem;} .fields-row{grid-template-columns:1fr;} .footer-grid{grid-template-columns:1fr;} }
 </style>
 </head>
 <body>
 
-<!-- ===== NAVBAR (Same as Homepage) ===== -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="logo">
+    <a href="index.html" style="display:flex;align-items:center;text-decoration:none;">
       <img src="logo (1).png" alt="Bhaarat Capital" class="nav-logo-img">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="loans.html">Loans</a></li>
       <li><a href="insurance.html">Insurance</a></li>
-      <li><a href="eligibility.html">Eligibility</a></li>
       <li><a href="rates.html">Rates</a></li>
+      <li><a href="our-story.html">Our Story</a></li>
       <li><a href="about.html">About Us</a></li>
-      <li><a href="faq.html">FAQ</a></li>
     </ul>
-    <a href="contact.html" class="nav-cta active-cta">📞 +91 79828 10014</a>
-    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    <a href="contact.html" class="nav-cta active">Apply Now &#8594;</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
     <a href="loans.html">Loans</a>
     <a href="insurance.html">Insurance</a>
-    <a href="eligibility.html">Eligibility</a>
     <a href="rates.html">Rates</a>
+    <a href="our-story.html">Our Story</a>
     <a href="about.html">About Us</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html" style="color:var(--orange);font-weight:700;">📞 +91 79828 10014</a>
+    <a href="https://wa.me/917982810014" target="_blank" style="color:var(--green);font-weight:700;">&#128172; WhatsApp Us</a>
   </div>
 </nav>
 
-<!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-hero-tag">🚀 Apply Now</div>
+    <div class="page-hero-tag">&#128640; Apply Now</div>
     <h1>Get Started <span class="heading-gradient">Today</span></h1>
-    <p>Fill in your details below and our expert team will reach out to you within 30 minutes. Loans & Insurance — all in one place.</p>
+    <p>Fill in your details and our expert team will reach out within 30 minutes. Loans &amp; Insurance — all in one place.</p>
   </div>
 </section>
 
-<!-- ===== APPLICATION FORM ===== -->
 <section class="form-section">
-  <div class="apply-form-card anim">
+  <div class="apply-form-card">
     <div class="form-header">
-      <div class="badge">✦ Free Consultation</div>
+      <div class="badge">&#10022; Free Consultation</div>
       <h2>Apply Now</h2>
       <p>Quick form · Expert callback · Zero charges</p>
     </div>
 
     <form id="applyForm" autocomplete="off">
-
-      <!-- Full Name -->
       <div class="field-group">
         <label>Full Name</label>
         <input type="text" id="fullName" placeholder="Enter your full name" required>
       </div>
-
-      <!-- PAN Number -->
       <div class="field-group">
         <label>PAN Number</label>
         <input type="text" id="panNumber" placeholder="e.g. ABCDE1234F" maxlength="10" style="text-transform:uppercase;" required>
       </div>
-
-      <!-- Phone & City -->
       <div class="fields-row">
         <div class="field-group">
           <label>Phone Number</label>
@@ -357,8 +243,6 @@
           <input type="text" id="city" placeholder="Your city" required>
         </div>
       </div>
-
-      <!-- Employment Type -->
       <div class="field-group">
         <label>Employment Type</label>
         <div class="select-wrap">
@@ -369,8 +253,6 @@
           </select>
         </div>
       </div>
-
-      <!-- Service Type -->
       <div class="field-group">
         <label>I Need</label>
         <div class="select-wrap">
@@ -381,8 +263,6 @@
           </select>
         </div>
       </div>
-
-      <!-- Type of Loan / Insurance -->
       <div class="field-group">
         <label id="typeLabel">Type</label>
         <div class="select-wrap">
@@ -391,41 +271,35 @@
           </select>
         </div>
       </div>
-
-      <!-- Submit -->
-      <button type="submit" class="submit-btn">
-        Submit Application ✦
-      </button>
+      <button type="submit" class="submit-btn" id="submitBtn">Submit Application &#10022;</button>
     </form>
 
-    <!-- Success Message -->
     <div class="success-msg" id="successMsg">
-      <div class="check">✅</div>
+      <div class="check">&#9989;</div>
       <h3>Application Submitted!</h3>
       <p>Our expert will call you within 30 minutes. Thank you for choosing Bhaarat Capital.</p>
+      <a href="index.html" style="display:inline-block;margin-top:1.2rem;color:var(--green);font-weight:600;font-size:.88rem;">&#8592; Back to Home</a>
     </div>
   </div>
 
-  <!-- Info Strip -->
   <div class="info-strip">
-    <div class="info-item"><span>🔒</span> 100% Secure & Confidential</div>
-    <div class="info-item"><span>⚡</span> Callback within 30 minutes</div>
-    <div class="info-item"><span>🎯</span> Zero consultation charges</div>
-    <div class="info-item"><span>📞</span> Mon–Sun: 9AM–9PM</div>
+    <div class="info-item"><span>&#128274;</span> 100% Secure &amp; Confidential</div>
+    <div class="info-item"><span>&#9889;</span> Callback within 30 minutes</div>
+    <div class="info-item"><span>&#127919;</span> Zero consultation charges</div>
+    <div class="info-item"><span>&#128222;</span> Mon–Sun: 9AM–9PM</div>
   </div>
 </section>
 
-<!-- ===== FOOTER (Same as Homepage) ===== -->
 <footer class="footer">
-  <div class="footer-grid" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3.5rem;border-bottom:1px solid rgba(255,255,255,.06);">
+  <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html"><img src="logo (1).png" alt="Bhaarat Capital" style="height:42px;margin-bottom:1rem;display:block;"></a>
       <p>Bhaarat Capital — Trusted financial partner in Noida NCR. Banks Partner.</p>
-      <p style="margin-top:.7rem;font-size:.82rem;color:rgba(248,250,252,.4);">📍 Bisrakh, Noida, UP &nbsp;|&nbsp; 🕘 Mon–Sun: 9AM–9PM</p>
-      <div class="social-links" style="margin-top:1.1rem;">
-        <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 Instagram</a>
-        <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">▶ YouTube</a>
-        <a href="https://wa.me/917982810014" target="_blank">💬 WhatsApp</a>
+      <p style="margin-top:.7rem;font-size:.82rem;color:#4B5563;">&#128205; Bisrakh, Noida, UP &nbsp;|&nbsp; &#128345; Mon–Sun: 9AM–9PM</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">&#128247; Instagram</a>
+        <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">&#9654; YouTube</a>
+        <a href="https://wa.me/917982810014" target="_blank">&#128172; WhatsApp</a>
       </div>
     </div>
     <div class="footer-col">
@@ -442,121 +316,102 @@
       <a href="insurance.html#motor">Motor Insurance</a>
       <a href="insurance.html#corporate">Corporate Insurance</a>
       <a href="insurance.html#term">Term Plan</a>
-      <a href="insurance.html#travel">Travel Insurance</a>
-      <h5 style="margin-top:1.3rem;">Company</h5>
+      <h5 style="margin-top:1.5rem;">Company</h5>
       <a href="about.html">About Us</a>
       <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact Us</a>
     </div>
     <div class="footer-col">
       <h5>Contact</h5>
-      <a href="tel:+917982810014">📞 +91 79828 10014</a>
-      <a href="https://wa.me/917982810014" target="_blank">💬 WhatsApp</a>
-      <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 @bhaarat_capital</a>
+      <a href="tel:+917982810014">&#128222; +91 79828 10014</a>
+      <a href="https://wa.me/917982810014" target="_blank">&#128172; WhatsApp</a>
+      <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">&#128247; @bhaarat_capital</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Bhaarat Capital. All rights reserved. Banks Partner.</p>
+    <p>&#169; 2025 Bhaarat Capital. All rights reserved.</p>
     <div style="display:flex;gap:1.5rem;">
-      <a href="terms.html" style="color:#78716c;font-size:.82rem;">Terms</a>
-      <a href="privacy.html" style="color:#78716c;font-size:.82rem;">Privacy</a>
+      <a href="terms.html" style="color:#4B5563;font-size:.82rem;">Terms</a>
+      <a href="privacy.html" style="color:#4B5563;font-size:.82rem;">Privacy</a>
     </div>
   </div>
 </footer>
 
-<a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank">💬</a>
+<a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank">&#128172;</a>
 
-<script src="script.js"></script>
 <script>
-// Navbar scroll effect
+/* Navbar */
+document.getElementById('hamburger').addEventListener('click', () => {
+  var m = document.getElementById('mobileMenu');
+  m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+});
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Hamburger menu
-document.getElementById('hamburger').addEventListener('click', () => {
-  document.getElementById('mobileMenu').classList.toggle('open');
-});
+/* PAN uppercase */
+document.getElementById('panNumber').addEventListener('input', function(){ this.value = this.value.toUpperCase(); });
 
-// Scroll animations
-const ao = new IntersectionObserver((e) => {
-  e.forEach(x => {
-    if (x.isIntersecting) { x.target.classList.add('vis'); ao.unobserve(x.target); }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.anim').forEach(el => ao.observe(el));
+/* Phone digits only */
+document.getElementById('phone').addEventListener('input', function(){ this.value = this.value.replace(/[^0-9+]/g,''); });
 
-// PAN auto uppercase
-document.getElementById('panNumber').addEventListener('input', function() {
-  this.value = this.value.toUpperCase();
-});
-
-// Phone number validation — only digits
-document.getElementById('phone').addEventListener('input', function() {
-  this.value = this.value.replace(/[^0-9+]/g, '');
-});
-
-// Update service type options based on selected service
+/* Loan / Insurance types */
 function updateTypes() {
-  const service = document.getElementById('service').value;
-  const typeSelect = document.getElementById('serviceType');
-  const typeLabel = document.getElementById('typeLabel');
-
-  typeSelect.innerHTML = '';
-
-  if (service === 'loan') {
-    typeLabel.textContent = 'Type of Loan';
-    const loanOptions = [
-      'Home Loan',
-      'Personal Loan',
-      'Car Loan',
-      'Business Loan',
-      'Loan Against Property',
-      'Education Loan',
-    ];
-    loanOptions.forEach(opt => {
-      const o = document.createElement('option');
-      o.value = opt;
-      o.textContent = opt;
-      typeSelect.appendChild(o);
+  const svc = document.getElementById('service').value;
+  const sel = document.getElementById('serviceType');
+  const lbl = document.getElementById('typeLabel');
+  sel.innerHTML = '';
+  if (svc === 'loan') {
+    lbl.textContent = 'Type of Loan';
+    ['Home Loan','Personal Loan','Car Loan','Business Loan','Loan Against Property','Education Loan'].forEach(o => {
+      const opt = document.createElement('option'); opt.value = opt.textContent = o; sel.appendChild(opt);
     });
-  } else if (service === 'insurance') {
-    typeLabel.textContent = 'Type of Insurance';
-    const insOptions = [
-      'Health Insurance',
-      'Motor Insurance',
-      'Term Plan / Life Insurance',
-      'Corporate Insurance',
-      'Travel Insurance',
-    ];
-    insOptions.forEach(opt => {
-      const o = document.createElement('option');
-      o.value = opt;
-      o.textContent = opt;
-      typeSelect.appendChild(o);
+  } else if (svc === 'insurance') {
+    lbl.textContent = 'Type of Insurance';
+    ['Health Insurance','Motor Insurance','Term Plan / Life Insurance','Corporate Insurance','Travel Insurance'].forEach(o => {
+      const opt = document.createElement('option'); opt.value = opt.textContent = o; sel.appendChild(opt);
     });
   } else {
-    typeLabel.textContent = 'Type';
-    const placeholder = document.createElement('option');
-    placeholder.value = '';
-    placeholder.textContent = '— Select service first —';
-    typeSelect.appendChild(placeholder);
+    lbl.textContent = 'Type';
+    const opt = document.createElement('option'); opt.value=''; opt.textContent='— Select service first —'; sel.appendChild(opt);
   }
 }
 
-// Form submission
+/* SAVE lead to localStorage so admin can view it */
+function saveLead(data) {
+  const STORAGE_KEY = 'bc_leads';
+  try {
+    const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    existing.push(data);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+  } catch(e) { console.error('Could not save lead:', e); }
+}
+
+/* Form submission */
 document.getElementById('applyForm').addEventListener('submit', function(e) {
   e.preventDefault();
-
-  const btn = this.querySelector('.submit-btn');
+  const btn = document.getElementById('submitBtn');
   btn.textContent = 'Submitting…';
   btn.disabled = true;
 
-  // Simulate API call delay
+  const lead = {
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+    fullName: document.getElementById('fullName').value.trim(),
+    panNumber: document.getElementById('panNumber').value.trim().toUpperCase(),
+    phone: document.getElementById('phone').value.trim(),
+    city: document.getElementById('city').value.trim(),
+    employment: document.getElementById('employment').value,
+    service: document.getElementById('service').value,
+    serviceType: document.getElementById('serviceType').value,
+    timestamp: new Date().toISOString(),
+    source: 'contact.html'
+  };
+
+  saveLead(lead);
+
   setTimeout(() => {
     this.style.display = 'none';
     document.getElementById('successMsg').style.display = 'block';
-  }, 900);
+  }, 700);
 });
 </script>
 </body>
