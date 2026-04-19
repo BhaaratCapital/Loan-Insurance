@@ -1,442 +1,1039 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Bhaarat Capital — Smart Loans. Secure Life. | Noida NCR</title>
-<meta name="description" content="Bhaarat Capital — Home Loans from 7.5%, Personal Loans 9.5%, Car Loans, Health Insurance, Term Plans. Fastest approvals, lowest rates in Noida NCR."/>
-<script src="shared.js"></script>
-<style>
-/* ══ HERO ══ */
-.hero{min-height:92vh;background:linear-gradient(135deg,#0D0D0D 0%,#111 40%,#0F0F0F 100%);display:flex;align-items:center;padding:3rem 2rem 4rem;position:relative;overflow:hidden}
-.hero-glow1{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.09) 0%,transparent 70%);top:-100px;right:-100px;animation:hglow 6s ease-in-out infinite alternate;pointer-events:none}
-.hero-glow2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(29,184,117,.06) 0%,transparent 70%);bottom:-80px;left:-80px;animation:hglow 8s ease-in-out infinite alternate-reverse;pointer-events:none}
-.hero-grid-bg{position:absolute;inset:0;opacity:.03;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
-@keyframes hglow{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.15) translate(20px,-20px)}}
+/* ============================================================
+   BHAARAT CAPITAL — Complete CSS
+   Colors from Logo:
+     Orange  : #F97316  (primary accent)
+     Teal    : #1DB875  (secondary, from logo's green B letter)
+     Dark    : #0D0D0D  (near-black background)
+     Off-dark: #1A1A1A
+     Light BG: #FFF8F3
+     Off-white: #FDF6EE
+   ============================================================ */
 
-.hinner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%;position:relative;z-index:1}
-.hbadge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(29,184,117,.15);color:#1DB875;border:1px solid rgba(29,184,117,.25);padding:.35rem 1rem;border-radius:50px;font-size:.8rem;font-weight:700;margin-bottom:1.2rem;animation:fadeUp .6s ease both}
-.hbdot{width:7px;height:7px;border-radius:50%;background:#1DB875;animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.htitle{font-family:var(--fd);font-size:clamp(2.6rem,5vw,3.9rem);font-weight:900;line-height:1.08;color:var(--txt);margin-bottom:.5rem;animation:fadeUp .7s .08s ease both}
-.htitle span{background:linear-gradient(135deg,var(--or),#FBBF24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.htagline{font-size:1.1rem;font-weight:700;color:var(--or);margin-bottom:1rem;letter-spacing:.01em;animation:fadeUp .7s .12s ease both}
-.hsub{font-size:1rem;color:var(--txt3);margin-bottom:1.5rem;max-width:500px;line-height:1.75;animation:fadeUp .7s .16s ease both}
-.hhours{display:inline-flex;align-items:center;gap:.5rem;background:rgba(22,163,74,.1);border:1px solid rgba(74,222,128,.2);color:#4ade80;border-radius:50px;padding:.3rem 1rem;font-size:.78rem;font-weight:600;margin-bottom:1.5rem;animation:fadeUp .7s .2s ease both}
-.hfeat{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.8rem;animation:fadeUp .7s .22s ease both}
-.hftag{background:rgba(255,255,255,.06);color:var(--txt3);padding:.25rem .8rem;border-radius:50px;font-size:.78rem;font-weight:500;border:1px solid var(--bd2)}
-.hbtns{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:2.2rem;animation:fadeUp .7s .26s ease both}
-.hstats{display:flex;align-items:center;gap:1.5rem;padding:1.2rem 1.5rem;background:var(--card);border-radius:var(--r);border:1px solid var(--bd);box-shadow:var(--sh);width:fit-content;flex-wrap:wrap;animation:fadeUp .7s .3s ease both}
-.stn{display:block;font-family:var(--fd);font-size:1.9rem;font-weight:900;color:var(--or);line-height:1}
-.stl{font-size:.73rem;color:var(--txt4);margin-top:.15rem;display:block}
-.stdiv{width:1px;height:38px;background:var(--bd2)}
-
-/* Hero right */
-.hrgt{position:relative;display:flex;align-items:center;justify-content:center;min-height:460px}
-.horb{width:280px;height:280px;border-radius:50%;background:linear-gradient(135deg,rgba(249,115,22,.15),rgba(29,184,117,.1));border:1px solid rgba(249,115,22,.15);animation:pulse 4s ease-in-out infinite}
-.hcard{position:absolute;background:var(--card2);border:1px solid var(--bd2);border-radius:var(--r);padding:.9rem 1.3rem;box-shadow:var(--shl);display:flex;align-items:center;gap:.85rem;min-width:190px;transition:var(--tr)}
-.hcard:hover{transform:scale(1.04)!important;border-color:var(--bdo)}
-.hcard .hci{font-size:1.8rem}
-.hcard strong{display:block;font-size:.88rem;color:var(--txt)}
-.hcard span{font-size:.75rem;color:var(--txt3)}
-.hcard-l{border-left:3px solid var(--or)}
-.hcard-t{border-left:3px solid var(--tl)}
-.hc1{top:5%;left:0;animation:float 3.2s ease-in-out infinite}
-.hc2{top:38%;right:0;animation:float 3.2s ease-in-out infinite 1.1s}
-.hc3{bottom:8%;left:10%;animation:float 3.2s ease-in-out infinite 2.2s}
-
-/* MARQUEE */
-.mqstrip{background:var(--or);padding:.68rem 0;overflow:hidden}
-.mqtrack{display:flex;gap:2rem;white-space:nowrap;width:max-content;animation:mq 28s linear infinite;align-items:center}
-.mqtrack span{color:#fff;font-weight:600;font-size:.86rem}
-.mqtrack span.dot{opacity:.5;font-size:.5rem}
-
-/* LOAN CARDS */
-.loan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
-.lcard{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:1.8rem;transition:var(--tr);position:relative;overflow:hidden}
-.lcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--tl),var(--or));transform:scaleX(0);transform-origin:left;transition:transform .35s}
-.lcard:hover{transform:translateY(-6px);box-shadow:var(--shl);border-color:var(--bdo)}
-.lcard:hover::before{transform:scaleX(1)}
-.lcard.hot{background:linear-gradient(135deg,#1A1A1A,#141414);border-color:rgba(249,115,22,.3)}
-.lcard.hot::before{transform:scaleX(1)}
-.lci{font-size:2.2rem;margin-bottom:.9rem;display:block}
-.lcard h3{font-family:var(--fd);font-size:1.25rem;margin-bottom:.4rem;color:var(--txt)}
-.lcard p{font-size:.86rem;color:var(--txt3);margin-bottom:1rem;line-height:1.65}
-.lmeta{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1.2rem}
-.lmeta li{font-size:.82rem;display:flex;align-items:center;gap:.5rem;padding:.28rem 0;border-bottom:1px solid var(--bd);color:var(--txt3)}
-.ltag{background:var(--or4);color:var(--or);padding:.12rem .55rem;border-radius:50px;font-size:.72rem;font-weight:700;white-space:nowrap;margin-left:auto;flex-shrink:0;border:1px solid var(--bdo)}
-.lbtn{display:inline-flex;align-items:center;gap:.4rem;color:var(--or);font-weight:600;font-size:.85rem;transition:var(--tr);padding:.5rem 0;border-bottom:1px solid transparent}
-.lbtn:hover{gap:.7rem;border-bottom-color:var(--or)}
-
-/* INSURANCE PREVIEW */
-.ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
-.icard{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:1.8rem;transition:var(--tr);position:relative;overflow:hidden}
-.icard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--tl),var(--or));transform:scaleX(0);transition:transform .35s}
-.icard:hover{transform:translateY(-6px);box-shadow:var(--shl);border-color:var(--bdo)}
-.icard:hover::after{transform:scaleX(1)}
-.icard.dark-card{background:linear-gradient(135deg,#111,#0D0D0D);border-color:rgba(29,184,117,.25)}
-.icard.dark-card::after{transform:scaleX(1);background:linear-gradient(90deg,var(--tl),#1DB875)}
-.ici{font-size:2.2rem;margin-bottom:.9rem;display:block}
-.icard h3{font-family:var(--fd);font-size:1.2rem;margin-bottom:.4rem;color:var(--txt)}
-.icard p{font-size:.86rem;color:var(--txt3);margin-bottom:.9rem;line-height:1.6}
-.ihigh{font-size:.8rem;font-weight:700;color:var(--or);background:var(--or4);border:1px solid var(--bdo);padding:.28rem .7rem;border-radius:50px;display:inline-block;margin-bottom:.9rem}
-.icard.dark-card .ihigh{color:var(--tl);background:var(--tl3);border-color:rgba(29,184,117,.25)}
-.ibtn{display:inline-flex;align-items:center;gap:.4rem;color:var(--or);font-weight:600;font-size:.84rem;transition:var(--tr)}
-.ibtn:hover{gap:.7rem}
-.icard.dark-card .ibtn{color:var(--tl)}
-
-/* WHY US */
-.why-sec{background:linear-gradient(135deg,var(--bg2),var(--bg3));position:relative;overflow:hidden}
-.why-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(29,184,117,.04) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(249,115,22,.04) 0%,transparent 50%);pointer-events:none}
-.wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;margin-top:2.5rem}
-.wcard{background:rgba(255,255,255,.025);border:1px solid var(--bd);border-radius:var(--r);padding:1.6rem;transition:var(--tr);text-align:center;position:relative;overflow:hidden}
-.wcard::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:2px;background:linear-gradient(90deg,var(--tl),var(--or));transition:left .4s,right .4s}
-.wcard:hover{background:rgba(249,115,22,.06);border-color:var(--bdo);transform:translateY(-5px)}
-.wcard:hover::after{left:0;right:0}
-.wicon{width:54px;height:54px;border-radius:var(--rs);background:var(--or4);border:1px solid var(--bdo);display:flex;align-items:center;justify-content:center;font-size:1.55rem;margin:0 auto 1rem;transition:var(--tr)}
-.wcard:hover .wicon{background:rgba(249,115,22,.18);transform:scale(1.1)}
-.wcard h4{color:var(--txt);font-size:.92rem;font-weight:700;margin-bottom:.4rem;font-family:var(--fd)}
-.wcard p{color:var(--txt4);font-size:.82rem;line-height:1.65}
-
-/* BLOG PREVIEW */
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
-.bcard{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;transition:var(--tr);display:block;color:inherit}
-.bcard:hover{transform:translateY(-5px);box-shadow:var(--shl);border-color:var(--bdo)}
-.bimg{height:150px;background:linear-gradient(135deg,var(--bg4),var(--bg5));display:flex;align-items:center;justify-content:center;font-size:2.8rem;transition:transform .35s}
-.bcard:hover .bimg{transform:scale(1.05)}
-.bcard-body{padding:1.4rem}
-.bcat{display:inline-block;background:var(--or4);color:var(--or);border:1px solid var(--bdo);padding:.2rem .7rem;border-radius:50px;font-size:.72rem;font-weight:700;margin-bottom:.6rem}
-.bcard h3{font-family:var(--fd);font-size:1.05rem;margin-bottom:.5rem;line-height:1.35;color:var(--txt)}
-.bcard p{font-size:.83rem;color:var(--txt4);line-height:1.65;margin-bottom:.9rem}
-.bread{color:var(--or);font-weight:600;font-size:.82rem;display:inline-flex;align-items:center;gap:.3rem;transition:gap .2s}
-.bcard:hover .bread{gap:.6rem}
-
-/* TESTIMONIALS */
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
-.tcard{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:1.8rem;transition:var(--tr);position:relative;overflow:hidden}
-.tcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--tl),var(--or));opacity:0;transition:opacity .35s}
-.tcard:hover{transform:translateY(-5px);box-shadow:var(--shl);border-color:var(--bdo)}
-.tcard:hover::before{opacity:1}
-.tcard.feat{background:linear-gradient(135deg,var(--or),var(--or2));border-color:var(--or)}
-.tcard.feat::before{opacity:1;background:linear-gradient(90deg,rgba(255,255,255,.3),transparent)}
-.tqm{font-size:3rem;font-family:var(--fd);color:rgba(249,115,22,.3);line-height:.8;margin-bottom:.7rem}
-.tcard.feat .tqm{color:rgba(255,255,255,.25)}
-.tstars{font-size:.95rem;margin-bottom:.6rem;letter-spacing:.08em}
-.tcard p{font-size:.9rem;color:var(--txt3);line-height:1.75;margin-bottom:1.4rem;font-style:italic}
-.tcard.feat p{color:rgba(255,255,255,.92)}
-.tauth{display:flex;align-items:center;gap:.85rem}
-.tav{width:44px;height:44px;border-radius:50%;background:var(--or4);color:var(--or);border:1px solid var(--bdo);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0;font-family:var(--fd)}
-.tcard.feat .tav{background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.3)}
-.tauth strong{display:block;font-size:.9rem;color:var(--txt)}
-.tcard.feat .tauth strong{color:#fff}
-.tauth small{font-size:.76rem;color:var(--txt4)}
-.tcard.feat small{color:rgba(255,255,255,.65)}
-
-/* CTA BANNER */
-.cta-ban{background:linear-gradient(135deg,#111,#0D0D0D);padding:4rem 2rem;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
-.cta-ban::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30%,rgba(29,184,117,.06),transparent 50%),radial-gradient(ellipse at 70%,rgba(249,115,22,.07),transparent 50%);pointer-events:none}
-.cta-ban::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--tl),var(--or),var(--tl))}
-.cta-ban h2{font-family:var(--fd);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--txt);margin-bottom:.8rem;position:relative}
-.cta-ban p{color:var(--txt3);font-size:1rem;margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto;position:relative}
-.cta-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;position:relative}
-.ctab-p{background:linear-gradient(135deg,var(--or),var(--or2));color:#fff;padding:.9rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;transition:var(--tr);box-shadow:var(--sho)}
-.ctab-p:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,115,22,.5)}
-.ctab-s{background:transparent;color:var(--txt);padding:.9rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;border:2px solid var(--bd2);transition:var(--tr)}
-.ctab-s:hover{border-color:var(--or);color:var(--or);background:var(--or4);transform:translateY(-2px)}
-
-/* PARTNERS */
-.pgrid{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:1.8rem}
-.ptag{background:var(--card);border:1px solid var(--bd);border-radius:var(--rs);padding:.5rem 1.1rem;font-size:.82rem;font-weight:600;color:var(--txt4);transition:var(--tr);cursor:default}
-.ptag:hover{border-color:var(--or);color:var(--or);background:var(--or4);transform:translateY(-2px)}
-
-@media(max-width:1024px){
-  .hinner{grid-template-columns:1fr}.hrgt{display:none}
-  .loan-grid,.ins-grid,.tgrid{grid-template-columns:1fr 1fr}
-  .wgrid{grid-template-columns:1fr 1fr}
-  .blog-grid{grid-template-columns:1fr 1fr}
+/* ---------- RESET & BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #1A1A1A;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
 }
-@media(max-width:768px){
-  .loan-grid,.ins-grid,.tgrid,.wgrid,.blog-grid{grid-template-columns:1fr}
-  .hstats{justify-content:center}
-  .hbtns,.cta-btns{justify-content:center}
+
+/* ---------- CSS VARIABLES ---------- */
+:root {
+  --orange        : #F97316;
+  --orange-light  : #FEE7D6;
+  --orange-dark   : #C2520A;
+  --orange-hover  : #EA6C0A;
+
+  --teal          : #1DB875;
+  --teal-light    : #D4F5E6;
+  --teal-dark     : #0F7A4C;
+
+  --dark          : #0D0D0D;
+  --dark-2        : #1A1A1A;
+  --dark-3        : #262626;
+  --dark-card     : #111111;
+
+  --saffron       : #FBBF24;
+
+  --gray          : #6B7280;
+  --gray-light    : #9CA3AF;
+  --gray-lighter  : #D1D5DB;
+
+  --off-white     : #FDF6EE;
+  --light-bg      : #FFF8F3;
+  --border        : #E8DDD5;
+  --border-light  : #F3ECE6;
+
+  --font-display  : 'Playfair Display', Georgia, serif;
+
+  --radius        : 14px;
+  --radius-sm     : 8px;
+  --radius-lg     : 20px;
+
+  --shadow        : 0 2px 16px rgba(0,0,0,.07), 0 1px 4px rgba(0,0,0,.04);
+  --shadow-lg     : 0 8px 40px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+  --shadow-orange : 0 4px 20px rgba(249,115,22,.25);
+  --shadow-teal   : 0 4px 20px rgba(29,184,117,.25);
+
+  --transition    : all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
-</style>
-</head>
-<body>
-<script>injectCSS();injectNav("Home");</script>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-glow1"></div>
-  <div class="hero-glow2"></div>
-  <div class="hero-grid-bg"></div>
-  <div class="hinner con">
-    <div>
-      <div class="hbadge"><span class="hbdot"></span>🇮🇳 Trusted Financial Partner — Noida NCR</div>
-      <h1 class="htitle">Empowering Your Dreams,<br/><span>Securing Your Future</span></h1>
-      <p class="htagline">Smart Loans. Secure Life.</p>
-      <p class="hsub">India's trusted financial services company — Home Loans, Personal Loans, Car Loans, Health Insurance, Term Plans, and more, all under one roof.</p>
-      <div class="hhours">🟢 Open Now · Mon–Sun · 9:00 AM – 9:00 PM</div>
-      <div class="hfeat">
-        <span class="hftag">✓ Home Loan from 7.5%</span>
-        <span class="hftag">✓ 24-Hr Approval</span>
-        <span class="hftag">✓ Doorstep Service</span>
-        <span class="hftag">✓ 20+ Bank Partners</span>
-        <span class="hftag">✓ Free Consultation</span>
-      </div>
-      <div class="hbtns">
-        <a href="contact.html#loan-form" class="bp">Apply for Loan — Free</a>
-        <a href="insurance.html" class="bs">Explore Insurance</a>
-      </div>
-      <div class="hstats">
-        <div><span class="stn">500+</span><span class="stl">Happy Clients</span></div>
-        <div class="stdiv"></div>
-        <div><span class="stn">₹50Cr+</span><span class="stl">Loans Disbursed</span></div>
-        <div class="stdiv"></div>
-        <div><span class="stn">20+</span><span class="stl">Bank Partners</span></div>
-        <div class="stdiv"></div>
-        <div><span class="stn">5+</span><span class="stl">Years Exp.</span></div>
-      </div>
-    </div>
-    <div class="hrgt">
-      <div class="horb"></div>
-      <div class="hcard hcard-l hc1"><div class="hci">🏠</div><div><strong>Home Loan</strong><span>From 7.5% p.a.</span></div></div>
-      <div class="hcard hcard-t hc2"><div class="hci">❤️</div><div><strong>Health Insurance</strong><span>Starts ₹5 Lac cover</span></div></div>
-      <div class="hcard hcard-l hc3"><div class="hci">🛡️</div><div><strong>Motor Insurance</strong><span>3yr OD + 3yr TP</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="mqstrip">
-  <div class="mqtrack">
-    <span>Home Loan</span><span class="dot">●</span><span>Personal Loan</span><span class="dot">●</span><span>Car Loan</span><span class="dot">●</span><span>Business Loan</span><span class="dot">●</span><span>Loan Against Property</span><span class="dot">●</span><span>Health Insurance</span><span class="dot">●</span><span>Term Plan</span><span class="dot">●</span><span>Life Insurance</span><span class="dot">●</span><span>Motor Insurance</span><span class="dot">●</span><span>Corporate Insurance</span><span class="dot">●</span><span>Property Insurance</span><span class="dot">●</span>
-    <span>Home Loan</span><span class="dot">●</span><span>Personal Loan</span><span class="dot">●</span><span>Car Loan</span><span class="dot">●</span><span>Business Loan</span><span class="dot">●</span><span>Loan Against Property</span><span class="dot">●</span><span>Health Insurance</span><span class="dot">●</span><span>Term Plan</span><span class="dot">●</span><span>Life Insurance</span><span class="dot">●</span><span>Motor Insurance</span><span class="dot">●</span><span>Corporate Insurance</span><span class="dot">●</span><span>Property Insurance</span><span class="dot">●</span>
-  </div>
-</div>
-
-<!-- LOANS -->
-<section class="sec" style="background:var(--bg)">
-  <div class="con">
-    <div class="tc">
-      <span class="stag">Loan Products</span>
-      <h2 class="stitle">Loans Tailored <span class="sacc">For You</span></h2>
-      <p class="ssub">We compare rates from 20+ banks to get you the absolute best deal — fastest approvals, minimal documentation, doorstep service.</p>
-    </div>
-    <div class="loan-grid">
-      <div class="lcard anim d1">
-        <span class="lci">🏠</span>
-        <h3>Home Loan</h3>
-        <p>Turn your dream home into reality. Lowest interest rates, flexible tenure up to 30 years, doorstep service included.</p>
-        <ul class="lmeta">
-          <li>💰 Interest Rate <span class="ltag">From 7.5% p.a.</span></li>
-          <li>📅 Tenure <span class="ltag">Up to 30 Years</span></li>
-          <li>💵 Amount <span class="ltag">₹5L – ₹10 Crore</span></li>
-          <li>⚡ Processing <span class="ltag">07–10 Working Days</span></li>
-          <li>📋 LTV <span class="ltag">Up to 90%</span></li>
-        </ul>
-        <a href="loans.html#home-loan" class="lbtn">Know More →</a>
-      </div>
-      <div class="lcard hot anim d2">
-        <span class="lci">👤</span>
-        <h3>Personal Loan</h3>
-        <p>Instant funds for any need. No collateral, minimal docs, same-day disbursal possible for eligible applicants.</p>
-        <ul class="lmeta">
-          <li>💰 Interest Rate <span class="ltag">From 9.5% p.a.</span></li>
-          <li>📅 Tenure <span class="ltag">12 – 60 Months</span></li>
-          <li>💵 Amount <span class="ltag">₹50K – ₹40 Lakh</span></li>
-          <li>⚡ Processing <span class="ltag">Same Day – 48 Hrs</span></li>
-          <li>📋 Collateral <span class="ltag">Not Required</span></li>
-        </ul>
-        <a href="loans.html#personal-loan" class="lbtn">Know More →</a>
-      </div>
-      <div class="lcard anim d3">
-        <span class="lci">🏢</span>
-        <h3>Loan Against Property</h3>
-        <p>Unlock your property's true value. Get substantial funds at attractive rates for business or personal needs.</p>
-        <ul class="lmeta">
-          <li>💰 Interest Rate <span class="ltag">From 10% p.a.</span></li>
-          <li>📅 Tenure <span class="ltag">Up to 15 Years</span></li>
-          <li>💵 Amount <span class="ltag">Up to 70% of Value</span></li>
-          <li>⚡ Processing <span class="ltag">07–10 Working Days</span></li>
-          <li>📋 Type <span class="ltag">Residential / Commercial</span></li>
-        </ul>
-        <a href="loans.html#lap" class="lbtn">Know More →</a>
-      </div>
-      <div class="lcard anim d1">
-        <span class="lci">🚗</span>
-        <h3>Car Loan</h3>
-        <p>Drive your dream car with hassle-free financing. New, used, and luxury vehicles — competitive rates and flexible EMIs.</p>
-        <ul class="lmeta">
-          <li>💰 Interest Rate <span class="ltag">From 8.5% p.a.</span></li>
-          <li>📅 Tenure <span class="ltag">12 – 84 Months</span></li>
-          <li>💵 Amount <span class="ltag">Up to 90% Ex-Showroom</span></li>
-          <li>⚡ Processing <span class="ltag">07–10 Working Days</span></li>
-          <li>🚘 Vehicle <span class="ltag">New / Used / Luxury</span></li>
-        </ul>
-        <a href="loans.html#car-loan" class="lbtn">Know More →</a>
-      </div>
-      <div class="lcard anim d2">
-        <span class="lci">💼</span>
-        <h3>Business Loan</h3>
-        <p>Fuel your business growth. Starting, expanding, or managing working capital — we have the right product for you.</p>
-        <ul class="lmeta">
-          <li>💰 Interest Rate <span class="ltag">From 12% p.a.</span></li>
-          <li>📅 Tenure <span class="ltag">12 – 60 Months</span></li>
-          <li>💵 Amount <span class="ltag">₹1L – ₹2 Crore</span></li>
-          <li>⚡ Processing <span class="ltag">07–10 Working Days</span></li>
-          <li>📋 Collateral <span class="ltag">Secured / Unsecured</span></li>
-        </ul>
-        <a href="loans.html#business-loan" class="lbtn">Know More →</a>
-      </div>
-      <div class="lcard anim d3" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-style:dashed;border-color:var(--bdo);background:var(--or4)">
-        <div style="font-size:2.8rem;margin-bottom:1rem">📞</div>
-        <h3 style="margin-bottom:.7rem">Not Sure Which Loan?</h3>
-        <p style="margin-bottom:1.5rem">Talk to our expert — free consultation, zero obligation. We'll find the perfect loan for your profile.</p>
-        <a href="contact.html#loan-form" class="bp" style="font-size:.88rem;padding:.7rem 1.5rem">Apply Now — Free</a>
-        <a href="loans.html" style="margin-top:.7rem;font-size:.82rem;color:var(--or);font-weight:600">View All Loans →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INSURANCE -->
-<section class="sec" style="background:var(--bg2)">
-  <div class="con">
-    <div class="tc">
-      <span class="stag tl">Insurance Products</span>
-      <h2 class="stitle">Protection That <span class="sacc-tl">Evolves With You</span></h2>
-      <p class="ssub">Plans from 15+ top insurers. Our certified advisors help you choose the right coverage — not the most expensive one.</p>
-    </div>
-    <div class="ins-grid">
-      <div class="icard anim d1">
-        <span class="ici">❤️</span>
-        <h3>Health Insurance</h3>
-        <div class="ihigh">Starts from ₹5 Lac cover</div>
-        <p>Cashless hospitalisation at 10,000+ hospitals. Critical illness, pre & post hospitalisation, day-care all covered.</p>
-        <a href="insurance.html#health" class="ibtn">Explore & Get Quote →</a>
-      </div>
-      <div class="icard dark-card anim d2">
-        <span class="ici">📋</span>
-        <h3>Term Plan</h3>
-        <div class="ihigh">From ₹500/month</div>
-        <p>Pure protection for your family. High sum assured at the lowest premium with tax benefits under Section 80C.</p>
-        <a href="insurance.html#term" class="ibtn">Explore & Get Quote →</a>
-      </div>
-      <div class="icard anim d3">
-        <span class="ici">🌿</span>
-        <h3>Life Insurance</h3>
-        <div class="ihigh">Sum assured up to ₹5 Cr</div>
-        <p>ULIPs and savings-linked plans — life cover combined with investment returns for long-term wealth creation.</p>
-        <a href="insurance.html#life" class="ibtn">Explore & Get Quote →</a>
-      </div>
-      <div class="icard anim d1">
-        <span class="ici">🚘</span>
-        <h3>Motor Insurance</h3>
-        <div class="ihigh">3yr OD + 3yr TP</div>
-        <p>Comprehensive vehicle protection. Cashless repairs at 4,000+ garages with 24x7 roadside assistance.</p>
-        <a href="insurance.html#motor" class="ibtn">Explore & Get Quote →</a>
-      </div>
-      <div class="icard anim d2">
-        <span class="ici">🏗️</span>
-        <h3>Corporate Insurance</h3>
-        <div class="ihigh">Fire, Marine, WC, CAR & more</div>
-        <p>Complete business protection — Group Health, Workers' Compensation, Liability, and more for all business sizes.</p>
-        <a href="insurance.html#corporate" class="ibtn">Explore & Get Quote →</a>
-      </div>
-      <div class="icard anim d3">
-        <span class="ici">🏠</span>
-        <h3>Property Insurance</h3>
-        <div class="ihigh">Structure + Contents covered</div>
-        <p>Protect your home, office, or premises from fire, theft, natural disasters, and accidental damage.</p>
-        <a href="insurance.html#property" class="ibtn">Explore & Get Quote →</a>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:2.5rem">
-      <a href="insurance.html" class="bp">View All Insurance Plans →</a>
-    </div>
-  </div>
-</section>
-
-<!-- WHY US -->
-<section class="sec why-sec">
-  <div class="con tc">
-    <span class="stag">Why Choose Us</span>
-    <h2 class="stitle">Your Financial Growth, <span class="sacc">Our Commitment</span></h2>
-    <p class="ssub">We build lifelong financial partnerships — not just transactions. Every client gets personalised attention.</p>
-    <div class="wgrid">
-      <div class="wcard anim d1"><div class="wicon">⚡</div><h4>Fastest Processing</h4><p>Personal loan in 24–48 hrs. Home & other loans in 7–10 days. Multiple lenders approached simultaneously.</p></div>
-      <div class="wcard anim d2"><div class="wicon">💰</div><h4>Lowest Rates</h4><p>Compare 20+ banks to get you the best deal. Our experts negotiate to save you lakhs over the loan tenure.</p></div>
-      <div class="wcard anim d3"><div class="wicon">🔍</div><h4>100% Transparent</h4><p>No hidden charges. Every fee explained upfront. What we quote is exactly what you pay — always.</p></div>
-      <div class="wcard anim d4"><div class="wicon">🎯</div><h4>Personalised</h4><p>Customized plans based on your exact income, goals, and needs. One size never fits all at Bhaarat Capital.</p></div>
-      <div class="wcard anim d1"><div class="wicon">🤝</div><h4>End-to-End</h4><p>From application to disbursal, we handle everything. Our team follows up with banks on your behalf.</p></div>
-      <div class="wcard anim d2"><div class="wicon">🏆</div><h4>500+ Happy Clients</h4><p>Trusted across Noida, Delhi & NCR. 98% client satisfaction rate since our founding.</p></div>
-      <div class="wcard anim d3"><div class="wicon">🏦</div><h4>20+ Bank Network</h4><p>SBI, HDFC, ICICI, Axis, Kotak, PNB, BOB and 13+ more banks and NBFCs in our partner network.</p></div>
-      <div class="wcard anim d4"><div class="wicon">📱</div><h4>Doorstep Service</h4><p>Free document pickup, consultations & post-disbursal support across all of Noida–NCR region.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="sec" style="background:var(--bg2)">
-  <div class="con tc">
-    <span class="stag">Success Stories</span>
-    <h2 class="stitle">What Our Clients <span class="sacc">Say</span></h2>
-    <p class="ssub">Real stories from real clients who trusted Bhaarat Capital with their most important financial decisions.</p>
-    <div class="tgrid">
-      <div class="tcard anim"><div class="tstars">⭐⭐⭐⭐⭐</div><div class="tqm">"</div><p>Bhaarat Capital got my home loan at 7.6% when my own bank quoted 8.5%. That difference saves me over ₹5 Lakh over 20 years! Whole process in just 9 days.</p><div class="tauth"><div class="tav">R</div><div><strong>Rahil Sharma</strong><br/><small>Home Loan ₹65L — Noida</small></div></div></div>
-      <div class="tcard feat anim"><div class="tstars">⭐⭐⭐⭐⭐</div><div class="tqm">"</div><p>Two agents failed before. Bhaarat Capital understood my business cash flows, approached the right lender, and got ₹35L business loan approved in 8 days. Extraordinary!</p><div class="tauth"><div class="tav">A</div><div><strong>Amit Gupta</strong><br/><small>Business Loan ₹35L — Noida</small></div></div></div>
-      <div class="tcard anim"><div class="tstars">⭐⭐⭐⭐⭐</div><div class="tqm">"</div><p>They found me a ₹10L family health cover with critical illness rider at just ₹13,500/year — saving ₹18,000 vs what I was about to buy. Free consultation changed everything!</p><div class="tauth"><div class="tav">P</div><div><strong>Priya Malhotra</strong><br/><small>Health Insurance — Noida</small></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- BLOG PREVIEW -->
-<section class="sec" style="background:var(--bg)">
-  <div class="con">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
-      <div><span class="stag">Latest Articles</span><h2 class="stitle">Financial Tips & <span class="sacc">Insights</span></h2></div>
-      <a href="blog.html" class="bs" style="padding:.65rem 1.4rem;font-size:.88rem">View All Articles →</a>
-    </div>
-    <div class="blog-grid" id="blogPreview">
-      <div class="bcard"><div class="bcard-body"><p style="color:var(--txt4)">Loading articles...</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PARTNERS -->
-<section class="sec" style="background:var(--bg2);padding:3rem 2rem">
-  <div class="con tc">
-    <span class="stag">Our Partners</span>
-    <h2 class="stitle" style="font-size:clamp(1.5rem,3vw,2rem)">Trusted by India's Leading <span class="sacc">Banks & Insurers</span></h2>
-    <div class="pgrid">
-      <div class="ptag">SBI Bank</div><div class="ptag">HDFC Bank</div><div class="ptag">ICICI Bank</div><div class="ptag">Axis Bank</div><div class="ptag">Kotak Mahindra</div><div class="ptag">Punjab National Bank</div><div class="ptag">Bank of Baroda</div><div class="ptag">Bajaj Finance</div><div class="ptag">Tata Capital</div><div class="ptag">L&T Finance</div><div class="ptag">LIC India</div><div class="ptag">Star Health</div><div class="ptag">HDFC ERGO</div><div class="ptag">ICICI Lombard</div><div class="ptag">Bajaj Allianz</div><div class="ptag">Niva Bupa</div><div class="ptag">Max Life</div><div class="ptag">Tata AIG</div><div class="ptag">New India Assurance</div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<div class="cta-ban">
-  <h2>Ready to Start Your Financial Journey?</h2>
-  <p>Free consultation, zero obligation. Our experts are available Monday to Sunday, 9AM to 9PM.</p>
-  <div class="cta-btns">
-    <a href="contact.html#loan-form" class="ctab-p">Apply for Loan — Free →</a>
-    <a href="https://wa.me/917982810014" target="_blank" class="ctab-s">💬 WhatsApp Us</a>
-  </div>
-</div>
-
-<script>
-const catIcons={"Loans":"🏦","Insurance":"🛡️","Finance Tips":"💡","Investment":"📈","default":"📄"};
-async function loadBlogPreview(){
-  const el=document.getElementById("blogPreview");
-  try{
-    const posts=await sbFetch("blog_posts","?published=eq.true&order=created_at.desc&limit=3");
-    if(!posts||posts.length===0){el.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--txt4)">No articles yet. <a href="admin.html" style="color:var(--or);font-weight:600">Add from Admin Panel →</a></div>`;return;}
-    el.innerHTML=posts.map(p=>`<a href="blog-post.html?slug=${p.slug}" class="bcard anim"><div class="bimg">${catIcons[p.category]||catIcons.default}</div><div class="bcard-body"><span class="bcat">${p.category||'Finance'}</span><h3>${p.title}</h3><p>${(p.excerpt||p.content||'').substring(0,120)}...</p><span class="bread">Read More →</span></div></a>`).join("");
-    setTimeout(()=>document.querySelectorAll("#blogPreview .anim").forEach(el=>el.classList.add("vis")),100);
-  }catch(e){console.log(e);}
+/* ---------- TYPOGRAPHY ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  color: var(--dark);
+  font-weight: 700;
 }
-loadBlogPreview();
-</script>
-</body>
-</html>
+p { color: var(--gray); line-height: 1.75; }
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+img { max-width: 100%; display: block; }
+ul, ol { list-style: none; }
+
+/* ---------- GRADIENT HEADING ACCENT ---------- */
+.heading-gradient {
+  display: inline-block;
+  background: linear-gradient(180deg, #1DB875 0%, #F97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---------- LAYOUT ---------- */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; width: 100%; }
+.section { padding: 5.5rem 2rem; }
+.tc { text-align: center; }
+
+/* ---------- SECTION LABELS ---------- */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--orange-light);
+  color: var(--orange-dark);
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.12;
+}
+.section-title .accent { color: var(--orange); }
+
+.section-sub {
+  font-size: 1rem;
+  color: var(--gray);
+  max-width: 580px;
+  margin: 0 auto 0.5rem;
+  line-height: 1.75;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--orange);
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  border: 2px solid var(--orange);
+  transition: var(--transition);
+  cursor: pointer;
+  box-shadow: var(--shadow-orange);
+}
+.btn-primary:hover {
+  background: var(--orange-hover);
+  border-color: var(--orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(249,115,22,.35);
+  color: #fff;
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  color: var(--dark);
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid var(--border);
+  transition: var(--transition);
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  background: var(--orange-light);
+  transform: translateY(-2px);
+}
+
+/* ---------- NAVBAR ---------- */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 1px 20px rgba(0,0,0,.05);
+  transition: var(--transition);
+}
+#navbar.scrolled {
+  background: rgba(255,255,255,.99);
+  box-shadow: 0 2px 24px rgba(0,0,0,.1);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.85rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-logo-img { height: 44px; width: auto; display: block; }
+.logo { display: flex; align-items: center; flex-shrink: 0; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  flex: 1;
+  justify-content: center;
+}
+.nav-links a {
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dark-2);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--orange);
+  background: var(--orange-light);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--dark);
+  color: #fff !important;
+  padding: 0.6rem 1.3rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: var(--transition);
+  flex-shrink: 0;
+  border: 2px solid var(--dark);
+}
+.nav-cta:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-orange);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--dark);
+  padding: 0.3rem;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+.hamburger:hover { color: var(--orange); background: var(--orange-light); }
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  padding: 1rem 2rem 1.5rem;
+  background: #fff;
+  border-top: 1px solid var(--border);
+  gap: 0.2rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--dark-2);
+  transition: var(--transition);
+}
+.mobile-menu a:hover { background: var(--orange-light); color: var(--orange); }
+
+/* ---------- KEYFRAME ANIMATIONS ---------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-10px) rotate(1deg); }
+  66%       { transform: translateY(-5px) rotate(-1deg); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50%       { transform: scale(1.06); opacity: 0.4; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FFF8F3 0%, #fff 45%, #FEF3C7 100%);
+  display: flex;
+  align-items: center;
+  padding: 7rem 2rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(249,115,22,.09) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, rgba(29,184,117,.07) 0%, transparent 55%);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 1.4rem;
+  border: 1px solid rgba(29,184,117,.2);
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--teal);
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.07;
+  color: var(--dark);
+  margin-bottom: 1.1rem;
+  animation: fadeInUp 0.7s ease both;
+}
+.hero-accent { color: var(--orange); }
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--gray);
+  max-width: 490px;
+  line-height: 1.78;
+  margin-bottom: 1.8rem;
+  animation: fadeInUp 0.8s 0.1s ease both;
+}
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.4rem;
+  animation: fadeInUp 0.9s 0.2s ease both;
+}
+.hero-hours {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  color: #15803D;
+  border-radius: 50px;
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s 0.3s ease both;
+}
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.3rem 1.6rem;
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  width: fit-content;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s 0.4s ease both;
+}
+.stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: var(--orange);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.73rem;
+  color: var(--gray);
+  margin-top: 0.15rem;
+  display: block;
+  font-weight: 500;
+}
+.stat-div { width: 1px; height: 38px; background: var(--border); }
+
+/* Hero Visual — Floating Cards */
+.hero-visual {
+  position: relative;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-orb {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange-light), rgba(29,184,117,.2));
+  opacity: 0.35;
+  animation: pulse 4s ease-in-out infinite;
+}
+.hero-card {
+  position: absolute;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 1rem 1.4rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  border-left: 4px solid var(--orange);
+  min-width: 195px;
+  transition: var(--transition);
+}
+.hero-card:hover { transform: scale(1.04); }
+.hc-f1 { top: 5%; left: 0; animation: float 3.2s ease-in-out infinite; }
+.hc-f2 { top: 40%; right: 0; animation: float 3.2s ease-in-out infinite 1.1s; border-left-color: var(--teal); }
+.hc-f3 { bottom: 8%; left: 10%; animation: float 3.2s ease-in-out infinite 2.2s; }
+.hc-icon { font-size: 2rem; }
+.hc-text strong { display: block; font-size: 0.9rem; font-weight: 700; color: var(--dark); }
+.hc-text span { font-size: 0.78rem; color: var(--gray); }
+
+/* ---------- MARQUEE ---------- */
+.marquee-strip {
+  background: var(--dark);
+  padding: 0.8rem 0;
+  overflow: hidden;
+  border-top: 2px solid var(--teal);
+  border-bottom: 2px solid var(--orange);
+}
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  white-space: nowrap;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+  align-items: center;
+}
+.marquee-track span { color: #E5E7EB; font-weight: 600; font-size: 0.88rem; }
+.marquee-track span.dot { opacity: 0.4; font-size: 0.5rem; color: var(--orange); }
+
+/* ---------- SERVICES ---------- */
+.services-section { background: #fff; }
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.8rem;
+}
+.svc-card {
+  background: var(--off-white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.8rem;
+  transition: var(--transition);
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--orange));
+  opacity: 0;
+  transition: var(--transition);
+}
+.svc-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: rgba(249,115,22,.3); }
+.svc-card:hover::before { opacity: 1; }
+.svc-card.featured { background: var(--dark); border-color: var(--orange); }
+.svc-card.featured::before { opacity: 1; }
+
+.svc-icon { font-size: 2.6rem; margin-bottom: 1rem; display: block; }
+.svc-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  color: var(--dark);
+  font-weight: 800;
+}
+.svc-card.featured h3 { color: #fff; }
+.svc-card p { font-size: 0.88rem; color: var(--gray); margin-bottom: 1.3rem; line-height: 1.68; }
+.svc-card.featured p { color: #9CA3AF; }
+.svc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 1.3rem; }
+.svt {
+  background: var(--orange-light);
+  color: var(--orange-dark);
+  padding: 0.22rem 0.7rem;
+  border-radius: 50px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+.svc-card.featured .svt { background: rgba(249,115,22,.18); color: #FBB380; }
+
+/* ---------- WHY US ---------- */
+.why-section {
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+.why-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(29,184,117,.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(249,115,22,.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+.why-section .section-tag { background: rgba(249,115,22,.18); color: #FBB380; }
+.why-section .section-title { color: #fff; }
+.why-section .section-sub { color: #9CA3AF; }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.3rem;
+  margin-top: 2.8rem;
+}
+.why-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  transition: var(--transition);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.why-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--teal), var(--orange));
+  transition: width 0.4s ease;
+}
+.why-card:hover {
+  background: rgba(249,115,22,.08);
+  border-color: rgba(249,115,22,.25);
+  transform: translateY(-5px);
+}
+.why-card:hover::after { width: 60%; }
+.why-icon {
+  width: 58px; height: 58px;
+  border-radius: var(--radius-sm);
+  background: rgba(249,115,22,.14);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 1.1rem;
+  transition: var(--transition);
+  border: 1px solid rgba(249,115,22,.2);
+}
+.why-card:hover .why-icon { background: rgba(249,115,22,.22); transform: scale(1.08); }
+.why-card h4 { color: #F3F4F6; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; font-family: var(--font-display); }
+.why-card p { color: #9CA3AF; font-size: 0.83rem; line-height: 1.68; }
+
+/* ---------- PARTNERS ---------- */
+.partners-section {
+  background: var(--off-white);
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.partners-header { text-align: center; margin-bottom: 2.5rem; }
+.partner-category { margin-bottom: 2.2rem; }
+.partner-cat-label {
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--orange-dark);
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.partner-cat-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+.slider-wrap { overflow: hidden; position: relative; }
+.slider-wrap::before,
+.slider-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 60px; z-index: 2;
+}
+.slider-wrap::before { left: 0; background: linear-gradient(90deg, var(--off-white), transparent); }
+.slider-wrap::after  { right: 0; background: linear-gradient(-90deg, var(--off-white), transparent); }
+.slider-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: slide 22s linear infinite;
+}
+.slider-track.rev { animation: slide 18s linear infinite reverse; }
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.partner-chip {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--gray);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.partner-chip:hover { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
+
+/* ---------- RATES TABLE ---------- */
+.rates-section { background: #fff; }
+.rates-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2.5rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.rates-table thead tr { background: var(--dark); }
+.rates-table th {
+  padding: 16px 18px;
+  text-align: left;
+  font-size: 0.77rem;
+  letter-spacing: 0.07em;
+  color: #D1D5DB;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.rates-table thead th:first-child { border-left: 3px solid var(--teal); }
+.rates-table tbody tr { border-bottom: 1px solid var(--border-light); transition: background 0.2s; }
+.rates-table tbody tr:hover { background: var(--light-bg); }
+.rates-table tbody tr:last-child { border-bottom: none; }
+.rates-table td { padding: 17px 18px; font-size: 0.9rem; vertical-align: middle; }
+.rates-table td:first-child { font-weight: 700; color: var(--dark); border-left: 3px solid transparent; transition: border-color 0.2s; }
+.rates-table tbody tr:hover td:first-child { border-left-color: var(--orange); }
+.rate-val { color: var(--orange); font-weight: 700; font-size: 0.95rem; }
+.avail-badge {
+  display: inline-block;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  color: #15803D;
+  border-radius: 50px;
+  padding: 3px 12px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+/* ---------- ELIGIBILITY / STEPS ---------- */
+.eligibility-section {
+  background: var(--light-bg);
+  position: relative;
+}
+.eligibility-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal), var(--orange), var(--teal));
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+  margin-top: 2.8rem;
+  position: relative;
+}
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 38px;
+  left: calc(12.5% + 1px);
+  right: calc(12.5% + 1px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal), var(--orange));
+  z-index: 0;
+}
+.step-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+}
+.step-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(249,115,22,.35); }
+.step-num {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--orange));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin: 0 auto 1.2rem;
+  box-shadow: 0 4px 16px rgba(249,115,22,.3);
+  font-family: var(--font-display);
+  transition: var(--transition);
+}
+.step-card:hover .step-num { transform: scale(1.1); box-shadow: 0 6px 20px rgba(249,115,22,.4); }
+.step-card h4 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--dark); font-family: var(--font-display); }
+.step-card p { font-size: 0.83rem; color: var(--gray); line-height: 1.68; }
+
+/* ---------- TESTIMONIALS ---------- */
+.testi-section { background: var(--off-white); }
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.8rem;
+  text-align: left;
+}
+.testi-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.testi-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--orange));
+  opacity: 0;
+  transition: var(--transition);
+}
+.testi-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: rgba(29,184,117,.25); }
+.testi-card:hover::before { opacity: 1; }
+.testi-card.feat { background: var(--dark); border-color: var(--teal); }
+.testi-card.feat::before { background: linear-gradient(90deg, var(--teal), var(--orange)); opacity: 1; }
+
+.testi-stars { font-size: 1rem; margin-bottom: 0.7rem; }
+.testi-quote {
+  font-size: 3rem;
+  font-family: var(--font-display);
+  color: var(--teal-light);
+  line-height: 0.7;
+  margin-bottom: 0.7rem;
+}
+.testi-card.feat .testi-quote { color: rgba(29,184,117,.25); }
+.testi-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.78; margin-bottom: 1.4rem; font-style: italic; }
+.testi-card.feat p { color: rgba(255,255,255,.85); }
+.testi-author { display: flex; align-items: center; gap: 0.8rem; }
+.testi-av {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--orange-light);
+  color: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 1rem;
+  flex-shrink: 0;
+  border: 2px solid var(--orange-light);
+}
+.testi-card.feat .testi-av { background: rgba(29,184,117,.2); color: var(--teal); border-color: rgba(29,184,117,.3); }
+.testi-author strong { font-size: 0.9rem; display: block; color: var(--dark); }
+.testi-card.feat .testi-author strong { color: #fff; }
+.testi-author small { font-size: 0.77rem; color: var(--gray); }
+.testi-card.feat small { color: #9CA3AF; }
+
+/* ---------- CTA BANNER ---------- */
+.cta-banner {
+  background: var(--dark);
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(29,184,117,.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 50%, rgba(249,115,22,.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--orange), var(--teal));
+}
+.cta-banner h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: #fff;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+.cta-banner p { color: rgba(255,255,255,.75); font-size: 1rem; margin-bottom: 2.2rem; position: relative; }
+.cta-btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: var(--transition);
+  margin: 0 0.4rem;
+  position: relative;
+}
+.cta-btn.wh { background: #fff; color: var(--orange); border: 2px solid #fff; }
+.cta-btn.wh:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,255,255,.2); }
+.cta-btn.tr { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.35); }
+.cta-btn.tr:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.6); transform: translateY(-2px); }
+
+/* ---------- WHATSAPP FLOAT ---------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  z-index: 999;
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45);
+  transition: var(--transition);
+  animation: pulse-green 2.5s ease-in-out infinite;
+  text-decoration: none;
+  border: 3px solid rgba(255,255,255,.3);
+}
+.whatsapp-float:hover { transform: scale(1.12); box-shadow: 0 6px 30px rgba(37,211,102,.6); }
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,.3); }
+  50%       { box-shadow: 0 4px 40px rgba(37,211,102,.7), 0 0 0 10px rgba(37,211,102,.0); }
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: var(--dark);
+  padding: 4rem 2rem 0;
+  border-top: 3px solid var(--orange);
+  position: relative;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--orange));
+}
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+.footer-brand p {
+  font-size: 0.87rem;
+  color: #9CA3AF;
+  line-height: 1.7;
+  margin-top: 0.5rem;
+}
+.footer-col h5 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--orange);
+  display: inline-block;
+}
+.footer-col a {
+  display: block;
+  font-size: 0.87rem;
+  color: #9CA3AF;
+  margin-bottom: 0.5rem;
+  transition: var(--transition);
+  padding: 0.1rem 0;
+}
+.footer-col a:hover { color: var(--orange); transform: translateX(4px); }
+
+.social-links { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+.social-links a {
+  background: var(--dark-3);
+  color: #9CA3AF !important;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,.08);
+  transition: var(--transition);
+}
+.social-links a:hover {
+  background: var(--orange);
+  color: #fff !important;
+  border-color: var(--orange);
+  transform: translateY(-2px) !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 1.3rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom p { font-size: 0.82rem; color: #6B7280; }
+
+/* ---------- SCROLL ANIMATIONS ---------- */
+.anim {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.anim.vis { opacity: 1; transform: translateY(0); }
+
+/* ---------- UTILITIES ---------- */
+.accent { color: var(--orange); }
+.accent-teal { color: var(--teal); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--off-white); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--teal), var(--orange));
+  border-radius: 3px;
+}
+
+/* =============================================
+   RESPONSIVE — TABLET (≤1024px)
+   ============================================= */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .svc-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .testi-grid { grid-template-columns: 1fr; max-width: 520px; margin: 2.5rem auto 0; }
+  .steps-grid { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .steps-grid::before { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+/* =============================================
+   RESPONSIVE — MOBILE (≤768px)
+   ============================================= */
+@media (max-width: 768px) {
+  .section { padding: 3.5rem 1.5rem; }
+  .hero { padding: 5.5rem 1.5rem 3.5rem; text-align: center; }
+  .hero-title { font-size: 2.3rem; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-btns { justify-content: center; }
+  .hero-stats { justify-content: center; margin-left: auto; margin-right: auto; }
+  .hero-badge,
+  .hero-hours { margin-left: auto; margin-right: auto; display: inline-flex; }
+  .svc-grid { grid-template-columns: 1fr; max-width: 440px; margin: 2rem auto 0; }
+  .steps-grid { grid-template-columns: 1fr; max-width: 380px; margin: 2rem auto 0; }
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .nav-cta { font-size: 0.78rem; padding: 0.5rem 1rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .section-title { font-size: 1.6rem; }
+  .rates-table { font-size: 0.82rem; }
+  .rates-table td, .rates-table th { padding: 12px 10px; }
+  .cta-banner { padding: 3.5rem 1.5rem; }
+  .cta-btn { margin: 0.3rem; display: block; width: fit-content; margin-left: auto; margin-right: auto; }
+}
+
+/* =============================================
+   RESPONSIVE — SMALL (≤480px)
+   ============================================= */
+@media (max-width: 480px) {
+  .why-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 1rem; padding: 1rem; }
+  .stat-num { font-size: 1.5rem; }
+  .nav-logo-img { height: 36px; }
+  .section { padding: 3rem 1.2rem; }
+  .btn-primary, .btn-secondary { padding: 0.75rem 1.5rem; font-size: 0.9rem; }
+  .hero-title { font-size: 2rem; }
+  .marquee-track span { font-size: 0.8rem; }
+  .footer { padding: 3rem 1.2rem 0; }
+}
