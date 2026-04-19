@@ -1,0 +1,163 @@
+<!-- 
+==============================================
+BHAARAT CAPITAL — UNIFIED DARK NAVBAR
+Copy this entire <nav> block into every page.
+Replace the existing <nav> tag completely.
+
+ACTIVE PAGE: Change class="active" to whichever 
+page you're on. Remove "Eligibility" is already done.
+==============================================
+-->
+
+<!-- Add this CSS inside your <style> or <head> if not already present -->
+<style>
+/* ---- DARK NAVBAR CSS (add to every page) ---- */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(10,10,15,0.92);
+  border-bottom: 1px solid rgba(245,158,11,0.15);
+  backdrop-filter: blur(20px);
+  transition: background 0.3s;
+}
+#navbar.scrolled { background: rgba(10,10,15,0.98); }
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 72px;
+}
+.nav-logo-img {
+  height: 90px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 12px rgba(249,115,22,0.4));
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.nav-links a {
+  color: #C5C8D8;
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+  display: block;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: #F59E0B;
+  background: rgba(245,158,11,0.18);
+}
+.nav-cta {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  color: #fff !important;
+  font-size: 0.83rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(34,197,94,0.35);
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(34,197,94,0.5);
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+.hamburger {
+  display: none;
+  color: #fff;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.mobile-menu {
+  background: #0A0A0F;
+  border-top: 1px solid rgba(34,197,94,0.15);
+  padding: 1rem 1.5rem 1.5rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.mobile-menu a {
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  color: #C5C8D8;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: block;
+  text-decoration: none;
+}
+.mobile-menu a:hover { color: #F59E0B; }
+.mobile-menu a.active { color: #F59E0B; }
+@media(max-width:768px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+}
+</style>
+
+<!-- ============ NAVBAR HTML ============ -->
+<!-- 
+  INSTRUCTIONS FOR EACH PAGE:
+  - index.html   → Home gets class="active"
+  - loans.html   → Loans gets class="active"
+  - insurance.html → Insurance gets class="active"
+  - rates.html   → Rates gets class="active"
+  - our-story.html → Our Story gets class="active"  (if page exists, else remove)
+  - about.html   → About Us gets class="active"
+  - contact.html → Apply Now nav-cta is "active"
+-->
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" style="display:flex;align-items:center;text-decoration:none;">
+      <!-- Replace the src below with your actual logo path e.g. logo.png -->
+      <img src="logo (1).png" alt="Bhaarat Capital" class="nav-logo-img" style="height:90px;width:auto;object-fit:contain;">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="loans.html">Loans</a></li>
+      <li><a href="insurance.html">Insurance</a></li>
+      <li><a href="rates.html">Rates</a></li>
+      <li><a href="our-story.html">Our Story</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Apply Now &#8594;</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="loans.html">Loans</a>
+    <a href="insurance.html">Insurance</a>
+    <a href="rates.html">Rates</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="about.html">About Us</a>
+    <a href="https://wa.me/917982810014" target="_blank" style="color:#22c55e;font-weight:700;">&#128172; WhatsApp Us</a>
+  </div>
+</nav>
+
+<script>
+/* Navbar scroll + hamburger — add this script to every page if not already present */
+document.getElementById("hamburger").addEventListener("click", function() {
+  var m = document.getElementById("mobileMenu");
+  m.style.display = m.style.display === "flex" ? "none" : "flex";
+});
+window.addEventListener("scroll", function() {
+  document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
