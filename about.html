@@ -7,136 +7,330 @@
 <meta name="description" content="Bhaarat Capital — Founded in 2024 by Mr. Chintu Singh. Noida NCR's trusted financial partner. 500+ clients, ₹50Cr+ disbursed, 20+ bank partners. Home Loans, Insurance &amp; more."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"/>
 <style>
-/* ── GRADIENT HEADING ── */
-.heading-gradient{display:inline-block;background:linear-gradient(180deg,#1DB875 0%,#F97316 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+/* ── CSS VARIABLES (same as index.html) ── */
+:root {
+  --bg-deep: #0A0A0F;
+  --bg-card: #13131A;
+  --bg-card2: #1A1A24;
+  --gold: #F59E0B;
+  --gold-light: #FDE68A;
+  --gold-glow: rgba(245,158,11,0.18);
+  --orange: #F97316;
+  --orange-glow: rgba(249,115,22,0.18);
+  --teal: #14B8A6;
+  --green: #22c55e;
+  --green-glow: rgba(34,197,94,0.18);
+  --border-glow: rgba(245,158,11,0.15);
+  --border-subtle: rgba(255,255,255,0.07);
+  --text-muted: #8B8FA8;
+  --text-bright: #F1F1F8;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
 
-/* ── PAGE HERO ── */
-.page-hero{background:linear-gradient(135deg,#FFF8F3 0%,#fff 45%,#FEF3C7 100%);padding:8rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
-.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(29,184,117,.07) 0%,transparent 55%),radial-gradient(ellipse at 80% 50%,rgba(249,115,22,.07) 0%,transparent 55%);pointer-events:none;}
-.page-hero-tag{display:inline-flex;align-items:center;gap:.4rem;background:var(--orange-light);color:var(--orange-dark);padding:.3rem 1rem;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem;}
-.page-hero h1{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--dark);margin-bottom:.8rem;line-height:1.1;position:relative;}
-.page-hero p{font-size:1rem;color:var(--gray);max-width:600px;margin:0 auto;line-height:1.75;position:relative;}
+  /* Light section vars */
+  --dark: #111827;
+  --gray: #6B7280;
+  --border: #E5E7EB;
+  --border-light: #F3F4F6;
+  --light-bg: #F9FAFB;
+  --off-white: #FAFAF9;
+  --shadow: 0 1px 8px rgba(0,0,0,0.08);
+  --orange-light: #FFF7ED;
+  --orange-dark: #C2410C;
+  --teal-dark: #0F766E;
+}
 
-/* ── CTA BANNER ── */
-.cta-banner{background:var(--dark);padding:4rem 2rem;text-align:center;position:relative;}
-.cta-banner::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1DB875,#F97316);}
-.cta-banner h2{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;margin-bottom:.6rem;}
-.cta-banner p{color:rgba(255,255,255,.75);font-size:.95rem;margin-bottom:1.8rem;}
-.cta-btn{display:inline-block;padding:.85rem 1.8rem;border-radius:50px;font-weight:700;font-size:.95rem;transition:all .2s;margin:0 .4rem;}
-.cta-btn.wh{background:#fff;color:var(--orange);border:2px solid #fff;}.cta-btn.wh:hover{transform:translateY(-2px);}
-.cta-btn.tr{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);}.cta-btn.tr:hover{background:rgba(255,255,255,.1);}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #fff; color: var(--dark); font-family: var(--font-body); }
+a { text-decoration: none; color: inherit; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff; border: none; border-radius: 50px;
+  padding: .75rem 1.6rem; font-weight: 700; font-size: .9rem;
+  box-shadow: 0 4px 20px rgba(34,197,94,.35);
+  transition: all .2s; cursor: pointer;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(34,197,94,.5); }
+
+/* ── NAVBAR (identical to index.html dark style) ── */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,10,15,0.92);
+  border-bottom: 1px solid var(--border-glow);
+  backdrop-filter: blur(20px);
+  transition: background 0.3s;
+}
+#navbar.scrolled { background: rgba(10,10,15,0.98); }
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; gap: 2rem; height: 80px;
+}
+.nav-logo-img {
+  height: 90px; width: auto; display: block;
+  filter: drop-shadow(0 0 12px rgba(249,115,22,0.4));
+}
+.nav-links {
+  display: flex; align-items: center; gap: 0.3rem;
+  list-style: none; margin-left: auto;
+}
+.nav-links a {
+  color: #C5C8D8; font-size: 0.88rem; font-weight: 500;
+  letter-spacing: 0.01em; padding: 0.45rem 0.85rem;
+  border-radius: 8px; transition: all 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--gold); background: var(--gold-glow); }
+.nav-cta {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none; color: #fff !important; font-size: 0.83rem;
+  font-weight: 700; padding: 0.6rem 1.4rem; border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(34,197,94,0.35);
+  transition: all 0.2s; white-space: nowrap;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(34,197,94,0.5); background: linear-gradient(135deg, #16a34a, #15803d); }
+.hamburger { display: none; color: #fff; background: none; border: none; font-size: 1.4rem; cursor: pointer; margin-left: auto; }
+.mobile-menu {
+  background: #0A0A0F; border-top: 1px solid rgba(34,197,94,0.15);
+  padding: 1rem 1.5rem 1.5rem; display: none; flex-direction: column; gap: 0.2rem;
+}
+.mobile-menu a {
+  padding: 0.65rem 1rem; border-radius: 8px; color: #C5C8D8;
+  font-weight: 500; font-size: 0.95rem; display: block; transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+
+/* ── PAGE HERO (dark theme) ── */
+.page-hero {
+  min-height: 45vh;
+  background: radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 55%),
+              radial-gradient(ellipse at 80% 30%, rgba(20,184,166,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 90%, rgba(245,158,11,0.05) 0%, transparent 50%),
+              #0A0A0F;
+  padding: 9rem 2rem 4rem; text-align: center; position: relative;
+  overflow: hidden; border-bottom: 1px solid var(--border-subtle);
+}
+.page-hero-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--gold-glow); border: 1px solid rgba(245,158,11,0.3);
+  color: var(--gold-light); padding: 0.4rem 1.1rem; border-radius: 50px;
+  font-size: 0.8rem; font-weight: 700; margin-bottom: 1.2rem; letter-spacing: 0.04em;
+}
+.page-hero h1 {
+  font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900; color: #fff; margin-bottom: 0.8rem; line-height: 1.1;
+}
+.page-hero p { font-size: 1rem; color: #9CA3AF; max-width: 600px; margin: 0 auto; line-height: 1.75; }
+.heading-gradient {
+  display: inline-block;
+  background: linear-gradient(135deg, #22c55e, #14B8A6);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
 
 /* ── HERO BADGES ── */
-.hero-trust-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;margin-top:1.8rem;}
-.hero-badge-item{background:#fff;border:1px solid var(--border);border-radius:50px;padding:.4rem 1.1rem;font-size:.8rem;font-weight:700;color:var(--dark);box-shadow:var(--shadow);}
+.hero-trust-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: 1.8rem; }
+.hero-badge-item {
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50px; padding: .4rem 1.1rem; font-size: .8rem;
+  font-weight: 700; color: #E5E7EB;
+}
+
+/* ── SECTION BASE ── */
+.section { padding: 5rem 2rem; }
+.container { max-width: 1200px; margin: 0 auto; }
+.tc { text-align: center; }
+.section-tag {
+  display: inline-block; background: #FFF7ED; color: #C2410C;
+  border: 1px solid #FED7AA; padding: .3rem 1rem; border-radius: 50px;
+  font-size: .75rem; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: .8rem;
+}
+.section-title {
+  font-family: var(--font-display); font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+  font-weight: 900; color: var(--dark); margin-bottom: .5rem; line-height: 1.15;
+}
+.section-sub {
+  font-size: .92rem; color: var(--gray); max-width: 560px; margin: 0 auto; line-height: 1.75;
+}
 
 /* ── STATS ROW ── */
-.stats-row{background:var(--dark);padding:3rem 2rem;}
-.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;text-align:center;}
-.stat-box{border-right:1px solid rgba(255,255,255,.08);padding:1rem;}
-.stat-box:last-child{border:none;}
-.stat-box .big-num{font-family:var(--font-display);font-size:2.2rem;font-weight:900;color:var(--orange);line-height:1;}
-.stat-box .stat-suffix{font-size:1.2rem;color:var(--orange);font-weight:900;}
-.stat-box p{font-size:.8rem;color:#9CA3AF;margin-top:.4rem;}
+.stats-row { background: var(--bg-deep); padding: 3rem 2rem; }
+.stats-inner {
+  max-width: 1200px; margin: 0 auto; display: grid;
+  grid-template-columns: repeat(5,1fr); gap: 1rem; text-align: center;
+}
+.stat-box { border-right: 1px solid rgba(255,255,255,.08); padding: 1rem; }
+.stat-box:last-child { border: none; }
+.stat-box .big-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 900; color: var(--orange); line-height: 1; }
+.stat-box .stat-suffix { font-size: 1.2rem; color: var(--orange); font-weight: 900; }
+.stat-box p { font-size: .8rem; color: #9CA3AF; margin-top: .4rem; }
 
-/* ── FOUNDER SECTION ── */
-.founder-section{background:#fff;}
-.founder-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;align-items:center;margin-top:2rem;}
-.founder-photo-box{position:relative;}
-.founder-avatar{width:100%;max-width:320px;aspect-ratio:1;border-radius:24px;background:linear-gradient(135deg,#1DB875 0%,#F97316 100%);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:5rem;font-weight:900;color:#fff;margin:0 auto;box-shadow:0 20px 60px rgba(249,115,22,.25);}
-.founder-badge{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);background:#fff;border:2px solid var(--teal);border-radius:50px;padding:.4rem 1.2rem;font-size:.78rem;font-weight:700;color:var(--teal-dark);white-space:nowrap;box-shadow:var(--shadow);}
-.founder-content h2{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2rem);font-weight:900;color:var(--dark);margin-bottom:.4rem;}
-.founder-name-tag{display:inline-block;background:linear-gradient(90deg,#1DB875,#F97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:1.2rem;}
-.founder-quote{background:var(--light-bg);border-left:4px solid var(--orange);border-radius:0 12px 12px 0;padding:1.2rem 1.5rem;margin:1.2rem 0;font-style:italic;font-size:.95rem;color:var(--gray);line-height:1.75;}
-.founder-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;}
-.founder-tag{background:var(--orange-light);color:var(--orange-dark);border-radius:50px;padding:.3rem .85rem;font-size:.78rem;font-weight:700;}
+/* ── FOUNDER ── */
+.founder-section { background: #fff; }
+.founder-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; align-items: center; margin-top: 2rem; }
+.founder-photo-box { position: relative; }
+.founder-avatar {
+  width: 100%; max-width: 320px; aspect-ratio: 1; border-radius: 24px;
+  background: linear-gradient(135deg, #1DB875 0%, #F97316 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 5rem; font-weight: 900; color: #fff;
+  margin: 0 auto; box-shadow: 0 20px 60px rgba(249,115,22,.25);
+}
+.founder-badge {
+  position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
+  background: #fff; border: 2px solid var(--teal); border-radius: 50px;
+  padding: .4rem 1.2rem; font-size: .78rem; font-weight: 700;
+  color: var(--teal-dark); white-space: nowrap; box-shadow: var(--shadow);
+}
+.founder-content h2 { font-family: var(--font-display); font-size: clamp(1.5rem,3vw,2rem); font-weight: 900; color: var(--dark); margin-bottom: .4rem; }
+.founder-name-tag {
+  display: inline-block;
+  background: linear-gradient(90deg, #1DB875, #F97316);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; margin-bottom: 1.2rem;
+}
+.founder-quote {
+  background: var(--light-bg); border-left: 4px solid var(--orange);
+  border-radius: 0 12px 12px 0; padding: 1.2rem 1.5rem; margin: 1.2rem 0;
+  font-style: italic; font-size: .95rem; color: var(--gray); line-height: 1.75;
+}
+.founder-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.2rem; }
+.founder-tag { background: var(--orange-light); color: var(--orange-dark); border-radius: 50px; padding: .3rem .85rem; font-size: .78rem; font-weight: 700; }
 
-/* ── STORY / TIMELINE ── */
-.timeline{position:relative;margin-top:2rem;}
-.timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#1DB875,#F97316);}
-.timeline-item{display:flex;gap:1.5rem;margin-bottom:2rem;position:relative;}
-.timeline-dot{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#1DB875,#F97316);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;box-shadow:0 4px 16px rgba(249,115,22,.3);z-index:1;}
-.timeline-content{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.2rem 1.5rem;flex:1;transition:all .3s;}
-.timeline-content:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);border-color:rgba(249,115,22,.3);}
-.timeline-year{font-size:.75rem;font-weight:700;color:var(--orange);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem;}
-.timeline-content h4{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:.3rem;}
-.timeline-content p{font-size:.85rem;color:var(--gray);line-height:1.65;}
+/* ── TIMELINE ── */
+.timeline { position: relative; margin-top: 2rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 24px; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(180deg, #1DB875, #F97316);
+}
+.timeline-item { display: flex; gap: 1.5rem; margin-bottom: 2rem; position: relative; }
+.timeline-dot {
+  width: 50px; height: 50px; border-radius: 50%;
+  background: linear-gradient(135deg, #1DB875, #F97316); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(249,115,22,.3); z-index: 1;
+}
+.timeline-content {
+  background: #fff; border: 1.5px solid var(--border); border-radius: 14px;
+  padding: 1.2rem 1.5rem; flex: 1; transition: all .3s;
+}
+.timeline-content:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); border-color: rgba(249,115,22,.3); }
+.timeline-year { font-size: .75rem; font-weight: 700; color: var(--orange); letter-spacing: .08em; text-transform: uppercase; margin-bottom: .3rem; }
+.timeline-content h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: .3rem; }
+.timeline-content p { font-size: .85rem; color: var(--gray); line-height: 1.65; }
 
 /* ── VALUES ── */
-.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.5rem;}
-.value-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.8rem;text-align:center;transition:all .3s;position:relative;overflow:hidden;}
-.value-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1DB875,#F97316);opacity:0;transition:.3s;}
-.value-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.09);border-color:rgba(249,115,22,.3);}.value-card:hover::before{opacity:1;}
-.value-icon{font-size:2rem;margin-bottom:.8rem;}
-.value-card h4{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:.4rem;}
-.value-card p{font-size:.83rem;color:var(--gray);line-height:1.65;}
+.values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.3rem; margin-top: 2.5rem; }
+.value-card {
+  background: #fff; border: 1.5px solid var(--border); border-radius: 16px;
+  padding: 1.8rem; text-align: center; transition: all .3s; position: relative; overflow: hidden;
+}
+.value-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #1DB875, #F97316); opacity: 0; transition: .3s; }
+.value-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.09); border-color: rgba(249,115,22,.3); }
+.value-card:hover::before { opacity: 1; }
+.value-icon { font-size: 2rem; margin-bottom: .8rem; }
+.value-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: .4rem; }
+.value-card p { font-size: .83rem; color: var(--gray); line-height: 1.65; }
 
-/* ── WHY CHOOSE US (COMPARISON) ── */
-.compare-table{width:100%;border-collapse:collapse;margin-top:2rem;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);}
-.compare-table thead tr{background:var(--dark);}
-.compare-table th{padding:14px 18px;text-align:left;font-size:.8rem;color:#D1D5DB;font-weight:700;}
-.compare-table th:first-child{border-left:3px solid #1DB875;}
-.compare-table tbody tr{border-bottom:1px solid var(--border-light);transition:background .2s;}
-.compare-table tbody tr:hover{background:var(--light-bg);}
-.compare-table td{padding:14px 18px;font-size:.88rem;}
-.compare-table td:first-child{font-weight:600;color:var(--dark);}
-.tick{color:#1DB875;font-size:1.1rem;font-weight:700;}
-.cross{color:#EF4444;font-size:1.1rem;}
-.highlight-col{background:rgba(29,184,117,.06);}
+/* ── COMPARE TABLE ── */
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 2rem; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+.compare-table thead tr { background: var(--dark); }
+.compare-table th { padding: 14px 18px; text-align: left; font-size: .8rem; color: #D1D5DB; font-weight: 700; }
+.compare-table th:first-child { border-left: 3px solid #1DB875; }
+.compare-table tbody tr { border-bottom: 1px solid var(--border-light); transition: background .2s; }
+.compare-table tbody tr:hover { background: var(--light-bg); }
+.compare-table td { padding: 14px 18px; font-size: .88rem; }
+.compare-table td:first-child { font-weight: 600; color: var(--dark); }
+.tick { color: #1DB875; font-size: 1.1rem; font-weight: 700; }
+.cross { color: #EF4444; font-size: 1.1rem; }
+.highlight-col { background: rgba(29,184,117,.06); }
 
 /* ── PROCESS ── */
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2.5rem;position:relative;}
-.process-grid::before{content:'';position:absolute;top:36px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,#1DB875,#F97316);z-index:0;}
-.process-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.8rem 1.4rem;text-align:center;position:relative;z-index:1;transition:all .3s;}
-.process-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.09);}
-.process-num{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1DB875,#F97316);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;margin:0 auto 1rem;box-shadow:0 4px 14px rgba(249,115,22,.3);}
-.process-card h4{font-family:var(--font-display);font-size:.93rem;font-weight:700;margin-bottom:.4rem;color:var(--dark);}
-.process-card p{font-size:.82rem;color:var(--gray);line-height:1.65;}
+.process-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1.4rem; margin-top: 2.5rem; position: relative; }
+.process-grid::before { content: ''; position: absolute; top: 36px; left: 10%; right: 10%; height: 2px; background: linear-gradient(90deg,#1DB875,#F97316); z-index: 0; }
+.process-card { background: #fff; border: 1.5px solid var(--border); border-radius: 16px; padding: 1.8rem 1.4rem; text-align: center; position: relative; z-index: 1; transition: all .3s; }
+.process-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.09); }
+.process-num { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg,#1DB875,#F97316); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1rem; margin: 0 auto 1rem; box-shadow: 0 4px 14px rgba(249,115,22,.3); }
+.process-card h4 { font-family: var(--font-display); font-size: .93rem; font-weight: 700; margin-bottom: .4rem; color: var(--dark); }
+.process-card p { font-size: .82rem; color: var(--gray); line-height: 1.65; }
 
-/* ── REVIEWS / TESTIMONIALS ── */
-.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2rem;}
-.review-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:1.5rem;transition:all .3s;position:relative;overflow:hidden;}
-.review-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1DB875,#F97316);opacity:0;transition:.3s;}
-.review-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.09);}.review-card:hover::before{opacity:1;}
-.review-stars{color:#F59E0B;font-size:.95rem;margin-bottom:.6rem;}
-.review-text{font-size:.87rem;color:var(--gray);line-height:1.72;font-style:italic;margin-bottom:1rem;}
-.review-author{display:flex;align-items:center;gap:.7rem;}
-.review-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#1DB875,#F97316);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;flex-shrink:0;}
-.review-author strong{font-size:.88rem;display:block;color:var(--dark);}
-.review-author small{font-size:.75rem;color:var(--gray);}
-.review-platform{font-size:.72rem;font-weight:700;color:var(--orange-dark);background:var(--orange-light);border-radius:50px;padding:.15rem .6rem;display:inline-block;margin-top:.3rem;}
+/* ── REVIEWS ── */
+.review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.3rem; margin-top: 2rem; }
+.review-card { background: #fff; border: 1.5px solid var(--border); border-radius: 16px; padding: 1.5rem; transition: all .3s; position: relative; overflow: hidden; }
+.review-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg,#1DB875,#F97316); opacity: 0; transition: .3s; }
+.review-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.09); }
+.review-card:hover::before { opacity: 1; }
+.review-stars { color: #F59E0B; font-size: .95rem; margin-bottom: .6rem; }
+.review-text { font-size: .87rem; color: var(--gray); line-height: 1.72; font-style: italic; margin-bottom: 1rem; }
+.review-author { display: flex; align-items: center; gap: .7rem; }
+.review-av { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg,#1DB875,#F97316); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: .95rem; flex-shrink: 0; }
+.review-author strong { font-size: .88rem; display: block; color: var(--dark); }
+.review-author small { font-size: .75rem; color: var(--gray); }
+.review-platform { font-size: .72rem; font-weight: 700; color: var(--orange-dark); background: var(--orange-light); border-radius: 50px; padding: .15rem .6rem; display: inline-block; margin-top: .3rem; }
 
-/* ── AWARDS / CREDENTIALS ── */
-.cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2rem;}
-.cred-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.4rem;text-align:center;transition:all .3s;}
-.cred-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.09);border-color:rgba(29,184,117,.3);transform:translateY(-3px);}
-.cred-icon{font-size:2rem;margin-bottom:.6rem;}
-.cred-card h4{font-size:.85rem;font-weight:700;color:var(--dark);margin-bottom:.3rem;}
-.cred-card p{font-size:.78rem;color:var(--gray);}
+/* ── CRED GRID ── */
+.cred-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; margin-top: 2rem; }
+.cred-card { background: rgba(255,255,255,.04); border: 1.5px solid rgba(255,255,255,.1); border-radius: 14px; padding: 1.4rem; text-align: center; transition: all .3s; }
+.cred-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.3); border-color: rgba(34,197,94,.3); transform: translateY(-3px); }
+.cred-icon { font-size: 2rem; margin-bottom: .6rem; }
+.cred-card h4 { font-size: .85rem; font-weight: 700; color: #fff; margin-bottom: .3rem; }
+.cred-card p { font-size: .78rem; color: #9CA3AF; }
+
+/* ── PARTNER CHIPS ── */
+.partner-logos-wrap { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin-top: 1.5rem; }
+.partner-logo-chip { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: .6rem 1.2rem; font-size: .82rem; font-weight: 700; color: var(--gray); transition: all .25s; }
+.partner-logo-chip:hover { border-color: var(--orange); color: var(--orange); }
 
 /* ── LOCATION ── */
-.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;}
-.location-card{background:var(--off-white);border:1.5px solid var(--border);border-radius:16px;padding:2rem;}
-.location-card h4{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
-.location-card p{font-size:.87rem;color:var(--gray);line-height:1.75;margin-bottom:.4rem;}
-.location-card a{color:var(--orange);font-weight:700;font-size:.9rem;text-decoration:none;display:block;margin-bottom:.6rem;}
-.location-card a:hover{text-decoration:underline;}
-.map-placeholder{background:linear-gradient(135deg,#1DB875 0%,#F97316 100%);border-radius:14px;height:200px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:3rem;margin-bottom:1rem;}
-.service-area-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem;}
-.service-area-tag{background:#fff;border:1px solid var(--border);border-radius:50px;padding:.25rem .75rem;font-size:.75rem;font-weight:600;color:var(--gray);}
+.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+.location-card { background: var(--off-white); border: 1.5px solid var(--border); border-radius: 16px; padding: 2rem; }
+.location-card h4 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
+.location-card p { font-size: .87rem; color: var(--gray); line-height: 1.75; margin-bottom: .4rem; }
+.location-card a { color: var(--orange); font-weight: 700; font-size: .9rem; display: block; margin-bottom: .6rem; }
+.location-card a:hover { text-decoration: underline; }
+.map-placeholder { background: linear-gradient(135deg,#1DB875 0%,#F97316 100%); border-radius: 14px; height: 200px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 3rem; margin-bottom: 1rem; }
+.service-area-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+.service-area-tag { background: #fff; border: 1px solid var(--border); border-radius: 50px; padding: .25rem .75rem; font-size: .75rem; font-weight: 600; color: var(--gray); }
 
-/* ── PARTNER LOGOS ── */
-.partner-logos-wrap{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:1.5rem;}
-.partner-logo-chip{background:#fff;border:1px solid var(--border);border-radius:10px;padding:.6rem 1.2rem;font-size:.82rem;font-weight:700;color:var(--gray);transition:all .25s;}
-.partner-logo-chip:hover{border-color:var(--orange);color:var(--orange);}
+/* ── CTA BANNER ── */
+.cta-banner {
+  background: linear-gradient(135deg, #052e16, #064e3b);
+  padding: 5rem 2rem; text-align: center;
+  border-top: 1px solid rgba(34,197,94,0.3);
+  border-bottom: 1px solid rgba(34,197,94,0.3);
+  position: relative; overflow: hidden;
+}
+.cta-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(34,197,94,0.1) 0%, transparent 65%); pointer-events: none; }
+.cta-banner h2 { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,2.8rem); color: #fff; margin-bottom: .8rem; position: relative; }
+.cta-banner p { color: #bbf7d0; font-size: 1rem; margin-bottom: 2.2rem; position: relative; }
+.cta-btn { display: inline-block; padding: .9rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; transition: all .2s; margin: 0 .4rem; position: relative; }
+.cta-btn.wh { background: linear-gradient(135deg,#22c55e,#16a34a); color: #fff; border: none; box-shadow: 0 4px 24px rgba(34,197,94,.4); }
+.cta-btn.wh:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(34,197,94,.6); }
+.cta-btn.tr { background: rgba(255,255,255,.1); color: #fff; border: 2px solid #fff; }
+.cta-btn.tr:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
 
-/* ── MEDIA / PRESS ── */
-.media-strip{background:var(--dark);padding:2.5rem 2rem;text-align:center;}
-.media-strip p{color:#9CA3AF;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:1.2rem;}
-.media-logos{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;}
-.media-chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.6rem 1.4rem;font-size:.82rem;font-weight:700;color:#9CA3AF;}
+/* ── FOOTER ── */
+.footer { background: #060608; padding: 4rem 2rem 0; border-top: 1px solid rgba(34,197,94,0.2); }
+.footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; }
+.footer-brand p { font-size: .87rem; color: var(--text-muted); line-height: 1.7; margin-top: .5rem; }
+.footer-col h5 { font-size: .88rem; font-weight: 700; color: #E5E7EB; margin-bottom: 1rem; padding-bottom: .5rem; border-bottom: 1px solid rgba(34,197,94,0.3); display: block; letter-spacing: .05em; text-transform: uppercase; }
+.footer-col a { display: block; font-size: .86rem; color: var(--text-muted); margin-bottom: .5rem; transition: all .2s; padding: .1rem 0; }
+.footer-col a:hover { color: #22c55e; transform: translateX(4px); }
+.social-links { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1rem; }
+.social-links a { background: rgba(34,197,94,.1); color: #86efac !important; padding: .4rem .9rem; border-radius: 8px; font-size: .79rem; font-weight: 600; border: 1px solid rgba(34,197,94,.25); transition: all .2s; }
+.social-links a:hover { background: rgba(34,197,94,.18); border-color: rgba(34,197,94,.5); transform: translateY(-2px) !important; }
+.footer-bottom { border-top: 1px solid var(--border-subtle); padding: 1.3rem 0; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { font-size: .82rem; color: #4B5563; }
+
+/* ── WHATSAPP ── */
+.whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; width: 58px; height: 58px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 20px rgba(37,211,102,.45); transition: all .3s; animation: pulse-green 2.5s ease-in-out infinite; }
+.whatsapp-float:hover { transform: scale(1.12); }
+@keyframes pulse-green { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)} 50%{box-shadow:0 4px 40px rgba(37,211,102,.7)} }
+
+/* ── ANIM ── */
+.anim { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
+.anim.vis { opacity: 1; transform: translateY(0); }
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
@@ -150,15 +344,18 @@
   .review-grid{grid-template-columns:1fr 1fr;}
   .process-grid{grid-template-columns:1fr 1fr;}.process-grid::before{display:none;}
   .location-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:768px){
+  .nav-links{display:none;} .nav-cta{display:none;} .hamburger{display:block;}
   .stats-inner{grid-template-columns:1fr 1fr;}
   .values-grid{grid-template-columns:1fr;max-width:380px;margin-left:auto;margin-right:auto;}
   .review-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto;}
   .cred-grid{grid-template-columns:1fr 1fr;}
   .process-grid{grid-template-columns:1fr;max-width:340px;margin-left:auto;margin-right:auto;}
-  .compare-table{font-size:.8rem;}
-  .compare-table td,.compare-table th{padding:10px 12px;}
+  .compare-table{font-size:.8rem;} .compare-table td,.compare-table th{padding:10px 12px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;text-align:center;}
 }
 @media(max-width:480px){
   .stats-inner{grid-template-columns:1fr 1fr;}
@@ -168,55 +365,50 @@
 </head>
 <body>
 
+<!-- ── NAVBAR ── -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="logo">
-      <img src="logo (1).png" alt="Bhaarat Capital" class="nav-logo-img">
+    <a href="index.html" style="display:flex;align-items:center;">
+      <img src="logo (1).png" alt="Bhaarat Capital" class="nav-logo-img" style="height:90px;width:auto;object-fit:contain;">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="loans.html">Loans</a></li>
       <li><a href="insurance.html">Insurance</a></li>
-      <li><a href="our-story.html">Our Story</a></li>
       <li><a href="rates.html">Rates</a></li>
+      <li><a href="our-story.html">Our Story</a></li>
       <li><a href="about.html" class="active">About Us</a></li>
-      <li><a href="faq.html">FAQ</a></li>
     </ul>
-    <a href="contact.html" class="nav-cta">📞 +91 79828 10014</a>
-    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    <a href="contact.html" class="nav-cta">Apply Now &#8594;</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
     <a href="loans.html">Loans</a>
     <a href="insurance.html">Insurance</a>
-    <a href="our-story.html">Our Story</a>
     <a href="rates.html">Rates</a>
-    <a href="about.html">About Us</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html" style="color:var(--orange);font-weight:700;">📞 +91 79828 10014</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="about.html" style="color:var(--gold);font-weight:700;">About Us</a>
+    <a href="https://wa.me/917982810014" target="_blank" style="color:#22c55e;font-weight:700;">&#128172; WhatsApp Us</a>
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════════════
-     PAGE HERO
-═══════════════════════════════════════════ -->
+<!-- ── PAGE HERO ── -->
 <section class="page-hero">
-  <div class="page-hero-tag">🏢 About Bhaarat Capital</div>
+  <div class="page-hero-tag">&#127962; About Bhaarat Capital</div>
   <h1>Noida NCR's Most <span class="heading-gradient">Trusted Financial Partner</span></h1>
   <p>Founded in 2024 by Mr. Chintu Singh — with a simple mission to make financial services transparent, fast, and accessible to every Indian family and business in Noida NCR and beyond.</p>
   <div class="hero-trust-badges">
-    <span class="hero-badge-item">✅ Banks Partner</span>
-    <span class="hero-badge-item">🏠 Home Loan Experts</span>
-    <span class="hero-badge-item">🛡️ Insurance Advisors</span>
-    <span class="hero-badge-item">📍 Bisrakh, Noida</span>
-    <span class="hero-badge-item">🕘 Open 7 Days a Week</span>
-    <span class="hero-badge-item">⭐ 500+ Happy Clients</span>
+    <span class="hero-badge-item">&#9989; Banks Partner</span>
+    <span class="hero-badge-item">&#127968; Home Loan Experts</span>
+    <span class="hero-badge-item">&#128737;&#65039; Insurance Advisors</span>
+    <span class="hero-badge-item">&#128205; Bisrakh, Noida</span>
+    <span class="hero-badge-item">&#128345; Open 7 Days a Week</span>
+    <span class="hero-badge-item">&#11088; 500+ Happy Clients</span>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     STATS ROW
-═══════════════════════════════════════════ -->
+<!-- ── STATS ROW ── -->
 <div class="stats-row">
   <div class="stats-inner">
     <div class="stat-box anim">
@@ -224,7 +416,7 @@
       <p>Happy Clients Served</p>
     </div>
     <div class="stat-box anim">
-      <div class="big-num">₹<span class="count-num" data-target="50">0</span><span class="stat-suffix">Cr+</span></div>
+      <div class="big-num">&#8377;<span class="count-num" data-target="50">0</span><span class="stat-suffix">Cr+</span></div>
       <p>Total Loans Disbursed</p>
     </div>
     <div class="stat-box anim">
@@ -242,9 +434,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════
-     FOUNDER SECTION
-═══════════════════════════════════════════ -->
+<!-- ── FOUNDER ── -->
 <section class="founder-section section">
   <div class="container">
     <div class="tc" style="margin-bottom:1.5rem;">
@@ -254,7 +444,7 @@
     <div class="founder-grid">
       <div class="founder-photo-box anim">
         <div class="founder-avatar">CS</div>
-        <div class="founder-badge">🏆 Co-Founder &amp; Director</div>
+        <div class="founder-badge">&#127942; Co-Founder &amp; Director</div>
       </div>
       <div class="founder-content anim">
         <h2>Mr. Chintu Singh</h2>
@@ -267,20 +457,18 @@
           <br><strong style="color:var(--dark);font-style:normal;display:block;margin-top:.6rem;">— Mr. Chintu Singh, Co-Founder</strong>
         </div>
         <div class="founder-tags">
-          <span class="founder-tag">🏠 Home Loan Expert</span>
-          <span class="founder-tag">🛡️ Insurance Advisor</span>
-          <span class="founder-tag">💼 Business Finance</span>
-          <span class="founder-tag">📍 Noida NCR</span>
-          <span class="founder-tag">🤝 Client Champion</span>
+          <span class="founder-tag">&#127968; Home Loan Expert</span>
+          <span class="founder-tag">&#128737;&#65039; Insurance Advisor</span>
+          <span class="founder-tag">&#128188; Business Finance</span>
+          <span class="founder-tag">&#128205; Noida NCR</span>
+          <span class="founder-tag">&#129309; Client Champion</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     OUR STORY / TIMELINE
-═══════════════════════════════════════════ -->
+<!-- ── TIMELINE ── -->
 <section class="section" style="background:var(--off-white);">
   <div class="container">
     <div class="tc">
@@ -290,7 +478,7 @@
     </div>
     <div class="timeline" style="max-width:700px;margin:2.5rem auto 0;">
       <div class="timeline-item anim">
-        <div class="timeline-dot">💡</div>
+        <div class="timeline-dot">&#128161;</div>
         <div class="timeline-content">
           <div class="timeline-year">Early 2024</div>
           <h4>The Idea Is Born</h4>
@@ -298,7 +486,7 @@
         </div>
       </div>
       <div class="timeline-item anim">
-        <div class="timeline-dot">🚀</div>
+        <div class="timeline-dot">&#128640;</div>
         <div class="timeline-content">
           <div class="timeline-year">Mid 2024</div>
           <h4>Bhaarat Capital is Founded</h4>
@@ -306,7 +494,7 @@
         </div>
       </div>
       <div class="timeline-item anim">
-        <div class="timeline-dot">🤝</div>
+        <div class="timeline-dot">&#129309;</div>
         <div class="timeline-content">
           <div class="timeline-year">Late 2024</div>
           <h4>20+ Bank &amp; Insurance Partnerships</h4>
@@ -314,28 +502,26 @@
         </div>
       </div>
       <div class="timeline-item anim">
-        <div class="timeline-dot">🏆</div>
+        <div class="timeline-dot">&#127942;</div>
         <div class="timeline-content">
           <div class="timeline-year">2025</div>
-          <h4>500+ Clients &amp; ₹50 Crore+ Disbursed</h4>
+          <h4>500+ Clients &amp; &#8377;50 Crore+ Disbursed</h4>
           <p>Bhaarat Capital crosses major milestones — 500+ happy clients, ₹50 Crore+ in loans disbursed, and 98% client satisfaction. Becomes the go-to financial partner for Noida, Greater Noida, and NCR.</p>
         </div>
       </div>
       <div class="timeline-item anim">
-        <div class="timeline-dot">🌟</div>
+        <div class="timeline-dot">&#127775;</div>
         <div class="timeline-content">
           <div class="timeline-year">2025 &amp; Beyond</div>
           <h4>Expanding Across NCR</h4>
-          <p>Bhaarat Capital expands its reach to Delhi, Ghaziabad, and Faridabad. Digital loan application platform launched for faster processing. Mission: 1 Lakh families financially empowered by 2027.</p>
+          <p>Bhaarat Capital expands its reach to Delhi, Ghaziabad, and Faridabad. Mission: 1 Lakh families financially empowered by 2027.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     WHY CHOOSE US — COMPARISON TABLE
-═══════════════════════════════════════════ -->
+<!-- ── COMPARE TABLE ── -->
 <section class="section" style="background:#fff;">
   <div class="container">
     <div class="tc">
@@ -344,53 +530,49 @@
       <p class="section-sub">See why thousands of families in Noida NCR choose us over going directly to a bank or using other agents.</p>
     </div>
     <div style="overflow-x:auto;">
-    <table class="compare-table anim">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th style="background:rgba(29,184,117,.15);color:#fff;">✅ Bhaarat Capital</th>
-          <th>Direct Bank</th>
-          <th>Other Agents</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Compare 20+ Banks Simultaneously</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td class="cross tc">✗</td></tr>
-        <tr><td>Free Doorstep Document Pickup</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td class="cross tc">✗</td></tr>
-        <tr><td>Zero Hidden Charges</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td class="cross tc">✗</td></tr>
-        <tr><td>Loans + Insurance Under One Roof</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td class="cross tc">✗</td></tr>
-        <tr><td>Personal Loan in 24 Hours</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td>Sometimes</td></tr>
-        <tr><td>Dedicated Relationship Manager</td><td class="highlight-col tick tc">✓</td><td>Rarely</td><td>Sometimes</td></tr>
-        <tr><td>Open 7 Days / 9 AM – 9 PM</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td>Sometimes</td></tr>
-        <tr><td>Negotiate Best Rates for You</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td>Rarely</td></tr>
-        <tr><td>Post-Disbursement Support</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td class="cross tc">✗</td></tr>
-      </tbody>
-    </table>
+      <table class="compare-table anim">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th style="background:rgba(29,184,117,.15);color:#fff;">&#9989; Bhaarat Capital</th>
+            <th>Direct Bank</th>
+            <th>Other Agents</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Compare 20+ Banks Simultaneously</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td class="cross tc">✗</td></tr>
+          <tr><td>Free Doorstep Document Pickup</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td class="cross tc">✗</td></tr>
+          <tr><td>Zero Hidden Charges</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td class="cross tc">✗</td></tr>
+          <tr><td>Loans + Insurance Under One Roof</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td class="cross tc">✗</td></tr>
+          <tr><td>Personal Loan in 24 Hours</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td>Sometimes</td></tr>
+          <tr><td>Dedicated Relationship Manager</td><td class="highlight-col tick tc">✓</td><td>Rarely</td><td>Sometimes</td></tr>
+          <tr><td>Open 7 Days / 9 AM – 9 PM</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td>Sometimes</td></tr>
+          <tr><td>Negotiate Best Rates for You</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td>Rarely</td></tr>
+          <tr><td>Post-Disbursement Support</td><td class="highlight-col tick tc">✓</td><td class="cross tc">✗</td><td class="cross tc">✗</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     OUR VALUES
-═══════════════════════════════════════════ -->
+<!-- ── VALUES ── -->
 <section class="section" style="background:var(--off-white);">
   <div class="container tc">
     <span class="section-tag">Our Values</span>
     <h2 class="section-title">What We <span class="heading-gradient">Stand For</span></h2>
     <p class="section-sub">These aren't just words on a wall — these are the principles that guide every interaction, every loan, and every insurance recommendation we make.</p>
     <div class="values-grid">
-      <div class="value-card anim"><div class="value-icon">🔍</div><h4>100% Transparency</h4><p>No hidden charges. No misleading promises. No fine print surprises. What we quote is exactly what you pay — every time.</p></div>
-      <div class="value-card anim"><div class="value-icon">🤝</div><h4>Client First, Always</h4><p>Every recommendation we make is based on what's best for you — not what earns us the highest commission. Your interest is our priority.</p></div>
-      <div class="value-card anim"><div class="value-icon">⚡</div><h4>Speed &amp; Efficiency</h4><p>Personal loan disbursed in 24 hours. Home loan processed in 7–10 working days. We respect your time and treat urgency seriously.</p></div>
-      <div class="value-card anim"><div class="value-icon">🎯</div><h4>Best Rates, Guaranteed</h4><p>We compare 20+ banks and NBFCs simultaneously. If there's a better rate out there for you, we'll find it. Guaranteed.</p></div>
-      <div class="value-card anim"><div class="value-icon">📱</div><h4>Doorstep Service</h4><p>Free document pickup, consultation, and support at your doorstep across Noida, Greater Noida, and NCR. We come to you.</p></div>
-      <div class="value-card anim"><div class="value-icon">🛡️</div><h4>Trust &amp; Integrity</h4><p>We never recommend a product you don't need. Our reputation is built on honest advice and long-term relationships, not one-time transactions.</p></div>
+      <div class="value-card anim"><div class="value-icon">&#128269;</div><h4>100% Transparency</h4><p>No hidden charges. No misleading promises. No fine print surprises. What we quote is exactly what you pay — every time.</p></div>
+      <div class="value-card anim"><div class="value-icon">&#129309;</div><h4>Client First, Always</h4><p>Every recommendation we make is based on what's best for you — not what earns us the highest commission. Your interest is our priority.</p></div>
+      <div class="value-card anim"><div class="value-icon">&#9889;</div><h4>Speed &amp; Efficiency</h4><p>Personal loan disbursed in 24 hours. Home loan processed in 7–10 working days. We respect your time and treat urgency seriously.</p></div>
+      <div class="value-card anim"><div class="value-icon">&#127919;</div><h4>Best Rates, Guaranteed</h4><p>We compare 20+ banks and NBFCs simultaneously. If there's a better rate out there for you, we'll find it. Guaranteed.</p></div>
+      <div class="value-card anim"><div class="value-icon">&#128241;</div><h4>Doorstep Service</h4><p>Free document pickup, consultation, and support at your doorstep across Noida, Greater Noida, and NCR. We come to you.</p></div>
+      <div class="value-card anim"><div class="value-icon">&#128737;&#65039;</div><h4>Trust &amp; Integrity</h4><p>We never recommend a product you don't need. Our reputation is built on honest advice and long-term relationships, not one-time transactions.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     HOW WE WORK — PROCESS
-═══════════════════════════════════════════ -->
+<!-- ── PROCESS ── -->
 <section class="section" style="background:#fff;">
   <div class="container tc">
     <span class="section-tag">How We Work</span>
@@ -399,195 +581,72 @@
     <div class="process-grid">
       <div class="process-card anim"><div class="process-num">1</div><h4>Free Consultation</h4><p>Call, WhatsApp, or visit us. We understand your exact financial needs and goals — no obligation.</p></div>
       <div class="process-card anim"><div class="process-num">2</div><h4>Profile Assessment</h4><p>We assess your income, CIBIL score, and requirement to identify the best-fit lenders and products for you.</p></div>
-      <div class="process-card anim"><div class="process-num">3</div><h4>Compare &amp; Recommend</h4><p>We compare 20+ banks simultaneously and present you the top 3 options with clear rate comparisons.</p></div>
+      <div class="process-card anim"><div class="process-num">3</div><h4>Compare &amp; Recommend</h4><p>We compare 20+ banks simultaneously and present you the top options with clear rate comparisons.</p></div>
       <div class="process-card anim"><div class="process-num">4</div><h4>Doorstep Processing</h4><p>Our team picks up documents from your home, completes all paperwork, and submits to the lender.</p></div>
       <div class="process-card anim"><div class="process-num">5</div><h4>Disbursement &amp; Beyond</h4><p>Funds hit your account. We stay with you post-disbursement for any queries, EMI issues, or future needs.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     CREDENTIALS / ACHIEVEMENTS
-═══════════════════════════════════════════ -->
-<section class="section" style="background:var(--dark);">
+<!-- ── CREDENTIALS ── -->
+<section class="section" style="background:var(--bg-deep);">
   <div class="container tc">
-    <span class="section-tag" style="background:rgba(249,115,22,.18);color:#FBB380;">Our Credentials</span>
+    <span class="section-tag" style="background:rgba(249,115,22,.18);color:#FBB380;border-color:rgba(249,115,22,.3);">Our Credentials</span>
     <h2 class="section-title" style="color:#fff;">Trusted, Verified &amp; <span class="heading-gradient">Recognised</span></h2>
     <p class="section-sub" style="color:#9CA3AF;">Bhaarat Capital operates with full compliance and transparency. Here's what backs us.</p>
     <div class="cred-grid" style="margin-top:2rem;">
-      <div class="cred-card anim" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);">
-        <div class="cred-icon">🏦</div>
-        <h4 style="color:#fff;">Banks Partner</h4>
-        <p style="color:#9CA3AF;">Officially partnered with 20+ scheduled banks and NBFCs across India</p>
-      </div>
-      <div class="cred-card anim" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);">
-        <div class="cred-icon">🛡️</div>
-        <h4 style="color:#fff;">IRDAI Compliant</h4>
-        <p style="color:#9CA3AF;">All insurance products sold through IRDAI-registered insurer partners</p>
-      </div>
-      <div class="cred-card anim" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);">
-        <div class="cred-icon">📋</div>
-        <h4 style="color:#fff;">GST Registered</h4>
-        <p style="color:#9CA3AF;">Fully GST-registered financial services company operating legally in India</p>
-      </div>
-      <div class="cred-card anim" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);">
-        <div class="cred-icon">⭐</div>
-        <h4 style="color:#fff;">Top Rated</h4>
-        <p style="color:#9CA3AF;">4.9/5 average rating from 500+ verified client reviews and testimonials</p>
-      </div>
+      <div class="cred-card anim"><div class="cred-icon">&#127974;</div><h4>Banks Partner</h4><p>Officially partnered with 20+ scheduled banks and NBFCs across India</p></div>
+      <div class="cred-card anim"><div class="cred-icon">&#128737;&#65039;</div><h4>IRDAI Compliant</h4><p>All insurance products sold through IRDAI-registered insurer partners</p></div>
+      <div class="cred-card anim"><div class="cred-icon">&#128203;</div><h4>GST Registered</h4><p>Fully GST-registered financial services company operating legally in India</p></div>
+      <div class="cred-card anim"><div class="cred-icon">&#11088;</div><h4>Top Rated</h4><p>4.9/5 average rating from 500+ verified client reviews and testimonials</p></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     BANK PARTNERS
-═══════════════════════════════════════════ -->
+<!-- ── PARTNERS ── -->
 <section class="section" style="background:var(--off-white);">
   <div class="container tc">
     <span class="section-tag">Our Network</span>
     <h2 class="section-title">Our Banking &amp; Insurance <span class="heading-gradient">Partners</span></h2>
     <p class="section-sub">We have formal partnerships with India's leading banks, NBFCs, housing finance companies, and insurance providers.</p>
     <div style="margin-top:2rem;">
-      <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--orange-dark);text-transform:uppercase;margin-bottom:.8rem;">🏦 Banks &amp; NBFCs</p>
+      <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--orange-dark);text-transform:uppercase;margin-bottom:.8rem;">&#127974; Banks &amp; NBFCs</p>
       <div class="partner-logos-wrap anim">
-        <span class="partner-logo-chip">State Bank of India</span>
-        <span class="partner-logo-chip">HDFC Bank</span>
-        <span class="partner-logo-chip">ICICI Bank</span>
-        <span class="partner-logo-chip">Axis Bank</span>
-        <span class="partner-logo-chip">IndusInd Bank</span>
-        <span class="partner-logo-chip">IDBI Bank</span>
-        <span class="partner-logo-chip">Bank of Baroda</span>
-        <span class="partner-logo-chip">Bajaj Housing Finance</span>
-        <span class="partner-logo-chip">LIC Housing Finance</span>
-        <span class="partner-logo-chip">Tata Capital</span>
-        <span class="partner-logo-chip">Aditya Birla Capital</span>
-        <span class="partner-logo-chip">Piramal Finance</span>
-        <span class="partner-logo-chip">AU Small Finance</span>
-        <span class="partner-logo-chip">ICICI Home Finance</span>
+        <span class="partner-logo-chip">State Bank of India</span><span class="partner-logo-chip">HDFC Bank</span><span class="partner-logo-chip">ICICI Bank</span><span class="partner-logo-chip">Axis Bank</span><span class="partner-logo-chip">IndusInd Bank</span><span class="partner-logo-chip">IDBI Bank</span><span class="partner-logo-chip">Bank of Baroda</span><span class="partner-logo-chip">Bajaj Housing Finance</span><span class="partner-logo-chip">LIC Housing Finance</span><span class="partner-logo-chip">Tata Capital</span><span class="partner-logo-chip">Aditya Birla Capital</span><span class="partner-logo-chip">Piramal Finance</span><span class="partner-logo-chip">AU Small Finance</span><span class="partner-logo-chip">ICICI Home Finance</span>
       </div>
-      <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--orange-dark);text-transform:uppercase;margin:1.5rem 0 .8rem;">🛡️ Insurance Partners</p>
+      <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;color:var(--orange-dark);text-transform:uppercase;margin:1.5rem 0 .8rem;">&#128737;&#65039; Insurance Partners</p>
       <div class="partner-logos-wrap anim">
-        <span class="partner-logo-chip">ICICI Lombard</span>
-        <span class="partner-logo-chip">Tata AIG</span>
-        <span class="partner-logo-chip">HDFC ERGO</span>
-        <span class="partner-logo-chip">Go Digit</span>
-        <span class="partner-logo-chip">Care Health</span>
-        <span class="partner-logo-chip">Niva Bupa</span>
-        <span class="partner-logo-chip">ICICI Prudential Life</span>
-        <span class="partner-logo-chip">Max Life Insurance</span>
-        <span class="partner-logo-chip">HDFC Life</span>
-        <span class="partner-logo-chip">Tata AIA Life</span>
+        <span class="partner-logo-chip">ICICI Lombard</span><span class="partner-logo-chip">Tata AIG</span><span class="partner-logo-chip">HDFC ERGO</span><span class="partner-logo-chip">Go Digit</span><span class="partner-logo-chip">Care Health</span><span class="partner-logo-chip">Niva Bupa</span><span class="partner-logo-chip">ICICI Prudential Life</span><span class="partner-logo-chip">Max Life Insurance</span><span class="partner-logo-chip">HDFC Life</span><span class="partner-logo-chip">Tata AIA Life</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     CLIENT REVIEWS
-═══════════════════════════════════════════ -->
+<!-- ── REVIEWS ── -->
 <section class="section" style="background:#fff;">
   <div class="container tc">
     <span class="section-tag">Client Reviews</span>
     <h2 class="section-title">What Our Clients <span class="heading-gradient">Say About Us</span></h2>
     <p class="section-sub">Real experiences from real people — not paid testimonials. These are the stories that drive us every day.</p>
     <div class="review-grid">
-      <div class="review-card anim">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Bhaarat Capital got me a home loan at 8.45% when my own bank quoted 8.90%. That's ₹3.8 Lakh saved over 20 years! The entire process was done in just 8 days — unbelievable service."</p>
-        <div class="review-author">
-          <div class="review-av">R</div>
-          <div style="text-align:left;">
-            <strong>Rahul Sharma</strong>
-            <small>Home Loan ₹65L — Noida Sector 62</small>
-            <span class="review-platform">Google Review</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-card anim">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Two other agents failed me. Chintu ji personally understood my business, chose the right lender, and my ₹35 Lakh business loan was approved in just 5 days. Truly exceptional!"</p>
-        <div class="review-author">
-          <div class="review-av">A</div>
-          <div style="text-align:left;">
-            <strong>Amit Gupta</strong>
-            <small>Business Loan ₹35L — Greater Noida</small>
-            <span class="review-platform">Google Review</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-card anim">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Their insurance advice got my family a ₹10 Lakh health cover for just ₹14,000/year — saving ₹18,000 vs what I was about to buy from another agent. The free consultation was a game-changer!"</p>
-        <div class="review-author">
-          <div class="review-av">P</div>
-          <div style="text-align:left;">
-            <strong>Priya Malhotra</strong>
-            <small>Family Health Insurance — Noida</small>
-            <span class="review-platform">Google Review</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-card anim">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"I was worried about my CIBIL score — it was 690. Most agents turned me away. Bhaarat Capital found a lender that approved my home loan anyway. I'm now living in my own home. Thank you!"</p>
-        <div class="review-author">
-          <div class="review-av">S</div>
-          <div style="text-align:left;">
-            <strong>Suresh Yadav</strong>
-            <small>Home Loan ₹42L — Bisrakh, Noida</small>
-            <span class="review-platform">WhatsApp Review</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-card anim">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Got my car loan approved in under 48 hours with zero hassle. They picked up documents from my office and handled everything. Didn't even need to visit the bank once. Highly recommended!"</p>
-        <div class="review-author">
-          <div class="review-av">V</div>
-          <div style="text-align:left;">
-            <strong>Vikram Tiwari</strong>
-            <small>Car Loan ₹8.5L — Noida Sector 18</small>
-            <span class="review-platform">Google Review</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-card anim">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Our company needed corporate insurance for 50 employees. Bhaarat Capital compared 6 insurers and saved us ₹80,000 annually vs our previous policy. Outstanding professional service!"</p>
-        <div class="review-author">
-          <div class="review-av">N</div>
-          <div style="text-align:left;">
-            <strong>Neeraj Kapoor</strong>
-            <small>Corporate Group Health — Noida</small>
-            <span class="review-platform">Google Review</span>
-          </div>
-        </div>
-      </div>
+      <div class="review-card anim"><div class="review-stars">★★★★★</div><p class="review-text">"Bhaarat Capital got me a home loan at 8.45% when my own bank quoted 8.90%. That's ₹3.8 Lakh saved over 20 years! The entire process was done in just 8 days — unbelievable service."</p><div class="review-author"><div class="review-av">R</div><div style="text-align:left;"><strong>Rahul Sharma</strong><small>Home Loan ₹65L — Noida Sector 62</small><span class="review-platform">Google Review</span></div></div></div>
+      <div class="review-card anim"><div class="review-stars">★★★★★</div><p class="review-text">"Two other agents failed me. Chintu ji personally understood my business, chose the right lender, and my ₹35 Lakh business loan was approved in just 5 days. Truly exceptional!"</p><div class="review-author"><div class="review-av">A</div><div style="text-align:left;"><strong>Amit Gupta</strong><small>Business Loan ₹35L — Greater Noida</small><span class="review-platform">Google Review</span></div></div></div>
+      <div class="review-card anim"><div class="review-stars">★★★★★</div><p class="review-text">"Their insurance advice got my family a ₹10 Lakh health cover for just ₹14,000/year — saving ₹18,000 vs what I was about to buy from another agent. The free consultation was a game-changer!"</p><div class="review-author"><div class="review-av">P</div><div style="text-align:left;"><strong>Priya Malhotra</strong><small>Family Health Insurance — Noida</small><span class="review-platform">Google Review</span></div></div></div>
+      <div class="review-card anim"><div class="review-stars">★★★★★</div><p class="review-text">"I was worried about my CIBIL score — it was 690. Most agents turned me away. Bhaarat Capital found a lender that approved my home loan anyway. I'm now living in my own home. Thank you!"</p><div class="review-author"><div class="review-av">S</div><div style="text-align:left;"><strong>Suresh Yadav</strong><small>Home Loan ₹42L — Bisrakh, Noida</small><span class="review-platform">WhatsApp Review</span></div></div></div>
+      <div class="review-card anim"><div class="review-stars">★★★★★</div><p class="review-text">"Got my car loan approved in under 48 hours with zero hassle. They picked up documents from my office and handled everything. Didn't even need to visit the bank once. Highly recommended!"</p><div class="review-author"><div class="review-av">V</div><div style="text-align:left;"><strong>Vikram Tiwari</strong><small>Car Loan ₹8.5L — Noida Sector 18</small><span class="review-platform">Google Review</span></div></div></div>
+      <div class="review-card anim"><div class="review-stars">★★★★★</div><p class="review-text">"Our company needed corporate insurance for 50 employees. Bhaarat Capital compared 6 insurers and saved us ₹80,000 annually vs our previous policy. Outstanding professional service!"</p><div class="review-author"><div class="review-av">N</div><div style="text-align:left;"><strong>Neeraj Kapoor</strong><small>Corporate Group Health — Noida</small><span class="review-platform">Google Review</span></div></div></div>
     </div>
-    <!-- Rating Summary -->
-    <div style="background:var(--off-white);border-radius:16px;padding:1.5rem 2rem;margin-top:2rem;border:1px solid var(--border);display:inline-flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:center;" class="anim">
-      <div style="text-align:center;">
-        <div style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:var(--orange);line-height:1;">4.9</div>
-        <div style="color:#F59E0B;font-size:1.1rem;">★★★★★</div>
-        <p style="font-size:.78rem;color:var(--gray);margin-top:.2rem;">Average Rating</p>
-      </div>
+    <div style="background:var(--light-bg);border-radius:16px;padding:1.5rem 2rem;margin-top:2rem;border:1px solid var(--border);display:inline-flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:center;" class="anim">
+      <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:var(--orange);line-height:1;">4.9</div><div style="color:#F59E0B;font-size:1.1rem;">★★★★★</div><p style="font-size:.78rem;color:var(--gray);margin-top:.2rem;">Average Rating</p></div>
       <div style="width:1px;height:60px;background:var(--border);"></div>
-      <div style="text-align:center;">
-        <div style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:var(--teal);line-height:1;">500+</div>
-        <p style="font-size:.78rem;color:var(--gray);margin-top:.2rem;">Verified Reviews</p>
-      </div>
+      <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:var(--teal);line-height:1;">500+</div><p style="font-size:.78rem;color:var(--gray);margin-top:.2rem;">Verified Reviews</p></div>
       <div style="width:1px;height:60px;background:var(--border);"></div>
-      <div style="text-align:center;">
-        <div style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:var(--orange);line-height:1;">98%</div>
-        <p style="font-size:.78rem;color:var(--gray);margin-top:.2rem;">Would Recommend</p>
-      </div>
+      <div style="text-align:center;"><div style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:var(--orange);line-height:1;">98%</div><p style="font-size:.78rem;color:var(--gray);margin-top:.2rem;">Would Recommend</p></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     LOCATION
-═══════════════════════════════════════════ -->
+<!-- ── LOCATION ── -->
 <section class="section" style="background:var(--off-white);">
   <div class="container tc">
     <span class="section-tag">Find Us</span>
@@ -595,99 +654,132 @@
     <p class="section-sub">We are conveniently located in Bisrakh, Noida. Walk in, call us, or WhatsApp — we're always available.</p>
     <div class="location-grid" style="text-align:left;">
       <div class="location-card anim">
-        <div class="map-placeholder">📍</div>
-        <h4>🏢 Office Address</h4>
+        <div class="map-placeholder">&#128205;</div>
+        <h4>&#127962; Office Address</h4>
         <p><strong>Bisrakh, Noida, Uttar Pradesh</strong></p>
         <p>Greater Noida, NCR — 201301</p>
         <p style="margin-top:.8rem;font-size:.82rem;color:var(--gray);">We also offer free doorstep service across:</p>
         <div class="service-area-tags">
-          <span class="service-area-tag">Noida Sector 18</span>
-          <span class="service-area-tag">Sector 62</span>
-          <span class="service-area-tag">Sector 63</span>
-          <span class="service-area-tag">Greater Noida West</span>
-          <span class="service-area-tag">Bisrakh</span>
-          <span class="service-area-tag">Delhi NCR</span>
-          <span class="service-area-tag">Ghaziabad</span>
-          <span class="service-area-tag">Faridabad</span>
+          <span class="service-area-tag">Noida Sector 18</span><span class="service-area-tag">Sector 62</span><span class="service-area-tag">Sector 63</span><span class="service-area-tag">Greater Noida West</span><span class="service-area-tag">Bisrakh</span><span class="service-area-tag">Delhi NCR</span><span class="service-area-tag">Ghaziabad</span><span class="service-area-tag">Faridabad</span>
         </div>
       </div>
       <div class="location-card anim">
-        <h4>📞 Get in Touch</h4>
-        <a href="tel:+917982810014">📞 +91 79828 10014</a>
-        <a href="https://wa.me/917982810014" target="_blank" style="color:#25D366;">💬 WhatsApp Us — Quick Response</a>
-        <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 @bhaarat_capital</a>
-        <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">▶ YouTube Channel</a>
-        <h4 style="margin-top:1.3rem;">🕘 Working Hours</h4>
+        <h4>&#128222; Get in Touch</h4>
+        <a href="tel:+917982810014">&#128222; +91 79828 10014</a>
+        <a href="https://wa.me/917982810014" target="_blank" style="color:#25D366;">&#128172; WhatsApp Us — Quick Response</a>
+        <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">&#128247; @bhaarat_capital</a>
+        <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">&#9654; YouTube Channel</a>
+        <h4 style="margin-top:1.3rem;">&#128345; Working Hours</h4>
         <p><strong>Monday – Sunday</strong></p>
         <p>9:00 AM – 9:00 PM</p>
         <p style="font-size:.82rem;color:var(--gray);margin-top:.5rem;">Open all 7 days including public holidays. We are always here when you need us.</p>
-        <a href="contact.html" class="btn-primary" style="margin-top:1.2rem;font-size:.88rem;padding:.7rem 1.6rem;display:inline-flex;">📩 Send Us a Message →</a>
+        <a href="contact.html" class="btn-primary" style="margin-top:1.2rem;font-size:.88rem;">&#128233; Send Us a Message &#8594;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     CTA BANNER
-═══════════════════════════════════════════ -->
+<!-- ── CTA BANNER ── -->
 <div class="cta-banner">
   <h2>Ready to Work with Noida's Best?</h2>
   <p>Free consultation, zero obligation. Our experts are available 7 days a week, 9 AM to 9 PM.</p>
-  <a href="contact.html" class="cta-btn wh">Get Free Consultation →</a>
-  <a href="https://wa.me/917982810014" target="_blank" class="cta-btn tr">💬 WhatsApp Mr. Chintu Singh</a>
+  <a href="contact.html" class="cta-btn wh">Get Free Consultation &#8594;</a>
+  <a href="https://wa.me/917982810014" target="_blank" class="cta-btn tr">&#128172; WhatsApp Mr. Chintu Singh</a>
 </div>
 
+<!-- ── FOOTER ── -->
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html"><img src="logo (1).png" alt="Bhaarat Capital" style="height:42px;margin-bottom:1rem;display:block;"></a>
-      <p>Bhaarat Capital — Trusted financial partner in Noida NCR. Home Loans, Personal Loans, Car Loans, Health Insurance, Motor Insurance, Corporate Insurance, and Term Plans. Banks Partner.</p>
-      <p style="margin-top:.7rem;font-size:.82rem;">📍 Bisrakh, Noida, UP &nbsp;|&nbsp; 🕘 Mon–Sun: 9AM–9PM</p>
-      <div class="social-links" style="margin-top:1.1rem;">
-        <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 Instagram</a>
-        <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">▶ YouTube</a>
-        <a href="https://wa.me/917982810014" target="_blank">💬 WhatsApp</a>
+      <a href="index.html">
+        <img src="logo (1).png" alt="Bhaarat Capital" style="height:85px;width:auto;object-fit:contain;margin-bottom:1rem;display:block;filter:drop-shadow(0 0 10px rgba(34,197,94,0.4));">
+      </a>
+      <p>Bhaarat Capital &#8212; Trusted financial partner in Noida NCR. Home Loans, Personal Loans, Car Loans, Health Insurance, Motor Insurance, Corporate Insurance, and Term Plans. Banks Partner.</p>
+      <p style="margin-top:.7rem;font-size:.82rem;color:#4B5563;">&#128205; Bisrakh, Noida, UP &nbsp;|&nbsp; &#128345; Mon&#8211;Sun: 9AM&#8211;9PM</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">&#128247; Instagram</a>
+        <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">&#9654; YouTube</a>
+        <a href="https://wa.me/917982810014" target="_blank">&#128172; WhatsApp</a>
       </div>
     </div>
-    <div class="footer-col"><h5>Loans</h5><a href="loans.html#home-loan">Home Loan</a><a href="loans.html#personal-loan">Personal Loan</a><a href="loans.html#car-loan">Car Loan</a><a href="loans.html#business-loan">Business Loan</a><a href="loans.html#lap">Loan Against Property</a></div>
-    <div class="footer-col"><h5>Insurance</h5><a href="insurance.html#health">Health Insurance</a><a href="insurance.html#motor">Motor Insurance</a><a href="insurance.html#corporate">Corporate Insurance</a><a href="insurance.html#term">Term Plan</a><h5 style="margin-top:1.3rem;">Company</h5><a href="about.html">About Us</a><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a></div>
-    <div class="footer-col"><h5>Legal</h5><a href="terms.html">Terms &amp; Conditions</a><a href="privacy.html">Privacy Policy</a><a href="disclaimer.html">Disclaimer</a><h5 style="margin-top:1.3rem;">Contact</h5><a href="tel:+917982810014">📞 +91 79828 10014</a><a href="https://wa.me/917982810014" target="_blank">💬 WhatsApp</a><a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 @bhaarat_capital</a><a href="https://www.youtube.com/@bhaaratcapital" target="_blank">▶ YouTube</a></div>
+    <div class="footer-col">
+      <h5>Loans</h5>
+      <a href="loans.html#home-loan">Home Loan</a>
+      <a href="loans.html#personal-loan">Personal Loan</a>
+      <a href="loans.html#car-loan">Car Loan</a>
+      <a href="loans.html#business-loan">Business Loan</a>
+      <a href="loans.html#lap">Loan Against Property</a>
+    </div>
+    <div class="footer-col">
+      <h5>Insurance</h5>
+      <a href="insurance.html#health">Health Insurance</a>
+      <a href="insurance.html#motor">Motor Insurance</a>
+      <a href="insurance.html#corporate">Corporate Insurance</a>
+      <a href="insurance.html#term">Term Plan</a>
+      <a href="insurance.html#life">Life Insurance</a>
+      <h5 style="margin-top:1.5rem;">Company</h5>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <h5 style="margin-top:1.5rem;">Contact</h5>
+      <a href="https://wa.me/917982810014" target="_blank">&#128172; WhatsApp +91 79828 10014</a>
+      <a href="tel:+917982810014">&#128222; +91 79828 10014</a>
+      <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">&#128247; @bhaarat_capital</a>
+      <a href="https://www.linkedin.com/company/bhaaratcapital/" target="_blank">&#128101; LinkedIn</a>
+      <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">&#9654; YouTube Channel</a>
+    </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Bhaarat Capital. All rights reserved. Banks Partner.</p>
-    <div style="display:flex;gap:1.5rem;"><a href="terms.html" style="color:#78716c;font-size:.82rem;">Terms</a><a href="privacy.html" style="color:#78716c;font-size:.82rem;">Privacy</a><a href="disclaimer.html" style="color:#78716c;font-size:.82rem;">Disclaimer</a></div>
+    <p>&#169; 2025 Bhaarat Capital. All rights reserved. Banks Partner.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="terms.html" style="color:#4B5563;font-size:.82rem;">Terms</a>
+      <a href="privacy.html" style="color:#4B5563;font-size:.82rem;">Privacy</a>
+      <a href="disclaimer.html" style="color:#4B5563;font-size:.82rem;">Disclaimer</a>
+    </div>
   </div>
 </footer>
-<a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
-<script src="script.js"></script>
-<script>
-const ao=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');ao.unobserve(x.target);}});},{threshold:0.1});
-document.querySelectorAll('.anim').forEach(el=>ao.observe(el));
 
-// Counter animation
-function animateCounter(el) {
-  const target = el.getAttribute('data-target');
-  const isNum = !isNaN(target);
-  if (!isNum) { el.textContent = target; return; }
-  const end = parseFloat(target);
-  const dur = 2000;
-  const step = dur / 60;
-  let current = 0;
-  const increment = end / (dur / step);
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= end) { current = end; clearInterval(timer); }
-    el.textContent = Number.isInteger(end) ? Math.floor(current) : current.toFixed(1);
-  }, step);
-}
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      animateCounter(e.target);
-      counterObserver.unobserve(e.target);
-    }
+<a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">&#128172;</a>
+
+<script>
+  // Hamburger
+  document.getElementById("hamburger").addEventListener("click", function () {
+    var m = document.getElementById("mobileMenu");
+    m.style.display = m.style.display === "flex" ? "none" : "flex";
   });
-}, {threshold: 0.5});
-document.querySelectorAll('.count-num').forEach(el => counterObserver.observe(el));
+
+  // Scroll animations
+  const ao = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("vis"); ao.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".anim").forEach(el => ao.observe(el));
+
+  // Navbar scroll
+  window.addEventListener("scroll", () => {
+    document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+  // Counter animation
+  function animateCounter(el) {
+    const end = parseFloat(el.getAttribute("data-target"));
+    const dur = 2000, step = dur / 60;
+    let current = 0;
+    const increment = end / (dur / step);
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= end) { current = end; clearInterval(timer); }
+      el.textContent = Number.isInteger(end) ? Math.floor(current) : current.toFixed(1);
+    }, step);
+  }
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); counterObserver.unobserve(e.target); } });
+  }, { threshold: 0.5 });
+  document.querySelectorAll(".count-num").forEach(el => counterObserver.observe(el));
 </script>
-</body></html>
+</body>
+</html>
