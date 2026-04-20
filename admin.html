@@ -8,32 +8,22 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0A0A0F;
-  --bg2: #13131A;
-  --bg3: #1A1A24;
-  --gold: #F59E0B;
-  --orange: #F97316;
-  --green: #22c55e;
-  --red: #ef4444;
-  --blue: #3b82f6;
-  --purple: #a855f7;
-  --border: rgba(245,158,11,0.15);
-  --text: #F1F1F8;
-  --muted: #8B8FA8;
+  --bg: #0A0A0F; --bg2: #13131A; --bg3: #1A1A24;
+  --gold: #F59E0B; --orange: #F97316; --green: #22c55e;
+  --red: #ef4444; --blue: #3b82f6; --purple: #a855f7;
+  --border: rgba(245,158,11,0.15); --text: #F1F1F8; --muted: #8B8FA8;
   --font: 'DM Sans', sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; }
 
-/* ── LOGIN ── */
 .login-wrap {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
   background: radial-gradient(ellipse at 30% 40%, rgba(249,115,22,0.07) 0%, transparent 55%), var(--bg);
 }
 .login-card {
   background: var(--bg2); border: 1px solid var(--border); border-radius: 20px;
-  padding: 2.5rem 2rem; width: 100%; max-width: 360px;
-  box-shadow: 0 24px 80px rgba(0,0,0,.5);
+  padding: 2.5rem 2rem; width: 100%; max-width: 360px; box-shadow: 0 24px 80px rgba(0,0,0,.5);
 }
 .login-card::before {
   content: ''; display: block; height: 3px;
@@ -61,10 +51,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); min-
 .login-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.4); }
 .login-error { color: #ef4444; font-size: 0.82rem; margin-top: 0.8rem; display: none; text-align: center; }
 
-/* ── DASHBOARD ── */
 .dash { display: none; min-height: 100vh; }
-
-/* ── TOPBAR ── */
 .topbar {
   background: rgba(10,10,15,0.95); border-bottom: 1px solid var(--border);
   padding: 0 2rem; height: 64px; display: flex; align-items: center;
@@ -77,6 +64,13 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); min-
   border: 1px solid rgba(249,115,22,0.3); border-radius: 50px;
   padding: 0.2rem 0.7rem; font-size: 0.72rem; font-weight: 700;
 }
+.sync-badge {
+  background: rgba(34,197,94,0.15); color: var(--green);
+  border: 1px solid rgba(34,197,94,0.3); border-radius: 50px;
+  padding: 0.2rem 0.7rem; font-size: 0.72rem; font-weight: 700;
+  cursor: pointer; transition: all 0.2s;
+}
+.sync-badge:hover { background: rgba(34,197,94,0.25); }
 .logout-btn {
   background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.3);
   border-radius: 8px; padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 700;
@@ -84,7 +78,6 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); min-
 }
 .logout-btn:hover { background: rgba(239,68,68,0.2); }
 
-/* ── TABS ── */
 .tabs {
   background: var(--bg2); border-bottom: 1px solid var(--border);
   padding: 0 2rem; display: flex; gap: 0; overflow-x: auto;
@@ -97,19 +90,25 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); min-
 .tab-btn:hover { color: var(--text); }
 .tab-btn.active { color: var(--orange); border-bottom-color: var(--orange); }
 
-/* ── MAIN ── */
 .main { max-width: 1400px; margin: 0 auto; padding: 2rem; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 
-/* ── STATS ── */
+/* Alert banner */
+.alert-banner {
+  background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3);
+  border-radius: 12px; padding: 1rem 1.3rem; margin-bottom: 1.5rem;
+  font-size: 0.85rem; color: #93c5fd; display: flex; align-items: center; gap: 0.6rem;
+}
+.alert-banner.success { background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.3); color: #86efac; }
+.alert-banner.error { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3); color: #fca5a5; }
+
 .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
 .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.3rem 1.5rem; }
 .stat-card .s-label { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
 .stat-card .s-num { font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; }
 .stat-card .s-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; }
 
-/* ── FILTERS ── */
 .filters {
   background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
   padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
@@ -134,7 +133,6 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); min-
 }
 .export-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(34,197,94,0.3); }
 
-/* ── TABLE ── */
 .table-wrap { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
 .table-header {
   padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border);
@@ -145,17 +143,13 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); min-
 .tbl-scroll { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; min-width: 900px; }
 thead tr { background: linear-gradient(135deg, #052e16, #064e3b); }
-thead th {
-  padding: 12px 16px; text-align: left; font-size: 0.72rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.07em; color: #86efac; white-space: nowrap;
-}
+thead th { padding: 12px 16px; text-align: left; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #86efac; white-space: nowrap; }
 tbody tr { border-bottom: 1px solid rgba(255,255,255,0.05); transition: background 0.15s; }
 tbody tr:last-child { border-bottom: none; }
 tbody tr:hover { background: var(--bg3); }
 tbody td { padding: 14px 16px; font-size: 0.87rem; color: #D1D5DB; vertical-align: middle; }
 tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 
-/* ── BADGES ── */
 .type-badge { display: inline-block; border-radius: 50px; padding: 3px 10px; font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
 .tb-loan { background: rgba(34,197,94,0.15); color: #86efac; border: 1px solid rgba(34,197,94,0.3); }
 .tb-insurance { background: rgba(249,115,22,0.15); color: #fed7aa; border: 1px solid rgba(249,115,22,0.3); }
@@ -165,7 +159,6 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 .tb-blog { background: rgba(168,85,247,0.15); color: #d8b4fe; border: 1px solid rgba(168,85,247,0.3); }
 .tb-video { background: rgba(239,68,68,0.15); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
 .tb-image { background: rgba(20,184,166,0.15); color: #99f6e4; border: 1px solid rgba(20,184,166,0.3); }
-
 .action-btn {
   background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.25);
   border-radius: 6px; padding: 4px 10px; font-size: 0.75rem; font-family: var(--font);
@@ -173,12 +166,10 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 }
 .action-btn:hover { background: rgba(239,68,68,0.2); }
 
-/* ── EMPTY ── */
 .empty-state { text-align: center; padding: 4rem 2rem; color: var(--muted); }
 .empty-state .icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
 .empty-state p { font-size: 0.9rem; }
 
-/* ── POST CREATOR ── */
 .post-creator {
   background: var(--bg2); border: 1px solid var(--border); border-radius: 16px;
   padding: 2rem; margin-bottom: 2rem;
@@ -193,19 +184,16 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 }
 .pt-btn.active { border-color: var(--orange); color: var(--orange); background: rgba(249,115,22,0.1); }
 .post-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.post-grid.single { grid-template-columns: 1fr; }
 .submit-post-btn {
   background: linear-gradient(135deg, var(--orange), var(--gold)); color: #fff; border: none;
   border-radius: 50px; padding: 0.75rem 2rem; font-size: 0.9rem; font-weight: 700;
   font-family: var(--font); cursor: pointer; transition: all 0.2s; margin-top: 1rem;
 }
 .submit-post-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.4); }
+.submit-post-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
 
-/* ── POSTS TABLE ── */
 .posts-table-wrap { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
 .posts-table { min-width: 700px; }
-
-/* ── PIN TOGGLE ── */
 .pin-btn {
   background: rgba(245,158,11,0.1); color: var(--gold); border: 1px solid rgba(245,158,11,0.25);
   border-radius: 6px; padding: 4px 10px; font-size: 0.75rem; font-family: var(--font);
@@ -214,7 +202,6 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 .pin-btn:hover { background: rgba(245,158,11,0.2); }
 .pin-btn.pinned { background: rgba(245,158,11,0.25); color: #fde68a; }
 
-/* ── CONFIRM ── */
 .confirm-overlay {
   display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7);
   z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(4px);
@@ -222,8 +209,7 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 .confirm-overlay.show { display: flex; }
 .confirm-card {
   background: var(--bg2); border: 1px solid rgba(239,68,68,0.3); border-radius: 16px;
-  padding: 2rem; text-align: center; max-width: 340px; width: 90%;
-  box-shadow: 0 24px 80px rgba(0,0,0,.6);
+  padding: 2rem; text-align: center; max-width: 340px; width: 90%; box-shadow: 0 24px 80px rgba(0,0,0,.6);
 }
 .confirm-card h3 { color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem; }
 .confirm-card p { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
@@ -231,17 +217,18 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 .cb-cancel { background: rgba(255,255,255,0.07); color: var(--text); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.6rem 1.3rem; font-size: 0.88rem; font-family: var(--font); cursor: pointer; }
 .cb-del { background: #ef4444; color: #fff; border: none; border-radius: 8px; padding: 0.6rem 1.3rem; font-size: 0.88rem; font-family: var(--font); cursor: pointer; font-weight: 700; }
 
-/* ── SUCCESS TOAST ── */
 .toast {
   position: fixed; bottom: 2rem; right: 2rem; background: var(--bg2);
   border: 1px solid rgba(34,197,94,0.4); border-radius: 12px; padding: 1rem 1.5rem;
   color: #86efac; font-size: 0.88rem; font-weight: 600; z-index: 9999;
-  transform: translateY(100px); opacity: 0; transition: all 0.3s;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  transform: translateY(100px); opacity: 0; transition: all 0.3s; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 .toast.show { transform: translateY(0); opacity: 1; }
 
-/* ── RESPONSIVE ── */
+/* Loading spinner */
+.spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #fff; animation: spin 0.7s linear infinite; vertical-align: middle; margin-right: 6px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
 @media(max-width: 1024px) { .stats-row { grid-template-columns: 1fr 1fr; } .post-grid { grid-template-columns: 1fr; } }
 @media(max-width: 768px) { .main { padding: 1rem; } .stats-row { grid-template-columns: 1fr 1fr; } }
 @media(max-width: 480px) { .stats-row { grid-template-columns: 1fr; } }
@@ -249,7 +236,7 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 </head>
 <body>
 
-<!-- ===== LOGIN ===== -->
+<!-- LOGIN -->
 <div class="login-wrap" id="loginWrap">
   <div class="login-card">
     <h2>&#128274; Admin Panel</h2>
@@ -267,56 +254,36 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
   </div>
 </div>
 
-<!-- ===== DASHBOARD ===== -->
+<!-- DASHBOARD -->
 <div class="dash" id="dashWrap">
 
-  <!-- TOPBAR -->
   <div class="topbar">
     <div class="topbar-left">
       <span class="topbar-logo">&#127470;&#127475; Bhaarat Capital</span>
       <span class="topbar-badge">Admin Panel</span>
+      <span class="sync-badge" onclick="syncAll()" id="syncBadge">&#8635; Sync Now</span>
     </div>
     <button class="logout-btn" onclick="doLogout()">&#128275; Logout</button>
   </div>
 
-  <!-- TABS -->
   <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('leads')">&#128203; Leads / Forms</button>
-    <button class="tab-btn" onclick="switchTab('posts')">&#128221; Our Story Posts</button>
+    <button class="tab-btn active" onclick="switchTab('leads',this)">&#128203; Leads / Forms</button>
+    <button class="tab-btn" onclick="switchTab('posts',this)">&#128221; Our Story Posts</button>
   </div>
 
   <div class="main">
 
-    <!-- ══════════════════════════════
-         TAB 1: LEADS
-    ══════════════════════════════ -->
+    <!-- TAB 1: LEADS -->
     <div class="tab-panel active" id="tab-leads">
+      <div class="alert-banner" id="leadsAlert" style="display:none;"></div>
 
-      <!-- STATS -->
       <div class="stats-row">
-        <div class="stat-card">
-          <div class="s-label">Total Leads</div>
-          <div class="s-num" id="statTotal">0</div>
-          <div class="s-sub">All submissions</div>
-        </div>
-        <div class="stat-card">
-          <div class="s-label">Loan Enquiries</div>
-          <div class="s-num" id="statLoans" style="color:#86efac;">0</div>
-          <div class="s-sub">Loan requests</div>
-        </div>
-        <div class="stat-card">
-          <div class="s-label">Insurance Enquiries</div>
-          <div class="s-num" id="statIns" style="color:#fed7aa;">0</div>
-          <div class="s-sub">Insurance requests</div>
-        </div>
-        <div class="stat-card">
-          <div class="s-label">Today's Leads</div>
-          <div class="s-num" id="statToday" style="color:#fde68a;">0</div>
-          <div class="s-sub">Since midnight</div>
-        </div>
+        <div class="stat-card"><div class="s-label">Total Leads</div><div class="s-num" id="statTotal">—</div><div class="s-sub">All submissions</div></div>
+        <div class="stat-card"><div class="s-label">Loan Enquiries</div><div class="s-num" id="statLoans" style="color:#86efac;">—</div><div class="s-sub">Loan requests</div></div>
+        <div class="stat-card"><div class="s-label">Insurance Enquiries</div><div class="s-num" id="statIns" style="color:#fed7aa;">—</div><div class="s-sub">Insurance requests</div></div>
+        <div class="stat-card"><div class="s-label">Today's Leads</div><div class="s-num" id="statToday" style="color:#fde68a;">—</div><div class="s-sub">Since midnight</div></div>
       </div>
 
-      <!-- FILTERS -->
       <div class="filters">
         <span class="filter-label">Filter:</span>
         <select class="filter-select" id="filterService" onchange="renderLeadsTable()">
@@ -334,19 +301,15 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
         <button class="clear-btn" onclick="clearAllLeads()">&#128465; Clear All</button>
       </div>
 
-      <!-- LEADS TABLE -->
       <div class="table-wrap">
         <div class="table-header">
           <h3>&#128203; Form Submissions</h3>
-          <span id="tableCount">0 records</span>
+          <span id="tableCount">Loading…</span>
         </div>
         <div class="tbl-scroll">
           <table id="leadsTable">
             <thead>
-              <tr>
-                <th>#</th><th>Name</th><th>PAN</th><th>Phone</th><th>City</th>
-                <th>Employment</th><th>Service</th><th>Type</th><th>Submitted</th><th>Action</th>
-              </tr>
+              <tr><th>#</th><th>Name</th><th>PAN</th><th>Phone</th><th>City</th><th>Employment</th><th>Service</th><th>Type</th><th>Submitted</th><th>Action</th></tr>
             </thead>
             <tbody id="leadsBody"></tbody>
           </table>
@@ -358,41 +321,21 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
       </div>
     </div>
 
-    <!-- ══════════════════════════════
-         TAB 2: OUR STORY POSTS
-    ══════════════════════════════ -->
+    <!-- TAB 2: POSTS -->
     <div class="tab-panel" id="tab-posts">
+      <div class="alert-banner" id="postsAlert" style="display:none;"></div>
 
-      <!-- POST STATS -->
       <div class="stats-row" style="margin-bottom:2rem;">
-        <div class="stat-card">
-          <div class="s-label">Total Posts</div>
-          <div class="s-num" id="statPosts" style="color:#93c5fd;">0</div>
-          <div class="s-sub">Published on Our Story</div>
-        </div>
-        <div class="stat-card">
-          <div class="s-label">Blog Posts</div>
-          <div class="s-num" id="statBlogPosts" style="color:#d8b4fe;">0</div>
-          <div class="s-sub">Written articles</div>
-        </div>
-        <div class="stat-card">
-          <div class="s-label">Media Posts</div>
-          <div class="s-num" id="statMediaPosts" style="color:#99f6e4;">0</div>
-          <div class="s-sub">Images &amp; Videos</div>
-        </div>
-        <div class="stat-card">
-          <div class="s-label">Pinned Posts</div>
-          <div class="s-num" id="statPinned" style="color:#fde68a;">0</div>
-          <div class="s-sub">Featured at top</div>
-        </div>
+        <div class="stat-card"><div class="s-label">Total Posts</div><div class="s-num" id="statPosts" style="color:#93c5fd;">—</div><div class="s-sub">Published on Our Story</div></div>
+        <div class="stat-card"><div class="s-label">Blog Posts</div><div class="s-num" id="statBlogPosts" style="color:#d8b4fe;">—</div><div class="s-sub">Written articles</div></div>
+        <div class="stat-card"><div class="s-label">Media Posts</div><div class="s-num" id="statMediaPosts" style="color:#99f6e4;">—</div><div class="s-sub">Images &amp; Videos</div></div>
+        <div class="stat-card"><div class="s-label">Pinned Posts</div><div class="s-num" id="statPinned" style="color:#fde68a;">—</div><div class="s-sub">Featured at top</div></div>
       </div>
 
-      <!-- POST CREATOR -->
       <div class="post-creator">
         <h3>&#10133; Create New Post for Our Story</h3>
         <p>Post karo — blog, image, ya video. Yeh turant Our Story page par dikhega.</p>
 
-        <!-- Post Type Selector -->
         <div class="post-type-row">
           <button class="pt-btn active" id="pt-blog" onclick="setPostType('blog')">&#128221; Blog / Article</button>
           <button class="pt-btn" id="pt-image" onclick="setPostType('image')">&#128247; Image Post</button>
@@ -400,87 +343,44 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
           <button class="pt-btn" id="pt-update" onclick="setPostType('update')">&#128226; Company Update</button>
         </div>
 
-        <!-- Common Fields -->
         <div class="post-grid">
-          <div class="field">
-            <label>Post Title *</label>
-            <input type="text" id="postTitle" placeholder="e.g. How We Helped 500+ Families...">
-          </div>
-          <div class="field">
-            <label>Category / Tag</label>
-            <input type="text" id="postTag" placeholder="e.g. Home Loan, Success Story, Team">
-          </div>
+          <div class="field"><label>Post Title *</label><input type="text" id="postTitle" placeholder="e.g. How We Helped 500+ Families..."></div>
+          <div class="field"><label>Category / Tag</label><input type="text" id="postTag" placeholder="e.g. Home Loan, Success Story, Team"></div>
         </div>
 
-        <!-- Blog content -->
         <div id="blogFields">
-          <div class="field">
-            <label>Article Content *</label>
-            <textarea id="postContent" rows="5" placeholder="Apna blog ya update yahan likho..."></textarea>
-          </div>
-          <div class="field">
-            <label>Cover Image URL (optional)</label>
-            <input type="url" id="postCoverImage" placeholder="https://... image link">
-          </div>
+          <div class="field"><label>Article Content *</label><textarea id="postContent" rows="5" placeholder="Apna blog ya update yahan likho..."></textarea></div>
+          <div class="field"><label>Cover Image URL (optional)</label><input type="url" id="postCoverImage" placeholder="https://... image link"></div>
         </div>
-
-        <!-- Image fields -->
         <div id="imageFields" style="display:none;">
-          <div class="field">
-            <label>Image URL *</label>
-            <input type="url" id="postImageUrl" placeholder="https://... paste image link">
-          </div>
-          <div class="field">
-            <label>Caption / Description</label>
-            <textarea id="postImageCaption" rows="3" placeholder="Image ke baare mein kuch likho..."></textarea>
-          </div>
+          <div class="field"><label>Image URL *</label><input type="url" id="postImageUrl" placeholder="https://... paste image link"></div>
+          <div class="field"><label>Caption / Description</label><textarea id="postImageCaption" rows="3" placeholder="Image ke baare mein kuch likho..."></textarea></div>
         </div>
-
-        <!-- Video fields -->
         <div id="videoFields" style="display:none;">
-          <div class="field">
-            <label>Video URL * (YouTube, Reel, or direct link)</label>
-            <input type="url" id="postVideoUrl" placeholder="https://www.youtube.com/watch?v=...">
-          </div>
-          <div class="field">
-            <label>Video Description</label>
-            <textarea id="postVideoDesc" rows="3" placeholder="Video ke baare mein kuch likho..."></textarea>
-          </div>
+          <div class="field"><label>Video URL * (YouTube, Reel, or direct link)</label><input type="url" id="postVideoUrl" placeholder="https://www.youtube.com/watch?v=..."></div>
+          <div class="field"><label>Video Description</label><textarea id="postVideoDesc" rows="3" placeholder="Video ke baare mein kuch likho..."></textarea></div>
         </div>
-
-        <!-- Update fields (same as blog but shorter) -->
         <div id="updateFields" style="display:none;">
-          <div class="field">
-            <label>Update Message *</label>
-            <textarea id="postUpdateMsg" rows="3" placeholder="Short company update likho..."></textarea>
-          </div>
-          <div class="field">
-            <label>Image URL (optional)</label>
-            <input type="url" id="postUpdateImage" placeholder="https://... image link (optional)">
-          </div>
+          <div class="field"><label>Update Message *</label><textarea id="postUpdateMsg" rows="3" placeholder="Short company update likho..."></textarea></div>
+          <div class="field"><label>Image URL (optional)</label><input type="url" id="postUpdateImage" placeholder="https://... image link (optional)"></div>
         </div>
 
-        <!-- Pin option -->
         <div style="margin-top:0.5rem;display:flex;align-items:center;gap:0.6rem;">
           <input type="checkbox" id="postPin" style="width:16px;height:16px;accent-color:var(--gold);">
           <label for="postPin" style="font-size:0.85rem;color:var(--muted);cursor:pointer;">&#128204; Pin this post at the top of Our Story</label>
         </div>
-
-        <button class="submit-post-btn" onclick="publishPost()">&#128640; Publish to Our Story</button>
+        <button class="submit-post-btn" id="publishBtn" onclick="publishPost()">&#128640; Publish to Our Story</button>
       </div>
 
-      <!-- POSTS TABLE -->
       <div class="posts-table-wrap">
         <div class="table-header">
           <h3>&#128221; Published Posts</h3>
-          <span id="postsCount">0 posts</span>
+          <span id="postsCount">Loading…</span>
         </div>
         <div class="tbl-scroll">
           <table class="posts-table">
             <thead>
-              <tr>
-                <th>#</th><th>Title</th><th>Type</th><th>Tag</th><th>Pinned</th><th>Published</th><th>Actions</th>
-              </tr>
+              <tr><th>#</th><th>Title</th><th>Type</th><th>Tag</th><th>Pinned</th><th>Published</th><th>Actions</th></tr>
             </thead>
             <tbody id="postsBody"></tbody>
           </table>
@@ -495,7 +395,7 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
   </div>
 </div>
 
-<!-- DELETE CONFIRM -->
+<!-- CONFIRM -->
 <div class="confirm-overlay" id="confirmOverlay">
   <div class="confirm-card">
     <h3>&#9888;&#65039; Confirm Delete</h3>
@@ -506,22 +406,36 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
     </div>
   </div>
 </div>
-
-<!-- TOAST -->
 <div class="toast" id="toast">&#9989; Done!</div>
 
 <script>
-/* ─────────────────────────────────────
-   CONFIG
-───────────────────────────────────── */
-const ADMIN_USER   = 'Chintu.Singh';
-const ADMIN_PASS   = 'Singh.1984';
-const LEADS_KEY    = 'bc_leads';
-const POSTS_KEY    = 'bc_story_posts';
+/* ══════════════════════════════════════════
+   ⚠️  YAHAN APNA GOOGLE APPS SCRIPT URL DAALO
+   Step 3 ke baad milega — kuch aisa dikhega:
+   https://script.google.com/macros/s/XXXXX/exec
+══════════════════════════════════════════ */
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwR4BJfvGVSezZMi9P9FIxU_HrRo8LBKYIXQUQQ-H141BcF-xJfSfX_GAGCuPMu1np2Zw/exec';
 
-/* ─────────────────────────────────────
-   AUTH
-───────────────────────────────────── */
+/* ─── CONFIG ─── */
+const ADMIN_USER = 'Chintu.Singh';
+const ADMIN_PASS = 'Singh.1984';
+const LEADS_KEY  = 'bc_leads';
+const POSTS_KEY  = 'bc_story_posts';
+
+let allLeads = [];
+let allPosts = [];
+
+/* ─── HELPERS ─── */
+function getLocal(key) { try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch(e){ return []; } }
+function saveLocal(key, data) { try { localStorage.setItem(key, JSON.stringify(data)); } catch(e){} }
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+/* Check if Apps Script URL is configured */
+function isConfigured() {
+  return APPS_SCRIPT_URL && APPS_SCRIPT_URL !== 'YAHAN_APNA_APPS_SCRIPT_URL_PASTE_KARO';
+}
+
+/* ─── AUTH ─── */
 function doLogin() {
   const u = document.getElementById('loginUser').value.trim();
   const p = document.getElementById('loginPass').value;
@@ -549,74 +463,122 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-/* ─────────────────────────────────────
-   TABS
-───────────────────────────────────── */
-function switchTab(name) {
+/* ─── TABS ─── */
+function switchTab(name, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-' + name).classList.add('active');
-  event.currentTarget.classList.add('active');
-  if (name === 'leads') { updateLeadStats(); renderLeadsTable(); }
-  if (name === 'posts') { updatePostStats(); renderPostsTable(); }
+  btn.classList.add('active');
+  if (name === 'leads') { renderLeadsUI(); }
+  if (name === 'posts') { renderPostsUI(); }
 }
 
-/* ─────────────────────────────────────
-   STORAGE HELPERS
-───────────────────────────────────── */
-function getLeads() { try { return JSON.parse(localStorage.getItem(LEADS_KEY) || '[]'); } catch(e){ return []; } }
-function saveLeads(a) { localStorage.setItem(LEADS_KEY, JSON.stringify(a)); }
-function getPosts() { try { return JSON.parse(localStorage.getItem(POSTS_KEY) || '[]'); } catch(e){ return []; } }
-function savePosts(a) { localStorage.setItem(POSTS_KEY, JSON.stringify(a)); }
+/* ─── FETCH FROM GOOGLE SHEET ─── */
+async function fetchLeads() {
+  if (!isConfigured()) {
+    allLeads = getLocal(LEADS_KEY);
+    return;
+  }
+  try {
+    const res = await fetch(APPS_SCRIPT_URL + '?action=getLeads&t=' + Date.now());
+    const data = await res.json();
+    if (Array.isArray(data)) {
+      allLeads = data;
+      saveLocal(LEADS_KEY, data); // cache locally
+    }
+  } catch(err) {
+    console.log('Using local leads cache:', err);
+    allLeads = getLocal(LEADS_KEY);
+  }
+}
 
-/* ─────────────────────────────────────
-   DASHBOARD LOAD
-───────────────────────────────────── */
-function loadDashboard() {
+async function fetchPosts() {
+  if (!isConfigured()) {
+    allPosts = getLocal(POSTS_KEY);
+    return;
+  }
+  try {
+    const res = await fetch(APPS_SCRIPT_URL + '?action=getPosts&t=' + Date.now());
+    const data = await res.json();
+    if (Array.isArray(data)) {
+      allPosts = data;
+      saveLocal(POSTS_KEY, data); // cache + share with our-story.html
+    }
+  } catch(err) {
+    console.log('Using local posts cache:', err);
+    allPosts = getLocal(POSTS_KEY);
+  }
+}
+
+async function postToSheet(payload) {
+  if (!isConfigured()) {
+    return { success: false, reason: 'not_configured' };
+  }
+  try {
+    const res = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'text/plain' }
+    });
+    return await res.json();
+  } catch(err) {
+    return { success: false, error: err.message };
+  }
+}
+
+/* ─── LOAD DASHBOARD ─── */
+async function loadDashboard() {
+  if (!isConfigured()) {
+    showAlert('leadsAlert', '⚠️ Google Apps Script URL configure nahi hua. Abhi sirf local data dikh raha hai. Apps Script URL set karne ke baad sab devices pe data dikhega.', 'error');
+  }
+  await fetchLeads();
+  await fetchPosts();
+  renderLeadsUI();
+  renderPostsUI();
+}
+
+async function syncAll() {
+  const badge = document.getElementById('syncBadge');
+  badge.innerHTML = '<span class="spinner"></span>Syncing…';
+  await fetchLeads();
+  await fetchPosts();
+  renderLeadsUI();
+  renderPostsUI();
+  badge.innerHTML = '&#8635; Sync Now';
+  showToast('&#9989; Data synced from Google Sheet!');
+}
+
+/* ─── LEADS UI ─── */
+function renderLeadsUI() {
   updateLeadStats();
   renderLeadsTable();
-  updatePostStats();
-  renderPostsTable();
 }
-
-/* ─────────────────────────────────────
-   LEADS
-───────────────────────────────────── */
 function updateLeadStats() {
-  const leads = getLeads();
   const today = new Date().toDateString();
-  document.getElementById('statTotal').textContent = leads.length;
-  document.getElementById('statLoans').textContent = leads.filter(l => l.service === 'loan').length;
-  document.getElementById('statIns').textContent = leads.filter(l => l.service === 'insurance').length;
-  document.getElementById('statToday').textContent = leads.filter(l => new Date(l.timestamp).toDateString() === today).length;
+  document.getElementById('statTotal').textContent = allLeads.length;
+  document.getElementById('statLoans').textContent = allLeads.filter(l => l.service === 'loan').length;
+  document.getElementById('statIns').textContent = allLeads.filter(l => l.service === 'insurance').length;
+  document.getElementById('statToday').textContent = allLeads.filter(l => new Date(l.timestamp).toDateString() === today).length;
 }
-
 function renderLeadsTable() {
-  const leads = getLeads();
   const svc = document.getElementById('filterService').value;
   const emp = document.getElementById('filterEmp').value;
   const q   = document.getElementById('filterSearch').value.toLowerCase();
-
-  let filtered = leads.filter(l => {
+  let filtered = allLeads.filter(l => {
     if (svc && l.service !== svc) return false;
     if (emp && l.employment !== emp) return false;
     if (q && !l.fullName?.toLowerCase().includes(q) && !(l.phone||'').includes(q)) return false;
     return true;
   });
-
   const body  = document.getElementById('leadsBody');
   const empty = document.getElementById('emptyLeads');
   document.getElementById('tableCount').textContent = filtered.length + ' record' + (filtered.length !== 1 ? 's' : '');
-
   if (!filtered.length) {
-    body.innerHTML = '';
-    empty.style.display = 'block';
-    document.getElementById('leadsTable').style.display = 'none';
-    return;
+    body.innerHTML = ''; empty.style.display = 'block';
+    document.getElementById('leadsTable').style.display = 'none'; return;
   }
   empty.style.display = 'none';
   document.getElementById('leadsTable').style.display = 'table';
-
   body.innerHTML = filtered.slice().reverse().map((l, i) => {
     const dt = new Date(l.timestamp);
     const ds = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
@@ -626,7 +588,7 @@ function renderLeadsTable() {
     return `<tr>
       <td style="color:var(--muted);font-size:.82rem">${filtered.length - i}</td>
       <td>${esc(l.fullName||'—')}</td>
-      <td style="font-family:monospace;font-size:.83rem;letter-spacing:.05em">${esc(l.panNumber||'—')}</td>
+      <td style="font-family:monospace;font-size:.83rem">${esc(l.panNumber||'—')}</td>
       <td><a href="tel:${esc(l.phone||'')}" style="color:#86efac;text-decoration:none">${esc(l.phone||'—')}</a></td>
       <td>${esc(l.city||'—')}</td>
       <td><span class="type-badge ${ec}">${esc(l.employment||'—')}</span></td>
@@ -638,24 +600,35 @@ function renderLeadsTable() {
   }).join('');
 }
 
-function deleteLead(id) {
-  pendingAction = () => {
-    saveLeads(getLeads().filter(l => l.id !== id));
-    updateLeadStats(); renderLeadsTable();
+async function deleteLead(id) {
+  pendingAction = async () => {
+    allLeads = allLeads.filter(l => l.id !== id);
+    saveLocal(LEADS_KEY, allLeads);
+    renderLeadsUI();
+    // Also delete from sheet
+    await postToSheet({ type: 'delete_lead', id });
     showToast('Lead deleted!');
   };
   showConfirm('Delete this lead record? This cannot be undone.');
 }
-function clearAllLeads() {
-  pendingAction = () => { saveLeads([]); updateLeadStats(); renderLeadsTable(); showToast('All leads cleared!'); };
+
+async function clearAllLeads() {
+  pendingAction = async () => {
+    allLeads = [];
+    saveLocal(LEADS_KEY, []);
+    renderLeadsUI();
+    if (isConfigured()) {
+      await fetch(APPS_SCRIPT_URL + '?action=clearLeads');
+    }
+    showToast('All leads cleared!');
+  };
   showConfirm('Delete ALL lead records? This cannot be undone.');
 }
 
 function exportCSV() {
-  const leads = getLeads();
-  if (!leads.length) { alert('No data to export.'); return; }
+  if (!allLeads.length) { alert('No data to export.'); return; }
   const headers = ['#','Name','PAN','Phone','City','Employment','Service','ServiceType','Timestamp'];
-  const rows = leads.slice().reverse().map((l, i) => [
+  const rows = allLeads.slice().reverse().map((l, i) => [
     i+1, `"${(l.fullName||'').replace(/"/g,'""')}"`, l.panNumber||'', l.phone||'',
     `"${(l.city||'').replace(/"/g,'""')}"`, l.employment||'', l.service||'',
     `"${(l.serviceType||'').replace(/"/g,'""')}"`, new Date(l.timestamp).toLocaleString('en-IN')
@@ -668,11 +641,19 @@ function exportCSV() {
   URL.revokeObjectURL(url);
 }
 
-/* ─────────────────────────────────────
-   POSTS
-───────────────────────────────────── */
-let currentPostType = 'blog';
+/* ─── POSTS UI ─── */
+function renderPostsUI() {
+  updatePostStats();
+  renderPostsTable();
+}
+function updatePostStats() {
+  document.getElementById('statPosts').textContent = allPosts.length;
+  document.getElementById('statBlogPosts').textContent = allPosts.filter(p => p.type === 'blog' || p.type === 'update').length;
+  document.getElementById('statMediaPosts').textContent = allPosts.filter(p => p.type === 'image' || p.type === 'video').length;
+  document.getElementById('statPinned').textContent = allPosts.filter(p => p.pinned).length;
+}
 
+let currentPostType = 'blog';
 function setPostType(type) {
   currentPostType = type;
   ['blog','image','video','update'].forEach(t => {
@@ -681,55 +662,55 @@ function setPostType(type) {
   });
 }
 
-function updatePostStats() {
-  const posts = getPosts();
-  document.getElementById('statPosts').textContent = posts.length;
-  document.getElementById('statBlogPosts').textContent = posts.filter(p => p.type === 'blog' || p.type === 'update').length;
-  document.getElementById('statMediaPosts').textContent = posts.filter(p => p.type === 'image' || p.type === 'video').length;
-  document.getElementById('statPinned').textContent = posts.filter(p => p.pinned).length;
-}
-
-function publishPost() {
+async function publishPost() {
+  const btn   = document.getElementById('publishBtn');
   const title = document.getElementById('postTitle').value.trim();
   const tag   = document.getElementById('postTag').value.trim();
   const pin   = document.getElementById('postPin').checked;
-
   if (!title) { alert('Title zaroori hai!'); return; }
 
-  let postData = { id: 'p_' + Date.now(), type: currentPostType, title, tag, pinned: pin, timestamp: new Date().toISOString() };
+  let postData = {
+    id: 'p_' + Date.now(),
+    type: currentPostType,
+    postType: currentPostType,  // for sheet column
+    title, tag, pinned: pin,
+    timestamp: new Date().toISOString()
+  };
 
   if (currentPostType === 'blog') {
     const content = document.getElementById('postContent').value.trim();
     const cover   = document.getElementById('postCoverImage').value.trim();
     if (!content) { alert('Article content likho!'); return; }
-    postData.content = content;
-    postData.coverImage = cover;
-  }
-  else if (currentPostType === 'image') {
+    postData.content = content; postData.coverImage = cover;
+  } else if (currentPostType === 'image') {
     const url = document.getElementById('postImageUrl').value.trim();
     const cap = document.getElementById('postImageCaption').value.trim();
     if (!url) { alert('Image URL daalo!'); return; }
-    postData.imageUrl = url;
-    postData.caption  = cap;
-  }
-  else if (currentPostType === 'video') {
+    postData.imageUrl = url; postData.caption = cap;
+  } else if (currentPostType === 'video') {
     const url  = document.getElementById('postVideoUrl').value.trim();
     const desc = document.getElementById('postVideoDesc').value.trim();
     if (!url) { alert('Video URL daalo!'); return; }
-    postData.videoUrl = url;
-    postData.description = desc;
-  }
-  else if (currentPostType === 'update') {
+    postData.videoUrl = url; postData.description = desc;
+  } else if (currentPostType === 'update') {
     const msg = document.getElementById('postUpdateMsg').value.trim();
     const img = document.getElementById('postUpdateImage').value.trim();
     if (!msg) { alert('Update message likho!'); return; }
-    postData.content = msg;
-    postData.coverImage = img;
+    postData.content = msg; postData.coverImage = img;
   }
 
-  const posts = getPosts();
-  posts.unshift(postData);
-  savePosts(posts);
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Publishing…';
+
+  // Save locally first (our-story.html reads from localStorage)
+  allPosts.unshift(postData);
+  saveLocal(POSTS_KEY, allPosts);
+
+  // Then send to Google Sheet
+  await postToSheet({ type: 'post', ...postData });
+
+  btn.disabled = false;
+  btn.innerHTML = '&#128640; Publish to Our Story';
   updatePostStats();
   renderPostsTable();
   resetPostForm();
@@ -739,34 +720,24 @@ function publishPost() {
 function resetPostForm() {
   ['postTitle','postTag','postContent','postCoverImage','postImageUrl','postImageCaption',
    'postVideoUrl','postVideoDesc','postUpdateMsg','postUpdateImage'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = '';
+    const el = document.getElementById(id); if (el) el.value = '';
   });
   document.getElementById('postPin').checked = false;
 }
 
 function renderPostsTable() {
-  const posts = getPosts();
   const body  = document.getElementById('postsBody');
   const empty = document.getElementById('emptyPosts');
-  document.getElementById('postsCount').textContent = posts.length + ' post' + (posts.length !== 1 ? 's' : '');
-
-  if (!posts.length) {
-    body.innerHTML = '';
-    empty.style.display = 'block';
-    return;
-  }
+  document.getElementById('postsCount').textContent = allPosts.length + ' post' + (allPosts.length !== 1 ? 's' : '');
+  if (!allPosts.length) { body.innerHTML = ''; empty.style.display = 'block'; return; }
   empty.style.display = 'none';
-
-  const sorted = [...posts].sort((a,b) => {
+  const sorted = [...allPosts].sort((a,b) => {
     if (a.pinned && !b.pinned) return -1;
     if (!a.pinned && b.pinned) return 1;
     return new Date(b.timestamp) - new Date(a.timestamp);
   });
-
   const typeClass = { blog:'tb-blog', image:'tb-image', video:'tb-video', update:'tb-post' };
   const typeIcon  = { blog:'&#128221;', image:'&#128247;', video:'&#127910;', update:'&#128226;' };
-
   body.innerHTML = sorted.map((p, i) => {
     const dt = new Date(p.timestamp);
     const ds = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
@@ -788,57 +759,55 @@ function renderPostsTable() {
   }).join('');
 }
 
-function togglePin(id) {
-  const posts = getPosts().map(p => p.id === id ? { ...p, pinned: !p.pinned } : p);
-  savePosts(posts);
-  updatePostStats();
-  renderPostsTable();
+async function togglePin(id) {
+  const post = allPosts.find(p => p.id === id);
+  if (!post) return;
+  post.pinned = !post.pinned;
+  saveLocal(POSTS_KEY, allPosts);
+  await postToSheet({ type: 'toggle_pin', id, pinned: post.pinned });
+  updatePostStats(); renderPostsTable();
   showToast('Pin status updated!');
 }
 
-function deletePost(id) {
-  pendingAction = () => {
-    savePosts(getPosts().filter(p => p.id !== id));
+async function deletePost(id) {
+  pendingAction = async () => {
+    allPosts = allPosts.filter(p => p.id !== id);
+    saveLocal(POSTS_KEY, allPosts);
+    await postToSheet({ type: 'delete_post', id });
     updatePostStats(); renderPostsTable();
     showToast('Post deleted!');
   };
   showConfirm('Yeh post delete kar dein? Our Story se bhi hata jayega.');
 }
 
-/* ─────────────────────────────────────
-   CONFIRM MODAL
-───────────────────────────────────── */
+/* ─── ALERT ─── */
+function showAlert(id, msg, type='') {
+  const el = document.getElementById(id);
+  el.textContent = msg;
+  el.className = 'alert-banner ' + type;
+  el.style.display = 'flex';
+}
+
+/* ─── CONFIRM ─── */
 let pendingAction = null;
 function showConfirm(msg) {
   document.getElementById('confirmMsg').textContent = msg;
   document.getElementById('confirmOverlay').classList.add('show');
 }
 function closeConfirm() { pendingAction = null; document.getElementById('confirmOverlay').classList.remove('show'); }
-function executeConfirm() { if (pendingAction) pendingAction(); closeConfirm(); }
+function executeConfirm() { if (pendingAction) { pendingAction(); } closeConfirm(); }
 
-/* ─────────────────────────────────────
-   TOAST
-───────────────────────────────────── */
+/* ─── TOAST ─── */
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.innerHTML = msg;
-  t.classList.add('show');
+  t.innerHTML = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3000);
 }
 
-/* ─────────────────────────────────────
-   ESCAPE HTML
-───────────────────────────────────── */
-function esc(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-/* Auto-refresh every 30s */
+/* Auto-refresh every 60s */
 setInterval(() => {
-  if (sessionStorage.getItem('bc_admin_auth') === '1') {
-    updateLeadStats(); renderLeadsTable(); updatePostStats(); renderPostsTable();
-  }
-}, 30000);
+  if (sessionStorage.getItem('bc_admin_auth') === '1') syncAll();
+}, 60000);
 </script>
 </body>
 </html>
