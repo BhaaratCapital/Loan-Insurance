@@ -28,7 +28,6 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: var(--bg-deep); color: var(--text-bright); font-family: var(--font); }
 
-/* --- NAVBAR (dark) --- */
 #navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   background: rgba(10,10,15,0.92);
@@ -63,7 +62,6 @@ body { background: var(--bg-deep); color: var(--text-bright); font-family: var(-
 .mobile-menu a { padding: 0.65rem 1rem; border-radius: 8px; color: #C5C8D8; font-weight: 500; font-size: 0.95rem; display: block; text-decoration: none; }
 @media(max-width:768px){ .nav-links{display:none;} .hamburger{display:block;} }
 
-/* --- HERO --- */
 .page-hero {
   min-height: 42vh;
   background: linear-gradient(160deg, #0A0A0F 0%, #1A0A00 60%, #0A0A0F 100%);
@@ -92,7 +90,6 @@ body { background: var(--bg-deep); color: var(--text-bright); font-family: var(-
 .heading-gradient { display:inline-block; background:linear-gradient(135deg,var(--orange),var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 .page-hero p { color:rgba(248,250,252,.65); font-size:1.05rem; max-width:540px; line-height:1.8; }
 
-/* --- FORM SECTION --- */
 .form-section { background: linear-gradient(160deg,#0A0A0F 0%,#12121A 100%); padding:5rem 2rem 7rem; position:relative; }
 .form-section::before {
   content:''; position:absolute; inset:0;
@@ -163,7 +160,6 @@ body { background: var(--bg-deep); color: var(--text-bright); font-family: var(-
 .info-item { display:flex; align-items:center; gap:.5rem; color:rgba(248,250,252,.5); font-size:.82rem; font-weight:500; }
 .info-item span { color:var(--teal); font-size:1rem; }
 
-/* --- FOOTER --- */
 .footer { background:linear-gradient(160deg,#0A0A0F 0%,#12121A 100%); padding:5rem 2rem 0; position:relative; }
 .footer::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--teal),var(--orange),var(--gold),var(--teal)); }
 .footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; padding-bottom:3.5rem; border-bottom:1px solid rgba(255,255,255,.06); }
@@ -339,6 +335,13 @@ body { background: var(--bg-deep); color: var(--text-bright); font-family: var(-
 <a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank">&#128172;</a>
 
 <script>
+/* ══════════════════════════════════════════
+   ⚠️  YAHAN APNA GOOGLE APPS SCRIPT URL DAALO
+   Step 3 ke baad milega — kuch aisa dikhega:
+   https://script.google.com/macros/s/XXXXX/exec
+══════════════════════════════════════════ */
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwR4BJfvGVSezZMi9P9FIxU_HrRo8LBKYIXQUQQ-H141BcF-xJfSfX_GAGCuPMu1np2Zw/exec';
+
 /* Navbar */
 document.getElementById('hamburger').addEventListener('click', () => {
   var m = document.getElementById('mobileMenu');
@@ -376,18 +379,28 @@ function updateTypes() {
   }
 }
 
-/* SAVE lead to localStorage so admin can view it */
-function saveLead(data) {
-  const STORAGE_KEY = 'bc_leads';
+/* Send lead to Google Sheets via Apps Script */
+async function sendToSheet(lead) {
   try {
-    const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    existing.push(data);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
-  } catch(e) { console.error('Could not save lead:', e); }
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({ type: 'lead', ...lead }),
+      headers: { 'Content-Type': 'text/plain' }  
+      // Note: text/plain used to avoid CORS preflight
+    });
+  } catch(err) {
+    console.log('Sheet save failed, using localStorage fallback:', err);
+  }
+  // Always also save to localStorage as backup
+  try {
+    const existing = JSON.parse(localStorage.getItem('bc_leads') || '[]');
+    existing.push(lead);
+    localStorage.setItem('bc_leads', JSON.stringify(existing));
+  } catch(e) {}
 }
 
 /* Form submission */
-document.getElementById('applyForm').addEventListener('submit', function(e) {
+document.getElementById('applyForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
   btn.textContent = 'Submitting…';
@@ -395,23 +408,21 @@ document.getElementById('applyForm').addEventListener('submit', function(e) {
 
   const lead = {
     id: Date.now().toString(36) + Math.random().toString(36).slice(2,6),
-    fullName: document.getElementById('fullName').value.trim(),
-    panNumber: document.getElementById('panNumber').value.trim().toUpperCase(),
-    phone: document.getElementById('phone').value.trim(),
-    city: document.getElementById('city').value.trim(),
-    employment: document.getElementById('employment').value,
-    service: document.getElementById('service').value,
+    fullName:    document.getElementById('fullName').value.trim(),
+    panNumber:   document.getElementById('panNumber').value.trim().toUpperCase(),
+    phone:       document.getElementById('phone').value.trim(),
+    city:        document.getElementById('city').value.trim(),
+    employment:  document.getElementById('employment').value,
+    service:     document.getElementById('service').value,
     serviceType: document.getElementById('serviceType').value,
-    timestamp: new Date().toISOString(),
-    source: 'contact.html'
+    timestamp:   new Date().toISOString(),
+    source:      'contact.html'
   };
 
-  saveLead(lead);
+  await sendToSheet(lead);
 
-  setTimeout(() => {
-    this.style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-  }, 700);
+  this.style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
 });
 </script>
 </body>
