@@ -15,6 +15,8 @@
   --orange: #F97316;
   --green: #22c55e;
   --red: #ef4444;
+  --blue: #3b82f6;
+  --purple: #a855f7;
   --border: rgba(245,158,11,0.15);
   --text: #F1F1F8;
   --muted: #8B8FA8;
@@ -23,193 +25,120 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; }
 
-/* LOGIN */
+/* ── LOGIN ── */
 .login-wrap {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
   background: radial-gradient(ellipse at 30% 40%, rgba(249,115,22,0.07) 0%, transparent 55%), var(--bg);
 }
 .login-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 2.5rem 2rem;
-  width: 100%;
-  max-width: 360px;
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 20px;
+  padding: 2.5rem 2rem; width: 100%; max-width: 360px;
   box-shadow: 0 24px 80px rgba(0,0,0,.5);
 }
 .login-card::before {
-  content: '';
-  display: block;
-  height: 3px;
+  content: ''; display: block; height: 3px;
   background: linear-gradient(90deg, #22c55e, var(--orange), var(--gold));
-  border-radius: 20px 20px 0 0;
-  margin: -2.5rem -2rem 2rem;
+  border-radius: 20px 20px 0 0; margin: -2.5rem -2rem 2rem;
 }
-.login-card h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.3rem;
-  color: #fff;
-}
+.login-card h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; color: #fff; }
 .login-card p { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.8rem; }
 .field { margin-bottom: 1.1rem; }
 .field label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
-.field input {
-  width: 100%;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 10px;
-  padding: 0.8rem 1rem;
-  color: var(--text);
-  font-size: 0.9rem;
-  font-family: var(--font);
-  outline: none;
-  transition: border-color 0.2s;
+.field input, .field textarea, .field select {
+  width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px; padding: 0.8rem 1rem; color: var(--text); font-size: 0.9rem;
+  font-family: var(--font); outline: none; transition: border-color 0.2s;
 }
-.field input:focus { border-color: var(--orange); background: rgba(249,115,22,0.06); }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--orange); background: rgba(249,115,22,0.06); }
+.field select option { background: #1E293B; }
+.field textarea { resize: vertical; min-height: 90px; }
 .login-btn {
-  width: 100%;
-  padding: 0.85rem;
+  width: 100%; padding: 0.85rem;
   background: linear-gradient(135deg, var(--orange), var(--gold));
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  font-family: var(--font);
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 0.5rem;
+  color: #fff; border: none; border-radius: 50px; font-weight: 700;
+  font-size: 0.95rem; font-family: var(--font); cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
 }
 .login-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.4); }
 .login-error { color: #ef4444; font-size: 0.82rem; margin-top: 0.8rem; display: none; text-align: center; }
 
-/* DASHBOARD */
+/* ── DASHBOARD ── */
 .dash { display: none; min-height: 100vh; }
 
-/* TOP BAR */
+/* ── TOPBAR ── */
 .topbar {
-  background: rgba(10,10,15,0.95);
-  border-bottom: 1px solid var(--border);
-  padding: 0 2rem;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(20px);
+  background: rgba(10,10,15,0.95); border-bottom: 1px solid var(--border);
+  padding: 0 2rem; height: 64px; display: flex; align-items: center;
+  justify-content: space-between; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px);
 }
 .topbar-left { display: flex; align-items: center; gap: 1rem; }
 .topbar-logo { font-size: 1.1rem; font-weight: 700; color: var(--gold); }
 .topbar-badge {
-  background: rgba(249,115,22,0.15);
-  color: var(--orange);
-  border: 1px solid rgba(249,115,22,0.3);
-  border-radius: 50px;
-  padding: 0.2rem 0.7rem;
-  font-size: 0.72rem;
-  font-weight: 700;
+  background: rgba(249,115,22,0.15); color: var(--orange);
+  border: 1px solid rgba(249,115,22,0.3); border-radius: 50px;
+  padding: 0.2rem 0.7rem; font-size: 0.72rem; font-weight: 700;
 }
 .logout-btn {
-  background: rgba(239,68,68,0.1);
-  color: #ef4444;
-  border: 1px solid rgba(239,68,68,0.3);
-  border-radius: 8px;
-  padding: 0.45rem 1rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  font-family: var(--font);
-  cursor: pointer;
-  transition: all 0.2s;
+  background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 8px; padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 700;
+  font-family: var(--font); cursor: pointer; transition: all 0.2s;
 }
 .logout-btn:hover { background: rgba(239,68,68,0.2); }
 
-/* MAIN CONTENT */
-.main { max-width: 1400px; margin: 0 auto; padding: 2rem; }
-
-/* STATS */
-.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
-.stat-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.3rem 1.5rem;
+/* ── TABS ── */
+.tabs {
+  background: var(--bg2); border-bottom: 1px solid var(--border);
+  padding: 0 2rem; display: flex; gap: 0; overflow-x: auto;
 }
+.tab-btn {
+  padding: 1rem 1.5rem; background: none; border: none; border-bottom: 3px solid transparent;
+  color: var(--muted); font-size: 0.88rem; font-weight: 600; font-family: var(--font);
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--orange); border-bottom-color: var(--orange); }
+
+/* ── MAIN ── */
+.main { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── STATS ── */
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.3rem 1.5rem; }
 .stat-card .s-label { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
 .stat-card .s-num { font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; }
 .stat-card .s-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; }
 
-/* FILTERS */
+/* ── FILTERS ── */
 .filters {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.2rem 1.5rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
 }
 .filter-label { font-size: 0.78rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
 .filter-select, .filter-input {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
-  padding: 0.5rem 0.8rem;
-  color: var(--text);
-  font-size: 0.85rem;
-  font-family: var(--font);
-  outline: none;
-  min-width: 140px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 0.5rem 0.8rem; color: var(--text);
+  font-size: 0.85rem; font-family: var(--font); outline: none; min-width: 140px;
 }
 .filter-select option { background: #1E293B; }
 .clear-btn {
-  background: rgba(239,68,68,0.1);
-  color: #ef4444;
-  border: 1px solid rgba(239,68,68,0.25);
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  font-size: 0.82rem;
-  font-family: var(--font);
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.2s;
-  margin-left: auto;
+  background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.82rem; font-family: var(--font);
+  cursor: pointer; font-weight: 600; transition: all 0.2s; margin-left: auto;
 }
 .clear-btn:hover { background: rgba(239,68,68,0.2); }
 .export-btn {
-  background: linear-gradient(135deg, var(--green), #16a34a);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  font-size: 0.82rem;
-  font-family: var(--font);
-  cursor: pointer;
-  font-weight: 700;
-  transition: all 0.2s;
+  background: linear-gradient(135deg, var(--green), #16a34a); color: #fff; border: none;
+  border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.82rem; font-family: var(--font);
+  cursor: pointer; font-weight: 700; transition: all 0.2s;
 }
 .export-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(34,197,94,0.3); }
 
-/* TABLE */
-.table-wrap {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-}
+/* ── TABLE ── */
+.table-wrap { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
 .table-header {
-  padding: 1.2rem 1.5rem;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
 }
 .table-header h3 { font-size: 1rem; font-weight: 700; color: #fff; }
 .table-header span { font-size: 0.82rem; color: var(--muted); }
@@ -217,14 +146,8 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); min-
 table { width: 100%; border-collapse: collapse; min-width: 900px; }
 thead tr { background: linear-gradient(135deg, #052e16, #064e3b); }
 thead th {
-  padding: 12px 16px;
-  text-align: left;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: #86efac;
-  white-space: nowrap;
+  padding: 12px 16px; text-align: left; font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.07em; color: #86efac; white-space: nowrap;
 }
 tbody tr { border-bottom: 1px solid rgba(255,255,255,0.05); transition: background 0.15s; }
 tbody tr:last-child { border-bottom: none; }
@@ -232,72 +155,74 @@ tbody tr:hover { background: var(--bg3); }
 tbody td { padding: 14px 16px; font-size: 0.87rem; color: #D1D5DB; vertical-align: middle; }
 tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 
-/* BADGES */
-.type-badge {
-  display: inline-block;
-  border-radius: 50px;
-  padding: 3px 10px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
+/* ── BADGES ── */
+.type-badge { display: inline-block; border-radius: 50px; padding: 3px 10px; font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
 .tb-loan { background: rgba(34,197,94,0.15); color: #86efac; border: 1px solid rgba(34,197,94,0.3); }
 .tb-insurance { background: rgba(249,115,22,0.15); color: #fed7aa; border: 1px solid rgba(249,115,22,0.3); }
 .tb-salaried { background: rgba(20,184,166,0.15); color: #99f6e4; border: 1px solid rgba(20,184,166,0.3); }
 .tb-self { background: rgba(245,158,11,0.15); color: #fde68a; border: 1px solid rgba(245,158,11,0.3); }
+.tb-post { background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.3); }
+.tb-blog { background: rgba(168,85,247,0.15); color: #d8b4fe; border: 1px solid rgba(168,85,247,0.3); }
+.tb-video { background: rgba(239,68,68,0.15); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+.tb-image { background: rgba(20,184,166,0.15); color: #99f6e4; border: 1px solid rgba(20,184,166,0.3); }
 
 .action-btn {
-  background: rgba(239,68,68,0.1);
-  color: #ef4444;
-  border: 1px solid rgba(239,68,68,0.25);
-  border-radius: 6px;
-  padding: 4px 10px;
-  font-size: 0.75rem;
-  font-family: var(--font);
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.2s;
+  background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 6px; padding: 4px 10px; font-size: 0.75rem; font-family: var(--font);
+  cursor: pointer; font-weight: 600; transition: all 0.2s;
 }
 .action-btn:hover { background: rgba(239,68,68,0.2); }
 
-/* EMPTY STATE */
-.empty-state {
-  text-align: center;
-  padding: 4rem 2rem;
-  color: var(--muted);
-}
+/* ── EMPTY ── */
+.empty-state { text-align: center; padding: 4rem 2rem; color: var(--muted); }
 .empty-state .icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
 .empty-state p { font-size: 0.9rem; }
 
-/* RESPONSIVE */
-@media(max-width:768px) {
-  .stats-row { grid-template-columns: 1fr 1fr; }
-  .main { padding: 1rem; }
+/* ── POST CREATOR ── */
+.post-creator {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 16px;
+  padding: 2rem; margin-bottom: 2rem;
 }
-@media(max-width:480px) {
-  .stats-row { grid-template-columns: 1fr; }
+.post-creator h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+.post-creator p { font-size: 0.83rem; color: var(--muted); margin-bottom: 1.5rem; }
+.post-type-row { display: flex; gap: 0.7rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.pt-btn {
+  padding: 0.5rem 1.1rem; border-radius: 50px; border: 1.5px solid rgba(255,255,255,0.12);
+  background: transparent; color: var(--muted); font-size: 0.82rem; font-weight: 600;
+  font-family: var(--font); cursor: pointer; transition: all 0.2s;
 }
+.pt-btn.active { border-color: var(--orange); color: var(--orange); background: rgba(249,115,22,0.1); }
+.post-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.post-grid.single { grid-template-columns: 1fr; }
+.submit-post-btn {
+  background: linear-gradient(135deg, var(--orange), var(--gold)); color: #fff; border: none;
+  border-radius: 50px; padding: 0.75rem 2rem; font-size: 0.9rem; font-weight: 700;
+  font-family: var(--font); cursor: pointer; transition: all 0.2s; margin-top: 1rem;
+}
+.submit-post-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.4); }
 
-/* DEL CONFIRM */
+/* ── POSTS TABLE ── */
+.posts-table-wrap { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.posts-table { min-width: 700px; }
+
+/* ── PIN TOGGLE ── */
+.pin-btn {
+  background: rgba(245,158,11,0.1); color: var(--gold); border: 1px solid rgba(245,158,11,0.25);
+  border-radius: 6px; padding: 4px 10px; font-size: 0.75rem; font-family: var(--font);
+  cursor: pointer; font-weight: 600; transition: all 0.2s; margin-right: 5px;
+}
+.pin-btn:hover { background: rgba(245,158,11,0.2); }
+.pin-btn.pinned { background: rgba(245,158,11,0.25); color: #fde68a; }
+
+/* ── CONFIRM ── */
 .confirm-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(4px);
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(4px);
 }
 .confirm-overlay.show { display: flex; }
 .confirm-card {
-  background: var(--bg2);
-  border: 1px solid rgba(239,68,68,0.3);
-  border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
-  max-width: 340px;
-  width: 90%;
+  background: var(--bg2); border: 1px solid rgba(239,68,68,0.3); border-radius: 16px;
+  padding: 2rem; text-align: center; max-width: 340px; width: 90%;
   box-shadow: 0 24px 80px rgba(0,0,0,.6);
 }
 .confirm-card h3 { color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem; }
@@ -305,6 +230,21 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 .confirm-btns { display: flex; gap: 0.7rem; justify-content: center; }
 .cb-cancel { background: rgba(255,255,255,0.07); color: var(--text); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.6rem 1.3rem; font-size: 0.88rem; font-family: var(--font); cursor: pointer; }
 .cb-del { background: #ef4444; color: #fff; border: none; border-radius: 8px; padding: 0.6rem 1.3rem; font-size: 0.88rem; font-family: var(--font); cursor: pointer; font-weight: 700; }
+
+/* ── SUCCESS TOAST ── */
+.toast {
+  position: fixed; bottom: 2rem; right: 2rem; background: var(--bg2);
+  border: 1px solid rgba(34,197,94,0.4); border-radius: 12px; padding: 1rem 1.5rem;
+  color: #86efac; font-size: 0.88rem; font-weight: 600; z-index: 9999;
+  transform: translateY(100px); opacity: 0; transition: all 0.3s;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+/* ── RESPONSIVE ── */
+@media(max-width: 1024px) { .stats-row { grid-template-columns: 1fr 1fr; } .post-grid { grid-template-columns: 1fr; } }
+@media(max-width: 768px) { .main { padding: 1rem; } .stats-row { grid-template-columns: 1fr 1fr; } }
+@media(max-width: 480px) { .stats-row { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -331,7 +271,7 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 <!-- ===== DASHBOARD ===== -->
 <div class="dash" id="dashWrap">
 
-  <!-- TOP BAR -->
+  <!-- TOPBAR -->
   <div class="topbar">
     <div class="topbar-left">
       <span class="topbar-logo">&#127470;&#127475; Bhaarat Capital</span>
@@ -340,79 +280,216 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
     <button class="logout-btn" onclick="doLogout()">&#128275; Logout</button>
   </div>
 
-  <!-- MAIN -->
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('leads')">&#128203; Leads / Forms</button>
+    <button class="tab-btn" onclick="switchTab('posts')">&#128221; Our Story Posts</button>
+  </div>
+
   <div class="main">
 
-    <!-- STATS -->
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="s-label">Total Leads</div>
-        <div class="s-num" id="statTotal">0</div>
-        <div class="s-sub">All submissions</div>
+    <!-- ══════════════════════════════
+         TAB 1: LEADS
+    ══════════════════════════════ -->
+    <div class="tab-panel active" id="tab-leads">
+
+      <!-- STATS -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="s-label">Total Leads</div>
+          <div class="s-num" id="statTotal">0</div>
+          <div class="s-sub">All submissions</div>
+        </div>
+        <div class="stat-card">
+          <div class="s-label">Loan Enquiries</div>
+          <div class="s-num" id="statLoans" style="color:#86efac;">0</div>
+          <div class="s-sub">Loan requests</div>
+        </div>
+        <div class="stat-card">
+          <div class="s-label">Insurance Enquiries</div>
+          <div class="s-num" id="statIns" style="color:#fed7aa;">0</div>
+          <div class="s-sub">Insurance requests</div>
+        </div>
+        <div class="stat-card">
+          <div class="s-label">Today's Leads</div>
+          <div class="s-num" id="statToday" style="color:#fde68a;">0</div>
+          <div class="s-sub">Since midnight</div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="s-label">Loan Enquiries</div>
-        <div class="s-num" id="statLoans" style="color:#86efac;">0</div>
-        <div class="s-sub">Loan requests</div>
+
+      <!-- FILTERS -->
+      <div class="filters">
+        <span class="filter-label">Filter:</span>
+        <select class="filter-select" id="filterService" onchange="renderLeadsTable()">
+          <option value="">All Services</option>
+          <option value="loan">Loan</option>
+          <option value="insurance">Insurance</option>
+        </select>
+        <select class="filter-select" id="filterEmp" onchange="renderLeadsTable()">
+          <option value="">All Employment</option>
+          <option value="salaried">Salaried</option>
+          <option value="self-employed">Self Employed</option>
+        </select>
+        <input type="text" class="filter-input" id="filterSearch" placeholder="Search name / phone..." oninput="renderLeadsTable()" style="min-width:200px;">
+        <button class="export-btn" onclick="exportCSV()">&#11015; Export CSV</button>
+        <button class="clear-btn" onclick="clearAllLeads()">&#128465; Clear All</button>
       </div>
-      <div class="stat-card">
-        <div class="s-label">Insurance Enquiries</div>
-        <div class="s-num" id="statIns" style="color:#fed7aa;">0</div>
-        <div class="s-sub">Insurance requests</div>
-      </div>
-      <div class="stat-card">
-        <div class="s-label">Today's Leads</div>
-        <div class="s-num" id="statToday" style="color:#fde68a;">0</div>
-        <div class="s-sub">Since midnight</div>
+
+      <!-- LEADS TABLE -->
+      <div class="table-wrap">
+        <div class="table-header">
+          <h3>&#128203; Form Submissions</h3>
+          <span id="tableCount">0 records</span>
+        </div>
+        <div class="tbl-scroll">
+          <table id="leadsTable">
+            <thead>
+              <tr>
+                <th>#</th><th>Name</th><th>PAN</th><th>Phone</th><th>City</th>
+                <th>Employment</th><th>Service</th><th>Type</th><th>Submitted</th><th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="leadsBody"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="emptyLeads" style="display:none;">
+          <div class="icon">&#128203;</div>
+          <p>No form submissions yet. Contact / Apply Now form leads will appear here.</p>
+        </div>
       </div>
     </div>
 
-    <!-- FILTERS -->
-    <div class="filters">
-      <span class="filter-label">Filter:</span>
-      <select class="filter-select" id="filterService" onchange="renderTable()">
-        <option value="">All Services</option>
-        <option value="loan">Loan</option>
-        <option value="insurance">Insurance</option>
-      </select>
-      <select class="filter-select" id="filterEmp" onchange="renderTable()">
-        <option value="">All Employment</option>
-        <option value="salaried">Salaried</option>
-        <option value="self-employed">Self Employed</option>
-      </select>
-      <input type="text" class="filter-input" id="filterSearch" placeholder="Search name / phone..." oninput="renderTable()" style="min-width:200px;">
-      <button class="export-btn" onclick="exportCSV()">&#11015; Export CSV</button>
-      <button class="clear-btn" onclick="clearAllConfirm()">&#128465; Clear All Data</button>
-    </div>
+    <!-- ══════════════════════════════
+         TAB 2: OUR STORY POSTS
+    ══════════════════════════════ -->
+    <div class="tab-panel" id="tab-posts">
 
-    <!-- TABLE -->
-    <div class="table-wrap">
-      <div class="table-header">
-        <h3>&#128203; Lead Submissions</h3>
-        <span id="tableCount">0 records</span>
+      <!-- POST STATS -->
+      <div class="stats-row" style="margin-bottom:2rem;">
+        <div class="stat-card">
+          <div class="s-label">Total Posts</div>
+          <div class="s-num" id="statPosts" style="color:#93c5fd;">0</div>
+          <div class="s-sub">Published on Our Story</div>
+        </div>
+        <div class="stat-card">
+          <div class="s-label">Blog Posts</div>
+          <div class="s-num" id="statBlogPosts" style="color:#d8b4fe;">0</div>
+          <div class="s-sub">Written articles</div>
+        </div>
+        <div class="stat-card">
+          <div class="s-label">Media Posts</div>
+          <div class="s-num" id="statMediaPosts" style="color:#99f6e4;">0</div>
+          <div class="s-sub">Images &amp; Videos</div>
+        </div>
+        <div class="stat-card">
+          <div class="s-label">Pinned Posts</div>
+          <div class="s-num" id="statPinned" style="color:#fde68a;">0</div>
+          <div class="s-sub">Featured at top</div>
+        </div>
       </div>
-      <div class="tbl-scroll">
-        <table id="leadsTable">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>PAN</th>
-              <th>Phone</th>
-              <th>City</th>
-              <th>Employment</th>
-              <th>Service</th>
-              <th>Type</th>
-              <th>Submitted</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="leadsBody"></tbody>
-        </table>
+
+      <!-- POST CREATOR -->
+      <div class="post-creator">
+        <h3>&#10133; Create New Post for Our Story</h3>
+        <p>Post karo — blog, image, ya video. Yeh turant Our Story page par dikhega.</p>
+
+        <!-- Post Type Selector -->
+        <div class="post-type-row">
+          <button class="pt-btn active" id="pt-blog" onclick="setPostType('blog')">&#128221; Blog / Article</button>
+          <button class="pt-btn" id="pt-image" onclick="setPostType('image')">&#128247; Image Post</button>
+          <button class="pt-btn" id="pt-video" onclick="setPostType('video')">&#127910; Video Post</button>
+          <button class="pt-btn" id="pt-update" onclick="setPostType('update')">&#128226; Company Update</button>
+        </div>
+
+        <!-- Common Fields -->
+        <div class="post-grid">
+          <div class="field">
+            <label>Post Title *</label>
+            <input type="text" id="postTitle" placeholder="e.g. How We Helped 500+ Families...">
+          </div>
+          <div class="field">
+            <label>Category / Tag</label>
+            <input type="text" id="postTag" placeholder="e.g. Home Loan, Success Story, Team">
+          </div>
+        </div>
+
+        <!-- Blog content -->
+        <div id="blogFields">
+          <div class="field">
+            <label>Article Content *</label>
+            <textarea id="postContent" rows="5" placeholder="Apna blog ya update yahan likho..."></textarea>
+          </div>
+          <div class="field">
+            <label>Cover Image URL (optional)</label>
+            <input type="url" id="postCoverImage" placeholder="https://... image link">
+          </div>
+        </div>
+
+        <!-- Image fields -->
+        <div id="imageFields" style="display:none;">
+          <div class="field">
+            <label>Image URL *</label>
+            <input type="url" id="postImageUrl" placeholder="https://... paste image link">
+          </div>
+          <div class="field">
+            <label>Caption / Description</label>
+            <textarea id="postImageCaption" rows="3" placeholder="Image ke baare mein kuch likho..."></textarea>
+          </div>
+        </div>
+
+        <!-- Video fields -->
+        <div id="videoFields" style="display:none;">
+          <div class="field">
+            <label>Video URL * (YouTube, Reel, or direct link)</label>
+            <input type="url" id="postVideoUrl" placeholder="https://www.youtube.com/watch?v=...">
+          </div>
+          <div class="field">
+            <label>Video Description</label>
+            <textarea id="postVideoDesc" rows="3" placeholder="Video ke baare mein kuch likho..."></textarea>
+          </div>
+        </div>
+
+        <!-- Update fields (same as blog but shorter) -->
+        <div id="updateFields" style="display:none;">
+          <div class="field">
+            <label>Update Message *</label>
+            <textarea id="postUpdateMsg" rows="3" placeholder="Short company update likho..."></textarea>
+          </div>
+          <div class="field">
+            <label>Image URL (optional)</label>
+            <input type="url" id="postUpdateImage" placeholder="https://... image link (optional)">
+          </div>
+        </div>
+
+        <!-- Pin option -->
+        <div style="margin-top:0.5rem;display:flex;align-items:center;gap:0.6rem;">
+          <input type="checkbox" id="postPin" style="width:16px;height:16px;accent-color:var(--gold);">
+          <label for="postPin" style="font-size:0.85rem;color:var(--muted);cursor:pointer;">&#128204; Pin this post at the top of Our Story</label>
+        </div>
+
+        <button class="submit-post-btn" onclick="publishPost()">&#128640; Publish to Our Story</button>
       </div>
-      <div class="empty-state" id="emptyState" style="display:none;">
-        <div class="icon">&#128203;</div>
-        <p>No submissions yet. Form leads will appear here.</p>
+
+      <!-- POSTS TABLE -->
+      <div class="posts-table-wrap">
+        <div class="table-header">
+          <h3>&#128221; Published Posts</h3>
+          <span id="postsCount">0 posts</span>
+        </div>
+        <div class="tbl-scroll">
+          <table class="posts-table">
+            <thead>
+              <tr>
+                <th>#</th><th>Title</th><th>Type</th><th>Tag</th><th>Pinned</th><th>Published</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="postsBody"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="emptyPosts" style="display:none;">
+          <div class="icon">&#128221;</div>
+          <p>Koi post nahi hai. Upar se create karo!</p>
+        </div>
       </div>
     </div>
 
@@ -423,7 +500,7 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 <div class="confirm-overlay" id="confirmOverlay">
   <div class="confirm-card">
     <h3>&#9888;&#65039; Confirm Delete</h3>
-    <p id="confirmMsg">Are you sure you want to delete this record?</p>
+    <p id="confirmMsg">Are you sure?</p>
     <div class="confirm-btns">
       <button class="cb-cancel" onclick="closeConfirm()">Cancel</button>
       <button class="cb-del" onclick="executeConfirm()">Delete</button>
@@ -431,17 +508,21 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
   </div>
 </div>
 
-<script>
-/* =============================================
-   CONFIGURATION — Change password here
-   ============================================= */
-const ADMIN_USER = 'admin';
-const ADMIN_PASS = 'bhaarat@2025';
-const STORAGE_KEY = 'bc_leads';
+<!-- TOAST -->
+<div class="toast" id="toast">&#9989; Done!</div>
 
-/* =============================================
+<script>
+/* ─────────────────────────────────────
+   CONFIG
+───────────────────────────────────── */
+const ADMIN_USER   = 'admin';
+const ADMIN_PASS   = 'bhaarat@2025';
+const LEADS_KEY    = 'bc_leads';
+const POSTS_KEY    = 'bc_story_posts';
+
+/* ─────────────────────────────────────
    AUTH
-   ============================================= */
+───────────────────────────────────── */
 function doLogin() {
   const u = document.getElementById('loginUser').value.trim();
   const p = document.getElementById('loginPass').value;
@@ -454,7 +535,6 @@ function doLogin() {
     document.getElementById('loginError').style.display = 'block';
   }
 }
-
 function doLogout() {
   sessionStorage.removeItem('bc_admin_auth');
   document.getElementById('dashWrap').style.display = 'none';
@@ -462,8 +542,6 @@ function doLogout() {
   document.getElementById('loginUser').value = '';
   document.getElementById('loginPass').value = '';
 }
-
-/* Auto-login if session active */
 window.addEventListener('DOMContentLoaded', () => {
   if (sessionStorage.getItem('bc_admin_auth') === '1') {
     document.getElementById('loginWrap').style.display = 'none';
@@ -472,25 +550,40 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-/* =============================================
-   DATA — Read from localStorage (shared with forms)
-   ============================================= */
-function getLeads() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e) { return []; }
-}
-function saveLeads(arr) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+/* ─────────────────────────────────────
+   TABS
+───────────────────────────────────── */
+function switchTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.currentTarget.classList.add('active');
+  if (name === 'leads') { updateLeadStats(); renderLeadsTable(); }
+  if (name === 'posts') { updatePostStats(); renderPostsTable(); }
 }
 
-/* =============================================
-   DASHBOARD
-   ============================================= */
+/* ─────────────────────────────────────
+   STORAGE HELPERS
+───────────────────────────────────── */
+function getLeads() { try { return JSON.parse(localStorage.getItem(LEADS_KEY) || '[]'); } catch(e){ return []; } }
+function saveLeads(a) { localStorage.setItem(LEADS_KEY, JSON.stringify(a)); }
+function getPosts() { try { return JSON.parse(localStorage.getItem(POSTS_KEY) || '[]'); } catch(e){ return []; } }
+function savePosts(a) { localStorage.setItem(POSTS_KEY, JSON.stringify(a)); }
+
+/* ─────────────────────────────────────
+   DASHBOARD LOAD
+───────────────────────────────────── */
 function loadDashboard() {
-  updateStats();
-  renderTable();
+  updateLeadStats();
+  renderLeadsTable();
+  updatePostStats();
+  renderPostsTable();
 }
 
-function updateStats() {
+/* ─────────────────────────────────────
+   LEADS
+───────────────────────────────────── */
+function updateLeadStats() {
   const leads = getLeads();
   const today = new Date().toDateString();
   document.getElementById('statTotal').textContent = leads.length;
@@ -499,127 +592,252 @@ function updateStats() {
   document.getElementById('statToday').textContent = leads.filter(l => new Date(l.timestamp).toDateString() === today).length;
 }
 
-function renderTable() {
+function renderLeadsTable() {
   const leads = getLeads();
   const svc = document.getElementById('filterService').value;
   const emp = document.getElementById('filterEmp').value;
-  const q = document.getElementById('filterSearch').value.toLowerCase();
+  const q   = document.getElementById('filterSearch').value.toLowerCase();
 
   let filtered = leads.filter(l => {
     if (svc && l.service !== svc) return false;
     if (emp && l.employment !== emp) return false;
-    if (q && !l.fullName.toLowerCase().includes(q) && !(l.phone || '').toLowerCase().includes(q)) return false;
+    if (q && !l.fullName?.toLowerCase().includes(q) && !(l.phone||'').includes(q)) return false;
     return true;
   });
 
-  const body = document.getElementById('leadsBody');
-  const empty = document.getElementById('emptyState');
+  const body  = document.getElementById('leadsBody');
+  const empty = document.getElementById('emptyLeads');
   document.getElementById('tableCount').textContent = filtered.length + ' record' + (filtered.length !== 1 ? 's' : '');
 
-  if (filtered.length === 0) {
+  if (!filtered.length) {
     body.innerHTML = '';
     empty.style.display = 'block';
     document.getElementById('leadsTable').style.display = 'none';
     return;
   }
-
   empty.style.display = 'none';
   document.getElementById('leadsTable').style.display = 'table';
 
   body.innerHTML = filtered.slice().reverse().map((l, i) => {
     const dt = new Date(l.timestamp);
-    const dateStr = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-    const timeStr = dt.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
-    const empClass = l.employment === 'salaried' ? 'tb-salaried' : 'tb-self';
-    const svcClass = l.service === 'loan' ? 'tb-loan' : 'tb-insurance';
+    const ds = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
+    const ts = dt.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
+    const ec = l.employment === 'salaried' ? 'tb-salaried' : 'tb-self';
+    const sc = l.service === 'loan' ? 'tb-loan' : 'tb-insurance';
     return `<tr>
-      <td style="color:var(--muted);font-size:0.82rem;">${filtered.length - i}</td>
-      <td>${escHtml(l.fullName || '—')}</td>
-      <td style="font-family:monospace;font-size:0.83rem;letter-spacing:0.05em;">${escHtml(l.panNumber || '—')}</td>
-      <td><a href="tel:${escHtml(l.phone||'')}" style="color:#86efac;text-decoration:none;">${escHtml(l.phone || '—')}</a></td>
-      <td>${escHtml(l.city || '—')}</td>
-      <td><span class="type-badge ${empClass}">${escHtml(l.employment || '—')}</span></td>
-      <td><span class="type-badge ${svcClass}">${escHtml(l.service || '—')}</span></td>
-      <td style="color:var(--muted);">${escHtml(l.serviceType || '—')}</td>
-      <td style="color:var(--muted);font-size:0.82rem;">${dateStr}<br>${timeStr}</td>
-      <td><button class="action-btn" onclick="deleteLead('${escHtml(l.id)}')">&#128465; Del</button></td>
+      <td style="color:var(--muted);font-size:.82rem">${filtered.length - i}</td>
+      <td>${esc(l.fullName||'—')}</td>
+      <td style="font-family:monospace;font-size:.83rem;letter-spacing:.05em">${esc(l.panNumber||'—')}</td>
+      <td><a href="tel:${esc(l.phone||'')}" style="color:#86efac;text-decoration:none">${esc(l.phone||'—')}</a></td>
+      <td>${esc(l.city||'—')}</td>
+      <td><span class="type-badge ${ec}">${esc(l.employment||'—')}</span></td>
+      <td><span class="type-badge ${sc}">${esc(l.service||'—')}</span></td>
+      <td style="color:var(--muted)">${esc(l.serviceType||'—')}</td>
+      <td style="color:var(--muted);font-size:.82rem">${ds}<br>${ts}</td>
+      <td><button class="action-btn" onclick="deleteLead('${esc(l.id)}')">&#128465; Del</button></td>
     </tr>`;
   }).join('');
 }
 
-function escHtml(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-/* =============================================
-   DELETE
-   ============================================= */
-let pendingAction = null;
-
 function deleteLead(id) {
   pendingAction = () => {
-    const leads = getLeads().filter(l => l.id !== id);
-    saveLeads(leads);
-    updateStats();
-    renderTable();
+    saveLeads(getLeads().filter(l => l.id !== id));
+    updateLeadStats(); renderLeadsTable();
+    showToast('Lead deleted!');
   };
-  document.getElementById('confirmMsg').textContent = 'Delete this lead record? This cannot be undone.';
-  document.getElementById('confirmOverlay').classList.add('show');
+  showConfirm('Delete this lead record? This cannot be undone.');
+}
+function clearAllLeads() {
+  pendingAction = () => { saveLeads([]); updateLeadStats(); renderLeadsTable(); showToast('All leads cleared!'); };
+  showConfirm('Delete ALL lead records? This cannot be undone.');
 }
 
-function clearAllConfirm() {
-  pendingAction = () => {
-    saveLeads([]);
-    updateStats();
-    renderTable();
-  };
-  document.getElementById('confirmMsg').textContent = 'Delete ALL lead records? This cannot be undone.';
-  document.getElementById('confirmOverlay').classList.add('show');
-}
-
-function closeConfirm() {
-  pendingAction = null;
-  document.getElementById('confirmOverlay').classList.remove('show');
-}
-
-function executeConfirm() {
-  if (pendingAction) pendingAction();
-  closeConfirm();
-}
-
-/* =============================================
-   EXPORT CSV
-   ============================================= */
 function exportCSV() {
   const leads = getLeads();
   if (!leads.length) { alert('No data to export.'); return; }
   const headers = ['#','Name','PAN','Phone','City','Employment','Service','ServiceType','Timestamp'];
   const rows = leads.slice().reverse().map((l, i) => [
-    i+1,
-    '"' + (l.fullName||'').replace(/"/g,'""') + '"',
-    l.panNumber||'',
-    l.phone||'',
-    '"' + (l.city||'').replace(/"/g,'""') + '"',
-    l.employment||'',
-    l.service||'',
-    '"' + (l.serviceType||'').replace(/"/g,'""') + '"',
-    new Date(l.timestamp).toLocaleString('en-IN')
+    i+1, `"${(l.fullName||'').replace(/"/g,'""')}"`, l.panNumber||'', l.phone||'',
+    `"${(l.city||'').replace(/"/g,'""')}"`, l.employment||'', l.service||'',
+    `"${(l.serviceType||'').replace(/"/g,'""')}"`, new Date(l.timestamp).toLocaleString('en-IN')
   ].join(','));
-  const csv = [headers.join(','), ...rows].join('\n');
-  const blob = new Blob([csv], { type: 'text/csv' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'bhaarat_capital_leads_' + new Date().toISOString().slice(0,10) + '.csv';
-  a.click();
+  const csv  = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], { type:'text/csv' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = 'bc_leads_' + new Date().toISOString().slice(0,10) + '.csv'; a.click();
   URL.revokeObjectURL(url);
+}
+
+/* ─────────────────────────────────────
+   POSTS
+───────────────────────────────────── */
+let currentPostType = 'blog';
+
+function setPostType(type) {
+  currentPostType = type;
+  ['blog','image','video','update'].forEach(t => {
+    document.getElementById('pt-' + t).classList.toggle('active', t === type);
+    document.getElementById(t + 'Fields').style.display = t === type ? 'block' : 'none';
+  });
+}
+
+function updatePostStats() {
+  const posts = getPosts();
+  document.getElementById('statPosts').textContent = posts.length;
+  document.getElementById('statBlogPosts').textContent = posts.filter(p => p.type === 'blog' || p.type === 'update').length;
+  document.getElementById('statMediaPosts').textContent = posts.filter(p => p.type === 'image' || p.type === 'video').length;
+  document.getElementById('statPinned').textContent = posts.filter(p => p.pinned).length;
+}
+
+function publishPost() {
+  const title = document.getElementById('postTitle').value.trim();
+  const tag   = document.getElementById('postTag').value.trim();
+  const pin   = document.getElementById('postPin').checked;
+
+  if (!title) { alert('Title zaroori hai!'); return; }
+
+  let postData = { id: 'p_' + Date.now(), type: currentPostType, title, tag, pinned: pin, timestamp: new Date().toISOString() };
+
+  if (currentPostType === 'blog') {
+    const content = document.getElementById('postContent').value.trim();
+    const cover   = document.getElementById('postCoverImage').value.trim();
+    if (!content) { alert('Article content likho!'); return; }
+    postData.content = content;
+    postData.coverImage = cover;
+  }
+  else if (currentPostType === 'image') {
+    const url = document.getElementById('postImageUrl').value.trim();
+    const cap = document.getElementById('postImageCaption').value.trim();
+    if (!url) { alert('Image URL daalo!'); return; }
+    postData.imageUrl = url;
+    postData.caption  = cap;
+  }
+  else if (currentPostType === 'video') {
+    const url  = document.getElementById('postVideoUrl').value.trim();
+    const desc = document.getElementById('postVideoDesc').value.trim();
+    if (!url) { alert('Video URL daalo!'); return; }
+    postData.videoUrl = url;
+    postData.description = desc;
+  }
+  else if (currentPostType === 'update') {
+    const msg = document.getElementById('postUpdateMsg').value.trim();
+    const img = document.getElementById('postUpdateImage').value.trim();
+    if (!msg) { alert('Update message likho!'); return; }
+    postData.content = msg;
+    postData.coverImage = img;
+  }
+
+  const posts = getPosts();
+  posts.unshift(postData);
+  savePosts(posts);
+  updatePostStats();
+  renderPostsTable();
+  resetPostForm();
+  showToast('&#9989; Post published on Our Story!');
+}
+
+function resetPostForm() {
+  ['postTitle','postTag','postContent','postCoverImage','postImageUrl','postImageCaption',
+   'postVideoUrl','postVideoDesc','postUpdateMsg','postUpdateImage'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('postPin').checked = false;
+}
+
+function renderPostsTable() {
+  const posts = getPosts();
+  const body  = document.getElementById('postsBody');
+  const empty = document.getElementById('emptyPosts');
+  document.getElementById('postsCount').textContent = posts.length + ' post' + (posts.length !== 1 ? 's' : '');
+
+  if (!posts.length) {
+    body.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  const sorted = [...posts].sort((a,b) => {
+    if (a.pinned && !b.pinned) return -1;
+    if (!a.pinned && b.pinned) return 1;
+    return new Date(b.timestamp) - new Date(a.timestamp);
+  });
+
+  const typeClass = { blog:'tb-blog', image:'tb-image', video:'tb-video', update:'tb-post' };
+  const typeIcon  = { blog:'&#128221;', image:'&#128247;', video:'&#127910;', update:'&#128226;' };
+
+  body.innerHTML = sorted.map((p, i) => {
+    const dt = new Date(p.timestamp);
+    const ds = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
+    const ts = dt.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
+    const tc = typeClass[p.type] || 'tb-post';
+    const ti = typeIcon[p.type] || '&#128203;';
+    return `<tr>
+      <td style="color:var(--muted);font-size:.82rem">${i+1}</td>
+      <td style="max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(p.title)}</td>
+      <td><span class="type-badge ${tc}">${ti} ${esc(p.type)}</span></td>
+      <td style="color:var(--muted)">${esc(p.tag||'—')}</td>
+      <td>${p.pinned ? '<span style="color:var(--gold);">&#128204; Pinned</span>' : '<span style="color:var(--muted);">—</span>'}</td>
+      <td style="color:var(--muted);font-size:.82rem">${ds}<br>${ts}</td>
+      <td>
+        <button class="pin-btn ${p.pinned?'pinned':''}" onclick="togglePin('${esc(p.id)}')">${p.pinned ? '&#128204; Unpin' : '&#128203; Pin'}</button>
+        <button class="action-btn" onclick="deletePost('${esc(p.id)}')">&#128465; Del</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function togglePin(id) {
+  const posts = getPosts().map(p => p.id === id ? { ...p, pinned: !p.pinned } : p);
+  savePosts(posts);
+  updatePostStats();
+  renderPostsTable();
+  showToast('Pin status updated!');
+}
+
+function deletePost(id) {
+  pendingAction = () => {
+    savePosts(getPosts().filter(p => p.id !== id));
+    updatePostStats(); renderPostsTable();
+    showToast('Post deleted!');
+  };
+  showConfirm('Yeh post delete kar dein? Our Story se bhi hata jayega.');
+}
+
+/* ─────────────────────────────────────
+   CONFIRM MODAL
+───────────────────────────────────── */
+let pendingAction = null;
+function showConfirm(msg) {
+  document.getElementById('confirmMsg').textContent = msg;
+  document.getElementById('confirmOverlay').classList.add('show');
+}
+function closeConfirm() { pendingAction = null; document.getElementById('confirmOverlay').classList.remove('show'); }
+function executeConfirm() { if (pendingAction) pendingAction(); closeConfirm(); }
+
+/* ─────────────────────────────────────
+   TOAST
+───────────────────────────────────── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.innerHTML = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+/* ─────────────────────────────────────
+   ESCAPE HTML
+───────────────────────────────────── */
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 /* Auto-refresh every 30s */
 setInterval(() => {
   if (sessionStorage.getItem('bc_admin_auth') === '1') {
-    updateStats();
-    renderTable();
+    updateLeadStats(); renderLeadsTable(); updatePostStats(); renderPostsTable();
   }
 }, 30000);
 </script>
