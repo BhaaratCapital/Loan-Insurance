@@ -1,0 +1,128 @@
+<!-- 
+YAHAN SIRF YEH SCRIPT SECTION REPLACE KARO contact.html MEIN
+Purana <script>...</script> block delete karo aur yeh paste karo
+-->
+<script>
+/* ══════════════ APPS SCRIPT URL ══════════════ */
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby6vuiiQIcaGPjEA8mrGzVCBXf-npImPeRan_TdqLiyX2EwCoxVlQdhQQXFF4c3-ZlGlw/exec';
+
+/* Navbar */
+document.getElementById('hamburger').addEventListener('click', () => {
+  var m = document.getElementById('mobileMenu');
+  m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+});
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* PAN uppercase */
+document.getElementById('panNumber').addEventListener('input', function(){
+  this.value = this.value.toUpperCase();
+});
+
+/* Phone digits only */
+document.getElementById('phone').addEventListener('input', function(){
+  this.value = this.value.replace(/[^0-9+]/g,'');
+});
+
+/* Loan / Insurance types */
+function updateTypes() {
+  const svc = document.getElementById('service').value;
+  const sel = document.getElementById('serviceType');
+  const lbl = document.getElementById('typeLabel');
+  sel.innerHTML = '';
+  if (svc === 'loan') {
+    lbl.textContent = 'Type of Loan';
+    ['Home Loan','Personal Loan','Car Loan','Business Loan',
+     'Loan Against Property','Education Loan'].forEach(o => {
+      const opt = document.createElement('option');
+      opt.value = opt.textContent = o;
+      sel.appendChild(opt);
+    });
+  } else if (svc === 'insurance') {
+    lbl.textContent = 'Type of Insurance';
+    ['Health Insurance','Motor Insurance','Term Plan / Life Insurance',
+     'Corporate Insurance','Travel Insurance'].forEach(o => {
+      const opt = document.createElement('option');
+      opt.value = opt.textContent = o;
+      sel.appendChild(opt);
+    });
+  } else {
+    lbl.textContent = 'Type';
+    const opt = document.createElement('option');
+    opt.value = ''; opt.textContent = '— Select service first —';
+    sel.appendChild(opt);
+  }
+}
+
+/* ══════════════════════════════════════════════
+   GOOGLE SHEET MEIN DATA BHEJNA
+   no-cors mode use karta hai — CORS error nahi aata
+   Data sheet mein jaata hai, response nahi milta
+   (yeh normal hai no-cors mein)
+══════════════════════════════════════════════ */
+function sendToGoogleSheet(lead) {
+  // Method 1: fetch with no-cors (primary)
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',  // ← CORS bypass
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify({ type: 'lead', ...lead })
+  }).catch(err => console.log('Fetch error (normal):', err));
+
+  // Method 2: Image pixel fallback (extra backup)
+  try {
+    const params = new URLSearchParams({
+      action: 'saveLead',
+      id: lead.id,
+      fullName: lead.fullName,
+      panNumber: lead.panNumber,
+      phone: lead.phone,
+      city: lead.city,
+      employment: lead.employment,
+      service: lead.service,
+      serviceType: lead.serviceType,
+      timestamp: lead.timestamp,
+      source: lead.source
+    });
+    new Image().src = APPS_SCRIPT_URL + '?' + params.toString();
+  } catch(e) {}
+
+  // Method 3: Always save locally as backup
+  try {
+    const existing = JSON.parse(localStorage.getItem('bc_leads') || '[]');
+    existing.push(lead);
+    localStorage.setItem('bc_leads', JSON.stringify(existing));
+  } catch(e) {}
+}
+
+/* Form submission */
+document.getElementById('applyForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Submitting…';
+  btn.disabled = true;
+
+  const lead = {
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+    fullName:    document.getElementById('fullName').value.trim(),
+    panNumber:   document.getElementById('panNumber').value.trim().toUpperCase(),
+    phone:       document.getElementById('phone').value.trim(),
+    city:        document.getElementById('city').value.trim(),
+    employment:  document.getElementById('employment').value,
+    service:     document.getElementById('service').value,
+    serviceType: document.getElementById('serviceType').value,
+    timestamp:   new Date().toISOString(),
+    source:      'contact.html'
+  };
+
+  // Sheet mein bhejo
+  sendToGoogleSheet(lead);
+
+  // 1 second baad success dikhao
+  setTimeout(() => {
+    document.getElementById('applyForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }, 1000);
+});
+</script>
