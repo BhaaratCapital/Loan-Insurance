@@ -9,11 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-deep:#0A0A0F; --bg-card:#13131A; --gold:#F59E0B; --gold-glow:rgba(245,158,11,0.18);
-  --orange:#F97316; --teal:#14B8A6; --green:#22c55e;
-  --border-glow:rgba(245,158,11,0.15); --border-subtle:rgba(255,255,255,0.07);
-  --text-muted:#8B8FA8; --text-bright:#F1F1F8;
-  --font:'DM Sans',sans-serif; --font-display:'Playfair Display',serif;
+  --bg-deep:#0A0A0F;--gold:#F59E0B;--gold-glow:rgba(245,158,11,0.18);
+  --orange:#F97316;--teal:#14B8A6;--green:#22c55e;
+  --border-glow:rgba(245,158,11,0.15);--border-subtle:rgba(255,255,255,0.07);
+  --text-muted:#8B8FA8;--text-bright:#F1F1F8;
+  --font:'DM Sans',sans-serif;--font-display:'Playfair Display',serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg-deep);color:var(--text-bright);font-family:var(--font);}
@@ -99,8 +99,9 @@ body{background:var(--bg-deep);color:var(--text-bright);font-family:var(--font);
     <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Home</a><a href="loans.html">Loans</a><a href="insurance.html">Insurance</a>
-    <a href="rates.html">Rates</a><a href="our-story.html">Our Story</a><a href="about.html">About Us</a>
+    <a href="index.html">Home</a><a href="loans.html">Loans</a>
+    <a href="insurance.html">Insurance</a><a href="rates.html">Rates</a>
+    <a href="our-story.html">Our Story</a><a href="about.html">About Us</a>
     <a href="https://wa.me/917982810014" target="_blank" style="color:var(--green);font-weight:700;">&#128172; WhatsApp Us</a>
   </div>
 </nav>
@@ -120,29 +121,30 @@ body{background:var(--bg-deep);color:var(--text-bright);font-family:var(--font);
       <h2>Apply Now</h2>
       <p>Quick form · Expert callback · Zero charges</p>
     </div>
+
     <form id="applyForm" autocomplete="off">
       <div class="field-group">
         <label>Full Name</label>
-        <input type="text" id="fullName" placeholder="Enter your full name" required>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
       </div>
       <div class="field-group">
         <label>PAN Number</label>
-        <input type="text" id="panNumber" placeholder="e.g. ABCDE1234F" maxlength="10" style="text-transform:uppercase;" required>
+        <input type="text" id="panNumber" name="panNumber" placeholder="e.g. ABCDE1234F" maxlength="10" style="text-transform:uppercase;" required>
       </div>
       <div class="fields-row">
         <div class="field-group">
           <label>Phone Number</label>
-          <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" maxlength="13" required>
+          <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" maxlength="13" required>
         </div>
         <div class="field-group">
           <label>City</label>
-          <input type="text" id="city" placeholder="Your city" required>
+          <input type="text" id="city" name="city" placeholder="Your city" required>
         </div>
       </div>
       <div class="field-group">
         <label>Employment Type</label>
         <div class="select-wrap">
-          <select id="employment" required>
+          <select id="employment" name="employment" required>
             <option value="">— Select —</option>
             <option value="salaried">Salaried</option>
             <option value="self-employed">Self Employed</option>
@@ -152,7 +154,7 @@ body{background:var(--bg-deep);color:var(--text-bright);font-family:var(--font);
       <div class="field-group">
         <label>I Need</label>
         <div class="select-wrap">
-          <select id="service" onchange="updateTypes()" required>
+          <select id="service" name="service" onchange="updateTypes()" required>
             <option value="">— Select Service —</option>
             <option value="loan">Loan</option>
             <option value="insurance">Insurance</option>
@@ -162,13 +164,14 @@ body{background:var(--bg-deep);color:var(--text-bright);font-family:var(--font);
       <div class="field-group">
         <label id="typeLabel">Type</label>
         <div class="select-wrap">
-          <select id="serviceType" required>
+          <select id="serviceType" name="serviceType" required>
             <option value="">— Select service first —</option>
           </select>
         </div>
       </div>
       <button type="submit" class="submit-btn" id="submitBtn">Submit Application &#10022;</button>
     </form>
+
     <div class="success-msg" id="successMsg">
       <div class="check">&#9989;</div>
       <h3>Application Submitted!</h3>
@@ -176,6 +179,7 @@ body{background:var(--bg-deep);color:var(--text-bright);font-family:var(--font);
       <a href="index.html" style="display:inline-block;margin-top:1.2rem;color:var(--green);font-weight:600;font-size:.88rem;">&#8592; Back to Home</a>
     </div>
   </div>
+
   <div class="info-strip">
     <div class="info-item"><span>&#128274;</span> 100% Secure &amp; Confidential</div>
     <div class="info-item"><span>&#9889;</span> Callback within 30 minutes</div>
@@ -228,12 +232,12 @@ body{background:var(--bg-deep);color:var(--text-bright);font-family:var(--font);
 <a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank">&#128172;</a>
 
 <script>
-/* ════════════════════════════════════════════════════
-   FINAL CORRECT URL — "BhaaratCapital Leads" deployment
-   Screenshot mein dikh raha tha yahi URL
-   ════════════════════════════════════════════════════ */
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxFMT1trMJwjGzCOlqEM_6TuB_QYza_eBWwCUevH8fDd4aTuRu3f0bDYgNpqja_cCIH/exec';
+/* ═══════════════════════════════════════
+   FORMSPREE ID — aapka form endpoint
+   ═══════════════════════════════════════ */
+const FORMSPREE_URL = 'https://formspree.io/f/mqewgryr';
 
+/* Navbar */
 document.getElementById('hamburger').addEventListener('click', () => {
   var m = document.getElementById('mobileMenu');
   m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
@@ -241,9 +245,14 @@ document.getElementById('hamburger').addEventListener('click', () => {
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
+
+/* PAN uppercase */
 document.getElementById('panNumber').addEventListener('input', function(){ this.value = this.value.toUpperCase(); });
+
+/* Phone digits only */
 document.getElementById('phone').addEventListener('input', function(){ this.value = this.value.replace(/[^0-9+]/g,''); });
 
+/* Service types */
 function updateTypes() {
   const svc = document.getElementById('service').value;
   const sel = document.getElementById('serviceType');
@@ -265,7 +274,12 @@ function updateTypes() {
   }
 }
 
-document.getElementById('applyForm').addEventListener('submit', function(e) {
+/* ═══════════════════════════════════════════
+   FORM SUBMIT
+   1. Formspree pe bhejo (email + dashboard)
+   2. localStorage mein save karo (admin panel)
+   ═══════════════════════════════════════════ */
+document.getElementById('applyForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
   btn.textContent = 'Submitting…';
@@ -284,30 +298,39 @@ document.getElementById('applyForm').addEventListener('submit', function(e) {
     source:      'contact.html'
   };
 
-  /* Method 1: POST no-cors — sheet mein data jaata hai */
-  fetch(SCRIPT_URL, {
-    method: 'POST', mode: 'no-cors',
-    headers: { 'Content-Type': 'text/plain' },
-    body: JSON.stringify({ type: 'lead', ...lead })
-  }).catch(() => {});
-
-  /* Method 2: GET image pixel — backup */
+  /* Step 1 — Formspree pe bhejo (email + Formspree dashboard) */
   try {
-    const p = new URLSearchParams({ action:'saveLead', ...lead });
-    new Image().src = SCRIPT_URL + '?' + p.toString();
+    await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        'Full Name':       lead.fullName,
+        'PAN Number':      lead.panNumber,
+        'Phone':           lead.phone,
+        'City':            lead.city,
+        'Employment':      lead.employment,
+        'Service Needed':  lead.service,
+        'Service Type':    lead.serviceType,
+        'Submitted At':    new Date().toLocaleString('en-IN'),
+        '_subject':        '🔔 New Lead: ' + lead.fullName + ' — ' + lead.service.toUpperCase()
+      })
+    });
+  } catch(err) {
+    console.log('Formspree error:', err);
+  }
+
+  /* Step 2 — localStorage mein save karo (Admin Panel ke liye) */
+  try {
+    const existing = JSON.parse(localStorage.getItem('bc_leads') || '[]');
+    existing.push(lead);
+    localStorage.setItem('bc_leads', JSON.stringify(existing));
   } catch(err) {}
 
-  /* Method 3: localStorage backup */
-  try {
-    const arr = JSON.parse(localStorage.getItem('bc_leads') || '[]');
-    arr.push(lead);
-    localStorage.setItem('bc_leads', JSON.stringify(arr));
-  } catch(err) {}
-
+  /* Success dikhao */
   setTimeout(() => {
     document.getElementById('applyForm').style.display = 'none';
     document.getElementById('successMsg').style.display = 'block';
-  }, 1500);
+  }, 800);
 });
 </script>
 </body>
