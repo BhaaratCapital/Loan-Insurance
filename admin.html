@@ -7,256 +7,128 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #0A0A0F; --bg2: #13131A; --bg3: #1A1A24;
-  --gold: #F59E0B; --orange: #F97316; --green: #22c55e;
-  --red: #ef4444; --blue: #3b82f6; --purple: #a855f7;
-  --border: rgba(245,158,11,0.15); --text: #F1F1F8; --muted: #8B8FA8;
-  --font: 'DM Sans', sans-serif;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; }
-
-.login-wrap {
-  min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  background: radial-gradient(ellipse at 30% 40%, rgba(249,115,22,0.07) 0%, transparent 55%), var(--bg);
-}
-.login-card {
-  background: var(--bg2); border: 1px solid var(--border); border-radius: 20px;
-  padding: 2.5rem 2rem; width: 100%; max-width: 360px; box-shadow: 0 24px 80px rgba(0,0,0,.5);
-}
-.login-card::before {
-  content: ''; display: block; height: 3px;
-  background: linear-gradient(90deg, #22c55e, var(--orange), var(--gold));
-  border-radius: 20px 20px 0 0; margin: -2.5rem -2rem 2rem;
-}
-.login-card h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; color: #fff; }
-.login-card p { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.8rem; }
-.field { margin-bottom: 1.1rem; }
-.field label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
-.field input, .field textarea, .field select {
-  width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 10px; padding: 0.8rem 1rem; color: var(--text); font-size: 0.9rem;
-  font-family: var(--font); outline: none; transition: border-color 0.2s;
-}
-.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--orange); background: rgba(249,115,22,0.06); }
-.field select option { background: #1E293B; }
-.field textarea { resize: vertical; min-height: 90px; }
-.login-btn {
-  width: 100%; padding: 0.85rem;
-  background: linear-gradient(135deg, var(--orange), var(--gold));
-  color: #fff; border: none; border-radius: 50px; font-weight: 700;
-  font-size: 0.95rem; font-family: var(--font); cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
-}
-.login-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.4); }
-.login-error { color: #ef4444; font-size: 0.82rem; margin-top: 0.8rem; display: none; text-align: center; }
-
-.dash { display: none; min-height: 100vh; }
-.topbar {
-  background: rgba(10,10,15,0.95); border-bottom: 1px solid var(--border);
-  padding: 0 2rem; height: 64px; display: flex; align-items: center;
-  justify-content: space-between; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px);
-}
-.topbar-left { display: flex; align-items: center; gap: 1rem; }
-.topbar-logo { font-size: 1.1rem; font-weight: 700; color: var(--gold); }
-.topbar-badge {
-  background: rgba(249,115,22,0.15); color: var(--orange);
-  border: 1px solid rgba(249,115,22,0.3); border-radius: 50px;
-  padding: 0.2rem 0.7rem; font-size: 0.72rem; font-weight: 700;
-}
-.sync-badge {
-  background: rgba(34,197,94,0.15); color: var(--green);
-  border: 1px solid rgba(34,197,94,0.3); border-radius: 50px;
-  padding: 0.2rem 0.7rem; font-size: 0.72rem; font-weight: 700;
-  cursor: pointer; transition: all 0.2s;
-}
-.sync-badge:hover { background: rgba(34,197,94,0.25); }
-.logout-btn {
-  background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.3);
-  border-radius: 8px; padding: 0.45rem 1rem; font-size: 0.82rem; font-weight: 700;
-  font-family: var(--font); cursor: pointer; transition: all 0.2s;
-}
-.logout-btn:hover { background: rgba(239,68,68,0.2); }
-
-.tabs {
-  background: var(--bg2); border-bottom: 1px solid var(--border);
-  padding: 0 2rem; display: flex; gap: 0; overflow-x: auto;
-}
-.tab-btn {
-  padding: 1rem 1.5rem; background: none; border: none; border-bottom: 3px solid transparent;
-  color: var(--muted); font-size: 0.88rem; font-weight: 600; font-family: var(--font);
-  cursor: pointer; transition: all 0.2s; white-space: nowrap;
-}
-.tab-btn:hover { color: var(--text); }
-.tab-btn.active { color: var(--orange); border-bottom-color: var(--orange); }
-
-.main { max-width: 1400px; margin: 0 auto; padding: 2rem; }
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
-
-/* Alert banner */
-.alert-banner {
-  background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3);
-  border-radius: 12px; padding: 1rem 1.3rem; margin-bottom: 1.5rem;
-  font-size: 0.85rem; color: #93c5fd; display: flex; align-items: center; gap: 0.6rem;
-}
-.alert-banner.success { background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.3); color: #86efac; }
-.alert-banner.error { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3); color: #fca5a5; }
-
-.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
-.stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.3rem 1.5rem; }
-.stat-card .s-label { font-size: 0.75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
-.stat-card .s-num { font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; }
-.stat-card .s-sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; }
-
-.filters {
-  background: var(--bg2); border: 1px solid var(--border); border-radius: 14px;
-  padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
-}
-.filter-label { font-size: 0.78rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
-.filter-select, .filter-input {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px; padding: 0.5rem 0.8rem; color: var(--text);
-  font-size: 0.85rem; font-family: var(--font); outline: none; min-width: 140px;
-}
-.filter-select option { background: #1E293B; }
-.clear-btn {
-  background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.25);
-  border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.82rem; font-family: var(--font);
-  cursor: pointer; font-weight: 600; transition: all 0.2s; margin-left: auto;
-}
-.clear-btn:hover { background: rgba(239,68,68,0.2); }
-.export-btn {
-  background: linear-gradient(135deg, var(--green), #16a34a); color: #fff; border: none;
-  border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.82rem; font-family: var(--font);
-  cursor: pointer; font-weight: 700; transition: all 0.2s;
-}
-.export-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(34,197,94,0.3); }
-
-.table-wrap { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-.table-header {
-  padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
-}
-.table-header h3 { font-size: 1rem; font-weight: 700; color: #fff; }
-.table-header span { font-size: 0.82rem; color: var(--muted); }
-.tbl-scroll { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; min-width: 900px; }
-thead tr { background: linear-gradient(135deg, #052e16, #064e3b); }
-thead th { padding: 12px 16px; text-align: left; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #86efac; white-space: nowrap; }
-tbody tr { border-bottom: 1px solid rgba(255,255,255,0.05); transition: background 0.15s; }
-tbody tr:last-child { border-bottom: none; }
-tbody tr:hover { background: var(--bg3); }
-tbody td { padding: 14px 16px; font-size: 0.87rem; color: #D1D5DB; vertical-align: middle; }
-tbody td:first-child { color: #F1F1F8; font-weight: 600; }
-
-.type-badge { display: inline-block; border-radius: 50px; padding: 3px 10px; font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
-.tb-loan { background: rgba(34,197,94,0.15); color: #86efac; border: 1px solid rgba(34,197,94,0.3); }
-.tb-insurance { background: rgba(249,115,22,0.15); color: #fed7aa; border: 1px solid rgba(249,115,22,0.3); }
-.tb-salaried { background: rgba(20,184,166,0.15); color: #99f6e4; border: 1px solid rgba(20,184,166,0.3); }
-.tb-self { background: rgba(245,158,11,0.15); color: #fde68a; border: 1px solid rgba(245,158,11,0.3); }
-.tb-post { background: rgba(59,130,246,0.15); color: #93c5fd; border: 1px solid rgba(59,130,246,0.3); }
-.tb-blog { background: rgba(168,85,247,0.15); color: #d8b4fe; border: 1px solid rgba(168,85,247,0.3); }
-.tb-video { background: rgba(239,68,68,0.15); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
-.tb-image { background: rgba(20,184,166,0.15); color: #99f6e4; border: 1px solid rgba(20,184,166,0.3); }
-.action-btn {
-  background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.25);
-  border-radius: 6px; padding: 4px 10px; font-size: 0.75rem; font-family: var(--font);
-  cursor: pointer; font-weight: 600; transition: all 0.2s;
-}
-.action-btn:hover { background: rgba(239,68,68,0.2); }
-
-.empty-state { text-align: center; padding: 4rem 2rem; color: var(--muted); }
-.empty-state .icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
-.empty-state p { font-size: 0.9rem; }
-
-.post-creator {
-  background: var(--bg2); border: 1px solid var(--border); border-radius: 16px;
-  padding: 2rem; margin-bottom: 2rem;
-}
-.post-creator h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
-.post-creator p { font-size: 0.83rem; color: var(--muted); margin-bottom: 1.5rem; }
-.post-type-row { display: flex; gap: 0.7rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-.pt-btn {
-  padding: 0.5rem 1.1rem; border-radius: 50px; border: 1.5px solid rgba(255,255,255,0.12);
-  background: transparent; color: var(--muted); font-size: 0.82rem; font-weight: 600;
-  font-family: var(--font); cursor: pointer; transition: all 0.2s;
-}
-.pt-btn.active { border-color: var(--orange); color: var(--orange); background: rgba(249,115,22,0.1); }
-.post-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.submit-post-btn {
-  background: linear-gradient(135deg, var(--orange), var(--gold)); color: #fff; border: none;
-  border-radius: 50px; padding: 0.75rem 2rem; font-size: 0.9rem; font-weight: 700;
-  font-family: var(--font); cursor: pointer; transition: all 0.2s; margin-top: 1rem;
-}
-.submit-post-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,0.4); }
-.submit-post-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
-
-.posts-table-wrap { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-.posts-table { min-width: 700px; }
-.pin-btn {
-  background: rgba(245,158,11,0.1); color: var(--gold); border: 1px solid rgba(245,158,11,0.25);
-  border-radius: 6px; padding: 4px 10px; font-size: 0.75rem; font-family: var(--font);
-  cursor: pointer; font-weight: 600; transition: all 0.2s; margin-right: 5px;
-}
-.pin-btn:hover { background: rgba(245,158,11,0.2); }
-.pin-btn.pinned { background: rgba(245,158,11,0.25); color: #fde68a; }
-
-.confirm-overlay {
-  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7);
-  z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(4px);
-}
-.confirm-overlay.show { display: flex; }
-.confirm-card {
-  background: var(--bg2); border: 1px solid rgba(239,68,68,0.3); border-radius: 16px;
-  padding: 2rem; text-align: center; max-width: 340px; width: 90%; box-shadow: 0 24px 80px rgba(0,0,0,.6);
-}
-.confirm-card h3 { color: #fff; font-size: 1.1rem; margin-bottom: 0.5rem; }
-.confirm-card p { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
-.confirm-btns { display: flex; gap: 0.7rem; justify-content: center; }
-.cb-cancel { background: rgba(255,255,255,0.07); color: var(--text); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.6rem 1.3rem; font-size: 0.88rem; font-family: var(--font); cursor: pointer; }
-.cb-del { background: #ef4444; color: #fff; border: none; border-radius: 8px; padding: 0.6rem 1.3rem; font-size: 0.88rem; font-family: var(--font); cursor: pointer; font-weight: 700; }
-
-.toast {
-  position: fixed; bottom: 2rem; right: 2rem; background: var(--bg2);
-  border: 1px solid rgba(34,197,94,0.4); border-radius: 12px; padding: 1rem 1.5rem;
-  color: #86efac; font-size: 0.88rem; font-weight: 600; z-index: 9999;
-  transform: translateY(100px); opacity: 0; transition: all 0.3s; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-}
-.toast.show { transform: translateY(0); opacity: 1; }
-
-/* Loading spinner */
-.spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #fff; animation: spin 0.7s linear infinite; vertical-align: middle; margin-right: 6px; }
-@keyframes spin { to { transform: rotate(360deg); } }
-
-@media(max-width: 1024px) { .stats-row { grid-template-columns: 1fr 1fr; } .post-grid { grid-template-columns: 1fr; } }
-@media(max-width: 768px) { .main { padding: 1rem; } .stats-row { grid-template-columns: 1fr 1fr; } }
-@media(max-width: 480px) { .stats-row { grid-template-columns: 1fr; } }
+:root{--bg:#0A0A0F;--bg2:#13131A;--bg3:#1A1A24;--gold:#F59E0B;--orange:#F97316;--green:#22c55e;--red:#ef4444;--border:rgba(245,158,11,0.15);--text:#F1F1F8;--muted:#8B8FA8;--font:'DM Sans',sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;}
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 30% 40%,rgba(249,115,22,0.07) 0%,transparent 55%),var(--bg);}
+.login-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2.5rem 2rem;width:100%;max-width:360px;box-shadow:0 24px 80px rgba(0,0,0,.5);}
+.login-card::before{content:'';display:block;height:3px;background:linear-gradient(90deg,#22c55e,var(--orange),var(--gold));border-radius:20px 20px 0 0;margin:-2.5rem -2rem 2rem;}
+.login-card h2{font-size:1.5rem;font-weight:700;margin-bottom:.3rem;color:#fff;}
+.login-card p{color:var(--muted);font-size:.85rem;margin-bottom:1.8rem;}
+.field{margin-bottom:1.1rem;}
+.field label{display:block;font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;}
+.field input,.field textarea,.field select{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:.8rem 1rem;color:var(--text);font-size:.9rem;font-family:var(--font);outline:none;transition:border-color .2s;}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--orange);background:rgba(249,115,22,.06);}
+.field select option{background:#1E293B;}
+.field textarea{resize:vertical;min-height:90px;}
+.login-btn{width:100%;padding:.85rem;background:linear-gradient(135deg,var(--orange),var(--gold));color:#fff;border:none;border-radius:50px;font-weight:700;font-size:.95rem;font-family:var(--font);cursor:pointer;transition:all .2s;margin-top:.5rem;}
+.login-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,115,22,.4);}
+.login-error{color:#ef4444;font-size:.82rem;margin-top:.8rem;display:none;text-align:center;}
+.dash{display:none;min-height:100vh;}
+.topbar{background:rgba(10,10,15,.95);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
+.topbar-left{display:flex;align-items:center;gap:1rem;}
+.topbar-logo{font-size:1.1rem;font-weight:700;color:var(--gold);}
+.topbar-badge{background:rgba(249,115,22,.15);color:var(--orange);border:1px solid rgba(249,115,22,.3);border-radius:50px;padding:.2rem .7rem;font-size:.72rem;font-weight:700;}
+.sync-badge{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.3);border-radius:50px;padding:.2rem .7rem;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.sync-badge:hover{background:rgba(34,197,94,.25);}
+.logout-btn{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:.45rem 1rem;font-size:.82rem;font-weight:700;font-family:var(--font);cursor:pointer;transition:all .2s;}
+.logout-btn:hover{background:rgba(239,68,68,.2);}
+.tabs{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0;overflow-x:auto;}
+.tab-btn{padding:1rem 1.5rem;background:none;border:none;border-bottom:3px solid transparent;color:var(--muted);font-size:.88rem;font-weight:600;font-family:var(--font);cursor:pointer;transition:all .2s;white-space:nowrap;}
+.tab-btn:hover{color:var(--text);}
+.tab-btn.active{color:var(--orange);border-bottom-color:var(--orange);}
+.main{max-width:1400px;margin:0 auto;padding:2rem;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.alert-banner{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);border-radius:12px;padding:1rem 1.3rem;margin-bottom:1.5rem;font-size:.85rem;color:#93c5fd;display:flex;align-items:center;gap:.6rem;}
+.alert-banner.success{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.3);color:#86efac;}
+.alert-banner.error{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.3);color:#fca5a5;}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
+.stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.5rem;}
+.stat-card .s-label{font-size:.75rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem;}
+.stat-card .s-num{font-size:2rem;font-weight:700;color:var(--gold);line-height:1;}
+.stat-card .s-sub{font-size:.78rem;color:var(--muted);margin-top:.3rem;}
+.filters{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.5rem;margin-bottom:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;}
+.filter-label{font-size:.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;}
+.filter-select,.filter-input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.5rem .8rem;color:var(--text);font-size:.85rem;font-family:var(--font);outline:none;min-width:140px;}
+.filter-select option{background:#1E293B;}
+.clear-btn{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.25);border-radius:8px;padding:.5rem 1rem;font-size:.82rem;font-family:var(--font);cursor:pointer;font-weight:600;transition:all .2s;margin-left:auto;}
+.clear-btn:hover{background:rgba(239,68,68,.2);}
+.export-btn{background:linear-gradient(135deg,var(--green),#16a34a);color:#fff;border:none;border-radius:8px;padding:.5rem 1rem;font-size:.82rem;font-family:var(--font);cursor:pointer;font-weight:700;transition:all .2s;}
+.export-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(34,197,94,.3);}
+.table-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.table-header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.table-header h3{font-size:1rem;font-weight:700;color:#fff;}
+.table-header span{font-size:.82rem;color:var(--muted);}
+.tbl-scroll{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;min-width:900px;}
+thead tr{background:linear-gradient(135deg,#052e16,#064e3b);}
+thead th{padding:12px 16px;text-align:left;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#86efac;white-space:nowrap;}
+tbody tr{border-bottom:1px solid rgba(255,255,255,.05);transition:background .15s;}
+tbody tr:last-child{border-bottom:none;}
+tbody tr:hover{background:var(--bg3);}
+tbody td{padding:14px 16px;font-size:.87rem;color:#D1D5DB;vertical-align:middle;}
+tbody td:first-child{color:#F1F1F8;font-weight:600;}
+.type-badge{display:inline-block;border-radius:50px;padding:3px 10px;font-size:.72rem;font-weight:700;white-space:nowrap;}
+.tb-loan{background:rgba(34,197,94,.15);color:#86efac;border:1px solid rgba(34,197,94,.3);}
+.tb-insurance{background:rgba(249,115,22,.15);color:#fed7aa;border:1px solid rgba(249,115,22,.3);}
+.tb-salaried{background:rgba(20,184,166,.15);color:#99f6e4;border:1px solid rgba(20,184,166,.3);}
+.tb-self{background:rgba(245,158,11,.15);color:#fde68a;border:1px solid rgba(245,158,11,.3);}
+.tb-post{background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3);}
+.tb-blog{background:rgba(168,85,247,.15);color:#d8b4fe;border:1px solid rgba(168,85,247,.3);}
+.tb-video{background:rgba(239,68,68,.15);color:#fca5a5;border:1px solid rgba(239,68,68,.3);}
+.tb-image{background:rgba(20,184,166,.15);color:#99f6e4;border:1px solid rgba(20,184,166,.3);}
+.action-btn{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.25);border-radius:6px;padding:4px 10px;font-size:.75rem;font-family:var(--font);cursor:pointer;font-weight:600;transition:all .2s;}
+.action-btn:hover{background:rgba(239,68,68,.2);}
+.empty-state{text-align:center;padding:4rem 2rem;color:var(--muted);}
+.empty-state .icon{font-size:3rem;margin-bottom:1rem;opacity:.4;}
+.empty-state p{font-size:.9rem;}
+.post-creator{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:2rem;}
+.post-creator h3{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.3rem;}
+.post-creator p{font-size:.83rem;color:var(--muted);margin-bottom:1.5rem;}
+.post-type-row{display:flex;gap:.7rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.pt-btn{padding:.5rem 1.1rem;border-radius:50px;border:1.5px solid rgba(255,255,255,.12);background:transparent;color:var(--muted);font-size:.82rem;font-weight:600;font-family:var(--font);cursor:pointer;transition:all .2s;}
+.pt-btn.active{border-color:var(--orange);color:var(--orange);background:rgba(249,115,22,.1);}
+.post-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.submit-post-btn{background:linear-gradient(135deg,var(--orange),var(--gold));color:#fff;border:none;border-radius:50px;padding:.75rem 2rem;font-size:.9rem;font-weight:700;font-family:var(--font);cursor:pointer;transition:all .2s;margin-top:1rem;}
+.submit-post-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,115,22,.4);}
+.submit-post-btn:disabled{opacity:.6;cursor:default;transform:none;}
+.posts-table-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.posts-table{min-width:700px;}
+.pin-btn{background:rgba(245,158,11,.1);color:var(--gold);border:1px solid rgba(245,158,11,.25);border-radius:6px;padding:4px 10px;font-size:.75rem;font-family:var(--font);cursor:pointer;font-weight:600;transition:all .2s;margin-right:5px;}
+.pin-btn:hover{background:rgba(245,158,11,.2);}
+.pin-btn.pinned{background:rgba(245,158,11,.25);color:#fde68a;}
+.confirm-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.confirm-overlay.show{display:flex;}
+.confirm-card{background:var(--bg2);border:1px solid rgba(239,68,68,.3);border-radius:16px;padding:2rem;text-align:center;max-width:340px;width:90%;box-shadow:0 24px 80px rgba(0,0,0,.6);}
+.confirm-card h3{color:#fff;font-size:1.1rem;margin-bottom:.5rem;}
+.confirm-card p{color:var(--muted);font-size:.85rem;margin-bottom:1.5rem;}
+.confirm-btns{display:flex;gap:.7rem;justify-content:center;}
+.cb-cancel{background:rgba(255,255,255,.07);color:var(--text);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:.6rem 1.3rem;font-size:.88rem;font-family:var(--font);cursor:pointer;}
+.cb-del{background:#ef4444;color:#fff;border:none;border-radius:8px;padding:.6rem 1.3rem;font-size:.88rem;font-family:var(--font);cursor:pointer;font-weight:700;}
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--bg2);border:1px solid rgba(34,197,94,.4);border-radius:12px;padding:1rem 1.5rem;color:#86efac;font-size:.88rem;font-weight:600;z-index:9999;transform:translateY(100px);opacity:0;transition:all .3s;box-shadow:0 8px 32px rgba(0,0,0,.4);}
+.toast.show{transform:translateY(0);opacity:1;}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-radius:50%;border-top-color:#fff;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@media(max-width:1024px){.stats-row{grid-template-columns:1fr 1fr;}.post-grid{grid-template-columns:1fr;}}
+@media(max-width:768px){.main{padding:1rem;}.stats-row{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.stats-row{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
 <div class="login-wrap" id="loginWrap">
   <div class="login-card">
     <h2>&#128274; Admin Panel</h2>
     <p>Bhaarat Capital — Internal Dashboard</p>
-    <div class="field">
-      <label>Username</label>
-      <input type="text" id="loginUser" placeholder="Enter username" autocomplete="username">
-    </div>
-    <div class="field">
-      <label>Password</label>
-      <input type="password" id="loginPass" placeholder="Enter password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
-    </div>
+    <div class="field"><label>Username</label><input type="text" id="loginUser" placeholder="Enter username" autocomplete="username"></div>
+    <div class="field"><label>Password</label><input type="password" id="loginPass" placeholder="Enter password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
     <button class="login-btn" onclick="doLogin()">Login to Dashboard</button>
     <p class="login-error" id="loginError">&#10006; Invalid username or password</p>
   </div>
 </div>
 
-<!-- DASHBOARD -->
 <div class="dash" id="dashWrap">
-
   <div class="topbar">
     <div class="topbar-left">
       <span class="topbar-logo">&#127470;&#127475; Bhaarat Capital</span>
@@ -265,89 +137,63 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
     </div>
     <button class="logout-btn" onclick="doLogout()">&#128275; Logout</button>
   </div>
-
   <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('leads',this)">&#128203; Leads / Forms</button>
     <button class="tab-btn" onclick="switchTab('posts',this)">&#128221; Our Story Posts</button>
   </div>
-
   <div class="main">
 
     <!-- TAB 1: LEADS -->
     <div class="tab-panel active" id="tab-leads">
       <div class="alert-banner" id="leadsAlert" style="display:none;"></div>
-
       <div class="stats-row">
-        <div class="stat-card"><div class="s-label">Total Leads</div><div class="s-num" id="statTotal">—</div><div class="s-sub">All submissions</div></div>
-        <div class="stat-card"><div class="s-label">Loan Enquiries</div><div class="s-num" id="statLoans" style="color:#86efac;">—</div><div class="s-sub">Loan requests</div></div>
-        <div class="stat-card"><div class="s-label">Insurance Enquiries</div><div class="s-num" id="statIns" style="color:#fed7aa;">—</div><div class="s-sub">Insurance requests</div></div>
-        <div class="stat-card"><div class="s-label">Today's Leads</div><div class="s-num" id="statToday" style="color:#fde68a;">—</div><div class="s-sub">Since midnight</div></div>
+        <div class="stat-card"><div class="s-label">Total Leads</div><div class="s-num" id="statTotal">0</div><div class="s-sub">All submissions</div></div>
+        <div class="stat-card"><div class="s-label">Loan Enquiries</div><div class="s-num" id="statLoans" style="color:#86efac;">0</div><div class="s-sub">Loan requests</div></div>
+        <div class="stat-card"><div class="s-label">Insurance Enquiries</div><div class="s-num" id="statIns" style="color:#fed7aa;">0</div><div class="s-sub">Insurance requests</div></div>
+        <div class="stat-card"><div class="s-label">Today's Leads</div><div class="s-num" id="statToday" style="color:#fde68a;">0</div><div class="s-sub">Since midnight</div></div>
       </div>
-
       <div class="filters">
         <span class="filter-label">Filter:</span>
-        <select class="filter-select" id="filterService" onchange="renderLeadsTable()">
-          <option value="">All Services</option>
-          <option value="loan">Loan</option>
-          <option value="insurance">Insurance</option>
-        </select>
-        <select class="filter-select" id="filterEmp" onchange="renderLeadsTable()">
-          <option value="">All Employment</option>
-          <option value="salaried">Salaried</option>
-          <option value="self-employed">Self Employed</option>
-        </select>
+        <select class="filter-select" id="filterService" onchange="renderLeadsTable()"><option value="">All Services</option><option value="loan">Loan</option><option value="insurance">Insurance</option></select>
+        <select class="filter-select" id="filterEmp" onchange="renderLeadsTable()"><option value="">All Employment</option><option value="salaried">Salaried</option><option value="self-employed">Self Employed</option></select>
         <input type="text" class="filter-input" id="filterSearch" placeholder="Search name / phone..." oninput="renderLeadsTable()" style="min-width:200px;">
         <button class="export-btn" onclick="exportCSV()">&#11015; Export CSV</button>
         <button class="clear-btn" onclick="clearAllLeads()">&#128465; Clear All</button>
       </div>
-
       <div class="table-wrap">
-        <div class="table-header">
-          <h3>&#128203; Form Submissions</h3>
-          <span id="tableCount">Loading…</span>
-        </div>
+        <div class="table-header"><h3>&#128203; Form Submissions</h3><span id="tableCount">Loading…</span></div>
         <div class="tbl-scroll">
           <table id="leadsTable">
-            <thead>
-              <tr><th>#</th><th>Name</th><th>PAN</th><th>Phone</th><th>City</th><th>Employment</th><th>Service</th><th>Type</th><th>Submitted</th><th>Action</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Name</th><th>PAN</th><th>Phone</th><th>City</th><th>Employment</th><th>Service</th><th>Type</th><th>Submitted</th><th>Action</th></tr></thead>
             <tbody id="leadsBody"></tbody>
           </table>
         </div>
-        <div class="empty-state" id="emptyLeads" style="display:none;">
-          <div class="icon">&#128203;</div>
-          <p>No form submissions yet. Contact / Apply Now form leads will appear here.</p>
-        </div>
+        <div class="empty-state" id="emptyLeads" style="display:none;"><div class="icon">&#128203;</div><p>No form submissions yet.</p></div>
       </div>
     </div>
 
     <!-- TAB 2: POSTS -->
     <div class="tab-panel" id="tab-posts">
       <div class="alert-banner" id="postsAlert" style="display:none;"></div>
-
       <div class="stats-row" style="margin-bottom:2rem;">
-        <div class="stat-card"><div class="s-label">Total Posts</div><div class="s-num" id="statPosts" style="color:#93c5fd;">—</div><div class="s-sub">Published on Our Story</div></div>
-        <div class="stat-card"><div class="s-label">Blog Posts</div><div class="s-num" id="statBlogPosts" style="color:#d8b4fe;">—</div><div class="s-sub">Written articles</div></div>
-        <div class="stat-card"><div class="s-label">Media Posts</div><div class="s-num" id="statMediaPosts" style="color:#99f6e4;">—</div><div class="s-sub">Images &amp; Videos</div></div>
-        <div class="stat-card"><div class="s-label">Pinned Posts</div><div class="s-num" id="statPinned" style="color:#fde68a;">—</div><div class="s-sub">Featured at top</div></div>
+        <div class="stat-card"><div class="s-label">Total Posts</div><div class="s-num" id="statPosts" style="color:#93c5fd;">0</div><div class="s-sub">Published on Our Story</div></div>
+        <div class="stat-card"><div class="s-label">Blog Posts</div><div class="s-num" id="statBlogPosts" style="color:#d8b4fe;">0</div><div class="s-sub">Written articles</div></div>
+        <div class="stat-card"><div class="s-label">Media Posts</div><div class="s-num" id="statMediaPosts" style="color:#99f6e4;">0</div><div class="s-sub">Images &amp; Videos</div></div>
+        <div class="stat-card"><div class="s-label">Pinned Posts</div><div class="s-num" id="statPinned" style="color:#fde68a;">0</div><div class="s-sub">Featured at top</div></div>
       </div>
-
       <div class="post-creator">
         <h3>&#10133; Create New Post for Our Story</h3>
         <p>Post karo — blog, image, ya video. Yeh turant Our Story page par dikhega.</p>
-
         <div class="post-type-row">
           <button class="pt-btn active" id="pt-blog" onclick="setPostType('blog')">&#128221; Blog / Article</button>
           <button class="pt-btn" id="pt-image" onclick="setPostType('image')">&#128247; Image Post</button>
           <button class="pt-btn" id="pt-video" onclick="setPostType('video')">&#127910; Video Post</button>
           <button class="pt-btn" id="pt-update" onclick="setPostType('update')">&#128226; Company Update</button>
         </div>
-
         <div class="post-grid">
           <div class="field"><label>Post Title *</label><input type="text" id="postTitle" placeholder="e.g. How We Helped 500+ Families..."></div>
           <div class="field"><label>Category / Tag</label><input type="text" id="postTag" placeholder="e.g. Home Loan, Success Story, Team"></div>
         </div>
-
         <div id="blogFields">
           <div class="field"><label>Article Content *</label><textarea id="postContent" rows="5" placeholder="Apna blog ya update yahan likho..."></textarea></div>
           <div class="field"><label>Cover Image URL (optional)</label><input type="url" id="postCoverImage" placeholder="https://... image link"></div>
@@ -357,45 +203,34 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
           <div class="field"><label>Caption / Description</label><textarea id="postImageCaption" rows="3" placeholder="Image ke baare mein kuch likho..."></textarea></div>
         </div>
         <div id="videoFields" style="display:none;">
-          <div class="field"><label>Video URL * (YouTube, Reel, or direct link)</label><input type="url" id="postVideoUrl" placeholder="https://www.youtube.com/watch?v=..."></div>
+          <div class="field"><label>Video URL *</label><input type="url" id="postVideoUrl" placeholder="https://www.youtube.com/watch?v=..."></div>
           <div class="field"><label>Video Description</label><textarea id="postVideoDesc" rows="3" placeholder="Video ke baare mein kuch likho..."></textarea></div>
         </div>
         <div id="updateFields" style="display:none;">
           <div class="field"><label>Update Message *</label><textarea id="postUpdateMsg" rows="3" placeholder="Short company update likho..."></textarea></div>
           <div class="field"><label>Image URL (optional)</label><input type="url" id="postUpdateImage" placeholder="https://... image link (optional)"></div>
         </div>
-
-        <div style="margin-top:0.5rem;display:flex;align-items:center;gap:0.6rem;">
+        <div style="margin-top:.5rem;display:flex;align-items:center;gap:.6rem;">
           <input type="checkbox" id="postPin" style="width:16px;height:16px;accent-color:var(--gold);">
-          <label for="postPin" style="font-size:0.85rem;color:var(--muted);cursor:pointer;">&#128204; Pin this post at the top of Our Story</label>
+          <label for="postPin" style="font-size:.85rem;color:var(--muted);cursor:pointer;">&#128204; Pin this post at the top of Our Story</label>
         </div>
         <button class="submit-post-btn" id="publishBtn" onclick="publishPost()">&#128640; Publish to Our Story</button>
       </div>
-
       <div class="posts-table-wrap">
-        <div class="table-header">
-          <h3>&#128221; Published Posts</h3>
-          <span id="postsCount">Loading…</span>
-        </div>
+        <div class="table-header"><h3>&#128221; Published Posts</h3><span id="postsCount">Loading…</span></div>
         <div class="tbl-scroll">
           <table class="posts-table">
-            <thead>
-              <tr><th>#</th><th>Title</th><th>Type</th><th>Tag</th><th>Pinned</th><th>Published</th><th>Actions</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Title</th><th>Type</th><th>Tag</th><th>Pinned</th><th>Published</th><th>Actions</th></tr></thead>
             <tbody id="postsBody"></tbody>
           </table>
         </div>
-        <div class="empty-state" id="emptyPosts" style="display:none;">
-          <div class="icon">&#128221;</div>
-          <p>Koi post nahi hai. Upar se create karo!</p>
-        </div>
+        <div class="empty-state" id="emptyPosts" style="display:none;"><div class="icon">&#128221;</div><p>Koi post nahi hai. Upar se create karo!</p></div>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- CONFIRM -->
 <div class="confirm-overlay" id="confirmOverlay">
   <div class="confirm-card">
     <h3>&#9888;&#65039; Confirm Delete</h3>
@@ -409,184 +244,128 @@ tbody td:first-child { color: #F1F1F8; font-weight: 600; }
 <div class="toast" id="toast">&#9989; Done!</div>
 
 <script>
-/* ══════════════════════════════════════════
-   ⚠️  YAHAN APNA GOOGLE APPS SCRIPT URL DAALO
-   Step 3 ke baad milega — kuch aisa dikhega:
-   https://script.google.com/macros/s/XXXXX/exec
-══════════════════════════════════════════ */
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby6vuiiQIcaGPjEA8mrGzVCBXf-npImPeRan_TdqLiyX2EwCoxVlQdhQQXFF4c3-ZlGlw';
+/* ════════════════════════════════════════════════════
+   FINAL CORRECT URL — "BhaaratCapital Leads" deployment
+   ════════════════════════════════════════════════════ */
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxFMT1trMJwjGzCOlqEM_6TuB_QYza_eBWwCUevH8fDd4aTuRu3f0bDYgNpqja_cCIH/exec';
 
-/* ─── CONFIG ─── */
 const ADMIN_USER = 'Chintu.Singh';
 const ADMIN_PASS = 'Singh.1984';
 const LEADS_KEY  = 'bc_leads';
 const POSTS_KEY  = 'bc_story_posts';
-
 let allLeads = [];
 let allPosts = [];
 
-/* ─── HELPERS ─── */
-function getLocal(key) { try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch(e){ return []; } }
-function saveLocal(key, data) { try { localStorage.setItem(key, JSON.stringify(data)); } catch(e){} }
-function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function getLocal(k){ try{return JSON.parse(localStorage.getItem(k)||'[]');}catch(e){return[];} }
+function saveLocal(k,d){ try{localStorage.setItem(k,JSON.stringify(d));}catch(e){} }
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-/* Check if Apps Script URL is configured */
-function isConfigured() {
-  return APPS_SCRIPT_URL && APPS_SCRIPT_URL !== 'AKfycby6vuiiQIcaGPjEA8mrGzVCBXf-npImPeRan_TdqLiyX2EwCoxVlQdhQQXFF4c3-ZlGlw';
-}
-
-/* ─── AUTH ─── */
-function doLogin() {
-  const u = document.getElementById('loginUser').value.trim();
-  const p = document.getElementById('loginPass').value;
-  if (u === ADMIN_USER && p === ADMIN_PASS) {
-    sessionStorage.setItem('bc_admin_auth', '1');
-    document.getElementById('loginWrap').style.display = 'none';
-    document.getElementById('dashWrap').style.display = 'block';
+/* AUTH */
+function doLogin(){
+  const u=document.getElementById('loginUser').value.trim();
+  const p=document.getElementById('loginPass').value;
+  if(u===ADMIN_USER&&p===ADMIN_PASS){
+    sessionStorage.setItem('bc_admin_auth','1');
+    document.getElementById('loginWrap').style.display='none';
+    document.getElementById('dashWrap').style.display='block';
     loadDashboard();
-  } else {
-    document.getElementById('loginError').style.display = 'block';
-  }
+  } else { document.getElementById('loginError').style.display='block'; }
 }
-function doLogout() {
+function doLogout(){
   sessionStorage.removeItem('bc_admin_auth');
-  document.getElementById('dashWrap').style.display = 'none';
-  document.getElementById('loginWrap').style.display = 'flex';
-  document.getElementById('loginUser').value = '';
-  document.getElementById('loginPass').value = '';
+  document.getElementById('dashWrap').style.display='none';
+  document.getElementById('loginWrap').style.display='flex';
+  document.getElementById('loginUser').value='';
+  document.getElementById('loginPass').value='';
 }
-window.addEventListener('DOMContentLoaded', () => {
-  if (sessionStorage.getItem('bc_admin_auth') === '1') {
-    document.getElementById('loginWrap').style.display = 'none';
-    document.getElementById('dashWrap').style.display = 'block';
+window.addEventListener('DOMContentLoaded',()=>{
+  if(sessionStorage.getItem('bc_admin_auth')==='1'){
+    document.getElementById('loginWrap').style.display='none';
+    document.getElementById('dashWrap').style.display='block';
     loadDashboard();
   }
 });
 
-/* ─── TABS ─── */
-function switchTab(name, btn) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
+/* TABS */
+function switchTab(name,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
   btn.classList.add('active');
-  if (name === 'leads') { renderLeadsUI(); }
-  if (name === 'posts') { renderPostsUI(); }
+  if(name==='leads'){renderLeadsUI();}
+  if(name==='posts'){renderPostsUI();}
 }
 
-/* ─── FETCH FROM GOOGLE SHEET ─── */
-async function fetchLeads() {
-  if (!isConfigured()) {
-    allLeads = getLocal(LEADS_KEY);
-    return;
-  }
-  try {
-    const res = await fetch(APPS_SCRIPT_URL + '?action=getLeads&t=' + Date.now());
-    const data = await res.json();
-    if (Array.isArray(data)) {
-      allLeads = data;
-      saveLocal(LEADS_KEY, data); // cache locally
-    }
-  } catch(err) {
-    console.log('Using local leads cache:', err);
-    allLeads = getLocal(LEADS_KEY);
-  }
+/* FETCH */
+async function fetchLeads(){
+  try{
+    const res=await fetch(SCRIPT_URL+'?action=getLeads&t='+Date.now());
+    const data=await res.json();
+    if(Array.isArray(data)){allLeads=data;saveLocal(LEADS_KEY,data);}
+  }catch(err){allLeads=getLocal(LEADS_KEY);}
+}
+async function fetchPosts(){
+  try{
+    const res=await fetch(SCRIPT_URL+'?action=getPosts&t='+Date.now());
+    const data=await res.json();
+    if(Array.isArray(data)){allPosts=data;saveLocal(POSTS_KEY,data);}
+  }catch(err){allPosts=getLocal(POSTS_KEY);}
+}
+async function postToSheet(payload){
+  try{
+    await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)});
+  }catch(err){}
 }
 
-async function fetchPosts() {
-  if (!isConfigured()) {
-    allPosts = getLocal(POSTS_KEY);
-    return;
-  }
-  try {
-    const res = await fetch(APPS_SCRIPT_URL + '?action=getPosts&t=' + Date.now());
-    const data = await res.json();
-    if (Array.isArray(data)) {
-      allPosts = data;
-      saveLocal(POSTS_KEY, data); // cache + share with our-story.html
-    }
-  } catch(err) {
-    console.log('Using local posts cache:', err);
-    allPosts = getLocal(POSTS_KEY);
-  }
-}
-
-async function postToSheet(payload) {
-  if (!isConfigured()) {
-    return { success: false, reason: 'not_configured' };
-  }
-  try {
-    const res = await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      body: JSON.stringify(payload),
-      headers: { 'Content-Type': 'text/plain' }
-    });
-    return await res.json();
-  } catch(err) {
-    return { success: false, error: err.message };
-  }
-}
-
-/* ─── LOAD DASHBOARD ─── */
-async function loadDashboard() {
-  if (!isConfigured()) {
-    showAlert('leadsAlert', '⚠️ Google Apps Script URL configure nahi hua. Abhi sirf local data dikh raha hai. Apps Script URL set karne ke baad sab devices pe data dikhega.', 'error');
-  }
+async function loadDashboard(){
   await fetchLeads();
   await fetchPosts();
   renderLeadsUI();
   renderPostsUI();
 }
-
-async function syncAll() {
-  const badge = document.getElementById('syncBadge');
-  badge.innerHTML = '<span class="spinner"></span>Syncing…';
+async function syncAll(){
+  const badge=document.getElementById('syncBadge');
+  badge.innerHTML='<span class="spinner"></span>Syncing…';
   await fetchLeads();
   await fetchPosts();
   renderLeadsUI();
   renderPostsUI();
-  badge.innerHTML = '&#8635; Sync Now';
-  showToast('&#9989; Data synced from Google Sheet!');
+  badge.innerHTML='&#8635; Sync Now';
+  showToast('&#9989; Data synced!');
 }
 
-/* ─── LEADS UI ─── */
-function renderLeadsUI() {
-  updateLeadStats();
-  renderLeadsTable();
+/* LEADS */
+function renderLeadsUI(){updateLeadStats();renderLeadsTable();}
+function updateLeadStats(){
+  const today=new Date().toDateString();
+  document.getElementById('statTotal').textContent=allLeads.length;
+  document.getElementById('statLoans').textContent=allLeads.filter(l=>l.service==='loan').length;
+  document.getElementById('statIns').textContent=allLeads.filter(l=>l.service==='insurance').length;
+  document.getElementById('statToday').textContent=allLeads.filter(l=>new Date(l.timestamp).toDateString()===today).length;
 }
-function updateLeadStats() {
-  const today = new Date().toDateString();
-  document.getElementById('statTotal').textContent = allLeads.length;
-  document.getElementById('statLoans').textContent = allLeads.filter(l => l.service === 'loan').length;
-  document.getElementById('statIns').textContent = allLeads.filter(l => l.service === 'insurance').length;
-  document.getElementById('statToday').textContent = allLeads.filter(l => new Date(l.timestamp).toDateString() === today).length;
-}
-function renderLeadsTable() {
-  const svc = document.getElementById('filterService').value;
-  const emp = document.getElementById('filterEmp').value;
-  const q   = document.getElementById('filterSearch').value.toLowerCase();
-  let filtered = allLeads.filter(l => {
-    if (svc && l.service !== svc) return false;
-    if (emp && l.employment !== emp) return false;
-    if (q && !l.fullName?.toLowerCase().includes(q) && !(l.phone||'').includes(q)) return false;
+function renderLeadsTable(){
+  const svc=document.getElementById('filterService').value;
+  const emp=document.getElementById('filterEmp').value;
+  const q=document.getElementById('filterSearch').value.toLowerCase();
+  let filtered=allLeads.filter(l=>{
+    if(svc&&l.service!==svc)return false;
+    if(emp&&l.employment!==emp)return false;
+    if(q&&!l.fullName?.toLowerCase().includes(q)&&!(l.phone||'').includes(q))return false;
     return true;
   });
-  const body  = document.getElementById('leadsBody');
-  const empty = document.getElementById('emptyLeads');
-  document.getElementById('tableCount').textContent = filtered.length + ' record' + (filtered.length !== 1 ? 's' : '');
-  if (!filtered.length) {
-    body.innerHTML = ''; empty.style.display = 'block';
-    document.getElementById('leadsTable').style.display = 'none'; return;
-  }
-  empty.style.display = 'none';
-  document.getElementById('leadsTable').style.display = 'table';
-  body.innerHTML = filtered.slice().reverse().map((l, i) => {
-    const dt = new Date(l.timestamp);
-    const ds = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-    const ts = dt.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
-    const ec = l.employment === 'salaried' ? 'tb-salaried' : 'tb-self';
-    const sc = l.service === 'loan' ? 'tb-loan' : 'tb-insurance';
-    return `<tr>
-      <td style="color:var(--muted);font-size:.82rem">${filtered.length - i}</td>
+  const body=document.getElementById('leadsBody');
+  const empty=document.getElementById('emptyLeads');
+  document.getElementById('tableCount').textContent=filtered.length+' record'+(filtered.length!==1?'s':'');
+  if(!filtered.length){body.innerHTML='';empty.style.display='block';document.getElementById('leadsTable').style.display='none';return;}
+  empty.style.display='none';document.getElementById('leadsTable').style.display='table';
+  body.innerHTML=filtered.slice().reverse().map((l,i)=>{
+    const dt=new Date(l.timestamp);
+    const ds=dt.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
+    const ts=dt.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+    const ec=l.employment==='salaried'?'tb-salaried':'tb-self';
+    const sc=l.service==='loan'?'tb-loan':'tb-insurance';
+    return`<tr>
+      <td style="color:var(--muted);font-size:.82rem">${filtered.length-i}</td>
       <td>${esc(l.fullName||'—')}</td>
       <td style="font-family:monospace;font-size:.83rem">${esc(l.panNumber||'—')}</td>
       <td><a href="tel:${esc(l.phone||'')}" style="color:#86efac;text-decoration:none">${esc(l.phone||'—')}</a></td>
@@ -599,215 +378,107 @@ function renderLeadsTable() {
     </tr>`;
   }).join('');
 }
-
-async function deleteLead(id) {
-  pendingAction = async () => {
-    allLeads = allLeads.filter(l => l.id !== id);
-    saveLocal(LEADS_KEY, allLeads);
-    renderLeadsUI();
-    // Also delete from sheet
-    await postToSheet({ type: 'delete_lead', id });
-    showToast('Lead deleted!');
-  };
-  showConfirm('Delete this lead record? This cannot be undone.');
+async function deleteLead(id){
+  pendingAction=async()=>{allLeads=allLeads.filter(l=>l.id!==id);saveLocal(LEADS_KEY,allLeads);renderLeadsUI();await postToSheet({type:'delete_lead',id});showToast('Lead deleted!');};
+  showConfirm('Delete this lead record?');
+}
+async function clearAllLeads(){
+  pendingAction=async()=>{allLeads=[];saveLocal(LEADS_KEY,[]);renderLeadsUI();await fetch(SCRIPT_URL+'?action=clearLeads');showToast('All leads cleared!');};
+  showConfirm('Delete ALL lead records?');
+}
+function exportCSV(){
+  if(!allLeads.length){alert('No data to export.');return;}
+  const headers=['#','Name','PAN','Phone','City','Employment','Service','ServiceType','Timestamp'];
+  const rows=allLeads.slice().reverse().map((l,i)=>[i+1,`"${(l.fullName||'').replace(/"/g,'""')}"`,l.panNumber||'',l.phone||'',`"${(l.city||'').replace(/"/g,'""')}"`,l.employment||'',l.service||'',`"${(l.serviceType||'').replace(/"/g,'""')}"`,new Date(l.timestamp).toLocaleString('en-IN')].join(','));
+  const csv=[headers.join(','),...rows].join('\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download='bc_leads_'+new Date().toISOString().slice(0,10)+'.csv';a.click();URL.revokeObjectURL(url);
 }
 
-async function clearAllLeads() {
-  pendingAction = async () => {
-    allLeads = [];
-    saveLocal(LEADS_KEY, []);
-    renderLeadsUI();
-    if (isConfigured()) {
-      await fetch(APPS_SCRIPT_URL + '?action=clearLeads');
-    }
-    showToast('All leads cleared!');
-  };
-  showConfirm('Delete ALL lead records? This cannot be undone.');
+/* POSTS */
+function renderPostsUI(){updatePostStats();renderPostsTable();}
+function updatePostStats(){
+  document.getElementById('statPosts').textContent=allPosts.length;
+  document.getElementById('statBlogPosts').textContent=allPosts.filter(p=>p.type==='blog'||p.type==='update').length;
+  document.getElementById('statMediaPosts').textContent=allPosts.filter(p=>p.type==='image'||p.type==='video').length;
+  document.getElementById('statPinned').textContent=allPosts.filter(p=>p.pinned).length;
 }
-
-function exportCSV() {
-  if (!allLeads.length) { alert('No data to export.'); return; }
-  const headers = ['#','Name','PAN','Phone','City','Employment','Service','ServiceType','Timestamp'];
-  const rows = allLeads.slice().reverse().map((l, i) => [
-    i+1, `"${(l.fullName||'').replace(/"/g,'""')}"`, l.panNumber||'', l.phone||'',
-    `"${(l.city||'').replace(/"/g,'""')}"`, l.employment||'', l.service||'',
-    `"${(l.serviceType||'').replace(/"/g,'""')}"`, new Date(l.timestamp).toLocaleString('en-IN')
-  ].join(','));
-  const csv  = [headers.join(','), ...rows].join('\n');
-  const blob = new Blob([csv], { type:'text/csv' });
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href = url; a.download = 'bc_leads_' + new Date().toISOString().slice(0,10) + '.csv'; a.click();
-  URL.revokeObjectURL(url);
-}
-
-/* ─── POSTS UI ─── */
-function renderPostsUI() {
-  updatePostStats();
-  renderPostsTable();
-}
-function updatePostStats() {
-  document.getElementById('statPosts').textContent = allPosts.length;
-  document.getElementById('statBlogPosts').textContent = allPosts.filter(p => p.type === 'blog' || p.type === 'update').length;
-  document.getElementById('statMediaPosts').textContent = allPosts.filter(p => p.type === 'image' || p.type === 'video').length;
-  document.getElementById('statPinned').textContent = allPosts.filter(p => p.pinned).length;
-}
-
-let currentPostType = 'blog';
-function setPostType(type) {
-  currentPostType = type;
-  ['blog','image','video','update'].forEach(t => {
-    document.getElementById('pt-' + t).classList.toggle('active', t === type);
-    document.getElementById(t + 'Fields').style.display = t === type ? 'block' : 'none';
+let currentPostType='blog';
+function setPostType(type){
+  currentPostType=type;
+  ['blog','image','video','update'].forEach(t=>{
+    document.getElementById('pt-'+t).classList.toggle('active',t===type);
+    document.getElementById(t+'Fields').style.display=t===type?'block':'none';
   });
 }
-
-async function publishPost() {
-  const btn   = document.getElementById('publishBtn');
-  const title = document.getElementById('postTitle').value.trim();
-  const tag   = document.getElementById('postTag').value.trim();
-  const pin   = document.getElementById('postPin').checked;
-  if (!title) { alert('Title zaroori hai!'); return; }
-
-  let postData = {
-    id: 'p_' + Date.now(),
-    type: currentPostType,
-    postType: currentPostType,  // for sheet column
-    title, tag, pinned: pin,
-    timestamp: new Date().toISOString()
-  };
-
-  if (currentPostType === 'blog') {
-    const content = document.getElementById('postContent').value.trim();
-    const cover   = document.getElementById('postCoverImage').value.trim();
-    if (!content) { alert('Article content likho!'); return; }
-    postData.content = content; postData.coverImage = cover;
-  } else if (currentPostType === 'image') {
-    const url = document.getElementById('postImageUrl').value.trim();
-    const cap = document.getElementById('postImageCaption').value.trim();
-    if (!url) { alert('Image URL daalo!'); return; }
-    postData.imageUrl = url; postData.caption = cap;
-  } else if (currentPostType === 'video') {
-    const url  = document.getElementById('postVideoUrl').value.trim();
-    const desc = document.getElementById('postVideoDesc').value.trim();
-    if (!url) { alert('Video URL daalo!'); return; }
-    postData.videoUrl = url; postData.description = desc;
-  } else if (currentPostType === 'update') {
-    const msg = document.getElementById('postUpdateMsg').value.trim();
-    const img = document.getElementById('postUpdateImage').value.trim();
-    if (!msg) { alert('Update message likho!'); return; }
-    postData.content = msg; postData.coverImage = img;
-  }
-
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span>Publishing…';
-
-  // Save locally first (our-story.html reads from localStorage)
-  allPosts.unshift(postData);
-  saveLocal(POSTS_KEY, allPosts);
-
-  // Then send to Google Sheet
-  await postToSheet({ type: 'post', ...postData });
-
-  btn.disabled = false;
-  btn.innerHTML = '&#128640; Publish to Our Story';
-  updatePostStats();
-  renderPostsTable();
-  resetPostForm();
-  showToast('&#9989; Post published on Our Story!');
+async function publishPost(){
+  const btn=document.getElementById('publishBtn');
+  const title=document.getElementById('postTitle').value.trim();
+  const tag=document.getElementById('postTag').value.trim();
+  const pin=document.getElementById('postPin').checked;
+  if(!title){alert('Title zaroori hai!');return;}
+  let pd={id:'p_'+Date.now(),type:currentPostType,postType:currentPostType,title,tag,pinned:pin,timestamp:new Date().toISOString()};
+  if(currentPostType==='blog'){const c=document.getElementById('postContent').value.trim();if(!c){alert('Content likho!');return;}pd.content=c;pd.coverImage=document.getElementById('postCoverImage').value.trim();}
+  else if(currentPostType==='image'){const u=document.getElementById('postImageUrl').value.trim();if(!u){alert('Image URL daalo!');return;}pd.imageUrl=u;pd.caption=document.getElementById('postImageCaption').value.trim();}
+  else if(currentPostType==='video'){const u=document.getElementById('postVideoUrl').value.trim();if(!u){alert('Video URL daalo!');return;}pd.videoUrl=u;pd.description=document.getElementById('postVideoDesc').value.trim();}
+  else if(currentPostType==='update'){const m=document.getElementById('postUpdateMsg').value.trim();if(!m){alert('Message likho!');return;}pd.content=m;pd.coverImage=document.getElementById('postUpdateImage').value.trim();}
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span>Publishing…';
+  allPosts.unshift(pd);saveLocal(POSTS_KEY,allPosts);
+  await postToSheet({type:'post',...pd});
+  btn.disabled=false;btn.innerHTML='&#128640; Publish to Our Story';
+  updatePostStats();renderPostsTable();resetPostForm();showToast('&#9989; Post published!');
 }
-
-function resetPostForm() {
-  ['postTitle','postTag','postContent','postCoverImage','postImageUrl','postImageCaption',
-   'postVideoUrl','postVideoDesc','postUpdateMsg','postUpdateImage'].forEach(id => {
-    const el = document.getElementById(id); if (el) el.value = '';
-  });
-  document.getElementById('postPin').checked = false;
+function resetPostForm(){
+  ['postTitle','postTag','postContent','postCoverImage','postImageUrl','postImageCaption','postVideoUrl','postVideoDesc','postUpdateMsg','postUpdateImage'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('postPin').checked=false;
 }
-
-function renderPostsTable() {
-  const body  = document.getElementById('postsBody');
-  const empty = document.getElementById('emptyPosts');
-  document.getElementById('postsCount').textContent = allPosts.length + ' post' + (allPosts.length !== 1 ? 's' : '');
-  if (!allPosts.length) { body.innerHTML = ''; empty.style.display = 'block'; return; }
-  empty.style.display = 'none';
-  const sorted = [...allPosts].sort((a,b) => {
-    if (a.pinned && !b.pinned) return -1;
-    if (!a.pinned && b.pinned) return 1;
-    return new Date(b.timestamp) - new Date(a.timestamp);
-  });
-  const typeClass = { blog:'tb-blog', image:'tb-image', video:'tb-video', update:'tb-post' };
-  const typeIcon  = { blog:'&#128221;', image:'&#128247;', video:'&#127910;', update:'&#128226;' };
-  body.innerHTML = sorted.map((p, i) => {
-    const dt = new Date(p.timestamp);
-    const ds = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-    const ts = dt.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
-    const tc = typeClass[p.type] || 'tb-post';
-    const ti = typeIcon[p.type] || '&#128203;';
-    return `<tr>
+function renderPostsTable(){
+  const body=document.getElementById('postsBody');
+  const empty=document.getElementById('emptyPosts');
+  document.getElementById('postsCount').textContent=allPosts.length+' post'+(allPosts.length!==1?'s':'');
+  if(!allPosts.length){body.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  const sorted=[...allPosts].sort((a,b)=>{if(a.pinned&&!b.pinned)return-1;if(!a.pinned&&b.pinned)return 1;return new Date(b.timestamp)-new Date(a.timestamp);});
+  const tc={blog:'tb-blog',image:'tb-image',video:'tb-video',update:'tb-post'};
+  const ti={blog:'&#128221;',image:'&#128247;',video:'&#127910;',update:'&#128226;'};
+  body.innerHTML=sorted.map((p,i)=>{
+    const dt=new Date(p.timestamp);
+    const ds=dt.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
+    const ts=dt.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+    return`<tr>
       <td style="color:var(--muted);font-size:.82rem">${i+1}</td>
       <td style="max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(p.title)}</td>
-      <td><span class="type-badge ${tc}">${ti} ${esc(p.type)}</span></td>
+      <td><span class="type-badge ${tc[p.type]||'tb-post'}">${ti[p.type]||'&#128203;'} ${esc(p.type)}</span></td>
       <td style="color:var(--muted)">${esc(p.tag||'—')}</td>
-      <td>${p.pinned ? '<span style="color:var(--gold);">&#128204; Pinned</span>' : '<span style="color:var(--muted);">—</span>'}</td>
+      <td>${p.pinned?'<span style="color:var(--gold);">&#128204; Pinned</span>':'<span style="color:var(--muted);">—</span>'}</td>
       <td style="color:var(--muted);font-size:.82rem">${ds}<br>${ts}</td>
       <td>
-        <button class="pin-btn ${p.pinned?'pinned':''}" onclick="togglePin('${esc(p.id)}')">${p.pinned ? '&#128204; Unpin' : '&#128203; Pin'}</button>
+        <button class="pin-btn ${p.pinned?'pinned':''}" onclick="togglePin('${esc(p.id)}')">${p.pinned?'&#128204; Unpin':'&#128203; Pin'}</button>
         <button class="action-btn" onclick="deletePost('${esc(p.id)}')">&#128465; Del</button>
       </td>
     </tr>`;
   }).join('');
 }
-
-async function togglePin(id) {
-  const post = allPosts.find(p => p.id === id);
-  if (!post) return;
-  post.pinned = !post.pinned;
-  saveLocal(POSTS_KEY, allPosts);
-  await postToSheet({ type: 'toggle_pin', id, pinned: post.pinned });
-  updatePostStats(); renderPostsTable();
-  showToast('Pin status updated!');
+async function togglePin(id){
+  const post=allPosts.find(p=>p.id===id);if(!post)return;
+  post.pinned=!post.pinned;saveLocal(POSTS_KEY,allPosts);
+  await postToSheet({type:'toggle_pin',id,pinned:post.pinned});
+  updatePostStats();renderPostsTable();showToast('Pin updated!');
+}
+async function deletePost(id){
+  pendingAction=async()=>{allPosts=allPosts.filter(p=>p.id!==id);saveLocal(POSTS_KEY,allPosts);await postToSheet({type:'delete_post',id});updatePostStats();renderPostsTable();showToast('Post deleted!');};
+  showConfirm('Yeh post delete kar dein?');
 }
 
-async function deletePost(id) {
-  pendingAction = async () => {
-    allPosts = allPosts.filter(p => p.id !== id);
-    saveLocal(POSTS_KEY, allPosts);
-    await postToSheet({ type: 'delete_post', id });
-    updatePostStats(); renderPostsTable();
-    showToast('Post deleted!');
-  };
-  showConfirm('Yeh post delete kar dein? Our Story se bhi hata jayega.');
-}
+function showAlert(id,msg,type=''){const el=document.getElementById(id);el.textContent=msg;el.className='alert-banner '+type;el.style.display='flex';}
+let pendingAction=null;
+function showConfirm(msg){document.getElementById('confirmMsg').textContent=msg;document.getElementById('confirmOverlay').classList.add('show');}
+function closeConfirm(){pendingAction=null;document.getElementById('confirmOverlay').classList.remove('show');}
+function executeConfirm(){if(pendingAction){pendingAction();}closeConfirm();}
+function showToast(msg){const t=document.getElementById('toast');t.innerHTML=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
 
-/* ─── ALERT ─── */
-function showAlert(id, msg, type='') {
-  const el = document.getElementById(id);
-  el.textContent = msg;
-  el.className = 'alert-banner ' + type;
-  el.style.display = 'flex';
-}
-
-/* ─── CONFIRM ─── */
-let pendingAction = null;
-function showConfirm(msg) {
-  document.getElementById('confirmMsg').textContent = msg;
-  document.getElementById('confirmOverlay').classList.add('show');
-}
-function closeConfirm() { pendingAction = null; document.getElementById('confirmOverlay').classList.remove('show'); }
-function executeConfirm() { if (pendingAction) { pendingAction(); } closeConfirm(); }
-
-/* ─── TOAST ─── */
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.innerHTML = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
-}
-
-/* Auto-refresh every 60s */
-setInterval(() => {
-  if (sessionStorage.getItem('bc_admin_auth') === '1') syncAll();
-}, 60000);
+setInterval(()=>{if(sessionStorage.getItem('bc_admin_auth')==='1')syncAll();},60000);
 </script>
 </body>
 </html>
