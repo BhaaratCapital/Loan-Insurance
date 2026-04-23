@@ -11,10 +11,10 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;}
 .login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 30% 40%,rgba(249,115,22,0.07) 0%,transparent 55%),var(--bg);}
-.login-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2.5rem 2rem;width:100%;max-width:360px;box-shadow:0 24px 80px rgba(0,0,0,.5);}
+.login-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2.5rem 2rem;width:100%;max-width:380px;box-shadow:0 24px 80px rgba(0,0,0,.5);}
 .login-card::before{content:'';display:block;height:3px;background:linear-gradient(90deg,#22c55e,var(--orange),var(--gold));border-radius:20px 20px 0 0;margin:-2.5rem -2rem 2rem;}
 .login-card h2{font-size:1.5rem;font-weight:700;margin-bottom:.3rem;color:#fff;}
-.login-card p{color:var(--muted);font-size:.85rem;margin-bottom:1.8rem;}
+.login-card .sub{color:var(--muted);font-size:.85rem;margin-bottom:1.8rem;}
 .field{margin-bottom:1.1rem;}
 .field label{display:block;font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;}
 .field input,.field textarea,.field select{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:.8rem 1rem;color:var(--text);font-size:.9rem;font-family:var(--font);outline:none;transition:border-color .2s;}
@@ -24,30 +24,39 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 .login-btn{width:100%;padding:.85rem;background:linear-gradient(135deg,var(--orange),var(--gold));color:#fff;border:none;border-radius:50px;font-weight:700;font-size:.95rem;font-family:var(--font);cursor:pointer;transition:all .2s;margin-top:.5rem;}
 .login-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,115,22,.4);}
 .login-error{color:#ef4444;font-size:.82rem;margin-top:.8rem;display:none;text-align:center;}
+
+/* INFO BOX on login */
+.info-box{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.5rem;font-size:.82rem;color:#86efac;line-height:1.6;}
+.info-box strong{color:#4ade80;display:block;margin-bottom:.3rem;}
+
 .dash{display:none;min-height:100vh;}
 .topbar{background:rgba(10,10,15,.95);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);}
 .topbar-left{display:flex;align-items:center;gap:1rem;}
 .topbar-logo{font-size:1.1rem;font-weight:700;color:var(--gold);}
 .topbar-badge{background:rgba(249,115,22,.15);color:var(--orange);border:1px solid rgba(249,115,22,.3);border-radius:50px;padding:.2rem .7rem;font-size:.72rem;font-weight:700;}
-.sync-badge{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.3);border-radius:50px;padding:.2rem .7rem;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;}
-.sync-badge:hover{background:rgba(34,197,94,.25);}
+.formspree-badge{background:rgba(34,197,94,.15);color:var(--green);border:1px solid rgba(34,197,94,.3);border-radius:50px;padding:.2rem .7rem;font-size:.72rem;font-weight:700;}
 .logout-btn{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.3);border-radius:8px;padding:.45rem 1rem;font-size:.82rem;font-weight:700;font-family:var(--font);cursor:pointer;transition:all .2s;}
 .logout-btn:hover{background:rgba(239,68,68,.2);}
+
 .tabs{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;gap:0;overflow-x:auto;}
 .tab-btn{padding:1rem 1.5rem;background:none;border:none;border-bottom:3px solid transparent;color:var(--muted);font-size:.88rem;font-weight:600;font-family:var(--font);cursor:pointer;transition:all .2s;white-space:nowrap;}
 .tab-btn:hover{color:var(--text);}
 .tab-btn.active{color:var(--orange);border-bottom-color:var(--orange);}
+
 .main{max-width:1400px;margin:0 auto;padding:2rem;}
 .tab-panel{display:none;}
 .tab-panel.active{display:block;}
-.alert-banner{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);border-radius:12px;padding:1rem 1.3rem;margin-bottom:1.5rem;font-size:.85rem;color:#93c5fd;display:flex;align-items:center;gap:.6rem;}
-.alert-banner.success{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.3);color:#86efac;}
-.alert-banner.error{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.3);color:#fca5a5;}
+
+/* Alert */
+.alert-info{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);border-radius:12px;padding:1rem 1.3rem;margin-bottom:1.5rem;font-size:.85rem;color:#93c5fd;line-height:1.6;}
+.alert-info a{color:#60a5fa;font-weight:700;}
+
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
 .stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.3rem 1.5rem;}
 .stat-card .s-label{font-size:.75rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem;}
 .stat-card .s-num{font-size:2rem;font-weight:700;color:var(--gold);line-height:1;}
 .stat-card .s-sub{font-size:.78rem;color:var(--muted);margin-top:.3rem;}
+
 .filters{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.5rem;margin-bottom:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;}
 .filter-label{font-size:.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;}
 .filter-select,.filter-input{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.5rem .8rem;color:var(--text);font-size:.85rem;font-family:var(--font);outline:none;min-width:140px;}
@@ -56,6 +65,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
 .clear-btn:hover{background:rgba(239,68,68,.2);}
 .export-btn{background:linear-gradient(135deg,var(--green),#16a34a);color:#fff;border:none;border-radius:8px;padding:.5rem 1rem;font-size:.82rem;font-family:var(--font);cursor:pointer;font-weight:700;transition:all .2s;}
 .export-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(34,197,94,.3);}
+.refresh-btn{background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3);border-radius:8px;padding:.5rem 1rem;font-size:.82rem;font-family:var(--font);cursor:pointer;font-weight:600;transition:all .2s;}
+.refresh-btn:hover{background:rgba(59,130,246,.25);}
+
 .table-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
 .table-header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
 .table-header h3{font-size:1rem;font-weight:700;color:#fff;}
@@ -74,30 +86,32 @@ tbody td:first-child{color:#F1F1F8;font-weight:600;}
 .tb-insurance{background:rgba(249,115,22,.15);color:#fed7aa;border:1px solid rgba(249,115,22,.3);}
 .tb-salaried{background:rgba(20,184,166,.15);color:#99f6e4;border:1px solid rgba(20,184,166,.3);}
 .tb-self{background:rgba(245,158,11,.15);color:#fde68a;border:1px solid rgba(245,158,11,.3);}
-.tb-post{background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3);}
-.tb-blog{background:rgba(168,85,247,.15);color:#d8b4fe;border:1px solid rgba(168,85,247,.3);}
-.tb-video{background:rgba(239,68,68,.15);color:#fca5a5;border:1px solid rgba(239,68,68,.3);}
-.tb-image{background:rgba(20,184,166,.15);color:#99f6e4;border:1px solid rgba(20,184,166,.3);}
 .action-btn{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.25);border-radius:6px;padding:4px 10px;font-size:.75rem;font-family:var(--font);cursor:pointer;font-weight:600;transition:all .2s;}
 .action-btn:hover{background:rgba(239,68,68,.2);}
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--muted);}
 .empty-state .icon{font-size:3rem;margin-bottom:1rem;opacity:.4;}
-.empty-state p{font-size:.9rem;}
+.empty-state p{font-size:.9rem;line-height:1.6;}
+
+/* Posts */
 .post-creator{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:2rem;}
 .post-creator h3{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.3rem;}
-.post-creator p{font-size:.83rem;color:var(--muted);margin-bottom:1.5rem;}
+.post-creator p.sub{font-size:.83rem;color:var(--muted);margin-bottom:1.5rem;}
 .post-type-row{display:flex;gap:.7rem;margin-bottom:1.5rem;flex-wrap:wrap;}
 .pt-btn{padding:.5rem 1.1rem;border-radius:50px;border:1.5px solid rgba(255,255,255,.12);background:transparent;color:var(--muted);font-size:.82rem;font-weight:600;font-family:var(--font);cursor:pointer;transition:all .2s;}
 .pt-btn.active{border-color:var(--orange);color:var(--orange);background:rgba(249,115,22,.1);}
 .post-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
 .submit-post-btn{background:linear-gradient(135deg,var(--orange),var(--gold));color:#fff;border:none;border-radius:50px;padding:.75rem 2rem;font-size:.9rem;font-weight:700;font-family:var(--font);cursor:pointer;transition:all .2s;margin-top:1rem;}
 .submit-post-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,115,22,.4);}
-.submit-post-btn:disabled{opacity:.6;cursor:default;transform:none;}
 .posts-table-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
 .posts-table{min-width:700px;}
 .pin-btn{background:rgba(245,158,11,.1);color:var(--gold);border:1px solid rgba(245,158,11,.25);border-radius:6px;padding:4px 10px;font-size:.75rem;font-family:var(--font);cursor:pointer;font-weight:600;transition:all .2s;margin-right:5px;}
 .pin-btn:hover{background:rgba(245,158,11,.2);}
 .pin-btn.pinned{background:rgba(245,158,11,.25);color:#fde68a;}
+.tb-blog{background:rgba(168,85,247,.15);color:#d8b4fe;border:1px solid rgba(168,85,247,.3);}
+.tb-video{background:rgba(239,68,68,.15);color:#fca5a5;border:1px solid rgba(239,68,68,.3);}
+.tb-image{background:rgba(20,184,166,.15);color:#99f6e4;border:1px solid rgba(20,184,166,.3);}
+.tb-post{background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3);}
+
 .confirm-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
 .confirm-overlay.show{display:flex;}
 .confirm-card{background:var(--bg2);border:1px solid rgba(239,68,68,.3);border-radius:16px;padding:2rem;text-align:center;max-width:340px;width:90%;box-shadow:0 24px 80px rgba(0,0,0,.6);}
@@ -106,10 +120,10 @@ tbody td:first-child{color:#F1F1F8;font-weight:600;}
 .confirm-btns{display:flex;gap:.7rem;justify-content:center;}
 .cb-cancel{background:rgba(255,255,255,.07);color:var(--text);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:.6rem 1.3rem;font-size:.88rem;font-family:var(--font);cursor:pointer;}
 .cb-del{background:#ef4444;color:#fff;border:none;border-radius:8px;padding:.6rem 1.3rem;font-size:.88rem;font-family:var(--font);cursor:pointer;font-weight:700;}
+
 .toast{position:fixed;bottom:2rem;right:2rem;background:var(--bg2);border:1px solid rgba(34,197,94,.4);border-radius:12px;padding:1rem 1.5rem;color:#86efac;font-size:.88rem;font-weight:600;z-index:9999;transform:translateY(100px);opacity:0;transition:all .3s;box-shadow:0 8px 32px rgba(0,0,0,.4);}
 .toast.show{transform:translateY(0);opacity:1;}
-.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-radius:50%;border-top-color:#fff;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px;}
-@keyframes spin{to{transform:rotate(360deg);}}
+
 @media(max-width:1024px){.stats-row{grid-template-columns:1fr 1fr;}.post-grid{grid-template-columns:1fr;}}
 @media(max-width:768px){.main{padding:1rem;}.stats-row{grid-template-columns:1fr 1fr;}}
 @media(max-width:480px){.stats-row{grid-template-columns:1fr;}}
@@ -117,10 +131,18 @@ tbody td:first-child{color:#F1F1F8;font-weight:600;}
 </head>
 <body>
 
+<!-- LOGIN -->
 <div class="login-wrap" id="loginWrap">
   <div class="login-card">
     <h2>&#128274; Admin Panel</h2>
-    <p>Bhaarat Capital — Internal Dashboard</p>
+    <p class="sub">Bhaarat Capital — Internal Dashboard</p>
+
+    <div class="info-box">
+      <strong>&#128161; Admin Panel kaise kaam karta hai?</strong>
+      Jab koi user <b>usi device/browser</b> se form bharta hai, lead yahan dikhti hai.<br>
+      Saari leads email pe bhi aati hain — <b>formspree.io/dashboard</b> pe bhi dekh sakte ho.
+    </div>
+
     <div class="field"><label>Username</label><input type="text" id="loginUser" placeholder="Enter username" autocomplete="username"></div>
     <div class="field"><label>Password</label><input type="password" id="loginPass" placeholder="Enter password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
     <button class="login-btn" onclick="doLogin()">Login to Dashboard</button>
@@ -128,62 +150,91 @@ tbody td:first-child{color:#F1F1F8;font-weight:600;}
   </div>
 </div>
 
+<!-- DASHBOARD -->
 <div class="dash" id="dashWrap">
   <div class="topbar">
     <div class="topbar-left">
       <span class="topbar-logo">&#127470;&#127475; Bhaarat Capital</span>
       <span class="topbar-badge">Admin Panel</span>
-      <span class="sync-badge" onclick="syncAll()" id="syncBadge">&#8635; Sync Now</span>
+      <a href="https://formspree.io/forms/mqewgryr/submissions" target="_blank" class="formspree-badge">&#128202; Formspree Dashboard &#8599;</a>
     </div>
     <button class="logout-btn" onclick="doLogout()">&#128275; Logout</button>
   </div>
+
   <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('leads',this)">&#128203; Leads / Forms</button>
     <button class="tab-btn" onclick="switchTab('posts',this)">&#128221; Our Story Posts</button>
   </div>
+
   <div class="main">
 
     <!-- TAB 1: LEADS -->
     <div class="tab-panel active" id="tab-leads">
-      <div class="alert-banner" id="leadsAlert" style="display:none;"></div>
+
+      <div class="alert-info">
+        &#128204; <strong>Leads kahan se aati hain?</strong>
+        Jab koi aapki website pe form bharta hai, lead <b>2 jagah</b> save hoti hai:<br>
+        1. <b>Is panel mein</b> — usi device/browser pe<br>
+        2. <b><a href="https://formspree.io/forms/mqewgryr/submissions" target="_blank">Formspree Dashboard</a></b> — har device se, email notification ke saath ✅
+      </div>
+
       <div class="stats-row">
-        <div class="stat-card"><div class="s-label">Total Leads</div><div class="s-num" id="statTotal">0</div><div class="s-sub">All submissions</div></div>
+        <div class="stat-card"><div class="s-label">Total Leads</div><div class="s-num" id="statTotal">0</div><div class="s-sub">Is browser mein</div></div>
         <div class="stat-card"><div class="s-label">Loan Enquiries</div><div class="s-num" id="statLoans" style="color:#86efac;">0</div><div class="s-sub">Loan requests</div></div>
-        <div class="stat-card"><div class="s-label">Insurance Enquiries</div><div class="s-num" id="statIns" style="color:#fed7aa;">0</div><div class="s-sub">Insurance requests</div></div>
+        <div class="stat-card"><div class="s-label">Insurance</div><div class="s-num" id="statIns" style="color:#fed7aa;">0</div><div class="s-sub">Insurance requests</div></div>
         <div class="stat-card"><div class="s-label">Today's Leads</div><div class="s-num" id="statToday" style="color:#fde68a;">0</div><div class="s-sub">Since midnight</div></div>
       </div>
+
       <div class="filters">
         <span class="filter-label">Filter:</span>
-        <select class="filter-select" id="filterService" onchange="renderLeadsTable()"><option value="">All Services</option><option value="loan">Loan</option><option value="insurance">Insurance</option></select>
-        <select class="filter-select" id="filterEmp" onchange="renderLeadsTable()"><option value="">All Employment</option><option value="salaried">Salaried</option><option value="self-employed">Self Employed</option></select>
-        <input type="text" class="filter-input" id="filterSearch" placeholder="Search name / phone..." oninput="renderLeadsTable()" style="min-width:200px;">
+        <select class="filter-select" id="filterService" onchange="renderLeadsTable()">
+          <option value="">All Services</option><option value="loan">Loan</option><option value="insurance">Insurance</option>
+        </select>
+        <select class="filter-select" id="filterEmp" onchange="renderLeadsTable()">
+          <option value="">All Employment</option><option value="salaried">Salaried</option><option value="self-employed">Self Employed</option>
+        </select>
+        <input type="text" class="filter-input" id="filterSearch" placeholder="Search name / phone..." oninput="renderLeadsTable()" style="min-width:180px;">
+        <button class="refresh-btn" onclick="refreshLeads()">&#8635; Refresh</button>
         <button class="export-btn" onclick="exportCSV()">&#11015; Export CSV</button>
         <button class="clear-btn" onclick="clearAllLeads()">&#128465; Clear All</button>
       </div>
+
       <div class="table-wrap">
-        <div class="table-header"><h3>&#128203; Form Submissions</h3><span id="tableCount">Loading…</span></div>
+        <div class="table-header">
+          <h3>&#128203; Form Submissions</h3>
+          <span id="tableCount">0 records</span>
+        </div>
         <div class="tbl-scroll">
           <table id="leadsTable">
-            <thead><tr><th>#</th><th>Name</th><th>PAN</th><th>Phone</th><th>City</th><th>Employment</th><th>Service</th><th>Type</th><th>Submitted</th><th>Action</th></tr></thead>
+            <thead>
+              <tr><th>#</th><th>Name</th><th>PAN</th><th>Phone</th><th>City</th><th>Employment</th><th>Service</th><th>Type</th><th>Submitted</th><th>Action</th></tr>
+            </thead>
             <tbody id="leadsBody"></tbody>
           </table>
         </div>
-        <div class="empty-state" id="emptyLeads" style="display:none;"><div class="icon">&#128203;</div><p>No form submissions yet.</p></div>
+        <div class="empty-state" id="emptyLeads" style="display:none;">
+          <div class="icon">&#128203;</div>
+          <p>
+            Abhi tak koi lead nahi.<br><br>
+            &#128161; <strong>Formspree Dashboard</strong> par jao saari leads dekhne ke liye:<br>
+            <a href="https://formspree.io/forms/mqewgryr/submissions" target="_blank" style="color:#60a5fa;font-weight:700;">formspree.io/dashboard &#8599;</a>
+          </p>
+        </div>
       </div>
     </div>
 
     <!-- TAB 2: POSTS -->
     <div class="tab-panel" id="tab-posts">
-      <div class="alert-banner" id="postsAlert" style="display:none;"></div>
       <div class="stats-row" style="margin-bottom:2rem;">
         <div class="stat-card"><div class="s-label">Total Posts</div><div class="s-num" id="statPosts" style="color:#93c5fd;">0</div><div class="s-sub">Published on Our Story</div></div>
         <div class="stat-card"><div class="s-label">Blog Posts</div><div class="s-num" id="statBlogPosts" style="color:#d8b4fe;">0</div><div class="s-sub">Written articles</div></div>
         <div class="stat-card"><div class="s-label">Media Posts</div><div class="s-num" id="statMediaPosts" style="color:#99f6e4;">0</div><div class="s-sub">Images &amp; Videos</div></div>
         <div class="stat-card"><div class="s-label">Pinned Posts</div><div class="s-num" id="statPinned" style="color:#fde68a;">0</div><div class="s-sub">Featured at top</div></div>
       </div>
+
       <div class="post-creator">
         <h3>&#10133; Create New Post for Our Story</h3>
-        <p>Post karo — blog, image, ya video. Yeh turant Our Story page par dikhega.</p>
+        <p class="sub">Post karo — blog, image, ya video. Yeh turant Our Story page par dikhega.</p>
         <div class="post-type-row">
           <button class="pt-btn active" id="pt-blog" onclick="setPostType('blog')">&#128221; Blog / Article</button>
           <button class="pt-btn" id="pt-image" onclick="setPostType('image')">&#128247; Image Post</button>
@@ -200,10 +251,10 @@ tbody td:first-child{color:#F1F1F8;font-weight:600;}
         </div>
         <div id="imageFields" style="display:none;">
           <div class="field"><label>Image URL *</label><input type="url" id="postImageUrl" placeholder="https://... paste image link"></div>
-          <div class="field"><label>Caption / Description</label><textarea id="postImageCaption" rows="3" placeholder="Image ke baare mein kuch likho..."></textarea></div>
+          <div class="field"><label>Caption</label><textarea id="postImageCaption" rows="3" placeholder="Image ke baare mein kuch likho..."></textarea></div>
         </div>
         <div id="videoFields" style="display:none;">
-          <div class="field"><label>Video URL *</label><input type="url" id="postVideoUrl" placeholder="https://www.youtube.com/watch?v=..."></div>
+          <div class="field"><label>Video URL * (YouTube / Reel)</label><input type="url" id="postVideoUrl" placeholder="https://www.youtube.com/watch?v=..."></div>
           <div class="field"><label>Video Description</label><textarea id="postVideoDesc" rows="3" placeholder="Video ke baare mein kuch likho..."></textarea></div>
         </div>
         <div id="updateFields" style="display:none;">
@@ -216,8 +267,9 @@ tbody td:first-child{color:#F1F1F8;font-weight:600;}
         </div>
         <button class="submit-post-btn" id="publishBtn" onclick="publishPost()">&#128640; Publish to Our Story</button>
       </div>
+
       <div class="posts-table-wrap">
-        <div class="table-header"><h3>&#128221; Published Posts</h3><span id="postsCount">Loading…</span></div>
+        <div class="table-header"><h3>&#128221; Published Posts</h3><span id="postsCount">0 posts</span></div>
         <div class="tbl-scroll">
           <table class="posts-table">
             <thead><tr><th>#</th><th>Title</th><th>Type</th><th>Tag</th><th>Pinned</th><th>Published</th><th>Actions</th></tr></thead>
@@ -231,6 +283,7 @@ tbody td:first-child{color:#F1F1F8;font-weight:600;}
   </div>
 </div>
 
+<!-- CONFIRM -->
 <div class="confirm-overlay" id="confirmOverlay">
   <div class="confirm-card">
     <h3>&#9888;&#65039; Confirm Delete</h3>
@@ -244,18 +297,18 @@ tbody td:first-child{color:#F1F1F8;font-weight:600;}
 <div class="toast" id="toast">&#9989; Done!</div>
 
 <script>
-/* ════════════════════════════════════════════════════
-   FINAL CORRECT URL — "BhaaratCapital Leads" deployment
-   ════════════════════════════════════════════════════ */
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxFMT1trMJwjGzCOlqEM_6TuB_QYza_eBWwCUevH8fDd4aTuRu3f0bDYgNpqja_cCIH/exec';
-
+/* ═══════════════════════════════
+   CONFIG
+   ═══════════════════════════════ */
 const ADMIN_USER = 'Chintu.Singh';
 const ADMIN_PASS = 'Singh.1984';
 const LEADS_KEY  = 'bc_leads';
 const POSTS_KEY  = 'bc_story_posts';
+
 let allLeads = [];
 let allPosts = [];
 
+/* HELPERS */
 function getLocal(k){ try{return JSON.parse(localStorage.getItem(k)||'[]');}catch(e){return[];} }
 function saveLocal(k,d){ try{localStorage.setItem(k,JSON.stringify(d));}catch(e){} }
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -269,7 +322,9 @@ function doLogin(){
     document.getElementById('loginWrap').style.display='none';
     document.getElementById('dashWrap').style.display='block';
     loadDashboard();
-  } else { document.getElementById('loginError').style.display='block'; }
+  } else {
+    document.getElementById('loginError').style.display='block';
+  }
 }
 function doLogout(){
   sessionStorage.removeItem('bc_admin_auth');
@@ -292,50 +347,26 @@ function switchTab(name,btn){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('tab-'+name).classList.add('active');
   btn.classList.add('active');
-  if(name==='leads'){renderLeadsUI();}
-  if(name==='posts'){renderPostsUI();}
+  if(name==='leads') renderLeadsUI();
+  if(name==='posts') renderPostsUI();
 }
 
-/* FETCH */
-async function fetchLeads(){
-  try{
-    const res=await fetch(SCRIPT_URL+'?action=getLeads&t='+Date.now());
-    const data=await res.json();
-    if(Array.isArray(data)){allLeads=data;saveLocal(LEADS_KEY,data);}
-  }catch(err){allLeads=getLocal(LEADS_KEY);}
-}
-async function fetchPosts(){
-  try{
-    const res=await fetch(SCRIPT_URL+'?action=getPosts&t='+Date.now());
-    const data=await res.json();
-    if(Array.isArray(data)){allPosts=data;saveLocal(POSTS_KEY,data);}
-  }catch(err){allPosts=getLocal(POSTS_KEY);}
-}
-async function postToSheet(payload){
-  try{
-    await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)});
-  }catch(err){}
-}
-
-async function loadDashboard(){
-  await fetchLeads();
-  await fetchPosts();
+/* LOAD */
+function loadDashboard(){
+  allLeads = getLocal(LEADS_KEY);
+  allPosts = getLocal(POSTS_KEY);
   renderLeadsUI();
   renderPostsUI();
 }
-async function syncAll(){
-  const badge=document.getElementById('syncBadge');
-  badge.innerHTML='<span class="spinner"></span>Syncing…';
-  await fetchLeads();
-  await fetchPosts();
+
+function refreshLeads(){
+  allLeads = getLocal(LEADS_KEY);
   renderLeadsUI();
-  renderPostsUI();
-  badge.innerHTML='&#8635; Sync Now';
-  showToast('&#9989; Data synced!');
+  showToast('&#8635; Refreshed!');
 }
 
 /* LEADS */
-function renderLeadsUI(){updateLeadStats();renderLeadsTable();}
+function renderLeadsUI(){ updateLeadStats(); renderLeadsTable(); }
 function updateLeadStats(){
   const today=new Date().toDateString();
   document.getElementById('statTotal').textContent=allLeads.length;
@@ -356,8 +387,12 @@ function renderLeadsTable(){
   const body=document.getElementById('leadsBody');
   const empty=document.getElementById('emptyLeads');
   document.getElementById('tableCount').textContent=filtered.length+' record'+(filtered.length!==1?'s':'');
-  if(!filtered.length){body.innerHTML='';empty.style.display='block';document.getElementById('leadsTable').style.display='none';return;}
-  empty.style.display='none';document.getElementById('leadsTable').style.display='table';
+  if(!filtered.length){
+    body.innerHTML='';empty.style.display='block';
+    document.getElementById('leadsTable').style.display='none';return;
+  }
+  empty.style.display='none';
+  document.getElementById('leadsTable').style.display='table';
   body.innerHTML=filtered.slice().reverse().map((l,i)=>{
     const dt=new Date(l.timestamp);
     const ds=dt.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
@@ -378,12 +413,15 @@ function renderLeadsTable(){
     </tr>`;
   }).join('');
 }
-async function deleteLead(id){
-  pendingAction=async()=>{allLeads=allLeads.filter(l=>l.id!==id);saveLocal(LEADS_KEY,allLeads);renderLeadsUI();await postToSheet({type:'delete_lead',id});showToast('Lead deleted!');};
+function deleteLead(id){
+  pendingAction=()=>{
+    allLeads=allLeads.filter(l=>l.id!==id);
+    saveLocal(LEADS_KEY,allLeads);renderLeadsUI();showToast('Lead deleted!');
+  };
   showConfirm('Delete this lead record?');
 }
-async function clearAllLeads(){
-  pendingAction=async()=>{allLeads=[];saveLocal(LEADS_KEY,[]);renderLeadsUI();await fetch(SCRIPT_URL+'?action=clearLeads');showToast('All leads cleared!');};
+function clearAllLeads(){
+  pendingAction=()=>{allLeads=[];saveLocal(LEADS_KEY,[]);renderLeadsUI();showToast('All leads cleared!');};
   showConfirm('Delete ALL lead records?');
 }
 function exportCSV(){
@@ -397,7 +435,7 @@ function exportCSV(){
 }
 
 /* POSTS */
-function renderPostsUI(){updatePostStats();renderPostsTable();}
+function renderPostsUI(){ updatePostStats(); renderPostsTable(); }
 function updatePostStats(){
   document.getElementById('statPosts').textContent=allPosts.length;
   document.getElementById('statBlogPosts').textContent=allPosts.filter(p=>p.type==='blog'||p.type==='update').length;
@@ -412,8 +450,7 @@ function setPostType(type){
     document.getElementById(t+'Fields').style.display=t===type?'block':'none';
   });
 }
-async function publishPost(){
-  const btn=document.getElementById('publishBtn');
+function publishPost(){
   const title=document.getElementById('postTitle').value.trim();
   const tag=document.getElementById('postTag').value.trim();
   const pin=document.getElementById('postPin').checked;
@@ -423,11 +460,8 @@ async function publishPost(){
   else if(currentPostType==='image'){const u=document.getElementById('postImageUrl').value.trim();if(!u){alert('Image URL daalo!');return;}pd.imageUrl=u;pd.caption=document.getElementById('postImageCaption').value.trim();}
   else if(currentPostType==='video'){const u=document.getElementById('postVideoUrl').value.trim();if(!u){alert('Video URL daalo!');return;}pd.videoUrl=u;pd.description=document.getElementById('postVideoDesc').value.trim();}
   else if(currentPostType==='update'){const m=document.getElementById('postUpdateMsg').value.trim();if(!m){alert('Message likho!');return;}pd.content=m;pd.coverImage=document.getElementById('postUpdateImage').value.trim();}
-  btn.disabled=true;btn.innerHTML='<span class="spinner"></span>Publishing…';
   allPosts.unshift(pd);saveLocal(POSTS_KEY,allPosts);
-  await postToSheet({type:'post',...pd});
-  btn.disabled=false;btn.innerHTML='&#128640; Publish to Our Story';
-  updatePostStats();renderPostsTable();resetPostForm();showToast('&#9989; Post published!');
+  updatePostStats();renderPostsTable();resetPostForm();showToast('&#9989; Post published on Our Story!');
 }
 function resetPostForm(){
   ['postTitle','postTag','postContent','postCoverImage','postImageUrl','postImageCaption','postVideoUrl','postVideoDesc','postUpdateMsg','postUpdateImage'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
@@ -460,25 +494,21 @@ function renderPostsTable(){
     </tr>`;
   }).join('');
 }
-async function togglePin(id){
+function togglePin(id){
   const post=allPosts.find(p=>p.id===id);if(!post)return;
   post.pinned=!post.pinned;saveLocal(POSTS_KEY,allPosts);
-  await postToSheet({type:'toggle_pin',id,pinned:post.pinned});
   updatePostStats();renderPostsTable();showToast('Pin updated!');
 }
-async function deletePost(id){
-  pendingAction=async()=>{allPosts=allPosts.filter(p=>p.id!==id);saveLocal(POSTS_KEY,allPosts);await postToSheet({type:'delete_post',id});updatePostStats();renderPostsTable();showToast('Post deleted!');};
+function deletePost(id){
+  pendingAction=()=>{allPosts=allPosts.filter(p=>p.id!==id);saveLocal(POSTS_KEY,allPosts);updatePostStats();renderPostsTable();showToast('Post deleted!');};
   showConfirm('Yeh post delete kar dein?');
 }
 
-function showAlert(id,msg,type=''){const el=document.getElementById(id);el.textContent=msg;el.className='alert-banner '+type;el.style.display='flex';}
 let pendingAction=null;
 function showConfirm(msg){document.getElementById('confirmMsg').textContent=msg;document.getElementById('confirmOverlay').classList.add('show');}
 function closeConfirm(){pendingAction=null;document.getElementById('confirmOverlay').classList.remove('show');}
-function executeConfirm(){if(pendingAction){pendingAction();}closeConfirm();}
+function executeConfirm(){if(pendingAction)pendingAction();closeConfirm();}
 function showToast(msg){const t=document.getElementById('toast');t.innerHTML=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
-
-setInterval(()=>{if(sessionStorage.getItem('bc_admin_auth')==='1')syncAll();},60000);
 </script>
 </body>
 </html>
