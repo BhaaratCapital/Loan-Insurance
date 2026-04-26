@@ -7,19 +7,141 @@
 <meta name="description" content="Health Insurance, Motor Insurance, Corporate Insurance & Term Plans from 15+ top insurers. Free expert advice."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"/>
 <style>
-/* ---- Page Hero Override for Insurance (dark theme like homepage) ---- */
-.page-hero {
-  min-height: 45vh;
-  background: linear-gradient(160deg, #0A0A0F 0%, #1A0A00 60%, #0A0A0F 100%) !important;
+:root {
+  --orange: #F97316;
+  --orange-light: rgba(249,115,22,.12);
+  --orange-dark: #EA580C;
+  --teal: #1DB875;
+  --gold: #D4A017;
+  --dark: #0A0A0F;
+  --dark2: #12121A;
+  --dark3: #1A1A28;
+  --border: rgba(255,255,255,.08);
+  --text: #F8FAFC;
+  --text-muted: rgba(248,250,252,.55);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--dark); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== NAVBAR ===== */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(10,10,15,.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  transition: all .3s;
+}
+#navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--teal), var(--orange), var(--gold), var(--teal));
+  opacity: .4;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 70px;
   display: flex;
   align-items: center;
-  padding: 9rem 2rem 4rem !important;
+  gap: 2.5rem;
+}
+.logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+.nav-logo-img { height: 44px; width: auto; }
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: .25rem;
+  flex: 1;
+  justify-content: center;
+}
+.nav-links a {
+  color: rgba(248,250,252,.7);
+  text-decoration: none;
+  font-size: .88rem;
+  font-weight: 500;
+  padding: .5rem .85rem;
+  border-radius: 8px;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--orange);
+  background: rgba(249,115,22,.1);
+}
+.nav-cta {
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  color: #fff;
+  text-decoration: none;
+  font-size: .85rem;
+  font-weight: 700;
+  padding: .6rem 1.3rem;
+  border-radius: 50px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all .2s;
+  box-shadow: 0 4px 20px rgba(249,115,22,.3);
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(249,115,22,.45); }
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255,255,255,.15);
+  color: var(--text);
+  font-size: 1.2rem;
+  padding: .4rem .7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── MOBILE APPLY BUTTON ── */
+.mobile-apply-btn { display: none; }
+
+/* ── MOBILE MENU ── */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: rgba(10,10,15,.98);
+  border-top: 1px solid var(--border);
+  padding: 1rem;
+  gap: .25rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: rgba(248,250,252,.75);
+  text-decoration: none;
+  padding: .75rem 1rem;
+  border-radius: 8px;
+  font-size: .92rem;
+  font-weight: 500;
+  transition: all .2s;
+  display: block;
+}
+.mobile-menu a:hover { background: rgba(249,115,22,.1); color: var(--orange); }
+
+/* ===== PAGE HERO ===== */
+.page-hero {
+  min-height: 45vh;
+  background: linear-gradient(160deg, #0A0A0F 0%, #1A0A00 60%, #0A0A0F 100%);
+  display: flex;
+  align-items: center;
+  padding: 9rem 2rem 4rem;
   position: relative;
   overflow: hidden;
-  text-align: left;
-  border-bottom: none !important;
 }
 .page-hero::before {
   content: '';
@@ -64,7 +186,7 @@
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 900;
-  color: #F8FAFC !important;
+  color: #F8FAFC;
   margin-bottom: 1rem;
   line-height: 1.08;
 }
@@ -76,13 +198,41 @@
   background-clip: text;
 }
 .page-hero p {
-  color: rgba(248,250,252,.65) !important;
+  color: rgba(248,250,252,.65);
   font-size: 1.05rem;
   max-width: 580px;
   line-height: 1.8;
 }
 
-/* ---- Insurance Cards Grid ---- */
+/* ===== SHARED SECTION STYLES ===== */
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+.tc { text-align: center; margin-bottom: 1rem; }
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  background: rgba(249,115,22,.12);
+  color: #FB923C;
+  border: 1px solid rgba(249,115,22,.2);
+  padding: .3rem 1rem;
+  border-radius: 50px;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: .6rem;
+}
+.section-sub { color: var(--text-muted); font-size: .95rem; max-width: 520px; margin: 0 auto 3rem; line-height: 1.7; }
+
+/* ===== INSURANCE SECTION ===== */
 .ins-section {
   background: linear-gradient(160deg, #0A0A0F 0%, #12121A 100%);
   padding: 6rem 2rem;
@@ -98,10 +248,6 @@
   background-size: 60px 60px;
   pointer-events: none;
 }
-.ins-section .section-tag { background: rgba(249,115,22,.12); color: #FB923C; border-color: rgba(249,115,22,.2); }
-.ins-section .section-title { color: #F8FAFC; }
-.ins-section .section-sub { color: rgba(248,250,252,.55); }
-
 .ins-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -110,7 +256,6 @@
   position: relative;
   z-index: 1;
 }
-
 .ins-card {
   background: rgba(255,255,255,.04);
   border: 1px solid rgba(255,255,255,.08);
@@ -129,26 +274,13 @@
   opacity: 0;
   transition: all 0.3s;
 }
-.ins-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,.4);
-  border-color: rgba(249,115,22,.25);
-}
+.ins-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,.4); border-color: rgba(249,115,22,.25); }
 .ins-card:hover::before { opacity: 1; }
-.ins-card.featured {
-  background: linear-gradient(145deg, #1A0A00, #2D1200);
-  border-color: rgba(249,115,22,.3);
-}
+.ins-card.featured { background: linear-gradient(145deg, #1A0A00, #2D1200); border-color: rgba(249,115,22,.3); }
 .ins-card.featured::before { opacity: 1; }
 
 .ins-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
-.ins-card h3 {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #F8FAFC;
-  margin-bottom: 0.5rem;
-}
+.ins-card h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; color: #F8FAFC; margin-bottom: 0.5rem; }
 .ins-card p { font-size: 0.87rem; color: rgba(248,250,252,.6); line-height: 1.7; margin-bottom: 1.2rem; }
 
 .ins-highlight {
@@ -162,16 +294,9 @@
   font-weight: 700;
   margin-bottom: 1rem;
 }
-.ins-card.featured .ins-highlight {
-  background: rgba(212,160,23,.15);
-  color: var(--gold);
-  border-color: rgba(212,160,23,.25);
-}
+.ins-card.featured .ins-highlight { background: rgba(212,160,23,.15); color: var(--gold); border-color: rgba(212,160,23,.25); }
 
-.ins-features {
-  list-style: none;
-  margin-bottom: 1.5rem;
-}
+.ins-features { list-style: none; margin-bottom: 1.5rem; }
 .ins-features li {
   font-size: 0.84rem;
   color: rgba(248,250,252,.6);
@@ -182,23 +307,31 @@
   gap: 0.5rem;
 }
 .ins-features li:last-child { border: none; }
-.ins-features li::before {
-  content: '✓';
-  color: var(--teal);
-  font-weight: 700;
-  flex-shrink: 0;
-  font-size: 0.85rem;
-}
+.ins-features li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; font-size: 0.85rem; }
 
-/* ---- Partners Section ---- */
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: .92rem;
+  padding: .8rem 1.8rem;
+  border-radius: 50px;
+  transition: all .25s;
+  box-shadow: 0 4px 20px rgba(249,115,22,.3);
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(249,115,22,.5); }
+
+/* ===== PARTNERS SECTION ===== */
 .partners-ins-section {
   background: linear-gradient(160deg, #12121A 0%, #0A0A0F 100%);
   padding: 5rem 2rem;
   position: relative;
 }
-.partners-ins-section .section-tag { background: rgba(29,184,117,.1); color: #4ADE80; border-color: rgba(29,184,117,.2); }
-.partners-ins-section .section-title { color: #F8FAFC; }
-
 .partners-chips {
   display: flex;
   flex-wrap: wrap;
@@ -218,14 +351,9 @@
   color: rgba(248,250,252,.8);
   transition: all 0.25s;
 }
-.p-chip:hover {
-  border-color: var(--orange);
-  color: var(--orange);
-  background: rgba(249,115,22,.08);
-  transform: translateY(-3px);
-}
+.p-chip:hover { border-color: var(--orange); color: var(--orange); background: rgba(249,115,22,.08); transform: translateY(-3px); }
 
-/* ---- CTA Banner (dark themed) ---- */
+/* ===== CTA BANNER ===== */
 .cta-ins {
   background: linear-gradient(160deg, #1A0A00 0%, #0A0A0F 60%, #0A1020 100%);
   padding: 5rem 2rem;
@@ -240,37 +368,86 @@
   height: 2px;
   background: linear-gradient(90deg, var(--teal), var(--orange), var(--gold));
 }
-.cta-ins h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  color: #F8FAFC;
-  margin-bottom: 0.7rem;
-}
+.cta-ins h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: #F8FAFC; margin-bottom: 0.7rem; }
 .cta-ins p { color: rgba(248,250,252,.65); font-size: 0.97rem; margin-bottom: 2rem; }
-
-/* ---- Footer (dark themed matching homepage) ---- */
-.footer {
-  background: linear-gradient(160deg, #0A0A0F 0%, #12121A 100%);
-  padding: 5rem 2rem 0;
-  position: relative;
+.cta-btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.2s;
+  margin: 0 0.4rem;
 }
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--teal), var(--orange), var(--gold), var(--teal));
-}
+.cta-btn.wh { background: linear-gradient(135deg, var(--orange), var(--orange-dark)); color: #fff; border: none; box-shadow: 0 4px 24px rgba(249,115,22,.4); }
+.cta-btn.wh:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(249,115,22,.6); }
+.cta-btn.tr { background: rgba(255,255,255,.1); color: #fff; border: 2px solid #fff; }
+.cta-btn.tr:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
 
+/* ===== FOOTER ===== */
+.footer { background: linear-gradient(160deg, #0A0A0F 0%, #12121A 100%); padding: 5rem 2rem 0; position: relative; }
+.footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--teal), var(--orange), var(--gold), var(--teal)); }
+.footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border); }
+.footer-brand p { color: var(--text-muted); font-size: .88rem; line-height: 1.7; margin-top: .8rem; }
+.footer-logo { height: 42px; display: block; margin-bottom: 1rem; }
+.social-links { display: flex; gap: 1rem; margin-top: 1.2rem; flex-wrap: wrap; }
+.social-links a { color: var(--text-muted); text-decoration: none; font-size: .82rem; font-weight: 600; transition: color .2s; }
+.social-links a:hover { color: var(--orange); }
+.footer-col h5 { color: var(--text); font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 1rem; }
+.footer-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: .85rem; margin-bottom: .6rem; transition: color .2s; }
+.footer-col a:hover { color: var(--orange); }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding: 1.8rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.footer-bottom p { color: rgba(248,250,252,.3); font-size: .82rem; }
+.footer-bottom a { color: rgba(248,250,252,.35); font-size: .82rem; text-decoration: none; transition: color .2s; }
+.footer-bottom a:hover { color: var(--orange); }
+
+/* WhatsApp Float */
+.whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; background: #25D366; color: #fff; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,.4); z-index: 999; transition: all .25s; }
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
+
+/* ANIMATIONS */
+.anim { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+.anim.vis { opacity: 1; transform: none; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .ins-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 768px) {
+  /* Desktop nav hide */
+  .nav-links, .nav-cta { display: none; }
+
+  /* Mobile navbar layout */
+  .nav-inner { padding: 0 1rem; height: 64px; gap: 0; justify-content: space-between; }
+  .nav-logo-img { height: 38px; }
+
+  /* Mobile Apply Now button */
+  .mobile-apply-btn {
+    display: inline-block !important;
+    background: linear-gradient(135deg, var(--teal), #16A34A);
+    color: #fff;
+    text-decoration: none;
+    font-size: .82rem;
+    font-weight: 700;
+    padding: .5rem 1.1rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    box-shadow: 0 3px 14px rgba(29,184,117,.35);
+    transition: all .2s;
+  }
+
+  .hamburger { display: block; }
+
   .ins-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
-  .page-hero { text-align: left; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
 }
 </style>
 </head>
 <body>
 
-<!-- ===== NAVBAR (Same as Homepage) ===== -->
+<!-- ===== NAVBAR ===== -->
 <nav id="navbar">
   <div class="nav-inner">
     <a href="index.html" class="logo">
@@ -284,13 +461,16 @@
       <li><a href="rates.html">Rates</a></li>
       <li><a href="about.html">About Us</a></li>
     </ul>
-    <a href="contact.html" class="nav-cta">📞 +91 79828 10014</a>
+
+    <!-- Mobile Apply Now button -->
+    <a href="contact.html" class="mobile-apply-btn" style="display:none;">Apply Now →</a>
+
     <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
     <a href="loans.html">Loans</a>
-    <a href="insurance.html">Insurance</a>
+    <a href="insurance.html" style="color:var(--orange);">Insurance</a>
     <a href="our-story.html">Our Story</a>
     <a href="rates.html">Rates</a>
     <a href="about.html">About Us</a>
@@ -298,6 +478,7 @@
     <a href="contact.html" style="color:var(--orange);font-weight:700;">📞 +91 79828 10014</a>
   </div>
 </nav>
+
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
   <div class="page-hero-inner">
@@ -316,7 +497,6 @@
     </div>
     <div class="ins-grid">
 
-      <!-- Health Insurance -->
       <div class="ins-card anim" id="health">
         <span class="ins-icon">❤️</span>
         <div class="ins-highlight">Cover: ₹5 Lac – ₹5 Crore</div>
@@ -335,7 +515,6 @@
         <a href="contact.html" class="btn-primary" style="font-size:.88rem;padding:.65rem 1.5rem;">Get Free Quote →</a>
       </div>
 
-      <!-- Motor Insurance -->
       <div class="ins-card featured anim" id="motor">
         <span class="ins-icon">🚗</span>
         <div class="ins-highlight">Own Damage + Comprehensive Cover</div>
@@ -347,13 +526,12 @@
           <li>Cashless repairs at garages</li>
           <li>Zero depreciation add-on</li>
           <li>Roadside assistance</li>
-          <li>Engine & gear box protection</li>
+          <li>Engine &amp; gear box protection</li>
           <li>Same-day policy issuance</li>
         </ul>
         <a href="contact.html" class="btn-primary" style="font-size:.88rem;padding:.65rem 1.5rem;">Get Free Quote →</a>
       </div>
 
-      <!-- Corporate Insurance -->
       <div class="ins-card anim" id="corporate">
         <span class="ins-icon">🏗️</span>
         <div class="ins-highlight">Business Protection</div>
@@ -371,7 +549,6 @@
         <a href="contact.html" class="btn-primary" style="font-size:.88rem;padding:.65rem 1.5rem;">Get Free Quote →</a>
       </div>
 
-      <!-- Term Plan & Life Insurance -->
       <div class="ins-card anim" id="term">
         <span class="ins-icon">📋</span>
         <div class="ins-highlight">Cover: ₹25 Lac – ₹50 Crore</div>
@@ -389,18 +566,17 @@
         <a href="contact.html" class="btn-primary" style="font-size:.88rem;padding:.65rem 1.5rem;">Get Free Quote →</a>
       </div>
 
-      <!-- Travel Insurance -->
       <div class="ins-card anim" id="travel" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
         <span class="ins-icon">✈️</span>
-        <div class="ins-highlight">Domestic & International Travel</div>
+        <div class="ins-highlight">Domestic &amp; International Travel</div>
         <h3>Travel Insurance</h3>
         <p>Worry-free travel coverage for individuals and families. Get protected against trip cancellations, medical emergencies, and baggage loss — anywhere in the world.</p>
         <ul class="ins-features" style="column-count:2; column-gap:2rem;">
           <li>International travel cover</li>
           <li>Domestic travel cover</li>
           <li>Medical emergency abroad</li>
-          <li>Trip cancellation & delay</li>
-          <li>Baggage loss & delay</li>
+          <li>Trip cancellation &amp; delay</li>
+          <li>Baggage loss &amp; delay</li>
           <li>Passport loss protection</li>
           <li>Personal accident cover</li>
           <li>Same-day policy issuance</li>
@@ -442,14 +618,14 @@
   <a href="https://wa.me/917982810014" target="_blank" class="cta-btn tr">💬 WhatsApp Us</a>
 </div>
 
-<!-- ===== FOOTER (Same as Homepage) ===== -->
+<!-- ===== FOOTER ===== -->
 <footer class="footer">
-  <div class="footer-grid" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3.5rem;border-bottom:1px solid rgba(255,255,255,.06);">
+  <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html"><img src="logo (1).png" alt="Bhaarat Capital" style="height:42px;margin-bottom:1rem;display:block;"></a>
+      <a href="index.html"><img src="logo (1).png" alt="Bhaarat Capital" class="footer-logo"></a>
       <p>Bhaarat Capital — Trusted financial partner in Noida NCR. Banks Partner.</p>
-      <p style="margin-top:.7rem;font-size:.82rem;color:rgba(248,250,252,.4);">📍 Bisrakh, Noida, UP &nbsp;|&nbsp; 🕘 Mon–Sun: 9AM–9PM</p>
-      <div class="social-links" style="margin-top:1.1rem;">
+      <p style="margin-top:.7rem;font-size:.82rem;">📍 Bisrakh, Noida, UP &nbsp;|&nbsp; 🕘 Mon–Sun: 9AM–9PM</p>
+      <div class="social-links">
         <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 Instagram</a>
         <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">▶ YouTube</a>
         <a href="https://wa.me/917982810014" target="_blank">💬 WhatsApp</a>
@@ -485,24 +661,31 @@
   <div class="footer-bottom">
     <p>© 2025 Bhaarat Capital. All rights reserved. Banks Partner.</p>
     <div style="display:flex;gap:1.5rem;">
-      <a href="terms.html" style="color:#78716c;font-size:.82rem;">Terms</a>
-      <a href="privacy.html" style="color:#78716c;font-size:.82rem;">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
     </div>
   </div>
 </footer>
 
 <a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank">💬</a>
 
-<script src="script.js"></script>
 <script>
+// Mobile pe Apply Now button dikhao
+if (window.innerWidth <= 768) {
+  var mab = document.querySelector('.mobile-apply-btn');
+  if (mab) mab.style.display = 'inline-block';
+}
+
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
+
 // Hamburger
 document.getElementById('hamburger').addEventListener('click', () => {
   document.getElementById('mobileMenu').classList.toggle('open');
 });
+
 // Scroll animations
 const ao = new IntersectionObserver((e) => {
   e.forEach(x => {
