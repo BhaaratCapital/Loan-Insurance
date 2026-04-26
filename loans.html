@@ -159,7 +159,6 @@
     height: 2px;
     background: linear-gradient(90deg, var(--teal), var(--orange), var(--gold), var(--teal));
   }
-  /* Glow orbs */
   .page-hero .orb {
     position: absolute;
     border-radius: 50%;
@@ -255,7 +254,6 @@
   }
   .btn-outline:hover { border-color: var(--orange); color: var(--orange); background: rgba(249,115,22,.08); }
 
-  /* Hero stats */
   .hero-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -645,24 +643,70 @@
   .anim { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
   .anim.vis { opacity: 1; transform: none; }
 
-  /* ===== RESPONSIVE ===== */
+  /* ===== DESKTOP RESPONSIVE ===== */
   @media (max-width: 1024px) {
     .loan-grid { grid-template-columns: 1fr 1fr; }
     .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero-stats { grid-template-columns: repeat(4, 1fr); }
     .footer-grid { grid-template-columns: 1fr 1fr; }
   }
+
+  /* ===== MOBILE ===== */
   @media (max-width: 768px) {
+
+    /* Purana desktop navbar chupao */
     .nav-links, .nav-cta { display: none; }
     .hamburger { display: block; }
-    .loan-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
-    .emi-grid { grid-template-columns: 1fr; }
+
+    /* ---- Mobile navbar naya ---- */
+    .nav-inner {
+      padding: 0 1rem;
+      height: 64px;
+      gap: 0;
+      justify-content: space-between;
+    }
+    .nav-logo-img { height: 38px; }
+
+    /* Mobile navbar ke beech Apply Now button */
+    .mobile-apply-btn {
+      display: inline-block !important;
+      background: linear-gradient(135deg, var(--teal), #16A34A);
+      color: #fff;
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 700;
+      padding: .5rem 1.1rem;
+      border-radius: 50px;
+      white-space: nowrap;
+      box-shadow: 0 3px 14px rgba(29,184,117,.35);
+      transition: all .2s;
+    }
+
+    /* Hero mobile fix */
+    .page-hero {
+      padding: 6rem 1.2rem 3rem;
+      min-height: auto;
+    }
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .hero-inner h1 { font-size: 2rem; }
     .hero-stats { grid-template-columns: 1fr 1fr; }
-    .footer-grid { grid-template-columns: 1fr; }
+
+    /* Loan grid mobile */
+    .loan-grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .emi-grid { grid-template-columns: 1fr; }
     .emi-box { padding: 1.8rem; }
+    .footer-grid { grid-template-columns: 1fr; }
   }
 </style>
- <link rel="stylesheet" href="mobile_css_fix.css"/>
 </head>
 <body>
 
@@ -682,11 +726,15 @@
       <li><a href="faq.html">FAQ</a></li>
     </ul>
     <a href="contact.html" class="nav-cta">📞 +91 79828 10014</a>
+
+    <!-- Mobile ke liye Apply Now button — desktop pe hidden rahega CSS se -->
+    <a href="contact.html" class="mobile-apply-btn" style="display:none;">Apply Now →</a>
+
     <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
-    <a href="loans.html">Loans</a>
+    <a href="loans.html" style="color:var(--orange);">Loans</a>
     <a href="insurance.html">Insurance</a>
     <a href="our-story.html">Bloggs</a>
     <a href="rates.html">Rates</a>
@@ -969,6 +1017,12 @@
 <a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
 
 <script>
+// Mobile pe Apply Now button dikhao
+if (window.innerWidth <= 768) {
+  var mab = document.querySelector('.mobile-apply-btn');
+  if (mab) mab.style.display = 'inline-block';
+}
+
 // Navbar scroll
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
@@ -1003,6 +1057,6 @@ const ao = new IntersectionObserver((e) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.anim').forEach(el => ao.observe(el));
 </script>
- <script src="mobile_nav_inject.js"></script>
+
 </body>
 </html>
