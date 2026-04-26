@@ -362,6 +362,7 @@ a { text-decoration: none; color: inherit; }
   .cred-grid{grid-template-columns:1fr 1fr;}
 }
 </style>
+  <link rel="stylesheet" href="mobile_css_fix.css"/>
 </head>
 <body>
 
@@ -376,7 +377,7 @@ a { text-decoration: none; color: inherit; }
       <li><a href="loans.html">Loans</a></li>
       <li><a href="insurance.html">Insurance</a></li>
       <li><a href="rates.html">Rates</a></li>
-      <li><a href="our-story.html">Our Story</a></li>
+      <li><a href="our-story.html">Bloggs</a></li>
       <li><a href="about.html" class="active">About Us</a></li>
     </ul>
     <a href="contact.html" class="nav-cta">Apply Now &#8594;</a>
@@ -387,7 +388,7 @@ a { text-decoration: none; color: inherit; }
     <a href="loans.html">Loans</a>
     <a href="insurance.html">Insurance</a>
     <a href="rates.html">Rates</a>
-    <a href="our-story.html">Our Story</a>
+    <a href="our-story.html">Bloggs</a>
     <a href="about.html" style="color:var(--gold);font-weight:700;">About Us</a>
     <a href="https://wa.me/917982810014" target="_blank" style="color:#22c55e;font-weight:700;">&#128172; WhatsApp Us</a>
   </div>
@@ -781,5 +782,6 @@ a { text-decoration: none; color: inherit; }
   }, { threshold: 0.5 });
   document.querySelectorAll(".count-num").forEach(el => counterObserver.observe(el));
 </script>
+  <script src="mobile_nav_inject.js"></script>
 </body>
 </html>
