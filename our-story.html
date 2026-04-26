@@ -30,52 +30,28 @@
 body { background: var(--bg-deep); color: var(--text-bright); font-family: var(--font-body); }
 a { text-decoration: none; color: inherit; }
 
-/* ── NAVBAR ── */
-#navbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: rgba(10,10,15,0.92); border-bottom: 1px solid var(--border-glow);
-  backdrop-filter: blur(20px); transition: background 0.3s;
-}
+#navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10,10,15,0.92); border-bottom: 1px solid var(--border-glow); backdrop-filter: blur(20px); transition: background 0.3s; }
 #navbar.scrolled { background: rgba(10,10,15,0.98); }
-
-.nav-inner {
-  max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-  display: flex; align-items: center; gap: 2rem; height: 70px;
-}
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; gap: 2rem; height: 70px; }
 .nav-logo-img { height: 44px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 0.3rem; list-style: none; margin-left: auto; }
 .nav-links a { color: rgba(248,250,252,.7); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.01em; padding: 0.45rem 0.85rem; border-radius: 8px; transition: all 0.2s; white-space: nowrap; }
 .nav-links a:hover, .nav-links a.active { color: var(--gold); background: var(--gold-glow); }
 .nav-cta { background: linear-gradient(135deg, #22c55e, #16a34a); border: none; color: #fff !important; font-size: 0.83rem; font-weight: 700; padding: 0.6rem 1.4rem; border-radius: 50px; box-shadow: 0 4px 20px rgba(34,197,94,0.35); transition: all 0.2s; white-space: nowrap; flex-shrink: 0; }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(34,197,94,0.5); }
-
-/* ── HAMBURGER ── */
 .hamburger { display: none; background: none; border: 1px solid rgba(255,255,255,.15); color: var(--text-bright); font-size: 1.2rem; padding: .4rem .7rem; border-radius: 8px; cursor: pointer; flex-shrink: 0; }
-
-/* ── MOBILE APPLY BUTTON ── */
 .mobile-apply-btn { display: none; }
-
-/* ── MOBILE MENU ── */
 .mobile-menu { display: none; flex-direction: column; background: rgba(10,10,15,0.98); border-top: 1px solid rgba(255,255,255,.06); padding: 1rem; gap: .25rem; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a { color: rgba(248,250,252,.75); text-decoration: none; padding: .75rem 1rem; border-radius: 8px; font-size: .92rem; font-weight: 500; transition: all .2s; display: block; }
 .mobile-menu a:hover { background: rgba(249,115,22,.1); color: var(--orange); }
 
-/* ── PAGE HERO ── */
-.page-hero {
-  min-height: 45vh;
-  background: radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 55%),
-              radial-gradient(ellipse at 80% 30%, rgba(20,184,166,0.06) 0%, transparent 50%),
-              var(--bg-deep);
-  padding: 9rem 2rem 4rem; text-align: center; position: relative; overflow: hidden;
-  border-bottom: 1px solid var(--border-subtle);
-}
+.page-hero { min-height: 45vh; background: radial-gradient(ellipse at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 55%), radial-gradient(ellipse at 80% 30%, rgba(20,184,166,0.06) 0%, transparent 50%), var(--bg-deep); padding: 9rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; border-bottom: 1px solid var(--border-subtle); }
 .page-hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gold-glow); border: 1px solid rgba(245,158,11,0.3); color: var(--gold-light); padding: 0.4rem 1.1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.2rem; letter-spacing: 0.04em; }
 .page-hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 900; color: #fff; margin-bottom: 0.9rem; line-height: 1.08; }
 .heading-gradient { display: inline-block; background: linear-gradient(135deg, var(--green), var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .page-hero p { font-size: 1rem; color: #9CA3AF; max-width: 560px; margin: 0 auto; line-height: 1.8; }
 
-/* ── FILTER PILLS ── */
 .filter-section { padding: 2rem; border-bottom: 1px solid var(--border-subtle); }
 .filter-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
 .filter-pill { padding: 0.45rem 1.1rem; border-radius: 50px; border: 1.5px solid rgba(255,255,255,0.12); background: transparent; color: var(--text-muted); font-size: 0.82rem; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: all 0.2s; }
@@ -85,30 +61,20 @@ a { text-decoration: none; color: inherit; }
 .filter-pill.pinned-pill.active { background: rgba(245,158,11,0.1); }
 .filter-count { margin-left: auto; font-size: 0.82rem; color: var(--text-muted); }
 
-/* ── MAIN FEED ── */
 .feed-section { padding: 3rem 2rem 5rem; }
 .feed-inner { max-width: 1200px; margin: 0 auto; }
-
-/* ── PINNED BANNER ── */
 .pinned-banner { background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(249,115,22,0.06)); border: 1px solid rgba(245,158,11,0.25); border-radius: 16px; padding: 0.7rem 1.2rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.6rem; color: var(--gold-light); font-size: 0.82rem; font-weight: 600; }
-
-/* ── POSTS GRID ── */
 .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-
-/* ── POST CARD ── */
 .post-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; overflow: hidden; transition: all 0.3s; cursor: default; display: flex; flex-direction: column; }
 .post-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(249,115,22,0.2); border-color: rgba(249,115,22,0.25); }
 .post-card.pinned { border-color: rgba(245,158,11,0.4); box-shadow: 0 0 0 1px rgba(245,158,11,0.15); }
-
 .card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
 .card-img-placeholder { width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
 .card-img-blog { background: linear-gradient(135deg, #052e16, #0f2d1a); }
 .card-img-video { background: linear-gradient(135deg, #1c0000, #3d0000); }
 .card-img-update { background: linear-gradient(135deg, #0c0e1a, #1a1f3a); }
 .card-img-image { background: linear-gradient(135deg, #0a1628, #1a2840); }
-
 .video-embed { width: 100%; height: 200px; border: none; display: block; }
-
 .card-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
 .card-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
 .card-type-badge { display: inline-flex; align-items: center; gap: 0.3rem; border-radius: 50px; padding: 3px 10px; font-size: 0.7rem; font-weight: 700; }
@@ -119,21 +85,16 @@ a { text-decoration: none; color: inherit; }
 .card-tag { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; }
 .card-pin-icon { color: var(--gold); font-size: 0.75rem; margin-left: auto; }
 .card-date { font-size: 0.72rem; color: var(--text-muted); }
-
 .card-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: #F1F1F8; line-height: 1.3; }
-.card-content { font-size: 0.86rem; color: #9CA3AF; line-height: 1.72; flex: 1; }
-.card-content.truncate { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-clamp: 3; overflow: hidden; }
-
-.read-more-btn { display: none; background: none; border: none; color: var(--orange); font-size: 0.82rem; font-weight: 700; font-family: var(--font-body); cursor: pointer; padding: 0; margin-top: 0.3rem; text-align: left; }
+.card-content { font-size: 0.86rem; color: #9CA3AF; line-height: 1.72; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-clamp: 3; overflow: hidden; }
+.read-more-btn { background: none; border: none; color: var(--orange); font-size: 0.82rem; font-weight: 700; font-family: var(--font-body); cursor: pointer; padding: 0; margin-top: 0.3rem; text-align: left; }
 .read-more-btn:hover { color: var(--gold); }
-
-/* ── EMPTY STATE ── */
 .empty-feed { text-align: center; padding: 6rem 2rem; color: var(--text-muted); }
 .empty-feed .icon { font-size: 4rem; margin-bottom: 1.2rem; opacity: 0.3; }
 .empty-feed h3 { font-family: var(--font-display); font-size: 1.4rem; color: #F1F1F8; margin-bottom: 0.5rem; }
 .empty-feed p { font-size: 0.9rem; max-width: 400px; margin: 0 auto; }
+.loading-state { text-align: center; padding: 4rem 2rem; color: var(--text-muted); font-size: 1rem; }
 
-/* ── MODAL ── */
 .post-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9999; align-items: flex-start; justify-content: center; padding: 2rem; overflow-y: auto; backdrop-filter: blur(6px); }
 .post-modal-overlay.show { display: flex; }
 .post-modal { background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 24px; max-width: 720px; width: 100%; margin: auto; box-shadow: 0 40px 120px rgba(0,0,0,0.7); overflow: hidden; }
@@ -147,7 +108,6 @@ a { text-decoration: none; color: inherit; }
 .modal-img { width: 100%; border-radius: 12px; margin-bottom: 1.2rem; max-height: 400px; object-fit: cover; }
 .modal-video { width: 100%; height: 350px; border: none; border-radius: 12px; margin-bottom: 1.2rem; }
 
-/* ── CTA BANNER ── */
 .cta-banner { background: linear-gradient(135deg, #052e16, #064e3b); padding: 5rem 2rem; text-align: center; border-top: 1px solid rgba(34,197,94,0.3); position: relative; overflow: hidden; }
 .cta-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(34,197,94,0.1) 0%, transparent 65%); pointer-events: none; }
 .cta-banner h2 { font-family: var(--font-display); font-size: clamp(1.8rem,4vw,2.8rem); color: #fff; margin-bottom: 0.8rem; position: relative; }
@@ -158,7 +118,6 @@ a { text-decoration: none; color: inherit; }
 .cta-btn.tr { background: rgba(255,255,255,.1); color: #fff; border: 2px solid #fff; }
 .cta-btn.tr:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
 
-/* ── FOOTER ── */
 .footer { background: #060608; padding: 4rem 2rem 0; border-top: 1px solid rgba(34,197,94,0.2); }
 .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; }
 .footer-brand p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.7; margin-top: 0.5rem; }
@@ -171,43 +130,21 @@ a { text-decoration: none; color: inherit; }
 .footer-bottom { border-top: 1px solid var(--border-subtle); padding: 1.3rem 0; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 .footer-bottom p { font-size: 0.82rem; color: #4B5563; }
 
-/* ── WHATSAPP ── */
 .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; width: 58px; height: 58px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 4px 20px rgba(37,211,102,.45); transition: all 0.3s; animation: pulse-green 2.5s ease-in-out infinite; }
 .whatsapp-float:hover { transform: scale(1.12); }
 @keyframes pulse-green { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)} 50%{box-shadow:0 4px 40px rgba(37,211,102,.7)} }
 
-/* ── ANIM ── */
 .anim { opacity: 0; transform: translateY(24px); transition: opacity .55s ease, transform .55s ease; }
 .anim.vis { opacity: 1; transform: translateY(0); }
 
-/* ── RESPONSIVE ── */
 @media(max-width: 1024px) { .posts-grid { grid-template-columns: 1fr 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media(max-width: 768px) {
-  /* Desktop nav hide */
   .nav-links { display: none; }
   .nav-cta { display: none; }
-
-  /* Mobile navbar layout */
   .nav-inner { padding: 0 1rem; height: 64px; gap: 0; justify-content: space-between; }
   .nav-logo-img { height: 38px; }
-
-  /* Mobile Apply Now button */
-  .mobile-apply-btn {
-    display: inline-block !important;
-    background: linear-gradient(135deg, #22c55e, #16a34a);
-    color: #fff;
-    text-decoration: none;
-    font-size: .82rem;
-    font-weight: 700;
-    padding: .5rem 1.1rem;
-    border-radius: 50px;
-    white-space: nowrap;
-    box-shadow: 0 3px 14px rgba(34,197,94,.35);
-    transition: all .2s;
-  }
-
+  .mobile-apply-btn { display: inline-block !important; background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; text-decoration: none; font-size: .82rem; font-weight: 700; padding: .5rem 1.1rem; border-radius: 50px; white-space: nowrap; box-shadow: 0 3px 14px rgba(34,197,94,.35); transition: all .2s; }
   .hamburger { display: block; }
-
   .posts-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
@@ -217,7 +154,6 @@ a { text-decoration: none; color: inherit; }
 </head>
 <body>
 
-<!-- ── NAVBAR ── -->
 <nav id="navbar">
   <div class="nav-inner">
     <a href="index.html" style="display:flex;align-items:center;">
@@ -231,10 +167,7 @@ a { text-decoration: none; color: inherit; }
       <li><a href="our-story.html" class="active">Our Story</a></li>
       <li><a href="about.html">About Us</a></li>
     </ul>
-
-    <!-- Mobile Apply Now button -->
     <a href="contact.html" class="mobile-apply-btn" style="display:none;">Apply Now →</a>
-
     <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
@@ -248,14 +181,12 @@ a { text-decoration: none; color: inherit; }
   </div>
 </nav>
 
-<!-- ── PAGE HERO ── -->
 <section class="page-hero">
   <div class="page-hero-tag">📝 Stories &amp; Updates</div>
   <h1>Our <span class="heading-gradient">Story</span></h1>
   <p>Bhaarat Capital ka safar — blog posts, success stories, team moments, company updates aur zyada. Har hafte kuch naya.</p>
 </section>
 
-<!-- ── FILTER PILLS ── -->
 <div class="filter-section">
   <div class="filter-inner">
     <button class="filter-pill active" onclick="setFilter('all', this)">🌟 All Posts</button>
@@ -264,17 +195,15 @@ a { text-decoration: none; color: inherit; }
     <button class="filter-pill" onclick="setFilter('video', this)">🎞 Videos</button>
     <button class="filter-pill" onclick="setFilter('update', this)">📢 Updates</button>
     <button class="filter-pill pinned-pill" onclick="setFilter('pinned', this)">📌 Pinned</button>
-    <span class="filter-count" id="filterCount">0 posts</span>
+    <span class="filter-count" id="filterCount">Loading...</span>
   </div>
 </div>
 
-<!-- ── FEED ── -->
 <section class="feed-section">
   <div class="feed-inner">
-    <div id="pinnedBanner" class="pinned-banner" style="display:none;">
-      📌 Pinned posts — admin dwara featured kiya gaya
-    </div>
-    <div class="posts-grid" id="postsGrid"></div>
+    <div id="pinnedBanner" class="pinned-banner" style="display:none;">📌 Pinned posts — admin dwara featured kiya gaya</div>
+    <div class="loading-state" id="loadingState">⏳ Posts load ho rahi hain...</div>
+    <div class="posts-grid" id="postsGrid" style="display:none;"></div>
     <div class="empty-feed" id="emptyFeed" style="display:none;">
       <div class="icon">📝</div>
       <h3>Abhi tak koi post nahi</h3>
@@ -283,7 +212,6 @@ a { text-decoration: none; color: inherit; }
   </div>
 </section>
 
-<!-- ── POST MODAL ── -->
 <div class="post-modal-overlay" id="postModal">
   <div class="post-modal">
     <div class="modal-header">
@@ -294,7 +222,6 @@ a { text-decoration: none; color: inherit; }
   </div>
 </div>
 
-<!-- ── CTA BANNER ── -->
 <div class="cta-banner">
   <h2>Hamen Follow Karo, Updated Raho!</h2>
   <p>Instagram, YouTube aur WhatsApp par Bhaarat Capital se jude raho — financial tips, success stories aur zyada.</p>
@@ -302,7 +229,6 @@ a { text-decoration: none; color: inherit; }
   <a href="https://www.instagram.com/bhaarat_capital/" target="_blank" class="cta-btn tr">📷 Instagram Follow Karo</a>
 </div>
 
-<!-- ── FOOTER ── -->
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
@@ -360,19 +286,21 @@ a { text-decoration: none; color: inherit; }
 <a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
 
 <script>
-// Mobile pe Apply Now button dikhao
-if (window.innerWidth <= 768) {
-  var mab = document.querySelector('.mobile-apply-btn');
-  if (mab) mab.style.display = 'inline-block';
-}
-
-const POSTS_KEY = 'bc_story_posts';
+const GITHUB_RAW = 'https://raw.githubusercontent.com/BhaaratCapital/Loan-Insurance/main/posts.json';
 let currentFilter = 'all';
 let allPosts = [];
 
-function loadPosts() {
-  try { allPosts = JSON.parse(localStorage.getItem(POSTS_KEY) || '[]'); }
-  catch(e) { allPosts = []; }
+async function loadPosts() {
+  try {
+    const res = await fetch(GITHUB_RAW + '?t=' + Date.now());
+    if (!res.ok) throw new Error('Load failed');
+    allPosts = await res.json();
+    if (!Array.isArray(allPosts)) allPosts = [];
+  } catch(e) {
+    allPosts = [];
+  }
+  document.getElementById('loadingState').style.display = 'none';
+  document.getElementById('postsGrid').style.display = 'grid';
   renderFeed();
 }
 
@@ -394,7 +322,7 @@ function renderFeed() {
     if (currentFilter === 'pinned') posts = posts.filter(p => p.pinned);
     else posts = posts.filter(p => p.type === currentFilter);
   }
-  const grid  = document.getElementById('postsGrid');
+  const grid = document.getElementById('postsGrid');
   const empty = document.getElementById('emptyFeed');
   const banner = document.getElementById('pinnedBanner');
   document.getElementById('filterCount').textContent = posts.length + ' post' + (posts.length !== 1 ? 's' : '');
@@ -407,10 +335,10 @@ function renderFeed() {
 }
 
 function buildCard(p) {
-  const dt  = new Date(p.timestamp);
-  const ds  = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-  const typeIcon  = { blog:'📝', image:'📷', video:'🎞', update:'📢' };
-  const typeCls   = { blog:'ctb-blog', image:'ctb-image', video:'ctb-video', update:'ctb-update' };
+  const dt = new Date(p.timestamp);
+  const ds = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
+  const typeIcon = { blog:'📝', image:'📷', video:'🎞', update:'📢' };
+  const typeCls  = { blog:'ctb-blog', image:'ctb-image', video:'ctb-video', update:'ctb-update' };
   const ti = typeIcon[p.type] || '📄';
   const tc = typeCls[p.type] || 'ctb-update';
   let mediaHtml = '';
@@ -418,11 +346,8 @@ function buildCard(p) {
     mediaHtml = `<img src="${esc(p.imageUrl)}" class="card-img" alt="${esc(p.title)}" onerror="this.style.display='none'">`;
   } else if (p.type === 'video' && p.videoUrl) {
     const embedUrl = getVideoEmbed(p.videoUrl);
-    if (embedUrl) {
-      mediaHtml = `<iframe class="video-embed" src="${esc(embedUrl)}" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
-    } else {
-      mediaHtml = `<div class="card-img-placeholder card-img-video">🎞</div>`;
-    }
+    if (embedUrl) mediaHtml = `<iframe class="video-embed" src="${esc(embedUrl)}" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
+    else mediaHtml = `<div class="card-img-placeholder card-img-video">🎞</div>`;
   } else if ((p.type === 'blog' || p.type === 'update') && p.coverImage) {
     mediaHtml = `<img src="${esc(p.coverImage)}" class="card-img" alt="${esc(p.title)}" onerror="this.style.display='none'">`;
   } else {
@@ -442,8 +367,8 @@ function buildCard(p) {
       </div>
       <div class="card-date">${ds}</div>
       <div class="card-title">${esc(p.title)}</div>
-      ${content ? `<div class="card-content truncate">${esc(shortContent)}</div>` : ''}
-      ${hasMore ? `<button class="read-more-btn" style="display:block" onclick='openModal(${JSON.stringify(p)})'>Read more →</button>` : ''}
+      ${content ? `<div class="card-content">${esc(shortContent)}</div>` : ''}
+      ${hasMore ? `<button class="read-more-btn" onclick='openModal(${JSON.stringify(p)})'>Read more →</button>` : ''}
     </div>
   </div>`;
 }
@@ -454,14 +379,13 @@ function getVideoEmbed(url) {
   m = url.match(/youtube\.com\/shorts\/([\w-]+)/);
   if (m) return `https://www.youtube.com/embed/${m[1]}`;
   if (url.includes('youtube.com/embed/')) return url;
-  if (url.includes('instagram.com')) return url + (url.includes('?') ? '&' : '?') + 'embed=1';
   return null;
 }
 
 function openModal(p) {
   document.getElementById('modalTitle').textContent = p.title;
-  const dt  = new Date(p.timestamp);
-  const ds  = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
+  const dt = new Date(p.timestamp);
+  const ds = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
   const typeIcon = { blog:'📝', image:'📷', video:'🎞', update:'📢' };
   const typeCls  = { blog:'ctb-blog', image:'ctb-image', video:'ctb-video', update:'ctb-update' };
   let bodyHtml = `<div class="modal-meta">
@@ -488,27 +412,21 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-document.getElementById('postModal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
+document.getElementById('postModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
-function esc(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
 const ao = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); ao.unobserve(e.target); } });
 }, { threshold: 0.08 });
 
-document.getElementById('hamburger').addEventListener('click', function() {
-  document.getElementById('mobileMenu').classList.toggle('open');
-});
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-});
+document.getElementById('hamburger').addEventListener('click', function() { document.getElementById('mobileMenu').classList.toggle('open'); });
+window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
+
+if (window.innerWidth <= 768) { var mab = document.querySelector('.mobile-apply-btn'); if (mab) mab.style.display = 'inline-block'; }
 
 loadPosts();
-setInterval(loadPosts, 10000);
+setInterval(loadPosts, 30000);
 </script>
 </body>
 </html>
