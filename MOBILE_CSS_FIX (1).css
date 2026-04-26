@@ -584,3 +584,21 @@
   .section        { padding: 2rem 0.75rem !important; }
   .footer         { padding: 2rem 0.75rem 0 !important; }
 }
+/* ============================================================
+   LOANS PAGE — Mobile header alignment fix
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Agar loans page pe koi alag header/hero-header class hai */
+  .loans-hero .hero-inner,
+  .loan-hero .hero-inner {
+    text-align: center !important;
+    padding: 0 1rem !important;
+  }
+
+  /* Nav items jo loans.html mein phone number dikhate hain — hide */
+  .nav-phone,
+  .nav-tel,
+  a[href^="tel:"] {
+    display: none !important;
+  }
+}
