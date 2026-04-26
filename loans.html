@@ -662,6 +662,7 @@
     .emi-box { padding: 1.8rem; }
   }
 </style>
+ <link rel="stylesheet" href="mobile_css_fix.css"/>
 </head>
 <body>
 
@@ -675,7 +676,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="loans.html" class="active">Loans</a></li>
       <li><a href="insurance.html">Insurance</a></li>
-      <li><a href="our-story.html">Our Story</a></li>
+      <li><a href="our-story.html">Bloggs</a></li>
       <li><a href="rates.html">Rates</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="faq.html">FAQ</a></li>
@@ -687,7 +688,7 @@
     <a href="index.html">Home</a>
     <a href="loans.html">Loans</a>
     <a href="insurance.html">Insurance</a>
-    <a href="our-story.html">Our Story</a>
+    <a href="our-story.html">Bloggs</a>
     <a href="rates.html">Rates</a>
     <a href="about.html">About Us</a>
     <a href="faq.html">FAQ</a>
@@ -1002,5 +1003,6 @@ const ao = new IntersectionObserver((e) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.anim').forEach(el => ao.observe(el));
 </script>
+ <script src="mobile_nav_inject.js"></script>
 </body>
 </html>
