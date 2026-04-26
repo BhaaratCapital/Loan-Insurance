@@ -37,20 +37,29 @@ a { text-decoration: none; color: inherit; }
   backdrop-filter: blur(20px); transition: background 0.3s;
 }
 #navbar.scrolled { background: rgba(10,10,15,0.98); }
+
 .nav-inner {
   max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-  display: flex; align-items: center; gap: 2rem; height: 80px;
+  display: flex; align-items: center; gap: 2rem; height: 70px;
 }
-.nav-logo-img { height: 90px; width: auto; display: block; filter: drop-shadow(0 0 12px rgba(249,115,22,0.4)); }
+.nav-logo-img { height: 44px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 0.3rem; list-style: none; margin-left: auto; }
-.nav-links a { color: #C5C8D8; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.01em; padding: 0.45rem 0.85rem; border-radius: 8px; transition: all 0.2s; }
+.nav-links a { color: rgba(248,250,252,.7); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.01em; padding: 0.45rem 0.85rem; border-radius: 8px; transition: all 0.2s; white-space: nowrap; }
 .nav-links a:hover, .nav-links a.active { color: var(--gold); background: var(--gold-glow); }
-.nav-cta { background: linear-gradient(135deg, #22c55e, #16a34a); border: none; color: #fff !important; font-size: 0.83rem; font-weight: 700; padding: 0.6rem 1.4rem; border-radius: 50px; box-shadow: 0 4px 20px rgba(34,197,94,0.35); transition: all 0.2s; white-space: nowrap; }
+.nav-cta { background: linear-gradient(135deg, #22c55e, #16a34a); border: none; color: #fff !important; font-size: 0.83rem; font-weight: 700; padding: 0.6rem 1.4rem; border-radius: 50px; box-shadow: 0 4px 20px rgba(34,197,94,0.35); transition: all 0.2s; white-space: nowrap; flex-shrink: 0; }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(34,197,94,0.5); }
-.hamburger { display: none; color: #fff; background: none; border: none; font-size: 1.4rem; cursor: pointer; margin-left: auto; }
-.mobile-menu { background: #0A0A0F; border-top: 1px solid rgba(34,197,94,0.15); padding: 1rem 1.5rem 1.5rem; display: none; flex-direction: column; gap: 0.2rem; }
-.mobile-menu a { padding: 0.65rem 1rem; border-radius: 8px; color: #C5C8D8; font-weight: 500; font-size: 0.95rem; display: block; transition: color 0.2s; }
-.mobile-menu a:hover { color: var(--gold); }
+
+/* ── HAMBURGER ── */
+.hamburger { display: none; background: none; border: 1px solid rgba(255,255,255,.15); color: var(--text-bright); font-size: 1.2rem; padding: .4rem .7rem; border-radius: 8px; cursor: pointer; flex-shrink: 0; }
+
+/* ── MOBILE APPLY BUTTON ── */
+.mobile-apply-btn { display: none; }
+
+/* ── MOBILE MENU ── */
+.mobile-menu { display: none; flex-direction: column; background: rgba(10,10,15,0.98); border-top: 1px solid rgba(255,255,255,.06); padding: 1rem; gap: .25rem; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: rgba(248,250,252,.75); text-decoration: none; padding: .75rem 1rem; border-radius: 8px; font-size: .92rem; font-weight: 500; transition: all .2s; display: block; }
+.mobile-menu a:hover { background: rgba(249,115,22,.1); color: var(--orange); }
 
 /* ── PAGE HERO ── */
 .page-hero {
@@ -69,11 +78,7 @@ a { text-decoration: none; color: inherit; }
 /* ── FILTER PILLS ── */
 .filter-section { padding: 2rem; border-bottom: 1px solid var(--border-subtle); }
 .filter-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
-.filter-pill {
-  padding: 0.45rem 1.1rem; border-radius: 50px; border: 1.5px solid rgba(255,255,255,0.12);
-  background: transparent; color: var(--text-muted); font-size: 0.82rem; font-weight: 600;
-  font-family: var(--font-body); cursor: pointer; transition: all 0.2s;
-}
+.filter-pill { padding: 0.45rem 1.1rem; border-radius: 50px; border: 1.5px solid rgba(255,255,255,0.12); background: transparent; color: var(--text-muted); font-size: 0.82rem; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: all 0.2s; }
 .filter-pill:hover { border-color: rgba(249,115,22,0.4); color: var(--orange); }
 .filter-pill.active { border-color: var(--orange); color: var(--orange); background: rgba(249,115,22,0.1); }
 .filter-pill.pinned-pill { border-color: rgba(245,158,11,0.4); color: var(--gold); }
@@ -91,14 +96,10 @@ a { text-decoration: none; color: inherit; }
 .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 
 /* ── POST CARD ── */
-.post-card {
-  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px;
-  overflow: hidden; transition: all 0.3s; cursor: default; display: flex; flex-direction: column;
-}
+.post-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; overflow: hidden; transition: all 0.3s; cursor: default; display: flex; flex-direction: column; }
 .post-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(249,115,22,0.2); border-color: rgba(249,115,22,0.25); }
 .post-card.pinned { border-color: rgba(245,158,11,0.4); box-shadow: 0 0 0 1px rgba(245,158,11,0.15); }
 
-/* Card header image */
 .card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
 .card-img-placeholder { width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
 .card-img-blog { background: linear-gradient(135deg, #052e16, #0f2d1a); }
@@ -106,10 +107,8 @@ a { text-decoration: none; color: inherit; }
 .card-img-update { background: linear-gradient(135deg, #0c0e1a, #1a1f3a); }
 .card-img-image { background: linear-gradient(135deg, #0a1628, #1a2840); }
 
-/* Video embed */
 .video-embed { width: 100%; height: 200px; border: none; display: block; }
 
-/* Card body */
 .card-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
 .card-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
 .card-type-badge { display: inline-flex; align-items: center; gap: 0.3rem; border-radius: 50px; padding: 3px 10px; font-size: 0.7rem; font-weight: 700; }
@@ -125,7 +124,6 @@ a { text-decoration: none; color: inherit; }
 .card-content { font-size: 0.86rem; color: #9CA3AF; line-height: 1.72; flex: 1; }
 .card-content.truncate { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-clamp: 3; overflow: hidden; }
 
-/* Read More */
 .read-more-btn { display: none; background: none; border: none; color: var(--orange); font-size: 0.82rem; font-weight: 700; font-family: var(--font-body); cursor: pointer; padding: 0; margin-top: 0.3rem; text-align: left; }
 .read-more-btn:hover { color: var(--gold); }
 
@@ -135,7 +133,7 @@ a { text-decoration: none; color: inherit; }
 .empty-feed h3 { font-family: var(--font-display); font-size: 1.4rem; color: #F1F1F8; margin-bottom: 0.5rem; }
 .empty-feed p { font-size: 0.9rem; max-width: 400px; margin: 0 auto; }
 
-/* ── MODAL (Full post view) ── */
+/* ── MODAL ── */
 .post-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9999; align-items: flex-start; justify-content: center; padding: 2rem; overflow-y: auto; backdrop-filter: blur(6px); }
 .post-modal-overlay.show { display: flex; }
 .post-modal { background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 24px; max-width: 720px; width: 100%; margin: auto; box-shadow: 0 40px 120px rgba(0,0,0,0.7); overflow: hidden; }
@@ -185,7 +183,31 @@ a { text-decoration: none; color: inherit; }
 /* ── RESPONSIVE ── */
 @media(max-width: 1024px) { .posts-grid { grid-template-columns: 1fr 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media(max-width: 768px) {
-  .nav-links { display: none; } .nav-cta { display: none; } .hamburger { display: block; }
+  /* Desktop nav hide */
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+
+  /* Mobile navbar layout */
+  .nav-inner { padding: 0 1rem; height: 64px; gap: 0; justify-content: space-between; }
+  .nav-logo-img { height: 38px; }
+
+  /* Mobile Apply Now button */
+  .mobile-apply-btn {
+    display: inline-block !important;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #fff;
+    text-decoration: none;
+    font-size: .82rem;
+    font-weight: 700;
+    padding: .5rem 1.1rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    box-shadow: 0 3px 14px rgba(34,197,94,.35);
+    transition: all .2s;
+  }
+
+  .hamburger { display: block; }
+
   .posts-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
@@ -199,7 +221,7 @@ a { text-decoration: none; color: inherit; }
 <nav id="navbar">
   <div class="nav-inner">
     <a href="index.html" style="display:flex;align-items:center;">
-      <img src="logo (1).png" alt="Bhaarat Capital" class="nav-logo-img" style="height:90px;width:auto;object-fit:contain;">
+      <img src="logo (1).png" alt="Bhaarat Capital" class="nav-logo-img">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
@@ -209,8 +231,11 @@ a { text-decoration: none; color: inherit; }
       <li><a href="our-story.html" class="active">Our Story</a></li>
       <li><a href="about.html">About Us</a></li>
     </ul>
-    <a href="contact.html" class="nav-cta">Apply Now &#8594;</a>
-    <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+
+    <!-- Mobile Apply Now button -->
+    <a href="contact.html" class="mobile-apply-btn" style="display:none;">Apply Now →</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
@@ -219,13 +244,13 @@ a { text-decoration: none; color: inherit; }
     <a href="rates.html">Rates</a>
     <a href="our-story.html" style="color:var(--gold);font-weight:700;">Our Story</a>
     <a href="about.html">About Us</a>
-    <a href="https://wa.me/917982810014" target="_blank" style="color:#22c55e;font-weight:700;">&#128172; WhatsApp Us</a>
+    <a href="https://wa.me/917982810014" target="_blank" style="color:#22c55e;font-weight:700;">💬 WhatsApp Us</a>
   </div>
 </nav>
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
-  <div class="page-hero-tag">&#128221; Stories &amp; Updates</div>
+  <div class="page-hero-tag">📝 Stories &amp; Updates</div>
   <h1>Our <span class="heading-gradient">Story</span></h1>
   <p>Bhaarat Capital ka safar — blog posts, success stories, team moments, company updates aur zyada. Har hafte kuch naya.</p>
 </section>
@@ -233,12 +258,12 @@ a { text-decoration: none; color: inherit; }
 <!-- ── FILTER PILLS ── -->
 <div class="filter-section">
   <div class="filter-inner">
-    <button class="filter-pill active" onclick="setFilter('all', this)">&#127775; All Posts</button>
-    <button class="filter-pill" onclick="setFilter('blog', this)">&#128221; Blog / Articles</button>
-    <button class="filter-pill" onclick="setFilter('image', this)">&#128247; Photos</button>
-    <button class="filter-pill" onclick="setFilter('video', this)">&#127910; Videos</button>
-    <button class="filter-pill" onclick="setFilter('update', this)">&#128226; Updates</button>
-    <button class="filter-pill pinned-pill" onclick="setFilter('pinned', this)">&#128204; Pinned</button>
+    <button class="filter-pill active" onclick="setFilter('all', this)">🌟 All Posts</button>
+    <button class="filter-pill" onclick="setFilter('blog', this)">📝 Blog / Articles</button>
+    <button class="filter-pill" onclick="setFilter('image', this)">📷 Photos</button>
+    <button class="filter-pill" onclick="setFilter('video', this)">🎞 Videos</button>
+    <button class="filter-pill" onclick="setFilter('update', this)">📢 Updates</button>
+    <button class="filter-pill pinned-pill" onclick="setFilter('pinned', this)">📌 Pinned</button>
     <span class="filter-count" id="filterCount">0 posts</span>
   </div>
 </div>
@@ -247,11 +272,11 @@ a { text-decoration: none; color: inherit; }
 <section class="feed-section">
   <div class="feed-inner">
     <div id="pinnedBanner" class="pinned-banner" style="display:none;">
-      &#128204; Pinned posts — admin dwara featured kiya gaya
+      📌 Pinned posts — admin dwara featured kiya gaya
     </div>
     <div class="posts-grid" id="postsGrid"></div>
     <div class="empty-feed" id="emptyFeed" style="display:none;">
-      <div class="icon">&#128221;</div>
+      <div class="icon">📝</div>
       <h3>Abhi tak koi post nahi</h3>
       <p>Admin jaldi hi stories, updates aur blogs publish karega. Tab tak WhatsApp par connected rahein!</p>
     </div>
@@ -263,7 +288,7 @@ a { text-decoration: none; color: inherit; }
   <div class="post-modal">
     <div class="modal-header">
       <h2 id="modalTitle">Post Title</h2>
-      <button class="modal-close" onclick="closeModal()">&#x2715; Close</button>
+      <button class="modal-close" onclick="closeModal()">✕ Close</button>
     </div>
     <div class="modal-body" id="modalBody"></div>
   </div>
@@ -273,8 +298,8 @@ a { text-decoration: none; color: inherit; }
 <div class="cta-banner">
   <h2>Hamen Follow Karo, Updated Raho!</h2>
   <p>Instagram, YouTube aur WhatsApp par Bhaarat Capital se jude raho — financial tips, success stories aur zyada.</p>
-  <a href="https://wa.me/917982810014" target="_blank" class="cta-btn wh">&#128172; WhatsApp Karo &#8594;</a>
-  <a href="https://www.instagram.com/bhaarat_capital/" target="_blank" class="cta-btn tr">&#128247; Instagram Follow Karo</a>
+  <a href="https://wa.me/917982810014" target="_blank" class="cta-btn wh">💬 WhatsApp Karo →</a>
+  <a href="https://www.instagram.com/bhaarat_capital/" target="_blank" class="cta-btn tr">📷 Instagram Follow Karo</a>
 </div>
 
 <!-- ── FOOTER ── -->
@@ -282,14 +307,14 @@ a { text-decoration: none; color: inherit; }
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html">
-        <img src="logo (1).png" alt="Bhaarat Capital" style="height:85px;width:auto;object-fit:contain;margin-bottom:1rem;display:block;filter:drop-shadow(0 0 10px rgba(34,197,94,0.4));">
+        <img src="logo (1).png" alt="Bhaarat Capital" style="height:42px;width:auto;object-fit:contain;margin-bottom:1rem;display:block;">
       </a>
-      <p>Bhaarat Capital &#8212; Trusted financial partner in Noida NCR. Home Loans, Personal Loans, Car Loans, Health Insurance, Motor Insurance, Corporate Insurance, and Term Plans.</p>
-      <p style="margin-top:.7rem;font-size:.82rem;color:#4B5563;">&#128205; Bisrakh, Noida, UP &nbsp;|&nbsp; &#128345; Mon&#8211;Sun: 9AM&#8211;9PM</p>
+      <p>Bhaarat Capital — Trusted financial partner in Noida NCR. Home Loans, Personal Loans, Car Loans, Health Insurance, Motor Insurance, Corporate Insurance, and Term Plans.</p>
+      <p style="margin-top:.7rem;font-size:.82rem;color:#4B5563;">📍 Bisrakh, Noida, UP &nbsp;|&nbsp; 🕘 Mon–Sun: 9AM–9PM</p>
       <div class="social-links">
-        <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">&#128247; Instagram</a>
-        <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">&#9654; YouTube</a>
-        <a href="https://wa.me/917982810014" target="_blank">&#128172; WhatsApp</a>
+        <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 Instagram</a>
+        <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">▶ YouTube</a>
+        <a href="https://wa.me/917982810014" target="_blank">💬 WhatsApp</a>
       </div>
     </div>
     <div class="footer-col">
@@ -316,14 +341,14 @@ a { text-decoration: none; color: inherit; }
       <a href="privacy.html">Privacy Policy</a>
       <a href="disclaimer.html">Disclaimer</a>
       <h5 style="margin-top:1.5rem;">Contact</h5>
-      <a href="https://wa.me/917982810014" target="_blank">&#128172; WhatsApp +91 79828 10014</a>
-      <a href="tel:+917982810014">&#128222; +91 79828 10014</a>
-      <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">&#128247; @bhaarat_capital</a>
-      <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">&#9654; YouTube Channel</a>
+      <a href="https://wa.me/917982810014" target="_blank">💬 WhatsApp +91 79828 10014</a>
+      <a href="tel:+917982810014">📞 +91 79828 10014</a>
+      <a href="https://www.instagram.com/bhaarat_capital/" target="_blank">📷 @bhaarat_capital</a>
+      <a href="https://www.youtube.com/@bhaaratcapital" target="_blank">▶ YouTube Channel</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&#169; 2025 Bhaarat Capital. All rights reserved. Banks Partner.</p>
+    <p>© 2025 Bhaarat Capital. All rights reserved. Banks Partner.</p>
     <div style="display:flex;gap:1.5rem;">
       <a href="terms.html" style="color:#4B5563;font-size:.82rem;">Terms</a>
       <a href="privacy.html" style="color:#4B5563;font-size:.82rem;">Privacy</a>
@@ -332,16 +357,19 @@ a { text-decoration: none; color: inherit; }
   </div>
 </footer>
 
-<a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">&#128172;</a>
+<a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
 
 <script>
+// Mobile pe Apply Now button dikhao
+if (window.innerWidth <= 768) {
+  var mab = document.querySelector('.mobile-apply-btn');
+  if (mab) mab.style.display = 'inline-block';
+}
+
 const POSTS_KEY = 'bc_story_posts';
 let currentFilter = 'all';
 let allPosts = [];
 
-/* ─────────────────────────────────────
-   LOAD & RENDER POSTS
-───────────────────────────────────── */
 function loadPosts() {
   try { allPosts = JSON.parse(localStorage.getItem(POSTS_KEY) || '[]'); }
   catch(e) { allPosts = []; }
@@ -357,50 +385,34 @@ function setFilter(type, btn) {
 
 function renderFeed() {
   let posts = [...allPosts];
-
-  // Sort: pinned first, then by date
   posts.sort((a, b) => {
     if (a.pinned && !b.pinned) return -1;
     if (!a.pinned && b.pinned) return 1;
     return new Date(b.timestamp) - new Date(a.timestamp);
   });
-
-  // Filter
   if (currentFilter !== 'all') {
     if (currentFilter === 'pinned') posts = posts.filter(p => p.pinned);
     else posts = posts.filter(p => p.type === currentFilter);
   }
-
   const grid  = document.getElementById('postsGrid');
   const empty = document.getElementById('emptyFeed');
   const banner = document.getElementById('pinnedBanner');
   document.getElementById('filterCount').textContent = posts.length + ' post' + (posts.length !== 1 ? 's' : '');
-
-  // Show pinned banner if any pinned
   const hasPinned = posts.some(p => p.pinned);
   banner.style.display = hasPinned && currentFilter !== 'pinned' ? 'flex' : 'none';
-
-  if (!posts.length) {
-    grid.innerHTML = '';
-    empty.style.display = 'block';
-    return;
-  }
+  if (!posts.length) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
   empty.style.display = 'none';
-
   grid.innerHTML = posts.map(p => buildCard(p)).join('');
-
-  // Observe animations
   grid.querySelectorAll('.anim').forEach(el => ao.observe(el));
 }
 
 function buildCard(p) {
   const dt  = new Date(p.timestamp);
   const ds  = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-  const typeIcon  = { blog:'&#128221;', image:'&#128247;', video:'&#127910;', update:'&#128226;' };
+  const typeIcon  = { blog:'📝', image:'📷', video:'🎞', update:'📢' };
   const typeCls   = { blog:'ctb-blog', image:'ctb-image', video:'ctb-video', update:'ctb-update' };
-  const ti = typeIcon[p.type] || '&#128203;';
+  const ti = typeIcon[p.type] || '📄';
   const tc = typeCls[p.type] || 'ctb-update';
-
   let mediaHtml = '';
   if (p.type === 'image' && p.imageUrl) {
     mediaHtml = `<img src="${esc(p.imageUrl)}" class="card-img" alt="${esc(p.title)}" onerror="this.style.display='none'">`;
@@ -409,7 +421,7 @@ function buildCard(p) {
     if (embedUrl) {
       mediaHtml = `<iframe class="video-embed" src="${esc(embedUrl)}" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
     } else {
-      mediaHtml = `<div class="card-img-placeholder card-img-video">&#127910;</div>`;
+      mediaHtml = `<div class="card-img-placeholder card-img-video">🎞</div>`;
     }
   } else if ((p.type === 'blog' || p.type === 'update') && p.coverImage) {
     mediaHtml = `<img src="${esc(p.coverImage)}" class="card-img" alt="${esc(p.title)}" onerror="this.style.display='none'">`;
@@ -417,76 +429,55 @@ function buildCard(p) {
     const bgCls = { blog:'card-img-blog', image:'card-img-image', video:'card-img-video', update:'card-img-update' }[p.type] || 'card-img-blog';
     mediaHtml = `<div class="card-img-placeholder ${bgCls}">${ti}</div>`;
   }
-
   const content = p.content || p.caption || p.description || '';
   const shortContent = content.length > 140 ? content.slice(0, 140) + '...' : content;
   const hasMore = content.length > 140;
-
   return `<div class="post-card anim ${p.pinned ? 'pinned' : ''}">
     ${mediaHtml}
     <div class="card-body">
       <div class="card-meta">
         <span class="card-type-badge ${tc}">${ti} ${p.type}</span>
         ${p.tag ? `<span class="card-tag">• ${esc(p.tag)}</span>` : ''}
-        ${p.pinned ? '<span class="card-pin-icon">&#128204;</span>' : ''}
+        ${p.pinned ? '<span class="card-pin-icon">📌</span>' : ''}
       </div>
       <div class="card-date">${ds}</div>
       <div class="card-title">${esc(p.title)}</div>
       ${content ? `<div class="card-content truncate">${esc(shortContent)}</div>` : ''}
-      ${hasMore ? `<button class="read-more-btn" style="display:block" onclick='openModal(${JSON.stringify(p)})'>Read more &#8594;</button>` : ''}
+      ${hasMore ? `<button class="read-more-btn" style="display:block" onclick='openModal(${JSON.stringify(p)})'>Read more →</button>` : ''}
     </div>
   </div>`;
 }
 
-/* ─────────────────────────────────────
-   VIDEO EMBED URL CONVERTER
-───────────────────────────────────── */
 function getVideoEmbed(url) {
-  // YouTube
   let m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/);
   if (m) return `https://www.youtube.com/embed/${m[1]}?rel=0`;
-  // YouTube Shorts
   m = url.match(/youtube\.com\/shorts\/([\w-]+)/);
   if (m) return `https://www.youtube.com/embed/${m[1]}`;
-  // Already embed
   if (url.includes('youtube.com/embed/')) return url;
-  // Instagram / Reel — use as iframe link
   if (url.includes('instagram.com')) return url + (url.includes('?') ? '&' : '?') + 'embed=1';
-  // Direct video file — not embeddable as iframe, return null
   return null;
 }
 
-/* ─────────────────────────────────────
-   MODAL
-───────────────────────────────────── */
 function openModal(p) {
   document.getElementById('modalTitle').textContent = p.title;
   const dt  = new Date(p.timestamp);
   const ds  = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-  const typeIcon = { blog:'&#128221;', image:'&#128247;', video:'&#127910;', update:'&#128226;' };
+  const typeIcon = { blog:'📝', image:'📷', video:'🎞', update:'📢' };
   const typeCls  = { blog:'ctb-blog', image:'ctb-image', video:'ctb-video', update:'ctb-update' };
-
   let bodyHtml = `<div class="modal-meta">
-    <span class="card-type-badge ${typeCls[p.type]||'ctb-update'}">${typeIcon[p.type]||'&#128203;'} ${esc(p.type)}</span>
+    <span class="card-type-badge ${typeCls[p.type]||'ctb-update'}">${typeIcon[p.type]||'📄'} ${esc(p.type)}</span>
     ${p.tag ? `<span class="card-tag">• ${esc(p.tag)}</span>` : ''}
     <span class="card-date">${ds}</span>
   </div>`;
-
-  if (p.type === 'image' && p.imageUrl) {
-    bodyHtml += `<img src="${esc(p.imageUrl)}" class="modal-img" alt="${esc(p.title)}">`;
-  }
+  if (p.type === 'image' && p.imageUrl) bodyHtml += `<img src="${esc(p.imageUrl)}" class="modal-img" alt="${esc(p.title)}">`;
   if (p.type === 'video' && p.videoUrl) {
     const embed = getVideoEmbed(p.videoUrl);
     if (embed) bodyHtml += `<iframe class="modal-video" src="${esc(embed)}" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
-    else bodyHtml += `<a href="${esc(p.videoUrl)}" target="_blank" style="color:var(--orange);font-weight:700;">&#127910; Video dekhne ke liye click karo &#8594;</a><br><br>`;
+    else bodyHtml += `<a href="${esc(p.videoUrl)}" target="_blank" style="color:var(--orange);font-weight:700;">🎞 Video dekhne ke liye click karo →</a><br><br>`;
   }
-  if ((p.type === 'blog' || p.type === 'update') && p.coverImage) {
-    bodyHtml += `<img src="${esc(p.coverImage)}" class="modal-img" alt="">`;
-  }
-
+  if ((p.type === 'blog' || p.type === 'update') && p.coverImage) bodyHtml += `<img src="${esc(p.coverImage)}" class="modal-img" alt="">`;
   const content = p.content || p.caption || p.description || '';
   if (content) bodyHtml += `<div class="modal-content">${esc(content)}</div>`;
-
   document.getElementById('modalBody').innerHTML = bodyHtml;
   document.getElementById('postModal').classList.add('show');
   document.body.style.overflow = 'hidden';
@@ -497,39 +488,25 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-// Close modal on overlay click
 document.getElementById('postModal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
 
-/* ─────────────────────────────────────
-   ESCAPE
-───────────────────────────────────── */
 function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-/* ─────────────────────────────────────
-   ANIMATION OBSERVER
-───────────────────────────────────── */
 const ao = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); ao.unobserve(e.target); } });
 }, { threshold: 0.08 });
 
-/* ─────────────────────────────────────
-   NAVBAR & HAMBURGER
-───────────────────────────────────── */
 document.getElementById('hamburger').addEventListener('click', function() {
-  const m = document.getElementById('mobileMenu');
-  m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+  document.getElementById('mobileMenu').classList.toggle('open');
 });
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 });
 
-/* ─────────────────────────────────────
-   INIT — Reload posts every 10s (live sync)
-───────────────────────────────────── */
 loadPosts();
 setInterval(loadPosts, 10000);
 </script>
