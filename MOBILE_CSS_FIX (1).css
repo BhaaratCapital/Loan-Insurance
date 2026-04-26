@@ -1,0 +1,313 @@
+/* ============================================================
+   MOBILE FIX — ONLY FOR PHONE VIEW
+   Replace the existing @media (max-width: 768px) and
+   @media (max-width: 480px) blocks in style.css with these.
+   Desktop / laptop view mein koi change NAHI hoga.
+   ============================================================ */
+
+/* ============================================================
+   RESPONSIVE — TABLET (≤1024px)  [YE WALA MAT CHHONA — SAME RAHEGA]
+   ============================================================ */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .svc-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤768px)   ← YE BLOCK REPLACE KARO
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* --- NAVBAR FIX --- */
+  .nav-inner {
+    padding: 0 1rem;
+    height: 64px;
+    gap: 0.5rem;
+  }
+  /* Logo size mobile pe chhota karo */
+  .nav-logo-img {
+    height: 52px !important;
+    width: auto !important;
+  }
+  /* Desktop nav links hide */
+  .nav-links { display: none; }
+  /* Hamburger show */
+  .hamburger { display: block; }
+  /* Apply Now button — mobile pe small rakho */
+  .nav-cta {
+    font-size: 0.78rem !important;
+    padding: 0.45rem 0.85rem !important;
+    border-radius: 50px;
+    white-space: nowrap;
+  }
+  /* Mobile menu styling */
+  .mobile-menu {
+    padding: 0.8rem 1rem 1.2rem;
+    gap: 0.1rem;
+  }
+  .mobile-menu a {
+    font-size: 0.92rem;
+    padding: 0.6rem 0.9rem;
+  }
+
+  /* --- SECTIONS --- */
+  .section { padding: 3rem 1rem; }
+
+  /* --- HERO FIX --- */
+  .hero {
+    padding: 5.5rem 1rem 3rem;
+    text-align: center;
+    min-height: auto;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .hero-title { font-size: 2.2rem; }
+  .hero-sub {
+    font-size: 0.95rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+  .hero-badge,
+  .hero-hours {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-flex;
+    font-size: 0.74rem;
+  }
+  .hero-btns {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-btns .btn-primary,
+  .hero-btns .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+    font-size: 0.92rem;
+    padding: 0.85rem 1.5rem;
+  }
+  /* Hero stats — 2x2 grid on mobile */
+  .hero-stats {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 1rem;
+    width: 100%;
+    max-width: 340px;
+  }
+  .stat-div { display: none; }
+  .stat {
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    margin: 4px;
+    background: rgba(255,255,255,0.03);
+  }
+  .stat-num { font-size: 1.5rem; }
+  .stat-label { font-size: 0.65rem; }
+  /* Hero visual cards — hide on mobile (already hidden in 1024px but double sure) */
+  .hero-visual { display: none; }
+
+  /* --- MARQUEE --- */
+  .marquee-track span { font-size: 0.78rem; }
+
+  /* --- SERVICES SECTION --- */
+  .services-section .container { padding: 0 1rem; }
+  .svc-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 1.5rem 0 0;
+    gap: 1rem;
+  }
+  .svc-card { padding: 1.6rem 1.2rem; border-radius: 16px; }
+  .svc-icon { font-size: 2.2rem; }
+  .svc-card h3 { font-size: 1.1rem; }
+  .svc-card p { font-size: 0.84rem; }
+  .svt { font-size: 0.7rem; padding: 0.2rem 0.6rem; }
+
+  /* --- WHY US SECTION --- */
+  .why-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin-top: 2rem;
+  }
+  .why-card {
+    padding: 1.3rem 1rem;
+    border-radius: 14px;
+  }
+  .why-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+  .why-card h4 { font-size: 0.88rem; margin-bottom: 0.4rem; }
+  .why-card p { font-size: 0.78rem; line-height: 1.55; }
+
+  /* --- PARTNERS SECTION --- */
+  .partners-section { padding: 3rem 1rem; }
+  .partner-category { margin-bottom: 1.5rem; }
+  .partner-cat-label { font-size: 0.68rem; }
+  /* Slider edges — thinner fade on mobile */
+  .slider-wrap::before,
+  .slider-wrap::after { width: 30px; }
+  .partner-chip {
+    padding: 8px 14px;
+    font-size: 0.78rem;
+    border-radius: 8px;
+  }
+
+  /* --- RATES TABLE FIX --- */
+  /* Table ko horizontal scroll karo — overflow cut nahi hoga */
+  .rates-section .container { padding: 0 1rem; overflow: hidden; }
+  .rates-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.07);
+    margin-top: 1.5rem;
+  }
+  .rates-table {
+    margin-top: 0;
+    font-size: 0.78rem;
+    min-width: 580px; /* force scroll instead of squish */
+  }
+  .rates-table th { padding: 12px 10px; font-size: 0.68rem; }
+  .rates-table td { padding: 13px 10px; font-size: 0.78rem; }
+  .rate-val { font-size: 0.85rem; }
+  .avail-badge { padding: 3px 8px; font-size: 0.68rem; }
+
+  /* --- STEPS / PROCESS SECTION --- */
+  .steps-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 1.5rem auto 0;
+    gap: 1rem;
+  }
+  .step-card { padding: 1.6rem 1.2rem; border-radius: 16px; }
+  .step-num {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .step-card h4 { font-size: 1rem; }
+  .step-card p { font-size: 0.83rem; }
+
+  /* --- TESTIMONIALS --- */
+  .testi-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 2rem 0 0;
+    gap: 1rem;
+  }
+  .testi-card { padding: 1.6rem 1.2rem; border-radius: 16px; }
+  .testi-card p { font-size: 0.85rem; }
+
+  /* --- CTA BANNER --- */
+  .cta-banner { padding: 3rem 1rem; }
+  .cta-banner h2 { font-size: 1.6rem; }
+  .cta-banner p { font-size: 0.9rem; margin-bottom: 1.8rem; }
+  .cta-btn {
+    display: block;
+    margin: 0.4rem auto;
+    text-align: center;
+    max-width: 260px;
+    font-size: 0.9rem;
+    padding: 0.85rem 1.5rem;
+  }
+
+  /* --- FOOTER --- */
+  .footer { padding: 3rem 1rem 0; }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+    padding: 1.2rem 0;
+  }
+
+  /* --- SECTION TYPOGRAPHY --- */
+  .section-title { font-size: 1.6rem; }
+  .section-sub { font-size: 0.9rem; }
+
+  /* --- INNER PAGE HERO --- */
+  .page-hero { padding: 7.5rem 1rem 2.5rem; }
+  .page-hero h1 { font-size: 2rem; }
+  .page-hero p { font-size: 0.95rem; }
+
+  /* --- INNER PAGE CONTENT --- */
+  .page-content { padding: 2.5rem 1rem; }
+  .info-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .apply-form { padding: 1.5rem 1rem; }
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   RESPONSIVE — SMALL PHONE (≤480px)  ← YE BLOCK REPLACE KARO
+   ============================================================ */
+@media (max-width: 480px) {
+
+  /* Navbar even smaller */
+  .nav-inner { padding: 0 0.8rem; height: 58px; }
+  .nav-logo-img { height: 44px !important; }
+  .nav-cta {
+    font-size: 0.72rem !important;
+    padding: 0.4rem 0.7rem !important;
+  }
+
+  /* Hero */
+  .hero { padding: 5rem 0.8rem 2.5rem; }
+  .hero-title { font-size: 1.9rem; }
+  .hero-sub { font-size: 0.88rem; }
+  .hero-btns .btn-primary,
+  .hero-btns .btn-secondary { max-width: 100%; }
+
+  /* Why grid — 1 column on very small phones */
+  .why-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+
+  /* Stats compact */
+  .hero-stats { max-width: 280px; }
+  .stat-num { font-size: 1.3rem; }
+  .stat-label { font-size: 0.6rem; }
+
+  /* Marquee */
+  .marquee-track span { font-size: 0.72rem; }
+
+  /* Section padding */
+  .section { padding: 2.5rem 0.8rem; }
+  .section-title { font-size: 1.45rem; }
+
+  /* Cards */
+  .svc-card { padding: 1.3rem 1rem; }
+  .testi-card { padding: 1.3rem 1rem; }
+  .step-card { padding: 1.3rem 1rem; }
+
+  /* Footer */
+  .footer { padding: 2.5rem 0.8rem 0; }
+  .social-links { gap: 0.5rem; }
+  .social-links a { font-size: 0.75rem; padding: 0.35rem 0.7rem; }
+
+  /* Rates table */
+  .rates-table { min-width: 520px; font-size: 0.73rem; }
+  .rates-table th { padding: 10px 8px; font-size: 0.62rem; }
+  .rates-table td { padding: 11px 8px; font-size: 0.73rem; }
+}
