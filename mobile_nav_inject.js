@@ -3,7 +3,7 @@
   if (window.innerWidth > 900) return;
 
   // Pehle wale navbar ko chupao
-  var oldNav = document.querySelector('header') || document.querySelector('nav') || document.querySelector('.navbar');
+  var oldNav = document.getElementById('navbar');
   if (oldNav) oldNav.style.display = 'none';
 
   var path = window.location.pathname;
@@ -22,5 +22,7 @@
     var existing = document.getElementById('bc-mobile-nav');
     if (!existing) return;
     existing.style.display = window.innerWidth > 900 ? 'none' : 'flex';
+    var old = document.getElementById('navbar');
+    if (old) old.style.display = window.innerWidth > 900 ? '' : 'none';
   });
 })();
