@@ -71,21 +71,10 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); min-
 .topbar-logo { font-family: var(--font-head); font-size: 1rem; font-weight: 800; color: var(--gold); letter-spacing: 0.02em; display: flex; align-items: center; gap: 0.5rem; }
 .topbar-logo-icon { width: 30px; height: 30px; background: linear-gradient(135deg, var(--orange), var(--gold)); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; }
 .topbar-badge { background: rgba(249,115,22,0.12); color: var(--orange2); border: 1px solid rgba(249,115,22,0.25); border-radius: 50px; padding: 0.2rem 0.65rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; }
-.github-badge { background: rgba(16,185,129,0.1); color: var(--green2); border: 1px solid rgba(16,185,129,0.25); border-radius: 50px; padding: 0.2rem 0.65rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; display: none; }
-@media(min-width:768px) { .github-badge { display: block; } }
+.github-badge { background: rgba(16,185,129,0.1); color: var(--green2); border: 1px solid rgba(16,185,129,0.25); border-radius: 50px; padding: 0.2rem 0.65rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; }
 .topbar-right { display: flex; align-items: center; gap: 0.5rem; }
 .logout-btn { background: rgba(239,68,68,0.08); color: var(--red2); border: 1px solid rgba(239,68,68,0.2); border-radius: var(--radius-sm); padding: 0.45rem 0.9rem; font-size: 0.78rem; font-weight: 700; font-family: var(--font); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
 .logout-btn:hover { background: rgba(239,68,68,0.18); }
-
-/* TOKEN SETUP */
-.token-setup { background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.3); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
-.token-setup h3 { font-family: var(--font-head); color: var(--orange); font-size: 1rem; margin-bottom: 0.5rem; }
-.token-setup p { color: var(--text2); font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.6; }
-.token-input-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.token-input { flex: 1; min-width: 200px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-sm); padding: 0.75rem 1rem; color: var(--text); font-size: 0.85rem; font-family: var(--font); outline: none; }
-.token-input:focus { border-color: var(--orange); }
-.save-token-btn { background: linear-gradient(135deg, var(--orange), var(--gold)); color: #fff; border: none; border-radius: var(--radius-sm); padding: 0.75rem 1.5rem; font-size: 0.85rem; font-weight: 700; font-family: var(--font); cursor: pointer; white-space: nowrap; }
-.token-saved { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); border-radius: var(--radius); padding: 0.75rem 1.2rem; color: var(--green2); font-size: 0.85rem; font-weight: 600; display: none; margin-bottom: 1.5rem; }
 
 /* TABS */
 .tabs { background: var(--bg2); border-bottom: 1px solid var(--border2); padding: 0 1.5rem; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
@@ -242,11 +231,11 @@ tbody td:first-child { color: var(--muted); font-size: 0.78rem; font-weight: 600
   <div class="topbar">
     <div class="topbar-left">
       <div class="topbar-logo">
-        <div class="topbar-logo-icon">🇮🇳</div>
+        <div class="topbar-logo-icon">🇮🏻</div>
         Bhaarat Capital
       </div>
       <span class="topbar-badge">Admin Panel</span>
-      <span class="github-badge" id="githubStatus">⚡ GitHub Connected</span>
+      <span class="github-badge">⚡ Google Backend Connected</span>
     </div>
     <div class="topbar-right">
       <button class="logout-btn" onclick="doLogout()">🔒 Logout</button>
@@ -256,32 +245,9 @@ tbody td:first-child { color: var(--muted); font-size: 0.78rem; font-weight: 600
   <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('leads',this)">📋 Leads / Forms</button>
     <button class="tab-btn" onclick="switchTab('posts',this)">📝 Our Story Posts</button>
-    <button class="tab-btn" onclick="switchTab('settings',this)">⚙️ Settings</button>
   </div>
 
   <div class="main">
-
-    <!-- SETTINGS TAB -->
-    <div class="tab-panel" id="tab-settings">
-      <div class="token-setup" id="tokenSetupBox">
-        <h3>⚙️ GitHub Token Setup</h3>
-        <p>Apna naya GitHub Personal Access Token yahan paste karo. Yeh sirf ek baar karna hai. Token browser mein save ho jayega.</p>
-        <div class="token-input-row">
-          <input type="password" class="token-input" id="tokenInput" placeholder="github_pat_...">
-          <button class="save-token-btn" onclick="saveToken()">💾 Save Token</button>
-        </div>
-      </div>
-      <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);padding:1.5rem;margin-top:1rem;">
-        <p class="section-title">ℹ️ GitHub Config Info</p>
-        <p style="color:var(--muted);font-size:0.85rem;margin-top:0.5rem;line-height:1.7;">
-          <strong style="color:var(--text2);">Repo:</strong> BhaaratCapital/Loan-Insurance<br>
-          <strong style="color:var(--text2);">Posts File:</strong> posts.json<br>
-          <strong style="color:var(--text2);">Leads File:</strong> leads.json<br>
-          <strong style="color:var(--text2);">Branch:</strong> main
-        </p>
-        <button onclick="clearToken()" style="margin-top:1rem;background:rgba(239,68,68,0.08);color:var(--red2);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:0.5rem 1rem;font-size:0.82rem;font-family:var(--font);cursor:pointer;font-weight:600;">🗑 Token Delete Karo</button>
-      </div>
-    </div>
 
     <!-- LEADS TAB -->
     <div class="tab-panel active" id="tab-leads">
@@ -458,48 +424,45 @@ tbody td:first-child { color: var(--muted); font-size: 0.78rem; font-weight: 600
 <div class="toast" id="toast">✅ Done!</div>
 
 <script>
-const ADMIN_USER = 'Chintu.Singh';
-const ADMIN_PASS = 'Singh.1984';
-const GITHUB_OWNER = 'BhaaratCapital';
-const GITHUB_REPO  = 'Loan-Insurance';
-const GITHUB_BRANCH = 'main';
-const POSTS_FILE = 'posts.json';
-const LEADS_FILE = 'leads.json';
-const GITHUB_TOKEN = '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y';
+// ======================================================
+// CONFIGURATION — sirf yahi cheez change karni hai
+// ======================================================
+const ADMIN_USER   = 'Chintu.Singh';
+const ADMIN_PASS   = 'Singh.1984';
+const BACKEND_URL  = 'https://script.google.com/macros/s/AKfycbwAVZxWiBUXautkuS0lFUjkI4H2y35G0tvrnCVcZtrshHH4_3H_UutqKesPYnbwMTAPPg/exec';
+const POSTS_FILE   = 'posts.json';
+const LEADS_FILE   = 'leads.json';
+// ======================================================
 
 let allLeads = [];
 let allPosts = [];
 
-function getToken() { return GITHUB_TOKEN; }
-function updateGithubStatus() {
-  const badge = document.getElementById('githubStatus');
-  badge.textContent = '⚡ GitHub Connected';
+// ---- Backend helpers (Google Apps Script proxy) ----
+async function backendRead(file) {
+  const url = BACKEND_URL + '?action=read&file=' + encodeURIComponent(file);
+  const res = await fetch(url);
+  const json = await res.json();
+  if (!json.success) throw new Error(json.error || 'Read failed');
+  return { data: json.data, sha: json.sha };
 }
 
-function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-async function githubGet(file) {
-  const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${file}?ref=${GITHUB_BRANCH}`;
-  const res = await fetch(url, { headers: { 'Authorization': `token ${getToken()}`, 'Accept': 'application/vnd.github.v3+json' } });
-  if (!res.ok) throw new Error('GitHub read failed: ' + res.status);
-  const data = await res.json();
-  const content = atob(data.content.replace(/\n/g,''));
-  return { data: JSON.parse(content), sha: data.sha };
+async function backendWrite(file, content, sha, message) {
+  const res = await fetch(BACKEND_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain' }, // avoid CORS preflight
+    body: JSON.stringify({ action: 'write', file, content, sha, message })
+  });
+  const json = await res.json();
+  if (!json.success) throw new Error(json.error || 'Write failed');
+  return json;
 }
 
-async function githubPut(file, content, sha, message) {
-  const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${file}`;
-  const body = { message, content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))), sha, branch: GITHUB_BRANCH };
-  const res = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${getToken()}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-  if (!res.ok) { const e = await res.json(); throw new Error(e.message || 'GitHub write failed'); }
-  return res.json();
-}
-
+// ---- Auth ----
 function doLogin() {
   const u = document.getElementById('loginUser').value.trim();
   const p = document.getElementById('loginPass').value;
   if (u === ADMIN_USER && p === ADMIN_PASS) {
-    sessionStorage.setItem('bc_admin_auth','1');
+    sessionStorage.setItem('bc_admin_auth', '1');
     document.getElementById('loginWrap').style.display = 'none';
     document.getElementById('dashWrap').style.display = 'block';
     loadDashboard();
@@ -522,44 +485,36 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// ---- Tabs ----
 function switchTab(name, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-'+name).classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
   btn.classList.add('active');
   if (name === 'leads') loadLeads();
   if (name === 'posts') loadPosts();
 }
 
 function loadDashboard() {
-  updateGithubStatus();
   loadLeads();
   loadPosts();
 }
 
+// ---- Leads ----
 async function loadLeads() {
-  if (!getToken()) { showToast('⚠️ Pehle Settings mein Token save karo!', true); return; }
   try {
-    const { data } = await githubGet(LEADS_FILE);
+    showToast('⏳ Leads load ho rahi hain...', false, true);
+    const { data } = await backendRead(LEADS_FILE);
     allLeads = Array.isArray(data) ? data : [];
     renderLeadsUI();
+    showToast('✅ Leads loaded!');
   } catch(e) {
     showToast('Leads load error: ' + e.message, true);
   }
 }
 
-async function loadPosts() {
-  if (!getToken()) { showToast('⚠️ Pehle Settings mein Token save karo!', true); return; }
-  try {
-    const { data } = await githubGet(POSTS_FILE);
-    allPosts = Array.isArray(data) ? data : [];
-    renderPostsUI();
-  } catch(e) {
-    showToast('Posts load error: ' + e.message, true);
-  }
-}
-
 function renderLeadsUI() { updateLeadStats(); renderLeadsTable(); }
+
 function updateLeadStats() {
   const today = new Date().toDateString();
   document.getElementById('statTotal').textContent = allLeads.length;
@@ -567,17 +522,18 @@ function updateLeadStats() {
   document.getElementById('statIns').textContent = allLeads.filter(l => l.service === 'insurance').length;
   document.getElementById('statToday').textContent = allLeads.filter(l => new Date(l.timestamp).toDateString() === today).length;
 }
+
 function renderLeadsTable() {
   const svc = document.getElementById('filterService').value;
   const emp = document.getElementById('filterEmp').value;
-  const q = document.getElementById('filterSearch').value.toLowerCase();
+  const q   = document.getElementById('filterSearch').value.toLowerCase();
   let filtered = allLeads.filter(l => {
     if (svc && l.service !== svc) return false;
     if (emp && l.employment !== emp) return false;
     if (q && !l.fullName?.toLowerCase().includes(q) && !(l.phone||'').includes(q)) return false;
     return true;
   });
-  const body = document.getElementById('leadsBody');
+  const body  = document.getElementById('leadsBody');
   const empty = document.getElementById('emptyLeads');
   document.getElementById('tableCount').textContent = filtered.length + ' record' + (filtered.length !== 1 ? 's' : '');
   if (!filtered.length) {
@@ -588,8 +544,8 @@ function renderLeadsTable() {
   document.getElementById('leadsTable').style.display = 'table';
   body.innerHTML = filtered.slice().reverse().map((l, i) => {
     const dt = new Date(l.timestamp);
-    const ds = dt.toLocaleDateString('en-IN', {day:'2-digit',month:'short',year:'numeric'});
-    const ts = dt.toLocaleTimeString('en-IN', {hour:'2-digit',minute:'2-digit'});
+    const ds = dt.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
+    const ts = dt.toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
     const ec = l.employment === 'salaried' ? 'tb-salaried' : 'tb-self';
     const sc = l.service === 'loan' ? 'tb-loan' : 'tb-insurance';
     return `<tr>
@@ -610,9 +566,9 @@ function renderLeadsTable() {
 async function deleteLead(id) {
   pendingAction = async () => {
     try {
-      const { sha } = await githubGet(LEADS_FILE);
+      const { sha } = await backendRead(LEADS_FILE);
       allLeads = allLeads.filter(l => l.id !== id);
-      await githubPut(LEADS_FILE, allLeads, sha, 'Delete lead: ' + id);
+      await backendWrite(LEADS_FILE, allLeads, sha, 'Delete lead: ' + id);
       renderLeadsUI(); showToast('Lead deleted!');
     } catch(e) { showToast('Error: ' + e.message, true); }
   };
@@ -622,8 +578,8 @@ async function deleteLead(id) {
 async function clearAllLeads() {
   pendingAction = async () => {
     try {
-      const { sha } = await githubGet(LEADS_FILE);
-      await githubPut(LEADS_FILE, [], sha, 'Clear all leads');
+      const { sha } = await backendRead(LEADS_FILE);
+      await backendWrite(LEADS_FILE, [], sha, 'Clear all leads');
       allLeads = []; renderLeadsUI(); showToast('All leads cleared!');
     } catch(e) { showToast('Error: ' + e.message, true); }
   };
@@ -634,13 +590,27 @@ function exportCSV() {
   if (!allLeads.length) { alert('No data to export.'); return; }
   const headers = ['#','Name','PAN','Phone','City','Employment','Service','ServiceType','Timestamp'];
   const rows = allLeads.slice().reverse().map((l,i) => [i+1,`"${(l.fullName||'').replace(/"/g,'""')}"`,l.panNumber||'',l.phone||'',`"${(l.city||'').replace(/"/g,'""')}"`,l.employment||'',l.service||'',`"${(l.serviceType||'').replace(/"/g,'""')}"`,new Date(l.timestamp).toLocaleString('en-IN')].join(','));
-  const csv = [headers.join(','),...rows].join('\n');
-  const blob = new Blob([csv], {type:'text/csv'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href = url; a.download = 'bc_leads_'+new Date().toISOString().slice(0,10)+'.csv'; a.click(); URL.revokeObjectURL(url);
+  const csv  = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], { type:'text/csv' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = 'bc_leads_' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click(); URL.revokeObjectURL(url);
+}
+
+// ---- Posts ----
+async function loadPosts() {
+  try {
+    const { data } = await backendRead(POSTS_FILE);
+    allPosts = Array.isArray(data) ? data : [];
+    renderPostsUI();
+  } catch(e) {
+    showToast('Posts load error: ' + e.message, true);
+  }
 }
 
 function renderPostsUI() { updatePostStats(); renderPostsTable(); }
+
 function updatePostStats() {
   document.getElementById('statPosts').textContent = allPosts.length;
   document.getElementById('statBlogPosts').textContent = allPosts.filter(p => p.type==='blog'||p.type==='update').length;
@@ -652,29 +622,29 @@ let currentPostType = 'blog';
 function setPostType(type) {
   currentPostType = type;
   ['blog','image','video','update'].forEach(t => {
-    document.getElementById('pt-'+t).classList.toggle('active', t===type);
-    document.getElementById(t+'Fields').style.display = t===type ? 'block' : 'none';
+    document.getElementById('pt-' + t).classList.toggle('active', t === type);
+    document.getElementById(t + 'Fields').style.display = t === type ? 'block' : 'none';
   });
 }
 
 async function publishPost() {
-  if (!getToken()) { showToast('⚠️ Pehle Settings mein Token save karo!', true); return; }
   const title = document.getElementById('postTitle').value.trim();
-  const tag = document.getElementById('postTag').value.trim();
-  const pin = document.getElementById('postPin').checked;
+  const tag   = document.getElementById('postTag').value.trim();
+  const pin   = document.getElementById('postPin').checked;
   if (!title) { alert('Title zaroori hai!'); return; }
+
   let pd = { id:'p_'+Date.now(), type:currentPostType, title, tag, pinned:pin, timestamp:new Date().toISOString() };
-  if (currentPostType==='blog') { const c=document.getElementById('postContent').value.trim(); if(!c){alert('Content likho!');return;} pd.content=c; pd.coverImage=document.getElementById('postCoverImage').value.trim(); }
-  else if (currentPostType==='image') { const u=document.getElementById('postImageUrl').value.trim(); if(!u){alert('Image URL daalo!');return;} pd.imageUrl=u; pd.caption=document.getElementById('postImageCaption').value.trim(); }
-  else if (currentPostType==='video') { const u=document.getElementById('postVideoUrl').value.trim(); if(!u){alert('Video URL daalo!');return;} pd.videoUrl=u; pd.description=document.getElementById('postVideoDesc').value.trim(); }
+  if (currentPostType==='blog')   { const c=document.getElementById('postContent').value.trim(); if(!c){alert('Content likho!');return;} pd.content=c; pd.coverImage=document.getElementById('postCoverImage').value.trim(); }
+  else if (currentPostType==='image')  { const u=document.getElementById('postImageUrl').value.trim(); if(!u){alert('Image URL daalo!');return;} pd.imageUrl=u; pd.caption=document.getElementById('postImageCaption').value.trim(); }
+  else if (currentPostType==='video')  { const u=document.getElementById('postVideoUrl').value.trim(); if(!u){alert('Video URL daalo!');return;} pd.videoUrl=u; pd.description=document.getElementById('postVideoDesc').value.trim(); }
   else if (currentPostType==='update') { const m=document.getElementById('postUpdateMsg').value.trim(); if(!m){alert('Message likho!');return;} pd.content=m; pd.coverImage=document.getElementById('postUpdateImage').value.trim(); }
 
   const btn = document.getElementById('publishBtn');
   btn.disabled = true; btn.textContent = '⏳ Publishing...';
   try {
-    const { sha } = await githubGet(POSTS_FILE);
+    const { sha } = await backendRead(POSTS_FILE);
     allPosts.unshift(pd);
-    await githubPut(POSTS_FILE, allPosts, sha, 'New post: ' + title);
+    await backendWrite(POSTS_FILE, allPosts, sha, 'New post: ' + title);
     updatePostStats(); renderPostsTable(); resetPostForm();
     showToast('✅ Post published on Our Story!');
   } catch(e) {
@@ -685,19 +655,21 @@ async function publishPost() {
 }
 
 function resetPostForm() {
-  ['postTitle','postTag','postContent','postCoverImage','postImageUrl','postImageCaption','postVideoUrl','postVideoDesc','postUpdateMsg','postUpdateImage'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
+  ['postTitle','postTag','postContent','postCoverImage','postImageUrl','postImageCaption','postVideoUrl','postVideoDesc','postUpdateMsg','postUpdateImage'].forEach(id => {
+    const el = document.getElementById(id); if (el) el.value = '';
+  });
   document.getElementById('postPin').checked = false;
 }
 
 function renderPostsTable() {
-  const body = document.getElementById('postsBody');
+  const body  = document.getElementById('postsBody');
   const empty = document.getElementById('emptyPosts');
   document.getElementById('postsCount').textContent = allPosts.length + ' post' + (allPosts.length!==1?'s':'');
   if (!allPosts.length) { body.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display = 'none';
   const sorted = [...allPosts].sort((a,b) => { if(a.pinned&&!b.pinned)return -1; if(!a.pinned&&b.pinned)return 1; return new Date(b.timestamp)-new Date(a.timestamp); });
-  const tc = {blog:'tb-blog',image:'tb-image',video:'tb-video',update:'tb-post'};
-  const ti = {blog:'📝',image:'📷',video:'🎬',update:'📢'};
+  const tc = { blog:'tb-blog', image:'tb-image', video:'tb-video', update:'tb-post' };
+  const ti = { blog:'📝', image:'📷', video:'🎬', update:'📢' };
   body.innerHTML = sorted.map((p,i) => {
     const dt = new Date(p.timestamp);
     const ds = dt.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
@@ -718,12 +690,11 @@ function renderPostsTable() {
 }
 
 async function togglePin(id) {
-  if (!getToken()) { showToast('⚠️ Token missing!', true); return; }
   try {
-    const { sha } = await githubGet(POSTS_FILE);
+    const { sha } = await backendRead(POSTS_FILE);
     const post = allPosts.find(p => p.id===id); if (!post) return;
     post.pinned = !post.pinned;
-    await githubPut(POSTS_FILE, allPosts, sha, 'Toggle pin: ' + id);
+    await backendWrite(POSTS_FILE, allPosts, sha, 'Toggle pin: ' + id);
     updatePostStats(); renderPostsTable(); showToast('Pin updated!');
   } catch(e) { showToast('Error: ' + e.message, true); }
 }
@@ -731,27 +702,32 @@ async function togglePin(id) {
 async function deletePost(id) {
   pendingAction = async () => {
     try {
-      const { sha } = await githubGet(POSTS_FILE);
+      const { sha } = await backendRead(POSTS_FILE);
       allPosts = allPosts.filter(p => p.id!==id);
-      await githubPut(POSTS_FILE, allPosts, sha, 'Delete post: ' + id);
+      await backendWrite(POSTS_FILE, allPosts, sha, 'Delete post: ' + id);
       updatePostStats(); renderPostsTable(); showToast('Post deleted!');
     } catch(e) { showToast('Error: ' + e.message, true); }
   };
   showConfirm('Yeh post delete kar dein?');
 }
 
+// ---- Utilities ----
 let pendingAction = null;
 function showConfirm(msg) { document.getElementById('confirmMsg').textContent=msg; document.getElementById('confirmOverlay').classList.add('show'); }
-function closeConfirm() { pendingAction=null; document.getElementById('confirmOverlay').classList.remove('show'); }
+function closeConfirm()   { pendingAction=null; document.getElementById('confirmOverlay').classList.remove('show'); }
 function executeConfirm() { if(pendingAction) pendingAction(); closeConfirm(); }
 
-function showToast(msg, isError=false) {
+function showToast(msg, isError=false, neutral=false) {
   const t = document.getElementById('toast');
   t.innerHTML = msg;
   t.className = 'toast' + (isError?' error':'');
+  if (neutral) t.style.borderColor = 'rgba(249,115,22,0.35)', t.style.color = 'var(--orange2)';
+  else t.style.borderColor = '', t.style.color = '';
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3500);
 }
+
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 </script>
 </body>
 </html>
