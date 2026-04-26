@@ -465,36 +465,15 @@ const GITHUB_REPO  = 'Loan-Insurance';
 const GITHUB_BRANCH = 'main';
 const POSTS_FILE = 'posts.json';
 const LEADS_FILE = 'leads.json';
-const TOKEN_KEY = 'bc_github_token';
+const GITHUB_TOKEN = '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y';
 
 let allLeads = [];
 let allPosts = [];
 
-function getToken() { return localStorage.getItem(TOKEN_KEY) || ''; }
-function saveToken() {
-  const t = document.getElementById('tokenInput').value.trim();
-  if (!t) { showToast('Token daalo!', true); return; }
-  localStorage.setItem(TOKEN_KEY, t);
-  document.getElementById('tokenInput').value = '';
-  showToast('✅ Token save ho gaya!');
-  updateGithubStatus();
-}
-function clearToken() {
-  localStorage.removeItem(TOKEN_KEY);
-  showToast('Token delete ho gaya!');
-  updateGithubStatus();
-}
+function getToken() { return GITHUB_TOKEN; }
 function updateGithubStatus() {
   const badge = document.getElementById('githubStatus');
-  if (getToken()) {
-    badge.textContent = '⚡ GitHub Connected';
-    badge.style.color = 'var(--green2)';
-    badge.style.borderColor = 'rgba(16,185,129,0.25)';
-  } else {
-    badge.textContent = '⚠️ Token Missing';
-    badge.style.color = 'var(--orange2)';
-    badge.style.borderColor = 'rgba(249,115,22,0.25)';
-  }
+  badge.textContent = '⚡ GitHub Connected';
 }
 
 function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
