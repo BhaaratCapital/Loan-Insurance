@@ -95,6 +95,11 @@ a { text-decoration: none; color: inherit; }
 .empty-feed p { font-size: 0.9rem; max-width: 400px; margin: 0 auto; }
 .loading-state { text-align: center; padding: 4rem 2rem; color: var(--text-muted); font-size: 1rem; }
 
+/* Live indicator */
+.live-dot { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: var(--green); font-weight: 600; margin-left: auto; }
+.live-dot::before { content: ''; width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: livepulse 2s ease-in-out infinite; display: inline-block; }
+@keyframes livepulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+
 .post-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9999; align-items: flex-start; justify-content: center; padding: 2rem; overflow-y: auto; backdrop-filter: blur(6px); }
 .post-modal-overlay.show { display: flex; }
 .post-modal { background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 24px; max-width: 720px; width: 100%; margin: auto; box-shadow: 0 40px 120px rgba(0,0,0,0.7); overflow: hidden; }
@@ -196,6 +201,7 @@ a { text-decoration: none; color: inherit; }
     <button class="filter-pill" onclick="setFilter('update', this)">📢 Updates</button>
     <button class="filter-pill pinned-pill" onclick="setFilter('pinned', this)">📌 Pinned</button>
     <span class="filter-count" id="filterCount">Loading...</span>
+    <span class="live-dot" id="liveDot" style="display:none;">Live</span>
   </div>
 </div>
 
@@ -286,22 +292,69 @@ a { text-decoration: none; color: inherit; }
 <a href="https://wa.me/917982810014" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
 
 <script>
-const GITHUB_RAW = 'https://raw.githubusercontent.com/BhaaratCapital/Loan-Insurance/main/posts.json';
+// =====================================================
+// Google Apps Script se direct fetch — no caching!
+// =====================================================
+const BACKEND_URL = 'https://script.google.com/macros/s/AKfycbwAVZxWiBUXautkuS0lFUjkI4H2y35G0tvrnCVcZtrshHH4_3H_UutqKesPYnbwMTAPPg/exec';
+const POSTS_FILE  = 'posts.json';
+
+// Fallback: GitHub raw (agar backend fail ho)
+const GITHUB_RAW  = 'https://raw.githubusercontent.com/BhaaratCapital/Loan-Insurance/main/posts.json';
+
 let currentFilter = 'all';
 let allPosts = [];
+let lastPostCount = 0;
 
-async function loadPosts() {
+async function loadPosts(silent = false) {
   try {
-    const res = await fetch(GITHUB_RAW + '?t=' + Date.now());
-    if (!res.ok) throw new Error('Load failed');
-    allPosts = await res.json();
-    if (!Array.isArray(allPosts)) allPosts = [];
+    // Primary: Google Apps Script (no cache)
+    const url = BACKEND_URL + '?action=read&file=' + encodeURIComponent(POSTS_FILE);
+    const res = await fetch(url);
+    const json = await res.json();
+    if (json.success && Array.isArray(json.data)) {
+      allPosts = json.data;
+    } else {
+      throw new Error('Backend returned error');
+    }
   } catch(e) {
-    allPosts = [];
+    // Fallback: GitHub raw with cache-bust
+    try {
+      const res2 = await fetch(GITHUB_RAW + '?nocache=' + Date.now());
+      if (res2.ok) {
+        allPosts = await res2.json();
+        if (!Array.isArray(allPosts)) allPosts = [];
+      }
+    } catch(e2) {
+      allPosts = [];
+    }
   }
+
+  // Show live dot after first load
+  document.getElementById('liveDot').style.display = 'inline-flex';
+
+  // Notify user if new posts came in silently
+  if (silent && allPosts.length > lastPostCount && lastPostCount > 0) {
+    showNewPostBanner(allPosts.length - lastPostCount);
+  }
+  lastPostCount = allPosts.length;
+
   document.getElementById('loadingState').style.display = 'none';
   document.getElementById('postsGrid').style.display = 'grid';
   renderFeed();
+}
+
+// "New posts available" toast
+function showNewPostBanner(count) {
+  let banner = document.getElementById('newPostBanner');
+  if (!banner) {
+    banner = document.createElement('div');
+    banner.id = 'newPostBanner';
+    banner.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:#10B981;color:#fff;padding:0.7rem 1.4rem;border-radius:50px;font-size:0.85rem;font-weight:700;z-index:9999;cursor:pointer;box-shadow:0 4px 20px rgba(16,185,129,0.4);transition:all 0.3s;';
+    banner.onclick = () => { banner.remove(); window.scrollTo({top:0,behavior:'smooth'}); };
+    document.body.appendChild(banner);
+  }
+  banner.textContent = '🆕 ' + count + ' naya post aaya! Dekho ↑';
+  setTimeout(() => { if(banner.parentNode) banner.remove(); }, 6000);
 }
 
 function setFilter(type, btn) {
@@ -322,8 +375,8 @@ function renderFeed() {
     if (currentFilter === 'pinned') posts = posts.filter(p => p.pinned);
     else posts = posts.filter(p => p.type === currentFilter);
   }
-  const grid = document.getElementById('postsGrid');
-  const empty = document.getElementById('emptyFeed');
+  const grid   = document.getElementById('postsGrid');
+  const empty  = document.getElementById('emptyFeed');
   const banner = document.getElementById('pinnedBanner');
   document.getElementById('filterCount').textContent = posts.length + ' post' + (posts.length !== 1 ? 's' : '');
   const hasPinned = posts.some(p => p.pinned);
@@ -340,7 +393,7 @@ function buildCard(p) {
   const typeIcon = { blog:'📝', image:'📷', video:'🎞', update:'📢' };
   const typeCls  = { blog:'ctb-blog', image:'ctb-image', video:'ctb-video', update:'ctb-update' };
   const ti = typeIcon[p.type] || '📄';
-  const tc = typeCls[p.type] || 'ctb-update';
+  const tc = typeCls[p.type]  || 'ctb-update';
   let mediaHtml = '';
   if (p.type === 'image' && p.imageUrl) {
     mediaHtml = `<img src="${esc(p.imageUrl)}" class="card-img" alt="${esc(p.title)}" onerror="this.style.display='none'">`;
@@ -354,9 +407,9 @@ function buildCard(p) {
     const bgCls = { blog:'card-img-blog', image:'card-img-image', video:'card-img-video', update:'card-img-update' }[p.type] || 'card-img-blog';
     mediaHtml = `<div class="card-img-placeholder ${bgCls}">${ti}</div>`;
   }
-  const content = p.content || p.caption || p.description || '';
+  const content      = p.content || p.caption || p.description || '';
   const shortContent = content.length > 140 ? content.slice(0, 140) + '...' : content;
-  const hasMore = content.length > 140;
+  const hasMore      = content.length > 140;
   return `<div class="post-card anim ${p.pinned ? 'pinned' : ''}">
     ${mediaHtml}
     <div class="card-body">
@@ -420,13 +473,23 @@ const ao = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); ao.unobserve(e.target); } });
 }, { threshold: 0.08 });
 
-document.getElementById('hamburger').addEventListener('click', function() { document.getElementById('mobileMenu').classList.toggle('open'); });
-window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
+document.getElementById('hamburger').addEventListener('click', function() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
 
-if (window.innerWidth <= 768) { var mab = document.querySelector('.mobile-apply-btn'); if (mab) mab.style.display = 'inline-block'; }
+if (window.innerWidth <= 768) {
+  var mab = document.querySelector('.mobile-apply-btn');
+  if (mab) mab.style.display = 'inline-block';
+}
 
-loadPosts();
-setInterval(loadPosts, 30000);
+// First load
+loadPosts(false);
+
+// Auto-refresh har 20 second — naye posts turant dikhenge
+setInterval(() => loadPosts(true), 20000);
 </script>
 </body>
 </html>
