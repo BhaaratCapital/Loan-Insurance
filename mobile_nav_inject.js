@@ -1,11 +1,13 @@
 (function () {
   'use strict';
-
   if (window.innerWidth > 900) return;
+
+  // Pehle wale navbar ko chupao
+  var oldNav = document.querySelector('header') || document.querySelector('nav') || document.querySelector('.navbar');
+  if (oldNav) oldNav.style.display = 'none';
 
   var path = window.location.pathname;
   var isHome = path === '/' || path.endsWith('index.html') || path === '';
-
   var nav = document.createElement('div');
   nav.setAttribute('id', 'bc-mobile-nav');
   nav.innerHTML =
@@ -14,7 +16,6 @@
     '</a>' +
     '<a class="bc-nav-home' + (isHome ? ' active' : '') + '" href="index.html">Home</a>' +
     '<a class="bc-nav-apply" href="contact.html">Apply Now &#8594;</a>';
-
   document.body.insertBefore(nav, document.body.firstChild);
 
   window.addEventListener('resize', function () {
@@ -22,5 +23,4 @@
     if (!existing) return;
     existing.style.display = window.innerWidth > 900 ? 'none' : 'flex';
   });
-
 })();
