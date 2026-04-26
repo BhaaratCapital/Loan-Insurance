@@ -587,6 +587,28 @@
 /* ============================================================
    LOANS PAGE — Mobile header alignment fix
    ============================================================ */
+/* LOANS PAGE — Mobile nav-cta phone number hide */
+@media (max-width: 768px) {
+  .nav-inner .nav-cta {
+    display: none !important;
+  }
+  /* Hero stats grid fix — 2 column on mobile */
+  .page-hero .hero-stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.7rem !important;
+    max-width: 100% !important;
+  }
+  /* Hero inner — single column, centered */
+  .page-hero .hero-inner {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 1.5rem !important;
+  }
+  .page-hero .hero-btns {
+    justify-content: center !important;
+  }
+}
+
 @media (max-width: 768px) {
   /* Agar loans page pe koi alag header/hero-header class hai */
   .loans-hero .hero-inner,
